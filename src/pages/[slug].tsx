@@ -36,7 +36,7 @@ export default function Page({
       ) : (
         <>
           <Head>{renderMetaTags(metaTags)}</Head>
-          <Navigation content={page.content}></Navigation>
+          <Navigation page={page}></Navigation>
           <motion.div
             initial={{ opacity: 0, y: '100%' }}
             animate={{ opacity: 1, y: 0 }}
