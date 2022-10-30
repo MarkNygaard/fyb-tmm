@@ -13,10 +13,10 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "baseUrl": ".",
+    "baseUrl": "src",
     "paths": {
-      "@/*": ["./src/*"],
-      "~/*": ["./public/*"]
+      "@Sections/*": ["./components/Sections/*"],
+      "@ui/*": ["./components/ui/*"]
     },
     "incremental": true
   },

@@ -1,0 +1,5 @@
+fragment CustomHeadingFragment on CustomHeadingRecord {
+  id
+  title
+  subtitle
+}

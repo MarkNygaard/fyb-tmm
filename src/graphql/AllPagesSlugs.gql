@@ -1,0 +1,5 @@
+query AllPagesSlugs {
+  allPages(orderBy: position_ASC, filter: { slug: { neq: "" } }) {
+    slug
+  }
+}

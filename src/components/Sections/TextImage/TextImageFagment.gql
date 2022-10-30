@@ -1,0 +1,38 @@
+fragment TextImageFragment on TextImageRecord {
+  __typename
+  navigationId
+  backgroundColor
+  fadeIn
+  content {
+    value
+    blocks {
+      __typename
+      ... on RtImageRecord {
+        id
+        image {
+          responsiveImage(
+            imgixParams: {
+              fit: crop
+              crop: focalpoint
+              ar: "1:1"
+              minH: 384
+              auto: format
+            }
+          ) {
+            ...responsiveImageFragment
+          }
+        }
+      }
+      ... on CustomHeadingRecord {
+        ...CustomHeadingFragment
+      }
+    }
+  }
+  imageLocation
+  imageStyle
+  image {
+    responsiveImage(imgixParams: { fit: crop, auto: format }) {
+      ...responsiveImageFragment
+    }
+  }
+}

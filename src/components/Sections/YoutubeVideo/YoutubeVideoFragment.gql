@@ -1,0 +1,10 @@
+fragment YoutubeVideoFragment on YoutubeVideoRecord {
+  __typename
+  id
+  navigationId
+  backgroundColor
+  fadeIn
+  link {
+    providerUid
+  }
+}

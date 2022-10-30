@@ -1,0 +1,18 @@
+fragment TextFragment on TextRecord {
+  __typename
+  navigationId
+  backgroundColor
+  fadeIn
+  content {
+    value
+    blocks {
+      __typename
+      ... on RtImageRecord {
+        ...RtImageFragment
+      }
+      ... on CustomHeadingRecord {
+        ...CustomHeadingFragment
+      }
+    }
+  }
+}

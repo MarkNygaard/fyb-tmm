@@ -1,0 +1,16 @@
+fragment RtImageFragment on RtImageRecord {
+  id
+  image {
+    responsiveImage(
+      imgixParams: {
+        fit: crop
+        crop: focalpoint
+        ar: "1:1"
+        minH: 384
+        auto: format
+      }
+    ) {
+      ...responsiveImageFragment
+    }
+  }
+}

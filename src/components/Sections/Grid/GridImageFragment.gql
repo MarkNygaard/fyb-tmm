@@ -1,0 +1,20 @@
+fragment GridImageFragment on GridImageRecord {
+  __typename
+  id
+  mobilePosition
+  tabletPosition
+  desktopPosition
+  image {
+    responsiveImage(
+      imgixParams: {
+        fit: crop
+        crop: focalpoint
+        ar: "1:1"
+        minH: 384
+        auto: format
+      }
+    ) {
+      ...responsiveImageFragment
+    }
+  }
+}

@@ -1,0 +1,12 @@
+fragment ImageFragment on ImageRecord {
+  __typename
+  navigationId
+  backgroundColor
+  fadeIn
+  imageTitle
+  image {
+    responsiveImage(imgixParams: { fit: crop, auto: format }) {
+      ...responsiveImageFragment
+    }
+  }
+}

@@ -1,0 +1,11 @@
+fragment HeaderFragment on HeaderRecord {
+  __typename
+  id
+  navigationId
+  backgroundColor
+  bigTitle
+  smallTitle
+  description
+  buttonText
+  buttonLink
+}

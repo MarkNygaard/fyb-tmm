@@ -1,0 +1,16 @@
+fragment GridTextFragment on GridTextRecord {
+  __typename
+  id
+  mobilePosition
+  tabletPosition
+  desktopPosition
+  content {
+    value
+    blocks {
+      __typename
+      ... on RtImageRecord {
+        ...RtImageFragment
+      }
+    }
+  }
+}

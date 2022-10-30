@@ -1,0 +1,40 @@
+query HomePage {
+  site: _site {
+    favicon: faviconMetaTags {
+      ...metaTagsFragment
+    }
+  }
+  page(filter: { slug: { eq: "" } }) {
+    seo: _seoMetaTags {
+      ...metaTagsFragment
+    }
+    id
+    name
+    slug
+    content {
+      ... on HeaderRecord {
+        ...HeaderFragment
+      }
+      ... on TextRecord {
+        ...TextFragment
+      }
+      ... on ImageRecord {
+        ...ImageFragment
+      }
+      ... on TextImageRecord {
+        ...TextImageFragment
+      }
+      ... on GridRecord {
+        ...GridFragment
+      }
+      ... on YoutubeVideoRecord {
+        ...YoutubeVideoFragment
+      }
+    }
+  }
+  allPages {
+    id
+    name
+    slug
+  }
+}
