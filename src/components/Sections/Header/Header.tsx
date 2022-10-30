@@ -6,9 +6,12 @@ export default function Header({ details }: any) {
   return (
     <div
       id={details.navigationId}
-      className={classNames('flex flex-col items-center py-20 px-2 md:px-10', {
-        'bg-gray-800': details.backgroundColor === true,
-      })}
+      className={classNames(
+        'flex flex-col items-center py-20 px-2 pt-36 md:px-10',
+        {
+          'bg-gray-800': details.backgroundColor === true,
+        }
+      )}
     >
       <h1 className='text-center text-7xl font-bold text-gray-900'>
         {details.bigTitle}

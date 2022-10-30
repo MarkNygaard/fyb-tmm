@@ -44,7 +44,6 @@ export default function Page({
               duration: 1.6,
               ease: [0.43, 0.13, 0.23, 0.96],
             }}
-            className='pt-16'
           >
             <AnimatePresence>
               {page.content?.map((section: any, i: any) => {
