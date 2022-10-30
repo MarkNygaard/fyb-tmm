@@ -1,6 +1,6 @@
-import React from 'react';
 import classNames from 'clsx';
 import { motion } from 'framer-motion';
+import React from 'react';
 
 export default function Header({ details }: any) {
   return (

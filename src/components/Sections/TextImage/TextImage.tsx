@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react';
-import { Image, StructuredText } from 'react-datocms';
-import classNames from 'clsx';
-import { motion, useAnimation } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
 import CustomHeading from '@Sections/CustomHeading/CustomHeading';
 import RtImage from '@Sections/RtImage/RtImage';
+import classNames from 'clsx';
+import { motion, useAnimation } from 'framer-motion';
+import React, { useEffect } from 'react';
+import { Image, StructuredText } from 'react-datocms';
+import { useInView } from 'react-intersection-observer';
 
 export default function TextImage({ details }: any) {
   const { ref, inView } = useInView({

@@ -1,7 +1,8 @@
-import React, { useEffect } from 'react';
 import classNames from 'clsx';
 import { motion, useAnimation } from 'framer-motion';
+import React, { useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
+
 import { GridImage } from './GridImage';
 import { GridText } from './GridText';
 
@@ -35,13 +36,13 @@ export default function Grid({ details }: any) {
         initial={details.fadeIn ? { opacity: 0 } : { opacity: 1 }}
         animate={details.fadeIn ? animation : { opacity: 1 }}
         className={classNames('grid', {
-          [`grid-cols-${details.mobileColumns as String}`]:
+          [`grid-cols-${details.mobileColumns as string}`]:
             details.mobileColumns,
-          [`md:grid-cols-${details.tabletColumns as String}`]:
+          [`md:grid-cols-${details.tabletColumns as string}`]:
             details.tabletColumns,
-          [`xl:grid-cols-${details.desktopColumns as String}`]:
+          [`xl:grid-cols-${details.desktopColumns as string}`]:
             details.desktopColumns,
-          [`gap-${details.gap as String}`]: details.gap,
+          [`gap-${details.gap as string}`]: details.gap,
           'md:w-10/12': details.fullWidth === false,
         })}
       >
@@ -50,11 +51,11 @@ export default function Grid({ details }: any) {
             <div
               key={section.id}
               className={classNames('relative', {
-                [`order-${section.mobilePosition as String}`]:
+                [`order-${section.mobilePosition as string}`]:
                   section.mobilePosition,
-                [`md:order-${section.tabletPosition as String}`]:
+                [`md:order-${section.tabletPosition as string}`]:
                   section.tabletPosition,
-                [`xl:order-${section.desktopPosition as String}`]:
+                [`xl:order-${section.desktopPosition as string}`]:
                   section.desktopPosition,
               })}
             >

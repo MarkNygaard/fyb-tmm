@@ -1,10 +1,10 @@
-import React from 'react';
-import TextImage from '@Sections/TextImage/TextImage';
+import Grid from '@Sections/Grid/Grid';
 import Header from '@Sections/Header/Header';
 import ImageRecord from '@Sections/Image/Image';
 import Text from '@Sections/Text/Text';
+import TextImage from '@Sections/TextImage/TextImage';
 import YoutubeVideo from '@Sections/YoutubeVideo/YoutubeVideo';
-import Grid from '@Sections/Grid/Grid';
+import React from 'react';
 
 export default function PageSection({ details }: any) {
   if (details.__typename === 'HeaderRecord') {

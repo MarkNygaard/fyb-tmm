@@ -1,19 +1,19 @@
-import { GetStaticPaths, GetStaticPropsContext } from 'next';
-import Head from 'next/head';
-import ErrorPage from 'next/error';
-import { useRouter } from 'next/router';
+import Layout from 'components/Layout';
+import PageSection from 'components/PageSection';
+import { AnimatePresence, motion } from 'framer-motion';
 import { sdk } from 'lib/datocms';
 import { PageBySlugDocument } from 'lib/graphql';
+import type { InferGetStaticPropsType } from 'next';
+import { GetStaticPaths, GetStaticPropsContext } from 'next';
+import ErrorPage from 'next/error';
+import Head from 'next/head';
+import { useRouter } from 'next/router';
 import {
   QueryListenerOptions,
   renderMetaTags,
   useQuerySubscription,
 } from 'react-datocms';
 
-import type { InferGetStaticPropsType } from 'next';
-import Layout from 'components/Layout';
-import PageSection from 'components/PageSection';
-import { AnimatePresence, motion } from 'framer-motion';
 import { Navigation } from '../components/Navigation/Navigation';
 
 export default function Page({

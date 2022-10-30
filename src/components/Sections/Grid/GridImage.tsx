@@ -1,6 +1,6 @@
-import React from 'react';
 import classNames from 'clsx';
 import { FileField } from 'lib/graphql';
+import React from 'react';
 import { Image } from 'react-datocms';
 
 export function GridImage(props: any) {

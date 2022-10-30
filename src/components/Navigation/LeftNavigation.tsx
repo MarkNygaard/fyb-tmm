@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import Link from 'next/link';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
+import React, { useState } from 'react';
 import { HiMenu, HiX } from 'react-icons/hi';
 
 export default function LeftNavigation({ details }: any) {

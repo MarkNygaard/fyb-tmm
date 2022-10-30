@@ -1,21 +1,17 @@
-import React from 'react';
-import Head from 'next/head';
-
 import Layout from 'components/Layout';
-import { Button } from '@ui/Button';
-
+import PageSection from 'components/PageSection';
+import { motion } from 'framer-motion';
 import { sdk } from 'lib/datocms';
 import { HomePageDocument } from 'lib/graphql';
 import type { GetStaticPropsContext, InferGetStaticPropsType } from 'next';
-import {
-  useQuerySubscription,
-  renderMetaTags,
-  QueryListenerOptions,
-} from 'react-datocms';
-import PageSection from 'components/PageSection';
+import Head from 'next/head';
 import Link from 'next/link';
-import { AnimatePresence, motion } from 'framer-motion';
-import { useRouter } from 'next/router';
+import React from 'react';
+import {
+  QueryListenerOptions,
+  renderMetaTags,
+  useQuerySubscription,
+} from 'react-datocms';
 
 export default function Home({
   subscription,

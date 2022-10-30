@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
-import { StructuredText, Image } from 'react-datocms';
+import CustomHeading from '@Sections/CustomHeading/CustomHeading';
 import classNames from 'clsx';
 import { motion, useAnimation } from 'framer-motion';
+import React, { useEffect } from 'react';
+import { Image,StructuredText } from 'react-datocms';
 import { useInView } from 'react-intersection-observer';
-import CustomHeading from '@Sections/CustomHeading/CustomHeading';
 
 export default function Text({ details }: any) {
   const { ref, inView } = useInView({

@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
-import { Image } from 'react-datocms';
 import classNames from 'clsx';
 import { motion, useAnimation } from 'framer-motion';
+import React, { useEffect } from 'react';
+import { Image } from 'react-datocms';
 import { useInView } from 'react-intersection-observer';
 
 export default function ImageRecord({ details }: any) {

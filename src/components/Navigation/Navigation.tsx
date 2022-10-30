@@ -1,15 +1,15 @@
-import { LayoutGroup, motion, useMotionValue, useScroll } from 'framer-motion';
+import { motion, useMotionValue, useScroll } from 'framer-motion';
 import { useEffect } from 'react';
 
 export function Navigation({ content }: any) {
-  let { scrollY } = useScroll();
-  let height = useMotionValue(80);
+  const { scrollY } = useScroll();
+  const height = useMotionValue(80);
 
   useEffect(() => {
     return scrollY.onChange((current) => {
-      let previous = scrollY.getPrevious();
-      let diff = current - previous;
-      let newHeight = height.get() - diff;
+      const previous = scrollY.getPrevious();
+      const diff = current - previous;
+      const newHeight = height.get() - diff;
 
       height.set(Math.min(Math.max(newHeight, 50), 80));
     });

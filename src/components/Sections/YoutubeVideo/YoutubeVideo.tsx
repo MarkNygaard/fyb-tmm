@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import LiteYouTubeEmbed from 'react-lite-youtube-embed';
 import classNames from 'clsx';
 import { motion, useAnimation } from 'framer-motion';
+import React, { useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
+import LiteYouTubeEmbed from 'react-lite-youtube-embed';
 
 export default function YoutubeVideoRecord({ details }: any) {
   const { ref, inView } = useInView({

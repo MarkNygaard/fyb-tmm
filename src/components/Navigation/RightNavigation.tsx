@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
-import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { HiMenu, HiX } from 'react-icons/hi';
+import Link from 'next/link';
+import React, { useState } from 'react';
 
 export default function LeftNavigation({ details }: any) {
   const [isOpen, setIsOpen] = useState(false);
