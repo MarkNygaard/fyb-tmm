@@ -1,5 +1,6 @@
 import { motion, useMotionValue, useScroll } from 'framer-motion';
 import { useEffect } from 'react';
+
 import { LeftSide } from './LeftSide';
 import { RightSide } from './RightSide';
 
@@ -24,10 +25,10 @@ export function Navigation({ page }: any) {
           height: '100vh',
         }}
         animate={{
-          height: '4rem',
+          height: '5rem',
         }}
         transition={{
-          duration: 1.6,
+          duration: 0.6,
           ease: [0.43, 0.13, 0.23, 0.96],
           delay: 1.6,
         }}

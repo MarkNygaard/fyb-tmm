@@ -2,7 +2,7 @@ import CustomHeading from '@Sections/CustomHeading/CustomHeading';
 import classNames from 'clsx';
 import { motion, useAnimation } from 'framer-motion';
 import React, { useEffect } from 'react';
-import { Image,StructuredText } from 'react-datocms';
+import { Image, StructuredText } from 'react-datocms';
 import { useInView } from 'react-intersection-observer';
 
 export default function Text({ details }: any) {

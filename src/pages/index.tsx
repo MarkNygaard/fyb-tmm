@@ -5,6 +5,7 @@ import { sdk } from 'lib/datocms';
 import { HomePageDocument } from 'lib/graphql';
 import type { GetStaticPropsContext, InferGetStaticPropsType } from 'next';
 import Head from 'next/head';
+import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import {
@@ -36,24 +37,24 @@ export default function Home({
               whileHover={{
                 scale: 1.1,
               }}
-              className='flex h-[35rem] w-[35rem] cursor-pointer flex-col items-center justify-center space-y-4 rounded-full bg-[#987554] text-5xl font-bold uppercase text-[#B99976] shadow-2xl'
+              className='relative flex h-[35rem] w-[35rem] cursor-pointer flex-col items-center justify-center space-y-4 overflow-hidden rounded-full bg-[#987554] text-5xl font-bold uppercase text-[#B99976] shadow-2xl'
             >
-              <p>Enter</p>
-              <p>The Motley Monkey</p>
+              <Image
+                src='https://www.datocms-assets.com/84152/1667243680-tmm-logo-400x400.png?auto=format&w=500'
+                layout='fill'
+                alt='logo'
+              />
             </motion.div>
           </Link>
         </motion.div>
-        <div className='full flex w-full items-center justify-center bg-[url("http://www.fyb.dk/img/baggrtilered.jpg")]'>
+        <div className='full flex w-full items-center justify-center bg-[#3d1e1c]'>
           <Link href='/fake-your-beauty'>
             <motion.div
               whileHover={{
                 scale: 1.1,
               }}
-              className='flex h-[35rem] w-[35rem] cursor-pointer flex-col items-center justify-center space-y-4 rounded-full bg-[#3d1e1c] text-5xl font-bold uppercase text-[#280503] shadow-2xl'
-            >
-              <p>Enter</p>
-              <p>Fake Your Beauty</p>
-            </motion.div>
+              className='flex h-[35rem] w-[35rem] cursor-pointer flex-col items-center justify-center space-y-4 rounded-full bg-[url("http://www.fyb.dk/img/baggrtilered.jpg")] text-5xl font-bold uppercase text-[#280503] shadow-2xl'
+            ></motion.div>
           </Link>
         </div>
       </div>

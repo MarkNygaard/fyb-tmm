@@ -1,4 +1,4 @@
-import { type VariantProps,cva } from 'class-variance-authority';
+import { type VariantProps, cva } from 'class-variance-authority';
 
 const buttonStyles = cva(['font-semibold', 'border', 'rounded'], {
   variants: {
