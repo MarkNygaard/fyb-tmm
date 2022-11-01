@@ -1,34 +1,29 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
+import { useState } from 'react';
+import { BiRightArrowAlt } from 'react-icons/bi';
 
 export function LeftSide({ page }: any) {
+  const [hoverStateLeft, setHoverStateLeft] = useState(false);
+
   const animate =
     page.slug !== 'the-motley-monkey'
       ? {
-          width: '0%',
+          width: hoverStateLeft ? '10%' : '0%',
           minWidth: '100px',
           transition: {
-            duration: 1.6,
+            duration: hoverStateLeft ? 0.4 : 1.6,
             ease: [0.43, 0.13, 0.23, 0.96],
           },
         }
       : {
           width: '100%',
           transition: {
-            duration: 1.6,
+            duration: hoverStateLeft ? 0.4 : 1.6,
             ease: [0.43, 0.13, 0.23, 0.96],
           },
         };
-
-  const whileHover = {
-    opacity: 1,
-    width: '50%',
-    transition: {
-      duration: 0.6,
-      ease: [0.43, 0.13, 0.23, 0.96],
-      delay: 1.6,
-    },
-  };
 
   return (
     <motion.div
@@ -42,8 +37,8 @@ export function LeftSide({ page }: any) {
         <motion.div className='flex h-full w-full flex-1 items-center justify-center'>
           <motion.div
             initial={{
-              height: '35rem',
-              width: '35rem',
+              height: hoverStateLeft ? '4rem' : '35rem',
+              width: hoverStateLeft ? '4rem' : '35rem',
               scale: 1.1,
             }}
             animate={{
@@ -66,42 +61,54 @@ export function LeftSide({ page }: any) {
           </motion.div>
         </motion.div>
       ) : (
-        <motion.div
-          whileHover={whileHover}
-          className='flex h-full w-full items-center justify-center'
-        >
+        <Link href='/the-motley-monkey'>
           <motion.div
-            initial={{
-              height: '35rem',
-              width: '35rem',
-            }}
-            animate={{
-              height: '4rem',
-              width: '4rem',
-            }}
-            transition={{
-              duration: 1.2,
-              ease: [0.43, 0.13, 0.23, 0.96],
-            }}
-            className='relative overflow-hidden rounded-full bg-[#987554] text-5xl font-bold uppercase text-[#B99976] shadow-2xl'
+            onHoverStart={() => setHoverStateLeft(true)}
+            onHoverEnd={() => setHoverStateLeft(false)}
+            className='flex-start flex h-full w-full flex-none cursor-pointer items-center justify-center'
           >
-            <Image
-              src='https://www.datocms-assets.com/84152/1667243680-tmm-logo-400x400.png?auto=format&w=500'
-              layout='fill'
-              alt='logo'
-            />
+            <motion.div
+              initial={{
+                height: hoverStateLeft ? '4rem' : '35rem',
+                width: hoverStateLeft ? '4rem' : '35rem',
+              }}
+              animate={{
+                height: '4rem',
+                width: '4rem',
+                marginLeft: hoverStateLeft ? '0.5rem' : '0',
+              }}
+              transition={{
+                duration: 1.2,
+                ease: [0.43, 0.13, 0.23, 0.96],
+              }}
+              className='relative flex flex-none overflow-hidden rounded-full bg-[#987554] text-5xl font-bold uppercase text-[#B99976] shadow-2xl'
+            >
+              <Image
+                src='https://www.datocms-assets.com/84152/1667243680-tmm-logo-400x400.png?auto=format&w=500'
+                layout='fill'
+                alt='logo'
+              />
+            </motion.div>
+            <motion.div
+              className='flex w-full items-end text-5xl text-[#664229]'
+              initial={{
+                opacity: 0,
+                width: '0%',
+              }}
+              animate={{
+                opacity: hoverStateLeft ? 1 : 0,
+                width: hoverStateLeft ? '100%' : '0%',
+                paddingLeft: hoverStateLeft ? '0.5rem' : '0',
+              }}
+              transition={{
+                duration: 0.4,
+                ease: [0.43, 0.13, 0.23, 0.96],
+              }}
+            >
+              <BiRightArrowAlt />
+            </motion.div>
           </motion.div>
-          <motion.div
-            className='w-0 opacity-0'
-            initial={{
-              opacity: 0,
-              width: '0%',
-            }}
-            whileHover={whileHover}
-          >
-            GO TO THE MOTLEY MONKEY
-          </motion.div>
-        </motion.div>
+        </Link>
       )}
       {page.slug === 'the-motley-monkey' ? (
         <motion.div
@@ -128,7 +135,7 @@ export function LeftSide({ page }: any) {
             transition={{
               duration: 0.6,
               ease: [0.43, 0.13, 0.23, 0.96],
-              delay: 2.2,
+              delay: hoverStateLeft ? 1.6 : 2.2,
             }}
             className='flex w-full items-center justify-center'
           >
