@@ -69,7 +69,7 @@ export default function Navigation({ page, introPage }: any) {
         ease: [0.36, 0.66, 0.04, 1],
         delay: 1.6,
       }}
-      className='fixed inset-x-0 z-10 shadow backdrop-blur-md'
+      className='fixed inset-x-0 z-10 flex shadow backdrop-blur-md'
     >
       {page.slug === introPage.leftLink.slug ? (
         <>
