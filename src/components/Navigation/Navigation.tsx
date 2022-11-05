@@ -18,7 +18,6 @@ export function Navigation({ page, introPage }: any) {
     });
   }, [height, scrollY]);
 
-  const [hoverKeepSmall, setHoverKeepSmall] = useState(false);
   const [hoverState, setHoverState] = useState(false);
 
   const animateLeft =
@@ -81,16 +80,11 @@ export function Navigation({ page, introPage }: any) {
               }}
               animate={animateLeft}
               className='flex h-full w-full min-w-[100px] items-center bg-[#B99976] px-2'
-              onHoverStart={() => setHoverKeepSmall(true)}
-              onHoverEnd={() => (
-                setHoverKeepSmall(false), setHoverState(false)
-              )}
+              onHoverEnd={() => setHoverState(false)}
             >
               <motion.div className='flex h-full w-full flex-1 items-center justify-center'>
                 <motion.div
                   initial={{
-                    height: hoverKeepSmall ? '4rem' : '35rem',
-                    width: hoverKeepSmall ? '4rem' : '35rem',
                     scale: 1.1,
                   }}
                   animate={{
@@ -103,13 +97,14 @@ export function Navigation({ page, introPage }: any) {
                     ease: [0.43, 0.13, 0.23, 0.96],
                     delay: 1.6,
                   }}
-                  className='relative flex items-center justify-center overflow-hidden rounded-full bg-[#987554] text-5xl font-bold uppercase text-[#B99976] shadow-2xl'
+                  className='relative flex aspect-square w-1/2 items-center justify-center overflow-hidden rounded-full bg-[#987554] text-5xl font-bold uppercase text-[#B99976] shadow-2xl translate-z-0 md:w-2/5'
                 >
                   {/* eslint-disable-next-line jsx-a11y/alt-text */}
                   <Image
                     data={introPage.leftLogo.responsiveImage}
                     layout='fill'
                     lazyLoad={false}
+                    className='aspect-square'
                   />
                 </motion.div>
               </motion.div>
@@ -161,10 +156,7 @@ export function Navigation({ page, introPage }: any) {
               }}
               animate={animateRight}
               className='flex h-full min-w-[100px] bg-[#3d1e1c] px-2'
-              onHoverStart={() => setHoverKeepSmall(true)}
-              onHoverEnd={() => (
-                setHoverKeepSmall(false), setHoverState(false)
-              )}
+              onHoverEnd={() => setHoverState(false)}
             >
               <Link href='/fake-your-beauty'>
                 <motion.div
@@ -191,10 +183,6 @@ export function Navigation({ page, introPage }: any) {
                     <BiLeftArrowAlt />
                   </motion.div>
                   <motion.div
-                    initial={{
-                      height: hoverKeepSmall ? '4rem' : '35rem',
-                      width: hoverKeepSmall ? '4rem' : '35rem',
-                    }}
                     animate={{
                       height: '4rem',
                       width: '4rem',
@@ -204,7 +192,7 @@ export function Navigation({ page, introPage }: any) {
                       duration: 1.2,
                       ease: [0.43, 0.13, 0.23, 0.96],
                     }}
-                    className='flex flex-none rounded-full bg-[url("http://www.fyb.dk/img/baggrtilered.jpg")] text-5xl font-bold uppercase text-[#280503] shadow-2xl'
+                    className='flex aspect-square w-1/2 flex-none rounded-full bg-[url("http://www.fyb.dk/img/baggrtilered.jpg")] text-5xl font-bold uppercase text-[#280503] shadow-2xl md:w-2/5'
                   />
                 </motion.div>
               </Link>
@@ -218,10 +206,7 @@ export function Navigation({ page, introPage }: any) {
               }}
               animate={animateLeft}
               className='flex h-full w-full min-w-[100px] items-center bg-[#B99976] px-2'
-              onHoverStart={() => setHoverKeepSmall(true)}
-              onHoverEnd={() => (
-                setHoverKeepSmall(false), setHoverState(false)
-              )}
+              onHoverEnd={() => setHoverState(false)}
             >
               <Link href='/the-motley-monkey'>
                 <motion.div
@@ -230,10 +215,6 @@ export function Navigation({ page, introPage }: any) {
                   className='flex-start flex h-full w-full flex-none cursor-pointer items-center justify-center'
                 >
                   <motion.div
-                    initial={{
-                      height: hoverKeepSmall ? '4rem' : '35rem',
-                      width: hoverKeepSmall ? '4rem' : '35rem',
-                    }}
                     animate={{
                       height: '4rem',
                       width: '4rem',
@@ -243,13 +224,14 @@ export function Navigation({ page, introPage }: any) {
                       duration: 1.2,
                       ease: [0.43, 0.13, 0.23, 0.96],
                     }}
-                    className='relative flex flex-none overflow-hidden rounded-full bg-[#987554] text-5xl font-bold uppercase text-[#B99976] shadow-2xl'
+                    className='relative flex aspect-square w-1/2 flex-none overflow-hidden rounded-full bg-[#987554] text-5xl font-bold uppercase text-[#B99976] shadow-2xl translate-z-0 md:w-2/5'
                   >
                     {/* eslint-disable-next-line jsx-a11y/alt-text */}
                     <Image
                       data={introPage.leftLogo.responsiveImage}
                       layout='fill'
                       lazyLoad={false}
+                      className='aspect-square'
                     />
                   </motion.div>
                   <motion.div
@@ -279,10 +261,7 @@ export function Navigation({ page, introPage }: any) {
               }}
               animate={animateRight}
               className='flex h-full min-w-[100px] bg-[#3d1e1c] px-2'
-              onHoverStart={() => setHoverKeepSmall(true)}
-              onHoverEnd={() => (
-                setHoverKeepSmall(false), setHoverState(false)
-              )}
+              onHoverEnd={() => setHoverState(false)}
             >
               <motion.div
                 initial={{
@@ -328,8 +307,6 @@ export function Navigation({ page, introPage }: any) {
               <motion.div className='flex h-full w-full flex-1 items-center justify-center'>
                 <motion.div
                   initial={{
-                    height: hoverKeepSmall ? '4rem' : '35rem',
-                    width: hoverKeepSmall ? '4rem' : '35rem',
                     scale: 1.1,
                   }}
                   animate={{
@@ -342,7 +319,7 @@ export function Navigation({ page, introPage }: any) {
                     ease: [0.43, 0.13, 0.23, 0.96],
                     delay: 1.6,
                   }}
-                  className='flex items-center justify-center rounded-full bg-[url("http://www.fyb.dk/img/baggrtilered.jpg")] text-5xl font-bold uppercase text-[#280503] shadow-2xl'
+                  className='flex aspect-square w-1/2 items-center justify-center rounded-full bg-[url("http://www.fyb.dk/img/baggrtilered.jpg")] text-5xl font-bold uppercase text-[#280503] shadow-2xl md:w-2/5'
                 />
               </motion.div>
             </motion.div>
