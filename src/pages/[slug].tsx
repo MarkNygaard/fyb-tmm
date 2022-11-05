@@ -1,3 +1,4 @@
+import Header from 'components/Header';
 import Layout from 'components/Layout';
 import PageSection from 'components/PageSection';
 import { AnimatePresence, motion } from 'framer-motion';
@@ -13,8 +14,6 @@ import {
   renderMetaTags,
   useQuerySubscription,
 } from 'react-datocms';
-
-import { Navigation } from '../components/Navigation/Navigation';
 
 export default function Page({
   subscription,
@@ -36,7 +35,7 @@ export default function Page({
       ) : (
         <>
           <Head>{renderMetaTags(metaTags)}</Head>
-          <Navigation introPage={introPage} page={page}></Navigation>
+          <Header introPage={introPage} page={page} />
           <motion.div
             initial={{ opacity: 0, y: '100%' }}
             animate={{ opacity: 1, y: 0 }}
