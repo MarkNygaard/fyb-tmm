@@ -26,7 +26,7 @@ export function Navigation({ page, introPage }: any) {
           width: '100%',
           transition: {
             duration: hoverState ? 0.4 : 1.6,
-            ease: [0.43, 0.13, 0.23, 0.96],
+            ease: [0.36, 0.66, 0.04, 1],
           },
         }
       : {
@@ -34,7 +34,7 @@ export function Navigation({ page, introPage }: any) {
           minWidth: '100px',
           transition: {
             duration: hoverState ? 0.4 : 1.6,
-            ease: [0.43, 0.13, 0.23, 0.96],
+            ease: [0.36, 0.66, 0.04, 1],
           },
         };
 
@@ -44,7 +44,7 @@ export function Navigation({ page, introPage }: any) {
           width: '100%',
           transition: {
             duration: hoverState ? 0.4 : 1.6,
-            ease: [0.43, 0.13, 0.23, 0.96],
+            ease: [0.36, 0.66, 0.04, 1],
           },
         }
       : {
@@ -52,7 +52,7 @@ export function Navigation({ page, introPage }: any) {
           minWidth: '100px',
           transition: {
             duration: hoverState ? 0.4 : 1.6,
-            ease: [0.43, 0.13, 0.23, 0.96],
+            ease: [0.36, 0.66, 0.04, 1],
           },
         };
 
@@ -67,7 +67,7 @@ export function Navigation({ page, introPage }: any) {
         }}
         transition={{
           duration: 0.6,
-          ease: [0.43, 0.13, 0.23, 0.96],
+          ease: [0.36, 0.66, 0.04, 1],
           delay: 1.6,
         }}
         className='fixed inset-x-0 z-10 flex shadow backdrop-blur-md'
@@ -94,7 +94,7 @@ export function Navigation({ page, introPage }: any) {
                   }}
                   transition={{
                     duration: 0.6,
-                    ease: [0.43, 0.13, 0.23, 0.96],
+                    ease: [0.36, 0.66, 0.04, 1],
                     delay: 1.6,
                   }}
                   className='relative flex aspect-square h-1/2 items-center justify-center overflow-hidden rounded-full bg-[#987554] text-5xl font-bold uppercase text-[#B99976] shadow-2xl translate-z-0 lg:h-2/5'
@@ -117,7 +117,7 @@ export function Navigation({ page, introPage }: any) {
                 }}
                 transition={{
                   duration: 0.6,
-                  ease: [0.43, 0.13, 0.23, 0.96],
+                  ease: [0.36, 0.66, 0.04, 1],
                   delay: 1.6,
                 }}
                 className='flex w-full items-center justify-center'
@@ -131,7 +131,7 @@ export function Navigation({ page, introPage }: any) {
                   }}
                   transition={{
                     duration: 0.6,
-                    ease: [0.43, 0.13, 0.23, 0.96],
+                    ease: [0.36, 0.66, 0.04, 1],
                     delay: hoverState ? 1.2 : 2.2,
                   }}
                   className='flex w-full items-center justify-center'
@@ -177,7 +177,7 @@ export function Navigation({ page, introPage }: any) {
                     }}
                     transition={{
                       duration: 0.4,
-                      ease: [0.43, 0.13, 0.23, 0.96],
+                      ease: [0.36, 0.66, 0.04, 1],
                     }}
                   >
                     <BiLeftArrowAlt />
@@ -190,7 +190,7 @@ export function Navigation({ page, introPage }: any) {
                     }}
                     transition={{
                       duration: 1.2,
-                      ease: [0.43, 0.13, 0.23, 0.96],
+                      ease: [0.36, 0.66, 0.04, 1],
                     }}
                     className='flex aspect-square h-1/2 flex-none rounded-full bg-[url("http://www.fyb.dk/img/baggrtilered.jpg")] text-5xl font-bold uppercase text-[#280503] shadow-2xl lg:h-2/5'
                   />
@@ -222,7 +222,7 @@ export function Navigation({ page, introPage }: any) {
                     }}
                     transition={{
                       duration: 1.2,
-                      ease: [0.43, 0.13, 0.23, 0.96],
+                      ease: [0.36, 0.66, 0.04, 1],
                     }}
                     className='relative flex aspect-square h-1/2 flex-none overflow-hidden rounded-full bg-[#987554] text-5xl font-bold uppercase text-[#B99976] shadow-2xl translate-z-0 lg:h-2/5'
                   >
@@ -247,7 +247,7 @@ export function Navigation({ page, introPage }: any) {
                     }}
                     transition={{
                       duration: 0.4,
-                      ease: [0.43, 0.13, 0.23, 0.96],
+                      ease: [0.36, 0.66, 0.04, 1],
                     }}
                   >
                     <BiRightArrowAlt />
@@ -272,7 +272,7 @@ export function Navigation({ page, introPage }: any) {
                 }}
                 transition={{
                   duration: 0.6,
-                  ease: [0.43, 0.13, 0.23, 0.96],
+                  ease: [0.36, 0.66, 0.04, 1],
                   delay: 1.6,
                 }}
                 className='flex w-full items-center justify-center'
@@ -286,7 +286,7 @@ export function Navigation({ page, introPage }: any) {
                   }}
                   transition={{
                     duration: 0.6,
-                    ease: [0.43, 0.13, 0.23, 0.96],
+                    ease: [0.36, 0.66, 0.04, 1],
                     delay: hoverState ? 1.2 : 2.2,
                   }}
                   className='flex w-full items-center justify-center'
@@ -316,7 +316,7 @@ export function Navigation({ page, introPage }: any) {
                   }}
                   transition={{
                     duration: 0.6,
-                    ease: [0.43, 0.13, 0.23, 0.96],
+                    ease: [0.36, 0.66, 0.04, 1],
                     delay: 1.6,
                   }}
                   className='flex aspect-square h-1/2 items-center justify-center rounded-full bg-[url("http://www.fyb.dk/img/baggrtilered.jpg")] text-5xl font-bold uppercase text-[#280503] shadow-2xl lg:h-2/5'
