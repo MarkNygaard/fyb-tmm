@@ -97,7 +97,7 @@ export function Navigation({ page, introPage }: any) {
                     ease: [0.43, 0.13, 0.23, 0.96],
                     delay: 1.6,
                   }}
-                  className='relative flex aspect-square w-1/2 items-center justify-center overflow-hidden rounded-full bg-[#987554] text-5xl font-bold uppercase text-[#B99976] shadow-2xl translate-z-0 md:w-2/5'
+                  className='relative flex aspect-square h-1/2 items-center justify-center overflow-hidden rounded-full bg-[#987554] text-5xl font-bold uppercase text-[#B99976] shadow-2xl translate-z-0 lg:h-2/5'
                 >
                   {/* eslint-disable-next-line jsx-a11y/alt-text */}
                   <Image
@@ -192,7 +192,7 @@ export function Navigation({ page, introPage }: any) {
                       duration: 1.2,
                       ease: [0.43, 0.13, 0.23, 0.96],
                     }}
-                    className='flex aspect-square w-1/2 flex-none rounded-full bg-[url("http://www.fyb.dk/img/baggrtilered.jpg")] text-5xl font-bold uppercase text-[#280503] shadow-2xl md:w-2/5'
+                    className='flex aspect-square h-1/2 flex-none rounded-full bg-[url("http://www.fyb.dk/img/baggrtilered.jpg")] text-5xl font-bold uppercase text-[#280503] shadow-2xl lg:h-2/5'
                   />
                 </motion.div>
               </Link>
@@ -224,7 +224,7 @@ export function Navigation({ page, introPage }: any) {
                       duration: 1.2,
                       ease: [0.43, 0.13, 0.23, 0.96],
                     }}
-                    className='relative flex aspect-square w-1/2 flex-none overflow-hidden rounded-full bg-[#987554] text-5xl font-bold uppercase text-[#B99976] shadow-2xl translate-z-0 md:w-2/5'
+                    className='relative flex aspect-square h-1/2 flex-none overflow-hidden rounded-full bg-[#987554] text-5xl font-bold uppercase text-[#B99976] shadow-2xl translate-z-0 lg:h-2/5'
                   >
                     {/* eslint-disable-next-line jsx-a11y/alt-text */}
                     <Image
@@ -319,7 +319,7 @@ export function Navigation({ page, introPage }: any) {
                     ease: [0.43, 0.13, 0.23, 0.96],
                     delay: 1.6,
                   }}
-                  className='flex aspect-square w-1/2 items-center justify-center rounded-full bg-[url("http://www.fyb.dk/img/baggrtilered.jpg")] text-5xl font-bold uppercase text-[#280503] shadow-2xl md:w-2/5'
+                  className='flex aspect-square h-1/2 items-center justify-center rounded-full bg-[url("http://www.fyb.dk/img/baggrtilered.jpg")] text-5xl font-bold uppercase text-[#280503] shadow-2xl lg:h-2/5'
                 />
               </motion.div>
             </motion.div>
