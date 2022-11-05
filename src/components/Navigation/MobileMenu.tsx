@@ -39,52 +39,51 @@ export default function MobileMenu({ onClose, page }: any) {
           transition: {
             duration: 1,
             ease: [0.36, 0.66, 0.04, 1],
+            delay: 0.5,
           },
         }}
         className='flex h-screen w-5/6 flex-col bg-[#B99976] shadow-2xl md:w-3/12 xl:w-2/12'
       >
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{
-            opacity: 1,
-            transition: {
-              x: {
-                bounce: 0,
-                duration: 0.4,
-                ease: [0.36, 0.66, 0.04, 1],
-                delay: 2,
-              },
-            },
-          }}
-          exit={{
-            opacity: 0,
-            transition: {
-              x: {
-                bounce: 0,
-                duration: 0.4,
-                ease: [0.36, 0.66, 0.04, 1],
-                delay: 2,
-              },
-            },
-          }}
-          className='w-full space-y-1 px-8 pt-24 pb-3'
-        >
-          {page.content?.map((navigation: any) => {
+        <div className='w-full space-y-1 px-8 pt-24 pb-3'>
+          {page.content?.map((navigation: any, i: any) => {
             return (
               navigation.navigationId && (
-                <button onClick={onClose} className='flex flex-col'>
-                  <a
-                    key={navigation.id}
-                    href={'#' + navigation.navigationId}
-                    className='block py-2 px-4 text-2xl font-normal text-[#664229] hover:text-[#987554]'
+                <button
+                  onClick={onClose}
+                  className='flex flex-col focus:outline-none'
+                >
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{
+                      opacity: 1,
+                      transition: {
+                        duration: 0.4,
+                        delay: 0.8 + 0.08 * i,
+                        type: 'spring',
+                      },
+                    }}
+                    exit={{
+                      opacity: 0,
+                      transition: {
+                        duration: 0.4,
+                        delay: 0.08 * i,
+                        type: 'spring',
+                      },
+                    }}
                   >
-                    {navigation.navigationId}
-                  </a>
+                    <a
+                      key={navigation.id}
+                      href={'#' + navigation.navigationId}
+                      className='block py-2 px-4 text-2xl font-normal text-black hover:text-[#987554]'
+                    >
+                      {navigation.navigationId}
+                    </a>
+                  </motion.div>
                 </button>
               )
             );
           })}
-        </motion.div>
+        </div>
       </Dialog.Panel>
     </Dialog>
   );
