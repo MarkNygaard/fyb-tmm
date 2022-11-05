@@ -77,7 +77,7 @@ export function Navigation({ page, introPage }: any) {
           <>
             <motion.div
               initial={{
-                width: '100%',
+                width: '50%',
               }}
               animate={animateLeft}
               className='flex h-full w-full min-w-[100px] items-center bg-[#B99976] px-2'
@@ -275,7 +275,7 @@ export function Navigation({ page, introPage }: any) {
             </motion.div>
             <motion.div
               initial={{
-                width: '100%',
+                width: '50%',
               }}
               animate={animateRight}
               className='flex h-full min-w-[100px] bg-[#3d1e1c] px-2'
