@@ -37,4 +37,45 @@ query PageBySlug($slug: String) {
     name
     slug
   }
+  introPage {
+    seo: _seoMetaTags {
+      ...metaTagsFragment
+    }
+    leftLink {
+      name
+      slug
+    }
+    leftLogo {
+      responsiveImage(
+        imgixParams: {
+          fit: crop
+          crop: focalpoint
+          ar: "1:1"
+          minH: 384
+          auto: format
+        }
+      ) {
+        ...responsiveImageFragment
+      }
+    }
+    leftLogoType
+    rightLink {
+      name
+      slug
+    }
+    rightLogo {
+      responsiveImage(
+        imgixParams: {
+          fit: crop
+          crop: focalpoint
+          ar: "1:1"
+          minH: 384
+          auto: format
+        }
+      ) {
+        ...responsiveImageFragment
+      }
+    }
+    rightLogoType
+  }
 }

@@ -21,7 +21,7 @@ export default function Page({
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   const router = useRouter();
   const { data } = useQuerySubscription(subscription);
-  const { site, page } = data;
+  const { site, page, introPage } = data;
   const metaTags = page?.seo.concat(site.favicon);
 
   if (!router.isFallback && !page?.slug) {
@@ -36,7 +36,7 @@ export default function Page({
       ) : (
         <>
           <Head>{renderMetaTags(metaTags)}</Head>
-          <Navigation page={page}></Navigation>
+          <Navigation introPage={introPage} page={page}></Navigation>
           <motion.div
             initial={{ opacity: 0, y: '100%' }}
             animate={{ opacity: 1, y: 0 }}

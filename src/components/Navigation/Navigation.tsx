@@ -1,10 +1,10 @@
 import { motion, useMotionValue, useScroll } from 'framer-motion';
-import { useEffect, useState } from 'react';
-import Image from 'next/image';
+import { Image } from 'react-datocms';
 import Link from 'next/link';
-import { BiRightArrowAlt, BiLeftArrowAlt } from 'react-icons/bi';
+import { useEffect, useState } from 'react';
+import { BiLeftArrowAlt, BiRightArrowAlt } from 'react-icons/bi';
 
-export function Navigation({ page }: any) {
+export function Navigation({ page, introPage }: any) {
   const { scrollY } = useScroll();
   const height = useMotionValue(80);
 
@@ -22,7 +22,7 @@ export function Navigation({ page }: any) {
   const [hoverState, setHoverState] = useState(false);
 
   const animateLeft =
-    page.slug === 'the-motley-monkey'
+    page.slug === introPage.leftLink.slug
       ? {
           width: '100%',
           transition: {
@@ -40,17 +40,17 @@ export function Navigation({ page }: any) {
         };
 
   const animateRight =
-    page.slug === 'the-motley-monkey'
+    page.slug === introPage.rightLink.slug
       ? {
-          width: hoverState ? '10%' : '0%',
-          minWidth: '100px',
+          width: '100%',
           transition: {
             duration: hoverState ? 0.4 : 1.6,
             ease: [0.43, 0.13, 0.23, 0.96],
           },
         }
       : {
-          width: '100%',
+          width: hoverState ? '10%' : '0%',
+          minWidth: '100px',
           transition: {
             duration: hoverState ? 0.4 : 1.6,
             ease: [0.43, 0.13, 0.23, 0.96],
@@ -73,7 +73,7 @@ export function Navigation({ page }: any) {
         }}
         className='fixed inset-x-0 z-10 flex shadow backdrop-blur-md'
       >
-        {page.slug === 'the-motley-monkey' ? (
+        {page.slug === introPage.leftLink.slug ? (
           <>
             <motion.div
               initial={{
@@ -105,10 +105,11 @@ export function Navigation({ page }: any) {
                   }}
                   className='relative flex items-center justify-center overflow-hidden rounded-full bg-[#987554] text-5xl font-bold uppercase text-[#B99976] shadow-2xl'
                 >
+                  {/* eslint-disable-next-line jsx-a11y/alt-text */}
                   <Image
-                    src='https://www.datocms-assets.com/84152/1667243680-tmm-logo-400x400.png?auto=format&w=500'
+                    data={introPage.leftLogo.responsiveImage}
                     layout='fill'
-                    alt='logo'
+                    lazyLoad={false}
                   />
                 </motion.div>
               </motion.div>
@@ -244,10 +245,11 @@ export function Navigation({ page }: any) {
                     }}
                     className='relative flex flex-none overflow-hidden rounded-full bg-[#987554] text-5xl font-bold uppercase text-[#B99976] shadow-2xl'
                   >
+                    {/* eslint-disable-next-line jsx-a11y/alt-text */}
                     <Image
-                      src='https://www.datocms-assets.com/84152/1667243680-tmm-logo-400x400.png?auto=format&w=500'
+                      data={introPage.leftLogo.responsiveImage}
                       layout='fill'
-                      alt='logo'
+                      lazyLoad={false}
                     />
                   </motion.div>
                   <motion.div
@@ -259,7 +261,7 @@ export function Navigation({ page }: any) {
                     animate={{
                       opacity: hoverState ? 1 : 0,
                       width: hoverState ? '100%' : '0%',
-                      paddingLeft: hoverState ? '0.5rem' : '0',
+                      marginRight: hoverState ? '0.5rem' : '0',
                     }}
                     transition={{
                       duration: 0.4,
@@ -273,7 +275,7 @@ export function Navigation({ page }: any) {
             </motion.div>
             <motion.div
               initial={{
-                width: '50%',
+                width: '100%',
               }}
               animate={animateRight}
               className='flex h-full min-w-[100px] bg-[#3d1e1c] px-2'
@@ -323,7 +325,6 @@ export function Navigation({ page }: any) {
                   })}
                 </motion.div>
               </motion.div>
-
               <motion.div className='flex h-full w-full flex-1 items-center justify-center'>
                 <motion.div
                   initial={{
