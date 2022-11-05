@@ -1,7 +1,7 @@
 import { motion, useMotionValue, useScroll } from 'framer-motion';
-import { Image } from 'react-datocms';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import { Image } from 'react-datocms';
 import { BiLeftArrowAlt, BiRightArrowAlt } from 'react-icons/bi';
 
 export function Navigation({ page, introPage }: any) {
