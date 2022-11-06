@@ -79,6 +79,7 @@ module.exports = {
   ],
   plugins: [
     require('@tailwindcss/typography'),
+    require('tailwindcss-safe-area'),
     plugin(function ({ matchUtilities, theme }) {
       matchUtilities(
         {

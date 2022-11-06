@@ -23,7 +23,7 @@ export default function MobileMenu({ onClose, page }: any) {
           delay: 1,
         },
       }}
-      className='fixed inset-0 top-0 z-20 h-screen bg-black/75 md:hidden'
+      className='fixed inset-0 top-0 z-20 bg-black/75 h-screen-safe md:hidden'
       open={true}
       onClose={onClose}
     >
@@ -69,7 +69,7 @@ export default function MobileMenu({ onClose, page }: any) {
                   }}
                 >
                   <a
-                    className='block py-2 px-4 text-2xl font-normal text-black hover:text-[#987554]'
+                    className='block py-2 px-4 text-2xl font-normal text-black outline-none hover:text-[#987554]'
                     href={'#' + navigation.navigationId}
                     onClick={onClose}
                   >
