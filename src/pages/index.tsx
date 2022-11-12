@@ -32,7 +32,7 @@ export default function Home({
                 whileHover={{
                   scale: 1.1,
                 }}
-                className='relative flex aspect-square h-1/2 cursor-pointer flex-col items-center justify-center space-y-4 overflow-hidden rounded-full bg-[#987554] text-5xl font-bold uppercase text-[#B99976] shadow-2xl translate-z-0 lg:h-2/5'
+                className='relative flex aspect-square w-1/2 cursor-pointer flex-col items-center justify-center space-y-4 overflow-hidden rounded-full bg-[#987554] text-5xl font-bold uppercase text-[#B99976] shadow-2xl translate-z-0 lg:h-2/5 lg:w-min'
               >
                 {/* eslint-disable-next-line jsx-a11y/alt-text */}
                 <Image
@@ -45,7 +45,7 @@ export default function Home({
                 whileHover={{
                   scale: 1.1,
                 }}
-                className='relative flex aspect-square h-1/2 cursor-pointer flex-col items-center justify-center space-y-4 rounded-full bg-[url("http://www.fyb.dk/img/baggrtilered.jpg")] text-5xl font-bold uppercase text-[#280503] shadow-2xl lg:h-2/5'
+                className='relative flex aspect-square w-1/2 cursor-pointer flex-col items-center justify-center space-y-4 rounded-full bg-[url("http://www.fyb.dk/img/baggrtilered.jpg")] text-5xl font-bold uppercase text-[#280503] shadow-2xl lg:h-2/5 lg:w-min'
               />
             )}
           </Link>
@@ -57,7 +57,7 @@ export default function Home({
                 whileHover={{
                   scale: 1.1,
                 }}
-                className='relative flex aspect-square h-1/2 cursor-pointer flex-col items-center justify-center space-y-4 overflow-hidden rounded-full bg-[#987554] text-5xl font-bold uppercase text-[#B99976] shadow-2xl translate-z-0 lg:h-2/5'
+                className='relative flex aspect-square w-1/2 cursor-pointer flex-col items-center justify-center space-y-4 overflow-hidden rounded-full bg-[#987554] text-5xl font-bold uppercase text-[#B99976] shadow-2xl translate-z-0 lg:h-2/5 lg:w-min'
               >
                 {/* eslint-disable-next-line jsx-a11y/alt-text */}
                 <Image
@@ -70,7 +70,7 @@ export default function Home({
                 whileHover={{
                   scale: 1.1,
                 }}
-                className={`relative flex aspect-square h-1/2 cursor-pointer flex-col items-center justify-center space-y-4 rounded-full bg-[url("https://www.datocms-assets.com/84152/1667597978-fake-your-beauty.jpg")] text-5xl font-bold uppercase text-[#280503] shadow-2xl lg:h-2/5`}
+                className={`relative flex aspect-square w-1/2 cursor-pointer flex-col items-center justify-center space-y-4 rounded-full bg-[url("https://www.datocms-assets.com/84152/1667597978-fake-your-beauty.jpg")] text-5xl font-bold uppercase text-[#280503] shadow-2xl lg:h-2/5 lg:w-min`}
               />
             )}
             {/* {introPage.righstLogo.responsiveImage.src} */}
