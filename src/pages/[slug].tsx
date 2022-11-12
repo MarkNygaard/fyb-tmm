@@ -13,6 +13,7 @@ import {
   QueryListenerOptions,
   renderMetaTags,
   useQuerySubscription,
+  Image,
 } from 'react-datocms';
 
 export default function Page({
@@ -36,6 +37,73 @@ export default function Page({
         <>
           <Head>{renderMetaTags(metaTags)}</Head>
           <Header introPage={introPage} page={page} />
+
+          <motion.div
+            className='fixed inset-0 z-40 h-screen flex-col lg:hidden'
+            initial={{ x: 0 }}
+            animate={{ x: '-100vw' }}
+            transition={{ duration: 1.6, ease: [0.8, 0, 0.1, 1], delay: 0.6 }}
+          >
+            {page.slug === introPage.leftLink.slug ? (
+              <>
+                <motion.div
+                  className='relative bg-[#B99976]'
+                  initial={{
+                    height: '50%',
+                  }}
+                  animate={{
+                    height: '100%',
+                    transition: {
+                      duration: 0.6,
+                      ease: [0.36, 0.66, 0.04, 1],
+                    },
+                  }}
+                >
+                  <motion.div
+                    initial={{
+                      opacity: 1,
+                    }}
+                    animate={{
+                      opacity: 0,
+                    }}
+                    transition={{
+                      duration: 0.4,
+                      ease: [0.36, 0.66, 0.04, 1],
+                      delay: 1.6,
+                    }}
+                    className='relative flex aspect-square h-1/2 items-center justify-center overflow-hidden rounded-full bg-[#987554] text-5xl font-bold uppercase text-[#B99976] shadow-2xl translate-z-0 lg:h-2/5'
+                  >
+                    {/* eslint-disable-next-line jsx-a11y/alt-text */}
+                    <Image
+                      data={introPage.leftLogo.responsiveImage}
+                      layout='fill'
+                      lazyLoad={false}
+                      className='aspect-square'
+                    />
+                  </motion.div>
+                </motion.div>
+                <div className='h-1/2 bg-[#3d1e1c]'></div>
+              </>
+            ) : (
+              <>
+                <div className='h-1/2 bg-[#B99976]'></div>
+                <motion.div
+                  className='bg-[#3d1e1c]'
+                  initial={{
+                    height: '50%',
+                  }}
+                  animate={{
+                    height: '100%',
+                    transition: {
+                      duration: 0.6,
+                      ease: [0.36, 0.66, 0.04, 1],
+                    },
+                  }}
+                ></motion.div>
+              </>
+            )}
+          </motion.div>
+
           <motion.div
             initial={{ opacity: 0, y: '100%' }}
             animate={{ opacity: 1, y: 0 }}
