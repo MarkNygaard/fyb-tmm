@@ -31,10 +31,9 @@ export default function HairMenu({ details }: any) {
         'align-center flex flex-col items-center justify-center overflow-hidden bg-[#1e262b] py-20 px-2 text-gray-200 md:px-10'
       )}
     >
-      {details.navigationId}
       <motion.div
-        // initial={details.fadeIn ? { opacity: 0 } : { opacity: 1 }}
-        // animate={details.fadeIn ? animation : { opacity: 1 }}
+        initial={details.fadeIn ? { opacity: 0 } : { opacity: 1 }}
+        animate={details.fadeIn ? animation : { opacity: 1 }}
         className='container space-y-6'
       >
         {details.priceModules.map((module: any) => {
