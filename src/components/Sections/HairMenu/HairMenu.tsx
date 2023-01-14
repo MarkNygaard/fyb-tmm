@@ -38,7 +38,7 @@ export default function HairMenu({ details }: any) {
         animate={details.fadeIn ? animation : { opacity: 1 }}
         className='container space-y-6'
       >
-        {details.priceModules.map((module) => {
+        {details.priceModules.map(({ module }: any) => {
           return <PriceModule key={module.id} content={module} />;
         })}
       </motion.div>

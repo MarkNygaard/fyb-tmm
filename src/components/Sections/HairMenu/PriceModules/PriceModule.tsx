@@ -14,7 +14,7 @@ export default function PriceModule({ content }: any) {
             content.prices.length > 1,
         })}
       >
-        {content.prices.map((priceContent) => {
+        {content.prices.map(({ priceContent }: any) => {
           return (
             <Prices
               key={priceContent.id}
