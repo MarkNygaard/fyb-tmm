@@ -1,0 +1,14 @@
+fragment BiographyFragment on BiographyRecord {
+  __typename
+  id
+  navigationId
+  fadeIn
+  image {
+    responsiveImage(imgixParams: { fit: crop, auto: format }) {
+      ...responsiveImageFragment
+    }
+  }
+  bioDescription {
+    value
+  }
+}

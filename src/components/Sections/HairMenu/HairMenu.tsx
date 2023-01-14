@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import classNames from 'clsx';
 import PriceModule from './PriceModules/PriceModule';
 import { useInView } from 'react-intersection-observer';
-import { useAnimation } from 'framer-motion';
+import { motion, useAnimation } from 'framer-motion';
 
 export default function HairMenu({ details }: any) {
   const { ref, inView } = useInView({
@@ -33,11 +33,15 @@ export default function HairMenu({ details }: any) {
       {/* <div className='pb-14 text-4xl font-bold text-[#c09a5d]'>
         {details.navigationId}
       </div> */}
-      <div className='container space-y-6'>
+      <motion.div
+        initial={details.fadeIn ? { opacity: 0 } : { opacity: 1 }}
+        animate={details.fadeIn ? animation : { opacity: 1 }}
+        className='container space-y-6'
+      >
         {details.priceModules.map((module) => {
           return <PriceModule key={module.id} content={module} />;
         })}
-      </div>
+      </motion.div>
     </div>
   );
 }

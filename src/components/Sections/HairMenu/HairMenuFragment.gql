@@ -2,6 +2,7 @@ fragment HairMenuFragment on HairMenuRecord {
   __typename
   id
   navigationId
+  fadeIn
   priceModules {
     ...PriceModulesFragment
   }

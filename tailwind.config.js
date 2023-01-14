@@ -5,6 +5,14 @@ module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
+      gridTemplateRows: {
+        bio: '1fr 1fr 4fr 1fr',
+        bioText: '1fr 1fr 6fr 1fr',
+      },
+      gridTemplateColumns: {
+        bio: '3fr 1fr 1fr 8fr 1fr',
+        bioText: '1fr 6fr 1fr',
+      },
       height: {
         132: '33rem',
       },

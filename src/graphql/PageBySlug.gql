@@ -33,6 +33,9 @@ query PageBySlug($slug: String) {
       ... on HairMenuRecord {
         ...HairMenuFragment
       }
+      ... on BiographyRecord {
+        ...BiographyFragment
+      }
     }
   }
   allPages {

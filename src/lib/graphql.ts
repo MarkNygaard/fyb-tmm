@@ -24,9 +24,16 @@ export type Scalars = {
   UploadId: any;
 };
 
-/** Block of type Biografi (biografi) */
-export type BiografiRecord = RecordInterface & {
-  __typename?: 'BiografiRecord';
+export type BiographyModelBioDescriptionField = {
+  __typename?: 'BiographyModelBioDescriptionField';
+  blocks: Array<Scalars['String']>;
+  links: Array<Scalars['String']>;
+  value: Scalars['JsonField'];
+};
+
+/** Block of type Biography (biography) */
+export type BiographyRecord = RecordInterface & {
+  __typename?: 'BiographyRecord';
   _createdAt: Scalars['DateTime'];
   _firstPublishedAt?: Maybe<Scalars['DateTime']>;
   _isValid: Scalars['BooleanType'];
@@ -38,8 +45,9 @@ export type BiografiRecord = RecordInterface & {
   _status: ItemStatus;
   _unpublishingScheduledAt?: Maybe<Scalars['DateTime']>;
   _updatedAt: Scalars['DateTime'];
+  bioDescription?: Maybe<BiographyModelBioDescriptionField>;
   createdAt: Scalars['DateTime'];
-  description?: Maybe<Scalars['String']>;
+  fadeIn?: Maybe<Scalars['BooleanType']>;
   id: Scalars['ItemId'];
   image?: Maybe<FileField>;
   navigationId?: Maybe<Scalars['String']>;
@@ -47,15 +55,9 @@ export type BiografiRecord = RecordInterface & {
 };
 
 
-/** Block of type Biografi (biografi) */
-export type BiografiRecord_seoMetaTagsArgs = {
+/** Block of type Biography (biography) */
+export type BiographyRecord_seoMetaTagsArgs = {
   locale?: InputMaybe<SiteLocale>;
-};
-
-
-/** Block of type Biografi (biografi) */
-export type BiografiRecorddescriptionArgs = {
-  markdown?: InputMaybe<Scalars['Boolean']>;
 };
 
 /** Specifies how to filter Boolean fields */
@@ -424,6 +426,7 @@ export type HairMenuRecord = RecordInterface & {
   _unpublishingScheduledAt?: Maybe<Scalars['DateTime']>;
   _updatedAt: Scalars['DateTime'];
   createdAt: Scalars['DateTime'];
+  fadeIn?: Maybe<Scalars['BooleanType']>;
   id: Scalars['ItemId'];
   navigationId?: Maybe<Scalars['String']>;
   priceModules: Array<PriceModuleRecord>;
@@ -1944,7 +1947,7 @@ export type OrientationFilter = {
   neq?: InputMaybe<UploadOrientation>;
 };
 
-export type PageModelContentField = GridRecord | HairMenuRecord | HeaderRecord | ImageRecord | TextImageRecord | TextRecord | YoutubeVideoRecord;
+export type PageModelContentField = BiographyRecord | GridRecord | HairMenuRecord | HeaderRecord | ImageRecord | TextImageRecord | TextRecord | YoutubeVideoRecord;
 
 export type PageModelFilter = {
   OR?: InputMaybe<Array<InputMaybe<PageModelFilter>>>;
@@ -2902,6 +2905,22 @@ export const responsiveImageFragmentFragmentDoc = /*#__PURE__*/ gql`
   base64
 }
     `;
+export const BiographyFragmentFragmentDoc = /*#__PURE__*/ gql`
+    fragment BiographyFragment on BiographyRecord {
+  __typename
+  id
+  navigationId
+  fadeIn
+  image {
+    responsiveImage(imgixParams: {fit: crop, auto: format}) {
+      ...responsiveImageFragment
+    }
+  }
+  bioDescription {
+    value
+  }
+}
+    `;
 export const RtImageFragmentFragmentDoc = /*#__PURE__*/ gql`
     fragment RtImageFragment on RtImageRecord {
   id
@@ -3022,6 +3041,7 @@ export const HairMenuFragmentFragmentDoc = /*#__PURE__*/ gql`
   __typename
   id
   navigationId
+  fadeIn
   priceModules {
     ...PriceModulesFragment
   }
@@ -3216,6 +3236,9 @@ export const PageBySlugDocument = /*#__PURE__*/ gql`
       ... on HairMenuRecord {
         ...HairMenuFragment
       }
+      ... on BiographyRecord {
+        ...BiographyFragment
+      }
     }
   }
   allPages {
@@ -3265,7 +3288,8 @@ ${GridFragmentFragmentDoc}
 ${YoutubeVideoFragmentFragmentDoc}
 ${HairMenuFragmentFragmentDoc}
 ${PriceModulesFragmentFragmentDoc}
-${PricesFragmentFragmentDoc}`;
+${PricesFragmentFragmentDoc}
+${BiographyFragmentFragmentDoc}`;
 
 export type SdkFunctionWrapper = <T>(action: (requestHeaders?:Record<string, string>) => Promise<T>, operationName: string, operationType?: string) => Promise<T>;
 
@@ -3286,6 +3310,8 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
   };
 }
 export type Sdk = ReturnType<typeof getSdk>;
+export type BiographyFragmentFragment = { __typename: 'BiographyRecord', id: any, navigationId?: string | null, fadeIn?: any | null, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null, title?: string | null, base64?: string | null } | null } | null, bioDescription?: { __typename?: 'BiographyModelBioDescriptionField', value: any } | null };
+
 export type CustomHeadingFragmentFragment = { __typename?: 'CustomHeadingRecord', id: any, title?: string | null, subtitle?: string | null };
 
 export type GridFragmentFragment = { __typename: 'GridRecord', navigationId?: string | null, backgroundColor?: any | null, fadeIn?: any | null, id: any, title?: string | null, mobileColumns?: string | null, tabletColumns?: string | null, desktopColumns?: string | null, gap?: string | null, fullWidth?: any | null, height?: string | null, sections: Array<{ __typename: 'GridImageRecord', id: any, mobilePosition?: any | null, tabletPosition?: any | null, desktopPosition?: any | null, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null, title?: string | null, base64?: string | null } | null } | null } | { __typename: 'GridTextRecord', id: any, mobilePosition?: any | null, tabletPosition?: any | null, desktopPosition?: any | null, content?: { __typename?: 'GridTextModelContentField', value: any, blocks: Array<{ __typename: 'RtImageRecord', id: any, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null, title?: string | null, base64?: string | null } | null } | null }> } | null }> };
@@ -3294,7 +3320,7 @@ export type GridImageFragmentFragment = { __typename: 'GridImageRecord', id: any
 
 export type GridTextFragmentFragment = { __typename: 'GridTextRecord', id: any, mobilePosition?: any | null, tabletPosition?: any | null, desktopPosition?: any | null, content?: { __typename?: 'GridTextModelContentField', value: any, blocks: Array<{ __typename: 'RtImageRecord', id: any, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null, title?: string | null, base64?: string | null } | null } | null }> } | null };
 
-export type HairMenuFragmentFragment = { __typename: 'HairMenuRecord', id: any, navigationId?: string | null, priceModules: Array<{ __typename: 'PriceModuleRecord', id: any, heading?: string | null, prices: Array<{ __typename?: 'PriceRecord', id: any, treatment?: string | null, price?: any | null, from?: any | null, description?: { __typename?: 'PriceModelDescriptionField', value: any } | null }> }> };
+export type HairMenuFragmentFragment = { __typename: 'HairMenuRecord', id: any, navigationId?: string | null, fadeIn?: any | null, priceModules: Array<{ __typename: 'PriceModuleRecord', id: any, heading?: string | null, prices: Array<{ __typename?: 'PriceRecord', id: any, treatment?: string | null, price?: any | null, from?: any | null, description?: { __typename?: 'PriceModelDescriptionField', value: any } | null }> }> };
 
 export type PriceModulesFragmentFragment = { __typename: 'PriceModuleRecord', id: any, heading?: string | null, prices: Array<{ __typename?: 'PriceRecord', id: any, treatment?: string | null, price?: any | null, from?: any | null, description?: { __typename?: 'PriceModelDescriptionField', value: any } | null }> };
 
@@ -3331,4 +3357,4 @@ export type PageBySlugQueryVariables = Exact<{
 }>;
 
 
-export type PageBySlugQuery = { __typename?: 'Query', site: { __typename?: 'Site', favicon: Array<{ __typename?: 'Tag', attributes?: any | null, content?: string | null, tag: string }> }, page?: { __typename?: 'PageRecord', id: any, name?: string | null, slug?: string | null, seo: Array<{ __typename?: 'Tag', attributes?: any | null, content?: string | null, tag: string }>, content: Array<{ __typename: 'GridRecord', navigationId?: string | null, backgroundColor?: any | null, fadeIn?: any | null, id: any, title?: string | null, mobileColumns?: string | null, tabletColumns?: string | null, desktopColumns?: string | null, gap?: string | null, fullWidth?: any | null, height?: string | null, sections: Array<{ __typename: 'GridImageRecord', id: any, mobilePosition?: any | null, tabletPosition?: any | null, desktopPosition?: any | null, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null, title?: string | null, base64?: string | null } | null } | null } | { __typename: 'GridTextRecord', id: any, mobilePosition?: any | null, tabletPosition?: any | null, desktopPosition?: any | null, content?: { __typename?: 'GridTextModelContentField', value: any, blocks: Array<{ __typename: 'RtImageRecord', id: any, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null, title?: string | null, base64?: string | null } | null } | null }> } | null }> } | { __typename: 'HairMenuRecord', id: any, navigationId?: string | null, priceModules: Array<{ __typename: 'PriceModuleRecord', id: any, heading?: string | null, prices: Array<{ __typename?: 'PriceRecord', id: any, treatment?: string | null, price?: any | null, from?: any | null, description?: { __typename?: 'PriceModelDescriptionField', value: any } | null }> }> } | { __typename: 'HeaderRecord', id: any, navigationId?: string | null, backgroundColor?: any | null, bigTitle?: string | null, smallTitle?: string | null, description?: string | null, buttonText?: string | null, buttonLink?: string | null } | { __typename: 'ImageRecord', navigationId?: string | null, backgroundColor?: any | null, fadeIn?: any | null, imageTitle?: string | null, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null, title?: string | null, base64?: string | null } | null } | null } | { __typename: 'TextImageRecord', navigationId?: string | null, backgroundColor?: any | null, fadeIn?: any | null, imageLocation?: string | null, imageStyle?: string | null, content?: { __typename?: 'TextImageModelContentField', value: any, blocks: Array<{ __typename: 'CustomHeadingRecord', id: any, title?: string | null, subtitle?: string | null } | { __typename: 'RtImageRecord', id: any, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null, title?: string | null, base64?: string | null } | null } | null }> } | null, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null, title?: string | null, base64?: string | null } | null } | null } | { __typename: 'TextRecord', navigationId?: string | null, backgroundColor?: any | null, fadeIn?: any | null, content?: { __typename?: 'TextModelContentField', value: any, blocks: Array<{ __typename: 'CustomHeadingRecord', id: any, title?: string | null, subtitle?: string | null } | { __typename: 'RtImageRecord', id: any, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null, title?: string | null, base64?: string | null } | null } | null }> } | null } | { __typename: 'YoutubeVideoRecord', id: any, navigationId?: string | null, backgroundColor?: any | null, fadeIn?: any | null, link?: { __typename?: 'VideoField', providerUid: string } | null }> } | null, allPages: Array<{ __typename?: 'PageRecord', id: any, name?: string | null, slug?: string | null }>, introPage?: { __typename?: 'IntroPageRecord', leftLogoType?: string | null, rightLogoType?: string | null, seo: Array<{ __typename?: 'Tag', attributes?: any | null, content?: string | null, tag: string }>, leftLink?: { __typename?: 'PageRecord', name?: string | null, slug?: string | null } | null, leftLogo?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null, title?: string | null, base64?: string | null } | null } | null, rightLink?: { __typename?: 'PageRecord', name?: string | null, slug?: string | null } | null, rightLogo?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null, title?: string | null, base64?: string | null } | null } | null } | null };
+export type PageBySlugQuery = { __typename?: 'Query', site: { __typename?: 'Site', favicon: Array<{ __typename?: 'Tag', attributes?: any | null, content?: string | null, tag: string }> }, page?: { __typename?: 'PageRecord', id: any, name?: string | null, slug?: string | null, seo: Array<{ __typename?: 'Tag', attributes?: any | null, content?: string | null, tag: string }>, content: Array<{ __typename: 'BiographyRecord', id: any, navigationId?: string | null, fadeIn?: any | null, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null, title?: string | null, base64?: string | null } | null } | null, bioDescription?: { __typename?: 'BiographyModelBioDescriptionField', value: any } | null } | { __typename: 'GridRecord', navigationId?: string | null, backgroundColor?: any | null, fadeIn?: any | null, id: any, title?: string | null, mobileColumns?: string | null, tabletColumns?: string | null, desktopColumns?: string | null, gap?: string | null, fullWidth?: any | null, height?: string | null, sections: Array<{ __typename: 'GridImageRecord', id: any, mobilePosition?: any | null, tabletPosition?: any | null, desktopPosition?: any | null, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null, title?: string | null, base64?: string | null } | null } | null } | { __typename: 'GridTextRecord', id: any, mobilePosition?: any | null, tabletPosition?: any | null, desktopPosition?: any | null, content?: { __typename?: 'GridTextModelContentField', value: any, blocks: Array<{ __typename: 'RtImageRecord', id: any, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null, title?: string | null, base64?: string | null } | null } | null }> } | null }> } | { __typename: 'HairMenuRecord', id: any, navigationId?: string | null, fadeIn?: any | null, priceModules: Array<{ __typename: 'PriceModuleRecord', id: any, heading?: string | null, prices: Array<{ __typename?: 'PriceRecord', id: any, treatment?: string | null, price?: any | null, from?: any | null, description?: { __typename?: 'PriceModelDescriptionField', value: any } | null }> }> } | { __typename: 'HeaderRecord', id: any, navigationId?: string | null, backgroundColor?: any | null, bigTitle?: string | null, smallTitle?: string | null, description?: string | null, buttonText?: string | null, buttonLink?: string | null } | { __typename: 'ImageRecord', navigationId?: string | null, backgroundColor?: any | null, fadeIn?: any | null, imageTitle?: string | null, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null, title?: string | null, base64?: string | null } | null } | null } | { __typename: 'TextImageRecord', navigationId?: string | null, backgroundColor?: any | null, fadeIn?: any | null, imageLocation?: string | null, imageStyle?: string | null, content?: { __typename?: 'TextImageModelContentField', value: any, blocks: Array<{ __typename: 'CustomHeadingRecord', id: any, title?: string | null, subtitle?: string | null } | { __typename: 'RtImageRecord', id: any, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null, title?: string | null, base64?: string | null } | null } | null }> } | null, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null, title?: string | null, base64?: string | null } | null } | null } | { __typename: 'TextRecord', navigationId?: string | null, backgroundColor?: any | null, fadeIn?: any | null, content?: { __typename?: 'TextModelContentField', value: any, blocks: Array<{ __typename: 'CustomHeadingRecord', id: any, title?: string | null, subtitle?: string | null } | { __typename: 'RtImageRecord', id: any, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null, title?: string | null, base64?: string | null } | null } | null }> } | null } | { __typename: 'YoutubeVideoRecord', id: any, navigationId?: string | null, backgroundColor?: any | null, fadeIn?: any | null, link?: { __typename?: 'VideoField', providerUid: string } | null }> } | null, allPages: Array<{ __typename?: 'PageRecord', id: any, name?: string | null, slug?: string | null }>, introPage?: { __typename?: 'IntroPageRecord', leftLogoType?: string | null, rightLogoType?: string | null, seo: Array<{ __typename?: 'Tag', attributes?: any | null, content?: string | null, tag: string }>, leftLink?: { __typename?: 'PageRecord', name?: string | null, slug?: string | null } | null, leftLogo?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null, title?: string | null, base64?: string | null } | null } | null, rightLink?: { __typename?: 'PageRecord', name?: string | null, slug?: string | null } | null, rightLogo?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null, title?: string | null, base64?: string | null } | null } | null } | null };

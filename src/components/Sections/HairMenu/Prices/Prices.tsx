@@ -12,11 +12,14 @@ export default function Prices({ content, arrayLength }: any) {
       <div className='font-medium text-[#c09a5d]'>{content.treatment}</div>
       <div className='font- flex h-full w-full justify-center'>
         <div
-          className={classNames('flex-1 py-2 text-base', {
-            'h-full items-center justify-center font-light lg:max-w-[655px] lg:py-6 xl:max-w-[800px] xl:py-8':
-              arrayLength === 1,
-            'font-thin': arrayLength > 1,
-          })}
+          className={classNames(
+            'prose flex-1 py-2 text-base prose-p:text-gray-200',
+            {
+              'h-full items-center justify-center font-light lg:max-w-[655px] lg:py-6 xl:max-w-[800px] xl:py-8':
+                arrayLength === 1,
+              'font-thin': arrayLength > 1,
+            }
+          )}
         >
           <StructuredText data={content.description} />
         </div>
