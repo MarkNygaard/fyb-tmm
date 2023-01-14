@@ -28,16 +28,13 @@ export default function Text({ details }: any) {
       ref={ref}
       id={details.navigationId}
       className={classNames(
-        'align-center flex items-center justify-center overflow-hidden py-20 px-2 md:px-10',
-        {
-          'bg-gray-800': details.backgroundColor === true,
-        }
+        'align-center flex items-center justify-center overflow-hidden bg-[#1e262b] px-2 pt-32 md:px-10'
       )}
     >
       <motion.div
         initial={details.fadeIn ? { opacity: 0 } : { opacity: 1 }}
         animate={details.fadeIn ? animation : { opacity: 1 }}
-        className={classNames('prose sm:w-full', {
+        className={classNames('prose prose-p:text-gray-300 sm:w-full', {
           'prose-invert': details.backgroundColor === true,
           'prose-gray': details.backgroundColor === false,
         })}

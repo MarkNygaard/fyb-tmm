@@ -1,28 +1,29 @@
 import classNames from 'clsx';
 import { motion } from 'framer-motion';
 import React from 'react';
+import { Image } from 'react-datocms';
 
 export default function Header({ details }: any) {
   return (
     <div
       id={details.navigationId}
       className={classNames(
-        'flex flex-col items-center py-20 px-2 pt-36 md:px-10',
-        {
-          'bg-gray-800': details.backgroundColor === true,
-        }
+        'flex flex-col items-center bg-[#1e262b] px-2 pt-36 md:px-10'
       )}
     >
-      <h1 className='text-center text-7xl font-bold text-gray-900'>
-        {details.bigTitle}
-        <span className='mb-10 block text-5xl text-gray-600 '>
-          {details.smallTitle}
-        </span>
-      </h1>
-      <p className='max-w-lg text-lg text-gray-500'>{details.description}</p>
+      <div className='relative h-44 w-5/6 md:w-2/3'>
+        {/* eslint-disable-next-line jsx-a11y/alt-text */}
+        <Image
+          data={details.image?.responsiveImage}
+          layout='fill'
+          objectFit='contain'
+          objectPosition='50% 50%'
+          priority
+        />
+      </div>
       <motion.button
         whileHover={{ scale: 1.1 }}
-        className='mt-8 rounded-md bg-gray-300 py-3 px-4 text-xl text-gray-800 hover:bg-gray-400'
+        className='mt-8 bg-[#be965a] py-4 px-7 text-lg font-light text-white'
       >
         <a href={details.buttonLink} target='_blank' rel='noreferrer'>
           {details.buttonText}
