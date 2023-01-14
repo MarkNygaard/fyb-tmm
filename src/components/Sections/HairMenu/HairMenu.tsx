@@ -26,21 +26,18 @@ export default function HairMenu({ details }: any) {
   return (
     <div
       ref={ref}
-      id={details.navigationId}
+      id={details?.navigationId}
       className={classNames(
         'align-center flex flex-col items-center justify-center overflow-hidden bg-[#1e262b] py-20 px-2 text-gray-200 md:px-10'
       )}
     >
-      {/* <div className='pb-14 text-4xl font-bold text-[#c09a5d]'>
-        {details.navigationId}
-      </div> */}
       <motion.div
         initial={details.fadeIn ? { opacity: 0 } : { opacity: 1 }}
         animate={details.fadeIn ? animation : { opacity: 1 }}
         className='container space-y-6'
       >
-        {details.priceModules.map(({ module }: any) => {
-          return <PriceModule key={module.id} content={module} />;
+        {details.priceModules?.map(({ module, i }: any) => {
+          return <PriceModule key={i} content={module} />;
         })}
       </motion.div>
     </div>

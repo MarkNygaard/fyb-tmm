@@ -9,7 +9,7 @@ export default function Prices({ content, arrayLength }: any) {
         'min-h-[300px]': arrayLength > 1,
       })}
     >
-      <div className='font-medium text-[#c09a5d]'>{content.treatment}</div>
+      <div className='font-medium text-[#c09a5d]'>{content?.treatment}</div>
       <div className='font- flex h-full w-full justify-center'>
         <div
           className={classNames(
@@ -21,12 +21,12 @@ export default function Prices({ content, arrayLength }: any) {
             }
           )}
         >
-          <StructuredText data={content.description} />
+          <StructuredText data={content?.description} />
         </div>
       </div>
-      {content.price && (
+      {content?.price && (
         <div className='flex justify-end pt-4 text-xl text-[#c09a5d]'>
-          {content.from === true ? 'fra' : null} {content.price} kr.
+          {content?.from === true ? 'fra' : null} {content?.price} kr.
         </div>
       )}
     </div>

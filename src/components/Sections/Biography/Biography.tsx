@@ -25,7 +25,7 @@ export default function Biography({ details }: any) {
   return (
     <div
       ref={ref}
-      id={details.navigationId}
+      id={details?.navigationId}
       className={classNames(
         'align-center flex flex-col items-center justify-center overflow-hidden bg-[#1e262b] px-2 pt-32 text-gray-200 md:px-10'
       )}
@@ -37,13 +37,13 @@ export default function Biography({ details }: any) {
       >
         <div className='col-start-2 col-end-6 row-start-2 row-end-5 grid grid-cols-bioText grid-rows-bioText items-center justify-center bg-[#252c31]'>
           <div className='prose col-start-2 col-end-3 row-start-3 row-end-4 max-w-none font-light prose-p:text-gray-200 lg:row-start-2'>
-            <StructuredText data={details.bioDescription} />
+            <StructuredText data={details?.bioDescription} />
           </div>
         </div>
         <div className='relative col-start-1 col-end-5 row-start-1 row-end-3 lg:col-end-3 lg:row-end-4'>
           {/* eslint-disable-next-line jsx-a11y/alt-text */}
           <Image
-            data={details.image.responsiveImage}
+            data={details.image?.responsiveImage}
             layout='fill'
             objectFit='cover'
             objectPosition='50% 50%'
