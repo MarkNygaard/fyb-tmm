@@ -27,27 +27,20 @@ export default function Home({
       <div className='grid h-screen w-screen grid-flow-row lg:grid-flow-col'>
         <div className='relative flex h-full w-full items-center justify-center bg-[#3d1e1c]'>
           <Link href={introPage.leftLink?.slug}>
-            {introPage.leftLogoType === 'Image' ? (
-              <motion.div
-                whileHover={{
-                  scale: 1.1,
-                }}
-                className='relative flex aspect-square w-1/2 cursor-pointer flex-col items-center justify-center space-y-4 overflow-hidden rounded-full bg-[#987554] text-5xl font-bold uppercase text-[#B99976] shadow-2xl translate-z-0 lg:h-2/5 lg:w-min'
-              >
-                {/* eslint-disable-next-line jsx-a11y/alt-text */}
-                <Image
-                  data={introPage.leftLogo.responsiveImage}
-                  layout='fill'
-                />
-              </motion.div>
-            ) : (
-              <motion.div
-                whileHover={{
-                  scale: 1.1,
-                }}
-                className='relative flex aspect-square w-1/2 cursor-pointer flex-col items-center justify-center space-y-4 rounded-full bg-[url("http://www.fyb.dk/img/baggrtilered.jpg")] text-5xl font-bold uppercase text-[#280503] shadow-2xl lg:h-2/5 lg:w-min'
+            <motion.div
+              whileHover={{
+                scale: 1.1,
+              }}
+              className='relative flex aspect-square w-40 cursor-pointer flex-col items-center justify-center space-y-4 overflow-hidden rounded-full bg-[#987554] text-5xl font-bold uppercase text-[#B99976] shadow-2xl translate-z-0 lg:w-64'
+            >
+              {/* eslint-disable-next-line jsx-a11y/alt-text */}
+              <Image
+                data={introPage.leftLogo.responsiveImage}
+                layout='fill'
+                objectFit='cover'
+                objectPosition='50% 50%'
               />
-            )}
+            </motion.div>
           </Link>
         </div>
         <div className='relative flex h-full w-full items-center justify-center bg-[#987554]'>
@@ -56,7 +49,7 @@ export default function Home({
               whileHover={{
                 scale: 1.1,
               }}
-              className='relative flex aspect-square w-1/2 cursor-pointer flex-col items-center justify-center space-y-4 overflow-hidden rounded-full text-5xl font-bold uppercase shadow-2xl translate-z-0 lg:h-2/5 lg:w-min'
+              className='relative flex aspect-square w-40 cursor-pointer flex-col items-center justify-center space-y-4 overflow-hidden rounded-full text-5xl font-bold uppercase shadow-2xl translate-z-0 lg:w-64'
             >
               {/* eslint-disable-next-line jsx-a11y/alt-text */}
               <Image data={introPage.rightLogo.responsiveImage} layout='fill' />

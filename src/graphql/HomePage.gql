@@ -13,15 +13,7 @@ query HomePage {
       slug
     }
     leftLogo {
-      responsiveImage(
-        imgixParams: {
-          fit: crop
-          crop: focalpoint
-          ar: "1:1"
-          minH: 384
-          auto: format
-        }
-      ) {
+      responsiveImage(imgixParams: { fit: crop, auto: format }) {
         ...responsiveImageFragment
       }
     }
@@ -31,15 +23,7 @@ query HomePage {
       slug
     }
     rightLogo {
-      responsiveImage(
-        imgixParams: {
-          fit: crop
-          crop: focalpoint
-          ar: "1:1"
-          minH: 384
-          auto: format
-        }
-      ) {
+      responsiveImage(imgixParams: { fit: crop, auto: format }) {
         ...responsiveImageFragment
       }
     }
