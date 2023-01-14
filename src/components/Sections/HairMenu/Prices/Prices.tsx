@@ -1,0 +1,31 @@
+import React from 'react';
+import classNames from 'clsx';
+import { StructuredText } from 'react-datocms';
+
+export default function Prices({ content, arrayLength }: any) {
+  return (
+    <div
+      className={classNames('m-4 flex flex-col bg-[#252c31] p-5', {
+        'min-h-[300px]': arrayLength > 1,
+      })}
+    >
+      <div className='font-medium text-[#c09a5d]'>{content.treatment}</div>
+      <div className='font- flex h-full w-full justify-center'>
+        <div
+          className={classNames('flex-1 py-2 text-base', {
+            'h-full items-center justify-center font-light lg:max-w-[655px] lg:py-6 xl:max-w-[800px] xl:py-8':
+              arrayLength === 1,
+            'font-thin': arrayLength > 1,
+          })}
+        >
+          <StructuredText data={content.description} />
+        </div>
+      </div>
+      {content.price && (
+        <div className='flex justify-end pt-4 text-xl text-[#c09a5d]'>
+          {content.from === true ? 'fra' : null} {content.price} kr.
+        </div>
+      )}
+    </div>
+  );
+}

@@ -1,0 +1,8 @@
+fragment PriceModulesFragment on PriceModuleRecord {
+  __typename
+  id
+  heading
+  prices {
+    ...PricesFragment
+  }
+}

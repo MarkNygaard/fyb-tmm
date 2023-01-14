@@ -1,0 +1,8 @@
+fragment HairMenuFragment on HairMenuRecord {
+  __typename
+  id
+  navigationId
+  priceModules {
+    ...PriceModulesFragment
+  }
+}

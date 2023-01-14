@@ -30,6 +30,9 @@ query PageBySlug($slug: String) {
       ... on YoutubeVideoRecord {
         ...YoutubeVideoFragment
       }
+      ... on HairMenuRecord {
+        ...HairMenuFragment
+      }
     }
   }
   allPages {

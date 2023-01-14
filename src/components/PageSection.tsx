@@ -1,4 +1,5 @@
 import Grid from '@Sections/Grid/Grid';
+import HairMenu from '@Sections/HairMenu/HairMenu';
 import Header from '@Sections/Header/Header';
 import ImageRecord from '@Sections/Image/Image';
 import Text from '@Sections/Text/Text';
@@ -19,6 +20,8 @@ export default function PageSection({ details }: any) {
     return <YoutubeVideo details={details} />;
   } else if (details.__typename === 'GridRecord') {
     return <Grid details={details} />;
+  } else if (details.__typename === 'HairMenuRecord') {
+    return <HairMenu details={details} />;
   }
   return <></>;
 }

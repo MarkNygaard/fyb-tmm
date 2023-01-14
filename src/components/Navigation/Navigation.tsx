@@ -78,7 +78,7 @@ export default function Navigation({ page, introPage }: any) {
               width: '50%',
             }}
             animate={animateLeft}
-            className='flex h-full w-full min-w-[100px] items-center bg-[#B99976] px-2'
+            className='flex h-full w-full min-w-[100px] items-center bg-[#3d1e1c] px-2'
             onHoverEnd={() => setHoverState(false)}
           >
             <motion.div className='flex h-full w-full flex-1 items-center justify-center'>
@@ -96,7 +96,7 @@ export default function Navigation({ page, introPage }: any) {
                   ease: [0.36, 0.66, 0.04, 1],
                   delay: 1.6,
                 }}
-                className='relative flex aspect-square h-1/2 items-center justify-center overflow-hidden rounded-full bg-[#987554] text-5xl font-bold uppercase text-[#B99976] shadow-2xl translate-z-0 lg:h-2/5'
+                className='relative flex aspect-square h-1/2 items-center justify-center overflow-hidden rounded-full text-5xl font-bold uppercase shadow-2xl translate-z-0 lg:h-2/5'
               >
                 {/* eslint-disable-next-line jsx-a11y/alt-text */}
                 <Image
@@ -140,7 +140,7 @@ export default function Navigation({ page, introPage }: any) {
                     <a
                       key={navigation.id}
                       href={'#' + navigation.navigationId}
-                      className='block py-2 px-4 text-xl font-medium text-[#664229] hover:text-[#987554]'
+                      className='block py-2 px-4 text-xl font-medium text-gray-200 hover:text-white'
                     >
                       {navigation.navigationId}
                     </a>
@@ -154,10 +154,10 @@ export default function Navigation({ page, introPage }: any) {
               width: '50%',
             }}
             animate={animateRight}
-            className='flex h-full min-w-[100px] bg-[#3d1e1c] px-2'
+            className='flex h-full min-w-[100px] bg-[#987554] px-2'
             onHoverEnd={() => setHoverState(false)}
           >
-            <Link href='/fake-your-beauty'>
+            <Link href='/the-motley-monkey'>
               <motion.div
                 onHoverStart={() => setHoverState(true)}
                 onHoverEnd={() => setHoverState(false)}
@@ -185,14 +185,22 @@ export default function Navigation({ page, introPage }: any) {
                   animate={{
                     height: '4rem',
                     width: '4rem',
-                    marginRight: hoverState ? '0.5rem' : '0',
+                    marginLeft: hoverState ? '0.5rem' : '0',
                   }}
                   transition={{
                     duration: 1.2,
                     ease: [0.36, 0.66, 0.04, 1],
                   }}
-                  className='flex aspect-square h-1/2 flex-none rounded-full bg-[url("http://www.fyb.dk/img/baggrtilered.jpg")] text-5xl font-bold uppercase text-[#280503] shadow-2xl lg:h-2/5'
-                />
+                  className='relative flex aspect-square h-1/2 flex-none overflow-hidden rounded-full text-5xl font-bold uppercase shadow-2xl translate-z-0 lg:h-2/5'
+                >
+                  {/* eslint-disable-next-line jsx-a11y/alt-text */}
+                  <Image
+                    data={introPage.rightLogo.responsiveImage}
+                    layout='fill'
+                    lazyLoad={false}
+                    className='aspect-square'
+                  />
+                </motion.div>
               </motion.div>
             </Link>
           </motion.div>
@@ -204,10 +212,10 @@ export default function Navigation({ page, introPage }: any) {
               width: '50%',
             }}
             animate={animateLeft}
-            className='flex h-full w-full min-w-[100px] items-center bg-[#B99976] px-2'
+            className='flex h-full w-full min-w-[100px] items-center bg-[#3d1e1c] px-2'
             onHoverEnd={() => setHoverState(false)}
           >
-            <Link href='/the-motley-monkey'>
+            <Link href='/fake-your-beauty'>
               <motion.div
                 onHoverStart={() => setHoverState(true)}
                 onHoverEnd={() => setHoverState(false)}
@@ -223,7 +231,7 @@ export default function Navigation({ page, introPage }: any) {
                     duration: 1.2,
                     ease: [0.36, 0.66, 0.04, 1],
                   }}
-                  className='relative flex aspect-square h-1/2 flex-none overflow-hidden rounded-full bg-[#987554] text-5xl font-bold uppercase text-[#B99976] shadow-2xl translate-z-0 lg:h-2/5'
+                  className='relative flex aspect-square h-1/2 flex-none overflow-hidden rounded-full text-5xl font-bold uppercase shadow-2xl translate-z-0 lg:h-2/5'
                 >
                   {/* eslint-disable-next-line jsx-a11y/alt-text */}
                   <Image
@@ -259,7 +267,7 @@ export default function Navigation({ page, introPage }: any) {
               width: '50%',
             }}
             animate={animateRight}
-            className='flex h-full min-w-[100px] bg-[#3d1e1c] px-2'
+            className='flex h-full min-w-[100px] bg-[#987554] px-2'
             onHoverEnd={() => setHoverState(false)}
           >
             <motion.div
@@ -318,8 +326,16 @@ export default function Navigation({ page, introPage }: any) {
                   ease: [0.36, 0.66, 0.04, 1],
                   delay: 1.6,
                 }}
-                className='flex aspect-square h-1/2 items-center justify-center rounded-full bg-[url("http://www.fyb.dk/img/baggrtilered.jpg")] text-5xl font-bold uppercase text-[#280503] shadow-2xl lg:h-2/5'
-              />
+                className='relative flex aspect-square h-1/2 items-center justify-center overflow-hidden rounded-full text-5xl font-bold uppercase shadow-2xl translate-z-0 lg:h-2/5'
+              >
+                {/* eslint-disable-next-line jsx-a11y/alt-text */}
+                <Image
+                  data={introPage.rightLogo.responsiveImage}
+                  layout='fill'
+                  lazyLoad={false}
+                  className='aspect-square'
+                />
+              </motion.div>
             </motion.div>
           </motion.div>
         </>

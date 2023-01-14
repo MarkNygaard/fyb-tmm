@@ -25,7 +25,7 @@ export default function Home({
     <Layout preview={subscription.enabled ?? false}>
       <Head>{renderMetaTags(metaTags)}</Head>
       <div className='grid h-screen w-screen grid-flow-row lg:grid-flow-col'>
-        <div className='relative flex h-full w-full items-center justify-center bg-[#B99976]'>
+        <div className='relative flex h-full w-full items-center justify-center bg-[#3d1e1c]'>
           <Link href={introPage.leftLink?.slug}>
             {introPage.leftLogoType === 'Image' ? (
               <motion.div
@@ -50,30 +50,17 @@ export default function Home({
             )}
           </Link>
         </div>
-        <div className='relative flex h-full w-full items-center justify-center bg-[#3d1e1c]'>
+        <div className='relative flex h-full w-full items-center justify-center bg-[#987554]'>
           <Link href={introPage.rightLink?.slug}>
-            {introPage.rightLogoType === 'Image' ? (
-              <motion.div
-                whileHover={{
-                  scale: 1.1,
-                }}
-                className='relative flex aspect-square w-1/2 cursor-pointer flex-col items-center justify-center space-y-4 overflow-hidden rounded-full bg-[#987554] text-5xl font-bold uppercase text-[#B99976] shadow-2xl translate-z-0 lg:h-2/5 lg:w-min'
-              >
-                {/* eslint-disable-next-line jsx-a11y/alt-text */}
-                <Image
-                  data={introPage.rightLogo.responsiveImage}
-                  layout='fill'
-                />
-              </motion.div>
-            ) : (
-              <motion.div
-                whileHover={{
-                  scale: 1.1,
-                }}
-                className={`relative flex aspect-square w-1/2 cursor-pointer flex-col items-center justify-center space-y-4 rounded-full bg-[url("https://www.datocms-assets.com/84152/1667597978-fake-your-beauty.jpg")] text-5xl font-bold uppercase text-[#280503] shadow-2xl lg:h-2/5 lg:w-min`}
-              />
-            )}
-            {/* {introPage.righstLogo.responsiveImage.src} */}
+            <motion.div
+              whileHover={{
+                scale: 1.1,
+              }}
+              className='relative flex aspect-square w-1/2 cursor-pointer flex-col items-center justify-center space-y-4 overflow-hidden rounded-full text-5xl font-bold uppercase shadow-2xl translate-z-0 lg:h-2/5 lg:w-min'
+            >
+              {/* eslint-disable-next-line jsx-a11y/alt-text */}
+              <Image data={introPage.rightLogo.responsiveImage} layout='fill' />
+            </motion.div>
           </Link>
         </div>
       </div>

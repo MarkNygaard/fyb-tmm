@@ -1,0 +1,9 @@
+fragment PricesFragment on PriceRecord {
+  id
+  treatment
+  description {
+    value
+  }
+  price
+  from
+}

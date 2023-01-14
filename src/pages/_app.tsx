@@ -8,8 +8,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
 
   return (
-    <AnimatePresence exitBeforeEnter>
-      {/* initial={false} */}
+    <AnimatePresence initial={false} exitBeforeEnter>
       <div key={router.route}>
         <Component {...pageProps} />{' '}
       </div>
