@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
-import { useInView } from 'react-intersection-observer';
-import { motion, useAnimation } from 'framer-motion';
 import classNames from 'clsx';
+import { motion, useAnimation } from 'framer-motion';
+import React, { useEffect } from 'react';
 import { Image, StructuredText } from 'react-datocms';
+import { useInView } from 'react-intersection-observer';
 
 export default function Biography({ details }: any) {
   const { ref, inView } = useInView({

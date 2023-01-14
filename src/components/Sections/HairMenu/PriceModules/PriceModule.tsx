@@ -1,6 +1,7 @@
-import React from 'react';
-import Prices from '../Prices/Prices';
 import classNames from 'clsx';
+import React from 'react';
+
+import Prices from '../Prices/Prices';
 
 export default function PriceModule({ content }: any) {
   return (

@@ -1,5 +1,5 @@
-import React from 'react';
 import classNames from 'clsx';
+import React from 'react';
 import { StructuredText } from 'react-datocms';
 
 export default function Prices({ content, arrayLength }: any) {

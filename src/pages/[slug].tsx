@@ -10,10 +10,10 @@ import ErrorPage from 'next/error';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import {
+  Image,
   QueryListenerOptions,
   renderMetaTags,
   useQuerySubscription,
-  Image,
 } from 'react-datocms';
 
 export default function Page({

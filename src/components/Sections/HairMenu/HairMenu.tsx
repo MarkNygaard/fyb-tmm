@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react';
 import classNames from 'clsx';
-import PriceModule from './PriceModules/PriceModule';
-import { useInView } from 'react-intersection-observer';
 import { motion, useAnimation } from 'framer-motion';
+import React, { useEffect } from 'react';
+import { useInView } from 'react-intersection-observer';
+
+import PriceModule from './PriceModules/PriceModule';
 
 export default function HairMenu({ details }: any) {
   const { ref, inView } = useInView({
