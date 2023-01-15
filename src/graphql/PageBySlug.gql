@@ -12,8 +12,8 @@ query PageBySlug($slug: String) {
     name
     slug
     content {
-      ... on HeaderRecord {
-        ...HeaderFragment
+      ... on HeroRecord {
+        ...HeroFragment
       }
       ... on TextRecord {
         ...TextFragment

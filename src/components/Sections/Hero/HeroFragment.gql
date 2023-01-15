@@ -1,8 +1,13 @@
-fragment HeaderFragment on HeaderRecord {
+fragment HeroFragment on HeroRecord {
   __typename
   id
   navigationId
   image {
+    responsiveImage(imgixParams: { fit: crop, auto: format }) {
+      ...responsiveImageFragment
+    }
+  }
+  backgroundImage {
     responsiveImage(imgixParams: { fit: crop, auto: format }) {
       ...responsiveImageFragment
     }

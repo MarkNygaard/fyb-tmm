@@ -27,7 +27,7 @@ export default function Biography({ details }: any) {
       ref={ref}
       id={details?.navigationId}
       className={classNames(
-        'align-center flex flex-col items-center justify-center overflow-hidden bg-[#1e262b] px-2 pt-32 text-gray-200 md:px-10'
+        'align-center flex flex-col items-center justify-center overflow-hidden bg-[#1e262b] py-10 px-2 pt-32 text-gray-200 md:px-10'
       )}
     >
       <motion.div

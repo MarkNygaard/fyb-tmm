@@ -38,7 +38,7 @@ export default function Footer({ details }: any) {
     <div
       ref={ref}
       id={details?.navigationId}
-      className='bg-[#1e262b] text-gray-300'
+      className='bg-[#1e262b] pt-10 text-gray-300'
     >
       <div className='grid grid-cols-1 grid-rows-footerSmall md:grid-cols-footerMedium md:grid-rows-footerMedium lg:grid-rows-footerLarge xl:grid-cols-footerLarge xl:grid-rows-footerXLarge'>
         <div className='col-start-1 col-end-2 row-start-6 row-end-[8] bg-[#252c31] md:col-start-1 md:col-end-13 md:row-start-4 md:row-end-6 xl:row-start-5 xl:row-end-7'></div>
@@ -61,27 +61,27 @@ export default function Footer({ details }: any) {
           </GoogleMap>
         </div>
         <div className='col-start-1 col-end-1 row-start-4 row-end-5 md:col-start-2 md:col-end-3 md:row-start-2 md:row-end-3 lg:col-start-4 lg:col-end-5 lg:row-start-3 lg:row-end-4 xl:row-start-2 xl:row-end-3'>
-          <div className='prose flex flex-col justify-center p-4 prose-p:text-gray-300 prose-strong:text-[#c09a5d] md:p-8'>
+          <div className='prose flex flex-col justify-center p-4 prose-p:text-gray-300 prose-a:text-gray-300 prose-strong:text-[#c09a5d] md:p-8'>
             <StructuredText data={details.address} />
           </div>
         </div>
         <div className='row-start-3 row-end-4 md:col-start-4 md:col-end-5 md:row-start-2 md:row-end-3 lg:row-start-4 lg:row-end-5 xl:row-start-3 xl:row-end-5'>
-          <div className='prose flex flex-col justify-center p-4 prose-p:text-gray-300 prose-strong:text-[#c09a5d] md:p-8'>
+          <div className='prose flex flex-col justify-center p-4 prose-p:text-gray-300 prose-a:text-gray-300 prose-strong:text-[#c09a5d] md:p-8'>
             <StructuredText data={details.contact} />
           </div>
         </div>
         <div className='row-start-1 row-end-2 md:col-start-2 md:col-end-3 md:row-end-2 lg:row-start-2 lg:row-end-3 xl:col-start-5 xl:col-end-6 xl:row-start-2 xl:row-end-3'>
-          <div className='prose flex flex-col justify-center p-4 prose-p:text-gray-300 prose-strong:text-[#c09a5d] md:p-8'>
+          <div className='prose flex flex-col justify-center p-4 prose-p:text-gray-300 prose-a:text-gray-300 prose-strong:text-[#c09a5d] md:p-8'>
             <StructuredText data={details.openingHours} />
           </div>
         </div>
         <div className='row-start-2 row-end-3 md:col-start-4 md:col-end-5 md:row-start-1 md:row-end-2 lg:row-start-2 lg:row-end-3 xl:col-start-5 xl:col-end-6 xl:row-start-3 xl:row-end-5'>
-          <div className='prose flex flex-col justify-center p-4 prose-p:text-gray-300 prose-strong:text-[#c09a5d] md:p-8'>
+          <div className='prose flex flex-col justify-center p-4 prose-p:text-gray-300 prose-a:text-gray-300 prose-strong:text-[#c09a5d] md:p-8'>
             <StructuredText data={details.info} />
           </div>
         </div>
       </div>
-      <div className='flex h-12 items-center justify-center bg-[#c09a5d] text-white'>
+      <div className='flex h-12 items-center justify-center bg-[#c09a5d] text-xs text-white md:text-base'>
         &copy; {new Date().getFullYear()} Fake Your Beauty vs The Motley Monkey.
         All rights reserved.
       </div>

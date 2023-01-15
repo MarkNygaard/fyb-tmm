@@ -28,7 +28,7 @@ export default function Text({ details }: any) {
       ref={ref}
       id={details.navigationId}
       className={classNames(
-        'align-center flex items-center justify-center overflow-hidden bg-[#1e262b] px-2 pt-32 md:px-10'
+        'align-center flex items-center justify-center overflow-hidden bg-[#1e262b] px-2 py-10 md:px-10'
       )}
     >
       <motion.div
