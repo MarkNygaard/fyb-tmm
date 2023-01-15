@@ -36,7 +36,7 @@ export default function Biography({ details }: any) {
         className='container grid grid-cols-bio grid-rows-bio'
       >
         <div className='col-start-2 col-end-6 row-start-2 row-end-5 grid grid-cols-bioText grid-rows-bioText items-center justify-center bg-[#252c31]'>
-          <div className='prose col-start-2 col-end-3 row-start-3 row-end-4 max-w-none font-light prose-p:text-gray-200 lg:row-start-2'>
+          <div className='prose col-start-1 col-end-4 row-start-3 row-end-5 max-w-none p-3 font-light prose-p:text-gray-200 md:col-start-2 md:col-end-3 md:row-end-4 md:px-0 lg:row-start-2'>
             <StructuredText data={details?.bioDescription} />
           </div>
         </div>
