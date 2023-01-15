@@ -1,4 +1,5 @@
 import Biography from '@Sections/Biography/Biography';
+import Footer from '@Sections/Footer/Footer';
 import Grid from '@Sections/Grid/Grid';
 import HairMenu from '@Sections/HairMenu/HairMenu';
 import Header from '@Sections/Header/Header';
@@ -25,6 +26,8 @@ export default function PageSection({ details }: any) {
     return <HairMenu details={details} />;
   } else if (details.__typename === 'BiographyRecord') {
     return <Biography details={details} />;
+  } else if (details.__typename === 'FooterRecord') {
+    return <Footer details={details} />;
   }
   return <></>;
 }

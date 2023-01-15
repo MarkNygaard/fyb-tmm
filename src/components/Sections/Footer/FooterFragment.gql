@@ -1,0 +1,23 @@
+fragment FooterFragment on FooterRecord {
+  __typename
+  id
+  navigationId
+  address {
+    value
+  }
+  contact {
+    value
+  }
+  location {
+    latitude
+    longitude
+  }
+  openingHours {
+    value
+  }
+  info {
+    value
+  }
+  facebookUrl
+  instagramUrl
+}

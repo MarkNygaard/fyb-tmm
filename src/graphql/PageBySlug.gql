@@ -36,6 +36,9 @@ query PageBySlug($slug: String) {
       ... on BiographyRecord {
         ...BiographyFragment
       }
+      ... on FooterRecord {
+        ...FooterFragment
+      }
     }
   }
   allPages {
