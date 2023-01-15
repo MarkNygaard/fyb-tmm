@@ -8,15 +8,16 @@ module.exports = {
       gridTemplateRows: {
         bio: '1fr 1fr 4fr 1fr',
         bioText: '1fr 1fr 6fr 1fr',
-        footerLarge: '1fr 3fr 3fr 1fr 1fr 1fr',
-        footerMedium: '4fr 1fr 4fr 4fr 1fr 1fr',
-        footerSmall: '4fr 1fr 4fr 4fr 1fr 1fr',
+        footerXLarge: '1fr 3fr 3fr 1fr 1fr 1fr',
+        footerLarge: '1fr 3fr 3fr 3fr 1fr 1fr',
+        footerMedium: '4fr 3fr 4fr 1fr 1fr',
+        footerSmall: '4fr 4fr 3fr 3fr 3fr 1fr 1fr',
       },
       gridTemplateColumns: {
         bio: '3fr 1fr 1fr 8fr 1fr',
         bioText: '1fr 6fr 1fr',
         footerLarge: '1fr 6fr 1fr 3fr 3fr 1fr',
-        footer: '1fr 6fr 1fr 6fr 1fr',
+        footerMedium: '1fr 6fr 1fr 6fr 1fr',
       },
       height: {
         132: '33rem',

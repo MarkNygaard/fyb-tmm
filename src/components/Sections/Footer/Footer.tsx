@@ -28,7 +28,7 @@ export default function Footer({ details }: any) {
   };
 
   const { isLoaded } = useLoadScript({
-    googleMapsApiKey: process.env.GOOGLE_API_KEY!,
+    googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_API_KEY!,
   });
 
   if (!isLoaded) {
@@ -40,9 +40,9 @@ export default function Footer({ details }: any) {
       id={details?.navigationId}
       className='bg-[#1e262b] text-gray-300'
     >
-      <div className='grid grid-cols-footer grid-rows-footerSmall md:grid-rows-footerMedium xl:grid-cols-footerLarge xl:grid-rows-footerLarge'>
-        <div className='col-start-1 col-end-13 row-start-5 row-end-7 bg-[#252c31] xl:row-start-5 xl:row-end-7'></div>
-        <div className='col-start-2 col-end-5 row-start-4 row-end-6 md:col-end-3 md:row-start-3 xl:row-start-2 xl:row-end-6'>
+      <div className='grid grid-cols-1 grid-rows-footerSmall md:grid-cols-footerMedium md:grid-rows-footerMedium lg:grid-rows-footerLarge xl:grid-cols-footerLarge xl:grid-rows-footerXLarge'>
+        <div className='col-start-1 col-end-2 row-start-6 row-end-[8] bg-[#252c31] md:col-start-1 md:col-end-13 md:row-start-4 md:row-end-6 xl:row-start-5 xl:row-end-7'></div>
+        <div className='col-start-1 col-end-2 row-start-5 row-end-7 px-4 md:col-start-2 md:col-end-5 md:row-start-3 md:row-end-5 md:px-0 lg:col-end-3 lg:row-start-3 lg:row-end-6 xl:row-start-2 xl:row-end-6'>
           <GoogleMap
             center={center}
             zoom={17}
@@ -60,23 +60,23 @@ export default function Footer({ details }: any) {
             <Marker position={center} />
           </GoogleMap>
         </div>
-        <div className='col-start-2 col-end-3 row-start-3 row-end-4 md:col-start-4 md:col-end-5 xl:row-start-2 xl:row-end-3'>
-          <div className='prose flex flex-col justify-center p-8 prose-p:text-gray-300 prose-strong:text-[#c09a5d]'>
+        <div className='col-start-1 col-end-1 row-start-4 row-end-5 md:col-start-2 md:col-end-3 md:row-start-2 md:row-end-3 lg:col-start-4 lg:col-end-5 lg:row-start-3 lg:row-end-4 xl:row-start-2 xl:row-end-3'>
+          <div className='prose flex flex-col justify-center p-4 prose-p:text-gray-300 prose-strong:text-[#c09a5d] md:p-8'>
             <StructuredText data={details.address} />
           </div>
         </div>
-        <div className='col-start-4 col-end-5 row-start-3 row-end-4 md:row-start-4 md:row-end-5 xl:row-start-3 xl:row-end-5'>
-          <div className='prose flex flex-col justify-center p-8 prose-p:text-gray-300 prose-strong:text-[#c09a5d]'>
+        <div className='row-start-3 row-end-4 md:col-start-4 md:col-end-5 md:row-start-2 md:row-end-3 lg:row-start-4 lg:row-end-5 xl:row-start-3 xl:row-end-5'>
+          <div className='prose flex flex-col justify-center p-4 prose-p:text-gray-300 prose-strong:text-[#c09a5d] md:p-8'>
             <StructuredText data={details.contact} />
           </div>
         </div>
-        <div className='col-start-2 col-end-3 row-start-1 row-end-2 xl:col-start-5 xl:col-end-6 xl:row-start-2 xl:row-end-3'>
-          <div className='prose flex flex-col justify-center p-8 prose-p:text-gray-300 prose-strong:text-[#c09a5d]'>
+        <div className='row-start-1 row-end-2 md:col-start-2 md:col-end-3 md:row-end-2 lg:row-start-2 lg:row-end-3 xl:col-start-5 xl:col-end-6 xl:row-start-2 xl:row-end-3'>
+          <div className='prose flex flex-col justify-center p-4 prose-p:text-gray-300 prose-strong:text-[#c09a5d] md:p-8'>
             <StructuredText data={details.openingHours} />
           </div>
         </div>
-        <div className='col-start-4 col-end-5 row-start-1 row-end-2 xl:col-start-5 xl:col-end-6 xl:row-start-3 xl:row-end-5'>
-          <div className='prose flex flex-col justify-center p-8 prose-p:text-gray-300 prose-strong:text-[#c09a5d]'>
+        <div className='row-start-2 row-end-3 md:col-start-4 md:col-end-5 md:row-start-1 md:row-end-2 lg:row-start-2 lg:row-end-3 xl:col-start-5 xl:col-end-6 xl:row-start-3 xl:row-end-5'>
+          <div className='prose flex flex-col justify-center p-4 prose-p:text-gray-300 prose-strong:text-[#c09a5d] md:p-8'>
             <StructuredText data={details.info} />
           </div>
         </div>
