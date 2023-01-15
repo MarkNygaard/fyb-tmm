@@ -40,9 +40,9 @@ export default function Page({
 
           <motion.div
             className='fixed inset-0 z-40 h-screen flex-col lg:hidden'
-            initial={{ x: 0 }}
-            animate={{ x: '-100vw' }}
-            transition={{ duration: 1.6, ease: [0.8, 0, 0.1, 1], delay: 0.6 }}
+            // initial={{ x: 0 }}
+            // animate={{ x: '-100vw' }}
+            // transition={{ duration: 1.6, ease: [0.8, 0, 0.1, 1], delay: 0.6 }}
           >
             {page.slug === introPage.leftLink.slug ? (
               <>

@@ -2,6 +2,7 @@ import classNames from 'clsx';
 import { motion } from 'framer-motion';
 import React from 'react';
 import { Image } from 'react-datocms';
+import { SlArrowDown } from 'react-icons/sl';
 
 export default function Hero({ details }: any) {
   return (
@@ -25,7 +26,7 @@ export default function Hero({ details }: any) {
         </div>
       )}
       {details.image && (
-        <div className='relative col-start-1 col-end-2 row-start-2 row-end-4 md:col-start-2 md:col-end-3 md:row-end-3 md:w-2/3 xl:row-end-4 xl:h-2/3'>
+        <div className='relative col-start-1 col-end-2 row-start-2 row-end-4 md:col-start-2 md:col-end-3 md:row-end-3 xl:col-start-6 xl:col-end-8 xl:row-start-2 xl:row-end-5 xl:opacity-50'>
           {/* eslint-disable-next-line jsx-a11y/alt-text */}
           <Image
             data={details.image?.responsiveImage}
@@ -37,7 +38,7 @@ export default function Hero({ details }: any) {
           />
         </div>
       )}
-      <div className='relative col-start-1 col-end-2 row-start-4 row-end-5 flex items-center justify-center md:col-start-2 md:col-end-5 md:justify-start'>
+      <div className='relative col-start-1 col-end-2 row-start-4 row-end-5 flex items-center justify-center md:col-start-2 md:col-end-5 md:justify-start xl:col-start-6 xl:col-end-8 xl:row-start-5 xl:row-end-6 xl:justify-center'>
         <motion.button
           whileHover={{ scale: 1.1 }}
           className='mt-8 bg-[#be965a] py-4 px-8 text-lg font-light text-white xl:py-6 xl:px-16'
@@ -46,6 +47,9 @@ export default function Hero({ details }: any) {
             {details.buttonText}
           </a>
         </motion.button>
+      </div>
+      <div className='relative col-start-1 col-end-2 row-start-6 row-end-7 flex items-center justify-center text-4xl text-gray-300 md:col-end-7 xl:col-end-13'>
+        <SlArrowDown />
       </div>
     </div>
   );
