@@ -1,25 +1,57 @@
-import { motion, useMotionValue, useScroll } from 'framer-motion';
+import {
+  motion,
+  useMotionTemplate,
+  useMotionValue,
+  useScroll,
+  useTransform,
+} from 'framer-motion';
 import Link from 'next/link';
 import { useEffect } from 'react';
 import { BsInstagram, BsFacebook } from 'react-icons/bs';
 
-export default function Navigation({ page, introPage }: any) {
-  const { scrollY } = useScroll();
-  const height = useMotionValue(95);
+let clamp = (number: any, min: any, max: any) =>
+  Math.min(Math.max(number, min), max);
+
+function useBoundedScroll(bounds: any) {
+  let { scrollY } = useScroll();
+  let scrollYBounded = useMotionValue(0);
+  let scrollYBoundedProgress = useTransform(
+    scrollYBounded,
+    [0, bounds],
+    [0, 1]
+  );
 
   useEffect(() => {
     return scrollY.onChange((current) => {
-      const previous = scrollY.getPrevious();
-      const diff = current - previous;
-      const newHeight = height.get() - diff;
+      let previous = scrollY.getPrevious();
+      let diff = current - previous;
+      let newScrollYBounded = scrollYBounded.get() + diff;
 
-      height.set(Math.min(Math.max(newHeight, 65), 95));
+      scrollYBounded.set(clamp(newScrollYBounded, 0, bounds));
     });
-  }, [height, scrollY]);
+  }, [bounds, scrollY, scrollYBounded]);
+
+  return { scrollYBounded, scrollYBoundedProgress };
+}
+
+export default function Navigation({ page, introPage }: any) {
+  let { scrollYBoundedProgress } = useBoundedScroll(300);
+  let scrollYBoundedProgressThrottled = useTransform(
+    scrollYBoundedProgress,
+    [0, 0.75, 1],
+    [0, 0, 1]
+  );
 
   return (
     <motion.div
-      style={{ height }}
+      style={{
+        height: useTransform(scrollYBoundedProgressThrottled, [0, 1], [95, 65]),
+        backgroundColor: useMotionTemplate`rgb(0 0 0 / ${useTransform(
+          scrollYBoundedProgressThrottled,
+          [0, 1],
+          [0.5, 0.2]
+        )})`,
+      }}
       className='absolute z-20 flex w-full items-center justify-between bg-black/30 px-16 shadow-sm backdrop-blur-sm xl:px-28'
     >
       <div className='flex items-center space-x-4'>
@@ -27,7 +59,7 @@ export default function Navigation({ page, introPage }: any) {
           target='_blank'
           rel='noopener norefferer noreferrer'
           href='https://www.instagram.com/fakeyourbeautycph/'
-          className='text-3xl text-gray-300'
+          className='text-3xl text-gray-300 hover:text-white'
         >
           <BsInstagram />
         </a>
@@ -35,7 +67,7 @@ export default function Navigation({ page, introPage }: any) {
           target='_blank'
           rel='noopener norefferer noreferrer'
           href='https://www.facebook.com/profile.php?id=100087142441016'
-          className='text-3xl text-gray-300'
+          className='text-3xl text-gray-300 hover:text-white'
         >
           <BsFacebook />
         </a>
