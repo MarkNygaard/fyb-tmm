@@ -9,8 +9,8 @@ export default function Header({ introPage, page }: any) {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
 
   return (
-    <nav className='relative flex'>
-      <div className='hidden lg:flex'>
+    <>
+      <div className='sticky top-0 z-40 hidden w-full lg:flex'>
         <Navigation introPage={introPage} page={page} />
       </div>
       <div className='fixed z-30 flex p-8 text-3xl text-white lg:hidden'>
@@ -24,6 +24,6 @@ export default function Header({ introPage, page }: any) {
           <MobileMenu page={page} onClose={() => setMenuIsOpen(false)} />
         )}
       </AnimatePresence>
-    </nav>
+    </>
   );
 }
