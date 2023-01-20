@@ -29,7 +29,7 @@ export default function Grid({ details }: any) {
       ref={ref}
       id={details.navigationId}
       className={classNames('flex justify-center py-20 px-0 md:px-10', {
-        'bg-gray-800': details.backgroundColor === true,
+        'bg-skin-secondary': details.backgroundColor === true,
       })}
     >
       <motion.div

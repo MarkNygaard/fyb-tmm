@@ -27,8 +27,7 @@ export default function YoutubeVideoRecord({ details }: any) {
       ref={ref}
       id={details.navigationId}
       className={classNames('flex justify-center px-2 py-10 md:px-10', {
-        'bg-gray-800': details.backgroundColor === true,
-        'bg-gray-200': details.backgroundColor === false,
+        'bg-skin-secondary': details.backgroundColor === true,
       })}
     >
       <motion.div

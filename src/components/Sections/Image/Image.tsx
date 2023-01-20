@@ -27,7 +27,7 @@ export default function ImageRecord({ details }: any) {
       ref={ref}
       id={details.navigationId}
       className={classNames('py-20 px-2 md:px-10', {
-        'bg-gray-800': details.backgroundColor === true,
+        'bg-skin-secondary': details.backgroundColor === true,
       })}
     >
       <motion.div
