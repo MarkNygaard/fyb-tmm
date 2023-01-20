@@ -1,10 +1,33 @@
 /** @type {import('tailwindcss').Config} */
 const plugin = require('tailwindcss/plugin');
 
+function withOpacity(variableName) {
+  return ({ opacityValue }) => {
+    if (opacityValue !== undefined) {
+      return `rgba(var(${variableName}), ${opacityValue})`;
+    }
+    return `rgb(var(${variableName}))`;
+  };
+}
+
 module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
+      textColor: {
+        skin: {
+          primary: withOpacity('--color-primary'),
+          secondary: withOpacity('--color-secondary'),
+          accent: withOpacity('--color-accent'),
+        },
+      },
+      backgroundColor: {
+        skin: {
+          primary: withOpacity('--color-primary'),
+          secondary: withOpacity('--color-secondary'),
+          accent: withOpacity('--color-accent'),
+        },
+      },
       gridTemplateRows: {
         bio: '1fr 1fr 4fr 1fr',
         bioText: '1fr 1fr 6fr 1fr',

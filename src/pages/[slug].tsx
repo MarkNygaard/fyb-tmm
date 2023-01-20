@@ -23,6 +23,9 @@ export default function Page({
   const { data } = useQuerySubscription(subscription);
   const { site, page, introPage } = data;
   const metaTags = page?.seo.concat(site.favicon);
+  const primaryColor = `--color-primary: ${page.primaryColor.red}, ${page.primaryColor.green}, ${page.primaryColor.blue};`;
+  const secondaryColor = `--color-secondary: ${page.secondaryColor.red}, ${page.secondaryColor.green}, ${page.secondaryColor.blue};`;
+  const accentColor = `--color-accent: ${page.accentColor.red}, ${page.accentColor.green}, ${page.accentColor.blue};`;
 
   if (!router.isFallback && !page?.slug) {
     return <ErrorPage statusCode={404} />;
@@ -35,7 +38,12 @@ export default function Page({
         </h1>
       ) : (
         <>
-          <Head>{renderMetaTags(metaTags)}</Head>
+          <Head>
+            {renderMetaTags(metaTags)}
+            <style>
+              :root {`{${primaryColor} ${secondaryColor}  ${accentColor}}`}
+            </style>
+          </Head>
           <Header introPage={introPage} page={page} />
 
           <motion.div
@@ -139,13 +147,14 @@ export default function Page({
             )}
           </motion.div>
           <motion.div
-          // initial={{ opacity: 0, y: '100%' }}
-          // animate={{ opacity: 1, y: 0 }}
-          // transition={{
-          //   duration: 0.6,
-          //   ease: [0.43, 0.13, 0.23, 0.96],
-          //   delay: 1.6,
-          // }}
+            // initial={{ opacity: 0, y: '100%' }}
+            // animate={{ opacity: 1, y: 0 }}
+            // transition={{
+            //   duration: 0.6,
+            //   ease: [0.43, 0.13, 0.23, 0.96],
+            //   delay: 1.6,
+            // }}
+            className='bg-skin-primary'
           >
             <AnimatePresence>
               {page.content?.map((section: any, i: any) => {

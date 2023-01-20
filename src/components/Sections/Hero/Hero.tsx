@@ -13,7 +13,7 @@ export default function Hero({ details }: any) {
       )}
     >
       {details.backgroundImage && (
-        <div className='relative col-start-1 col-end-2 row-start-1 row-end-7 h-screen w-full bg-[#1e262b] md:col-end-7 xl:col-end-13'>
+        <div className='relative col-start-1 col-end-2 row-start-1 row-end-7 h-screen w-full md:col-end-7 xl:col-end-13'>
           {/* eslint-disable-next-line jsx-a11y/alt-text */}
           <Image
             data={details.backgroundImage?.responsiveImage}
@@ -41,7 +41,7 @@ export default function Hero({ details }: any) {
       <div className='relative col-start-1 col-end-2 row-start-4 row-end-5 flex items-center justify-center md:col-start-2 md:col-end-5 md:justify-start xl:col-start-6 xl:col-end-8 xl:row-start-5 xl:row-end-6 xl:justify-center'>
         <motion.button
           whileHover={{ scale: 1.1 }}
-          className='mt-8 bg-[#be965a] py-4 px-8 text-lg font-light text-white xl:py-6 xl:px-16'
+          className='mt-8 bg-skin-accent py-4 px-8 text-lg font-light text-white xl:py-6 xl:px-16'
         >
           <a href={details.buttonLink} target='_blank' rel='noreferrer'>
             {details.buttonText}

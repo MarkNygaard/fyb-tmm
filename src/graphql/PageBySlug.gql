@@ -11,6 +11,24 @@ query PageBySlug($slug: String) {
     id
     name
     slug
+    primaryColor {
+      hex
+      red
+      green
+      blue
+    }
+    secondaryColor {
+      hex
+      red
+      green
+      blue
+    }
+    accentColor {
+      hex
+      red
+      green
+      blue
+    }
     content {
       ... on HeroRecord {
         ...HeroFragment

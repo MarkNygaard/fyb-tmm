@@ -5,8 +5,8 @@ import Prices from '../Prices/Prices';
 
 export default function PriceModule({ content }: any) {
   return (
-    <div className='text-lg font-bold text-[#c09a5d] lg:pb-4'>
-      <div className='flex justify-center py-12 text-4xl font-bold text-[#c09a5d]'>
+    <div className='text-lg font-bold text-skin-accent lg:pb-4'>
+      <div className='flex justify-center py-12 text-4xl font-bold text-skin-accent'>
         {content?.heading}
       </div>
       <div

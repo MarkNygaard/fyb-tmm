@@ -42,7 +42,7 @@ export default function MobileMenu({ onClose, page }: any) {
             delay: 0.3,
           },
         }}
-        className='flex h-screen w-5/6 flex-col justify-between bg-[#c09a5d] shadow-2xl md:w-3/12 xl:w-2/12'
+        className='flex h-screen w-5/6 flex-col justify-between bg-skin-accent shadow-2xl md:w-3/12 xl:w-2/12'
       >
         <div className='w-full space-y-1 px-8 pt-24 pb-3'>
           {page.content?.map((navigation: any, i: any) => {

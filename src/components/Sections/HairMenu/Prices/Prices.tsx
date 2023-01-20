@@ -5,11 +5,11 @@ import { StructuredText } from 'react-datocms';
 export default function Prices({ content, arrayLength }: any) {
   return (
     <div
-      className={classNames('m-4 flex flex-col bg-[#252c31] p-5', {
+      className={classNames('m-4 flex flex-col bg-skin-secondary p-5', {
         'min-h-[300px]': arrayLength > 1,
       })}
     >
-      <div className='font-medium text-[#c09a5d]'>{content?.treatment}</div>
+      <div className='font-medium text-skin-accent'>{content?.treatment}</div>
       <div className='font- flex h-full w-full justify-center'>
         <div
           className={classNames(
@@ -25,7 +25,7 @@ export default function Prices({ content, arrayLength }: any) {
         </div>
       </div>
       {content?.price && (
-        <div className='flex justify-end pt-4 text-xl text-[#c09a5d]'>
+        <div className='flex justify-end pt-4 text-xl text-skin-accent'>
           {content?.from === true ? 'fra' : null} {content?.price} kr.
         </div>
       )}
