@@ -27,7 +27,7 @@ export default function Hero({ details, page }: any) {
         </div>
       )}
       {details.image && (
-        <div className='relative col-start-1 col-end-2 row-start-2 row-end-4 md:col-start-2 md:col-end-3 md:row-end-3 xl:col-start-6 xl:col-end-8 xl:row-start-2 xl:row-end-5 xl:opacity-50'>
+        <div className='relative col-start-1 col-end-2 row-start-2 row-end-4 md:col-start-2 md:col-end-3 md:row-end-3 xl:col-start-6 xl:col-end-8 xl:row-start-2 xl:row-end-5'>
           {/* eslint-disable-next-line jsx-a11y/alt-text */}
           <Image
             data={details.image?.responsiveImage}
