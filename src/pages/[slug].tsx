@@ -165,19 +165,10 @@ export default function Page({
 
           {/* MOBILE STOP HERE */}
 
-          <motion.div
-            // initial={{ opacity: 0, y: '100%' }}
-            // animate={{ opacity: 1, y: 0 }}
-            // transition={{
-            //   duration: 0.6,
-            //   ease: [0.43, 0.13, 0.23, 0.96],
-            //   delay: 1.6,
-            // }}
-            className='bg-skin-primary'
-          >
+          <motion.div className='bg-skin-primary'>
             <AnimatePresence>
               {page.content?.map((section: any, i: any) => {
-                return <PageSection key={i} details={section} />;
+                return <PageSection key={i} details={section} page={page} />;
               })}
             </AnimatePresence>
           </motion.div>

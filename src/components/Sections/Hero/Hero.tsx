@@ -1,10 +1,11 @@
 import classNames from 'clsx';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import React from 'react';
 import { Image } from 'react-datocms';
 import { SlArrowDown } from 'react-icons/sl';
 
-export default function Hero({ details }: any) {
+export default function Hero({ details, page }: any) {
   return (
     <div
       id={details.navigationId}
@@ -47,9 +48,12 @@ export default function Hero({ details }: any) {
           </a>
         </motion.button>
       </div>
-      <div className='relative col-start-1 col-end-2 row-start-6 row-end-7 hidden items-center justify-center text-4xl text-gray-300 md:col-end-7 lg:flex xl:col-end-13'>
+      <Link
+        href={'#' + page.content[1].navigationId}
+        className='relative col-start-1 col-end-2 row-start-6 row-end-7 hidden items-center justify-center text-4xl text-gray-300 md:col-end-7 lg:flex xl:col-end-13'
+      >
         <SlArrowDown />
-      </div>
+      </Link>
     </div>
   );
 }

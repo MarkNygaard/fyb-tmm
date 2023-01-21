@@ -9,9 +9,9 @@ import TextImage from '@Sections/TextImage/TextImage';
 import YoutubeVideo from '@Sections/YoutubeVideo/YoutubeVideo';
 import React from 'react';
 
-export default function PageSection({ details }: any) {
+export default function PageSection({ details, page }: any) {
   if (details.__typename === 'HeroRecord') {
-    return <Hero details={details} />;
+    return <Hero details={details} page={page} />;
   } else if (details.__typename === 'TextImageRecord') {
     return <TextImage details={details} />;
   } else if (details.__typename === 'ImageRecord') {
