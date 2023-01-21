@@ -23,9 +23,13 @@ export default function Page({
   const { data } = useQuerySubscription(subscription);
   const { site, page, introPage } = data;
   const metaTags = page?.seo.concat(site.favicon);
+
+  // Colors
   const primaryColor = `--color-primary: ${page.primaryColor.red}, ${page.primaryColor.green}, ${page.primaryColor.blue};`;
   const secondaryColor = `--color-secondary: ${page.secondaryColor.red}, ${page.secondaryColor.green}, ${page.secondaryColor.blue};`;
   const accentColor = `--color-accent: ${page.accentColor.red}, ${page.accentColor.green}, ${page.accentColor.blue};`;
+  const leftColor = `--color-left: ${introPage.leftColor.red}, ${introPage.leftColor.green}, ${introPage.leftColor.blue};`;
+  const rightColor = `--color-right: ${introPage.rightColor.red}, ${introPage.rightColor.green}, ${introPage.rightColor.blue};`;
 
   if (!router.isFallback && !page?.slug) {
     return <ErrorPage statusCode={404} />;
@@ -41,10 +45,13 @@ export default function Page({
           <Head>
             {renderMetaTags(metaTags)}
             <style>
-              :root {`{${primaryColor} ${secondaryColor}  ${accentColor}}`}
+              :root{' '}
+              {`{${primaryColor} ${secondaryColor}  ${accentColor} ${leftColor} ${rightColor}}`}
             </style>
           </Head>
           <Header introPage={introPage} page={page} />
+
+          {/* MOBILE START HERE */}
 
           <motion.div
             className='fixed inset-0 z-40 h-screen flex-col lg:hidden'
@@ -55,7 +62,7 @@ export default function Page({
             {page.slug === introPage.leftLink.slug ? (
               <>
                 <motion.div
-                  className='relative flex items-center justify-center bg-[#B99976]'
+                  className='relative flex items-center justify-center bg-skin-accent'
                   initial={{
                     height: '50%',
                   }}
@@ -79,7 +86,7 @@ export default function Page({
                       ease: [0.36, 0.66, 0.04, 1],
                       delay: 1.6,
                     }}
-                    className='relative flex aspect-square w-1/2 items-center justify-center overflow-hidden rounded-full bg-[#987554] text-5xl font-bold uppercase text-[#B99976] shadow-2xl translate-z-0 lg:h-2/5'
+                    className='relative flex aspect-square w-40 items-center justify-center overflow-hidden rounded-full bg-skin-right text-5xl font-bold uppercase shadow-2xl translate-z-0 lg:w-64'
                   >
                     {/* eslint-disable-next-line jsx-a11y/alt-text */}
                     <Image
@@ -99,7 +106,7 @@ export default function Page({
                       ease: [0.36, 0.66, 0.04, 1],
                     },
                   }}
-                  className='bg-[#3d1e1c]'
+                  className='bg-skin-right'
                 ></motion.div>
               </>
             ) : (
@@ -116,7 +123,7 @@ export default function Page({
                   className='bg-[#B99976]'
                 ></motion.div>
                 <motion.div
-                  className='flex items-center justify-center bg-[#3d1e1c]'
+                  className='flex items-center justify-center bg-skin-right'
                   initial={{
                     height: '50%',
                   }}
@@ -140,12 +147,24 @@ export default function Page({
                       ease: [0.36, 0.66, 0.04, 1],
                       delay: 1.6,
                     }}
-                    className={`relative flex aspect-square w-1/2 cursor-pointer flex-col items-center justify-center space-y-4 rounded-full bg-[url("https://www.datocms-assets.com/84152/1667597978-fake-your-beauty.jpg")] text-5xl font-bold uppercase text-[#280503] shadow-2xl lg:h-2/5`}
-                  />
+                    className='relative flex aspect-square w-40 items-center justify-center overflow-hidden rounded-full bg-skin-right text-5xl font-bold uppercase shadow-2xl translate-z-0 lg:w-64'
+                  >
+                    {/* eslint-disable-next-line jsx-a11y/alt-text */}
+                    <Image
+                      data={introPage.rightLogo.responsiveImage}
+                      layout='fill'
+                      lazyLoad={false}
+                      className='aspect-square'
+                      priority
+                    />
+                  </motion.div>
                 </motion.div>
               </>
             )}
           </motion.div>
+
+          {/* MOBILE STOP HERE */}
+
           <motion.div
             // initial={{ opacity: 0, y: '100%' }}
             // animate={{ opacity: 1, y: 0 }}

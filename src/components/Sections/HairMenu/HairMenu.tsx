@@ -34,7 +34,7 @@ export default function HairMenu({ details }: any) {
       <motion.div
         initial={details.fadeIn ? { opacity: 0 } : { opacity: 1 }}
         animate={details.fadeIn ? animation : { opacity: 1 }}
-        className='container space-y-6'
+        className='container space-y-2 xl:space-y-4'
       >
         {details.priceModules.map((module: any) => {
           return <PriceModule key={module.id} content={module} />;

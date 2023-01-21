@@ -26,6 +26,8 @@ module.exports = {
           primary: withOpacity('--color-primary'),
           secondary: withOpacity('--color-secondary'),
           accent: withOpacity('--color-accent'),
+          left: withOpacity('--color-left'),
+          right: withOpacity('--color-right'),
         },
       },
       gridTemplateRows: {

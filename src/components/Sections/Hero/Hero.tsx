@@ -34,7 +34,6 @@ export default function Hero({ details }: any) {
             objectFit='contain'
             objectPosition='50% 50%'
             priority
-            className='opacity-60'
           />
         </div>
       )}
@@ -48,7 +47,7 @@ export default function Hero({ details }: any) {
           </a>
         </motion.button>
       </div>
-      <div className='relative col-start-1 col-end-2 row-start-6 row-end-7 flex items-center justify-center text-4xl text-gray-300 md:col-end-7 xl:col-end-13'>
+      <div className='relative col-start-1 col-end-2 row-start-6 row-end-7 hidden items-center justify-center text-4xl text-gray-300 md:col-end-7 lg:flex xl:col-end-13'>
         <SlArrowDown />
       </div>
     </div>

@@ -12,23 +12,22 @@ query PageBySlug($slug: String) {
     name
     slug
     primaryColor {
-      hex
       red
       green
       blue
     }
     secondaryColor {
-      hex
       red
       green
       blue
     }
     accentColor {
-      hex
       red
       green
       blue
     }
+    instagramUrl
+    facebookUrl
     content {
       ... on HeroRecord {
         ...HeroFragment
@@ -85,7 +84,11 @@ query PageBySlug($slug: String) {
         ...responsiveImageFragment
       }
     }
-    leftLogoType
+    leftColor {
+      red
+      green
+      blue
+    }
     rightLink {
       name
       slug
@@ -103,6 +106,10 @@ query PageBySlug($slug: String) {
         ...responsiveImageFragment
       }
     }
-    rightLogoType
+    rightColor {
+      red
+      green
+      blue
+    }
   }
 }

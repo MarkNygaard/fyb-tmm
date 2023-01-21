@@ -53,6 +53,7 @@ export default function Navigation({ page, introPage }: any) {
         )})`,
       }}
       className='absolute z-20 flex w-full items-center justify-between bg-black/30 px-16 shadow-sm backdrop-blur-sm xl:px-28'
+      id='nav'
     >
       <div className='flex items-center space-x-4'>
         <a
@@ -78,7 +79,7 @@ export default function Navigation({ page, introPage }: any) {
             <Link
               key={navigation.id}
               href={'#' + navigation.navigationId}
-              className='block py-2 px-4 text-xl font-light uppercase text-gray-300 opacity-100 hover:text-white'
+              className='block py-2 px-3 text-lg font-light uppercase text-gray-300 opacity-100 hover:text-white xl:px-4 xl:text-xl'
             >
               {navigation.navigationId}
             </Link>

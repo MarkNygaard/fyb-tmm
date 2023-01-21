@@ -17,7 +17,15 @@ query HomePage {
         ...responsiveImageFragment
       }
     }
-    leftLogoType
+    leftIntro {
+      value
+    }
+    leftShowIntro
+    leftColor {
+      red
+      green
+      blue
+    }
     rightLink {
       name
       slug
@@ -27,6 +35,14 @@ query HomePage {
         ...responsiveImageFragment
       }
     }
-    rightLogoType
+    rightIntro {
+      value
+    }
+    rightShowIntro
+    rightColor {
+      red
+      green
+      blue
+    }
   }
 }

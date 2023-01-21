@@ -27,15 +27,18 @@ export default function Text({ details }: any) {
     <div
       ref={ref}
       id={details.navigationId}
-      className='align-center flex items-center justify-center overflow-hidden px-2 py-10 md:px-10'
+      className='align-center flex items-center justify-center overflow-hidden px-4 py-10 md:px-10'
     >
       <motion.div
         initial={details.fadeIn ? { opacity: 0 } : { opacity: 1 }}
         animate={details.fadeIn ? animation : { opacity: 1 }}
-        className={classNames('prose prose-p:text-gray-300 sm:w-full', {
-          'prose-invert': details.backgroundColor === true,
-          'prose-gray': details.backgroundColor === false,
-        })}
+        className={classNames(
+          'prose prose-h2:text-4xl prose-h2:text-skin-accent prose-p:text-gray-300 prose-strong:text-skin-accent sm:w-full',
+          {
+            'prose-invert': details.backgroundColor === true,
+            'prose-gray': details.backgroundColor === false,
+          }
+        )}
       >
         <StructuredText
           data={details.content}

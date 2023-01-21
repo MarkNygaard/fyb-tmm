@@ -6,7 +6,7 @@ import type { GetStaticPropsContext, InferGetStaticPropsType } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
 import React from 'react';
-import { Image } from 'react-datocms';
+import { Image, StructuredText } from 'react-datocms';
 import {
   QueryListenerOptions,
   renderMetaTags,
@@ -21,17 +21,26 @@ export default function Home({
   } = useQuerySubscription(subscription);
   const metaTags = introPage.seo.concat(site.favicon);
 
+  // Colors
+  const leftColor = `--color-left: ${introPage.leftColor.red}, ${introPage.leftColor.green}, ${introPage.leftColor.blue};`;
+  const rightColor = `--color-right: ${introPage.rightColor.red}, ${introPage.rightColor.green}, ${introPage.rightColor.blue};`;
+
   return (
     <Layout preview={subscription.enabled ?? false}>
-      <Head>{renderMetaTags(metaTags)}</Head>
-      <div className='grid h-screen w-screen grid-flow-row lg:grid-flow-col'>
-        <div className='relative flex h-full w-full items-center justify-center bg-[#3d1e1c]'>
+      <Head>
+        {renderMetaTags(metaTags)}
+        <style>:root {`{${leftColor} ${rightColor}}`}</style>
+      </Head>
+      <div className='grid h-screen w-screen grid-flow-row lg:grid-flow-col lg:grid-cols-2 lg:grid-rows-5'>
+        <div className='col-start-1 col-end-2 row-start-1 row-end-6 hidden h-full w-full bg-skin-left lg:flex' />
+        <div className='col-start-2 col-end-3 row-start-1 row-end-6 hidden h-full w-full bg-skin-right lg:flex' />
+        <div className='relative flex h-full w-full items-center justify-center bg-skin-left lg:col-start-1 lg:col-end-2 lg:row-start-2 lg:row-end-4'>
           <Link href={introPage.leftLink?.slug}>
             <motion.div
               whileHover={{
                 scale: 1.1,
               }}
-              className='relative flex aspect-square w-40 cursor-pointer flex-col items-center justify-center space-y-4 overflow-hidden rounded-full bg-[#987554] text-5xl font-bold uppercase text-[#B99976] shadow-2xl translate-z-0 lg:w-64'
+              className='relative flex aspect-square w-40 cursor-pointer flex-col items-center justify-center space-y-4 overflow-hidden rounded-full text-5xl font-bold shadow-2xl translate-z-0 lg:w-64 xl:w-96'
             >
               {/* eslint-disable-next-line jsx-a11y/alt-text */}
               <Image
@@ -39,23 +48,42 @@ export default function Home({
                 layout='fill'
                 objectFit='cover'
                 objectPosition='50% 50%'
+                priority
               />
             </motion.div>
           </Link>
         </div>
-        <div className='relative flex h-full w-full items-center justify-center bg-[#987554]'>
+        <div className='relative flex h-full w-full items-center justify-center bg-skin-right lg:col-start-2 lg:col-end-3 lg:row-start-2 lg:row-end-4'>
           <Link href={introPage.rightLink?.slug}>
             <motion.div
               whileHover={{
                 scale: 1.1,
               }}
-              className='relative flex aspect-square w-40 cursor-pointer flex-col items-center justify-center space-y-4 overflow-hidden rounded-full text-5xl font-bold uppercase shadow-2xl translate-z-0 lg:w-64'
+              className='relative flex aspect-square w-40 cursor-pointer flex-col items-center justify-center space-y-4 overflow-hidden rounded-full text-5xl font-bold shadow-2xl translate-z-0 lg:w-64 xl:w-96'
             >
               {/* eslint-disable-next-line jsx-a11y/alt-text */}
-              <Image data={introPage.rightLogo.responsiveImage} layout='fill' />
+              <Image
+                data={introPage.rightLogo.responsiveImage}
+                layout='fill'
+                priority
+              />
             </motion.div>
           </Link>
         </div>
+        {introPage.leftShowIntro && (
+          <div className='col-start-1 col-end-2 row-start-4 row-end-6 hidden h-full w-full items-start justify-center lg:flex'>
+            <div className='prose prose-zinc w-3/5 rounded-md bg-white/40 p-4 shadow-lg lg:p-8 2xl:w-2/5 2xl:p-12'>
+              <StructuredText data={introPage.leftIntro} />
+            </div>
+          </div>
+        )}
+        {introPage.rightShowIntro && (
+          <div className='col-start-2 col-end-3 row-start-4 row-end-6 hidden h-full w-full items-start justify-center lg:flex'>
+            <div className='prose prose-zinc w-3/5 rounded-md bg-white/40 p-4 shadow-lg lg:p-8 2xl:w-2/5 2xl:p-12'>
+              <StructuredText data={introPage.rightIntro} />
+            </div>
+          </div>
+        )}
       </div>
     </Layout>
   );
