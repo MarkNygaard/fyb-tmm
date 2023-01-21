@@ -7,7 +7,7 @@ import PriceModule from './PriceModules/PriceModule';
 
 export default function HairMenu({ details }: any) {
   const { ref, inView } = useInView({
-    threshold: 0.4,
+    threshold: 0.2,
   });
   const animation = useAnimation();
 

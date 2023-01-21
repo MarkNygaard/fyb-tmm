@@ -37,8 +37,8 @@ export default function YoutubeVideoRecord({ details }: any) {
       >
         <div
           className={classNames('shadow-x1 rounded-lg  p-2 md:p-4', {
-            'bg-gray-200': details.backgroundColor === true,
-            'bg-white': details.backgroundColor === false,
+            'bg-skin-primary': details.backgroundColor === true,
+            'bg-skin-secondary': details.backgroundColor === false,
           })}
         >
           <LiteYouTubeEmbed id={details.link.providerUid} title='Play' />

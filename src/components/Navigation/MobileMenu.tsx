@@ -69,7 +69,7 @@ export default function MobileMenu({ onClose, page }: any) {
                   }}
                 >
                   <a
-                    className='block py-2 px-4 text-2xl font-normal text-white outline-none hover:text-[#987554]'
+                    className='block py-2 px-4 text-2xl font-normal text-white outline-none'
                     href={'#' + navigation.navigationId}
                     onClick={onClose}
                   >

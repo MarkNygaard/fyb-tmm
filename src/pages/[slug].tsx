@@ -62,7 +62,7 @@ export default function Page({
             {page.slug === introPage.leftLink.slug ? (
               <>
                 <motion.div
-                  className='relative flex items-center justify-center bg-skin-accent'
+                  className='relative flex items-center justify-center bg-skin-left'
                   initial={{
                     height: '50%',
                   }}
@@ -120,7 +120,7 @@ export default function Page({
                       ease: [0.36, 0.66, 0.04, 1],
                     },
                   }}
-                  className='bg-[#B99976]'
+                  className='bg-skin-left'
                 ></motion.div>
                 <motion.div
                   className='flex items-center justify-center bg-skin-right'
