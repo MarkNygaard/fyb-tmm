@@ -1,0 +1,12 @@
+fragment HeaderFragment on HeaderRecord {
+  __typename
+  id
+  navigationId
+  image {
+    responsiveImage(imgixParams: { fit: crop, auto: format }) {
+      ...responsiveImageFragment
+    }
+  }
+  buttonText
+  buttonLink
+}

@@ -10,10 +10,17 @@ export default function PriceModule({ content }: any) {
         {content?.heading}
       </div>
       <div
-        className={classNames('grid font-normal text-white', {
-          'grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4':
-            content?.prices.length > 1,
-        })}
+        className={classNames(
+          'mx-auto grid font-normal text-white md:w-full xl:w-3/4',
+          {
+            '': content?.prices.length === 1,
+            'grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2':
+              content?.prices.length === 2,
+            'grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3':
+              content?.prices.length === 3,
+            'grid-cols-1 md:grid-cols-2': content?.prices.length > 3,
+          }
+        )}
       >
         {content?.prices.map((priceContent: any) => {
           return (
