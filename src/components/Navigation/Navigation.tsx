@@ -8,6 +8,7 @@ import {
 import Link from 'next/link';
 import { useEffect } from 'react';
 import { BsInstagram, BsFacebook } from 'react-icons/bs';
+import { PageRecord } from 'lib/graphql';
 
 let clamp = (number: any, min: any, max: any) =>
   Math.min(Math.max(number, min), max);
@@ -34,7 +35,7 @@ function useBoundedScroll(bounds: any) {
   return { scrollYBounded, scrollYBoundedProgress };
 }
 
-export default function Navigation({ page, introPage }: any) {
+export default function Navigation({ page }: any) {
   let { scrollYBoundedProgress } = useBoundedScroll(300);
   let scrollYBoundedProgressThrottled = useTransform(
     scrollYBoundedProgress,
@@ -59,7 +60,7 @@ export default function Navigation({ page, introPage }: any) {
         <a
           target='_blank'
           rel='noopener norefferer noreferrer'
-          href='https://www.instagram.com/fakeyourbeautycph/'
+          href={page.instagramUrl}
           className='text-3xl text-gray-300 hover:text-white'
         >
           <BsInstagram />
@@ -67,7 +68,7 @@ export default function Navigation({ page, introPage }: any) {
         <a
           target='_blank'
           rel='noopener norefferer noreferrer'
-          href='https://www.facebook.com/profile.php?id=100087142441016'
+          href={page.facebookUrl}
           className='text-3xl text-gray-300 hover:text-white'
         >
           <BsFacebook />
