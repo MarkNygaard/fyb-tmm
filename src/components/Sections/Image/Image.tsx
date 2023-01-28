@@ -1,10 +1,19 @@
 import classNames from 'clsx';
 import { motion, useAnimation } from 'framer-motion';
+import { FileField, ImageRecord, ResponsiveImage } from 'lib/graphql';
 import React, { useEffect } from 'react';
 import { Image } from 'react-datocms';
 import { useInView } from 'react-intersection-observer';
 
-export default function ImageRecord({ details }: any) {
+export type StackModule<T> = Omit<T, 'title' | '__typename'>;
+export type ImageProps = StackModule<ImageRecord>;
+
+export default function ImageSection({
+  navigationId,
+  backgroundColor,
+  fadeIn,
+  image,
+}: ImageProps) {
   const { ref, inView } = useInView({
     threshold: 0.4,
   });
@@ -25,18 +34,18 @@ export default function ImageRecord({ details }: any) {
   return (
     <div
       ref={ref}
-      id={details.navigationId}
+      id={navigationId!}
       className={classNames('py-20 px-2 md:px-10', {
-        'bg-skin-secondary': details.backgroundColor === true,
+        'bg-skin-secondary': backgroundColor === true,
       })}
     >
       <motion.div
-        initial={details.fadeIn ? { opacity: 0 } : { opacity: 1 }}
-        animate={details.fadeIn ? animation : { opacity: 1 }}
+        initial={fadeIn ? { opacity: 0 } : { opacity: 1 }}
+        animate={fadeIn ? animation : { opacity: 1 }}
         className='flex justify-center'
       >
         {/* eslint-disable-next-line jsx-a11y/alt-text */}
-        <Image data={details.image.responsiveImage} />
+        <Image data={(image as FileField).responsiveImage as ResponsiveImage} />
       </motion.div>
     </div>
   );

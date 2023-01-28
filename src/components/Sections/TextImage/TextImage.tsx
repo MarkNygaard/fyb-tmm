@@ -2,11 +2,23 @@ import CustomHeading from '@Sections/CustomHeading/CustomHeading';
 import RtImage from '@Sections/RtImage/RtImage';
 import classNames from 'clsx';
 import { motion, useAnimation } from 'framer-motion';
+import { FileField, ResponsiveImage, TextImageRecord } from 'lib/graphql';
 import React, { useEffect } from 'react';
 import { Image, StructuredText } from 'react-datocms';
 import { useInView } from 'react-intersection-observer';
 
-export default function TextImage({ details }: any) {
+export type StackModule<T> = Omit<T, 'title' | '__typename'>;
+export type TextImageProps = StackModule<TextImageRecord>;
+
+export default function TextImage({
+  navigationId,
+  backgroundColor,
+  fadeIn,
+  content,
+  imageLocation,
+  imageStyle,
+  image,
+}: TextImageProps) {
   const { ref, inView } = useInView({
     threshold: 0.4,
   });
@@ -27,26 +39,25 @@ export default function TextImage({ details }: any) {
   return (
     <div
       ref={ref}
-      id={details.navigationId}
+      id={navigationId!}
       className={classNames('py-20 px-2 md:px-10', {
-        'bg-skin-secondary': details.backgroundColor === true,
+        'bg-skin-secondary': backgroundColor === true,
       })}
     >
       <motion.div
-        initial={details.fadeIn ? { opacity: 0 } : { opacity: 1 }}
-        animate={details.fadeIn ? animation : { opacity: 1 }}
+        initial={fadeIn ? { opacity: 0 } : { opacity: 1 }}
+        animate={fadeIn ? animation : { opacity: 1 }}
         className={classNames('mx-auto flex max-w-6xl flex-col md:flex-row', {
-          'flex-col-reverse md:flex-row-reverse':
-            details.imageLocation === 'LEFT',
+          'flex-col-reverse md:flex-row-reverse': imageLocation === 'LEFT',
         })}
       >
         <article
           className={classNames('prose max-w-none grow py-4 px-3 md:px-4', {
-            'prose-invert text-gray-200': details.backgroundColor === true,
+            'prose-invert text-gray-200': backgroundColor === true,
           })}
         >
           <StructuredText
-            data={details.content}
+            data={content as any}
             renderBlock={({ record }) => {
               if (
                 record.__typename === 'RtImageRecord' &&
@@ -61,19 +72,21 @@ export default function TextImage({ details }: any) {
             }}
           />
         </article>
-        {details.image?.responsiveImage ? (
+        {((image as FileField).responsiveImage as ResponsiveImage) ? (
           <div className='mx-auto md:mb-auto'>
             <div
               className={classNames(
                 'relative aspect-square grow px-3 md:h-96 md:p-4',
                 {
-                  'rounded-full': details.imageStyle === 'Round',
-                  'rounded-xl': details.imageStyle === 'Rounded Corners',
+                  'rounded-full': imageStyle === 'Round',
+                  'rounded-xl': imageStyle === 'Rounded Corners',
                 }
               )}
             >
               {/* eslint-disable-next-line jsx-a11y/alt-text */}
-              <Image data={details.image?.responsiveImage} />
+              <Image
+                data={(image as FileField).responsiveImage as ResponsiveImage}
+              />
             </div>
           </div>
         ) : null}

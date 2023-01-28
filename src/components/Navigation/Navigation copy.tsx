@@ -1,4 +1,5 @@
 import { motion, useMotionValue, useScroll } from 'framer-motion';
+import { ResponsiveImage } from 'lib/graphql';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { Image } from 'react-datocms';
@@ -100,7 +101,7 @@ export default function Navigation({ page, introPage }: any) {
               >
                 {/* eslint-disable-next-line jsx-a11y/alt-text */}
                 <Image
-                  data={introPage.leftLogo.responsiveImage}
+                  data={introPage.leftLogo.responsiveImage as ResponsiveImage}
                   layout='fill'
                   lazyLoad={false}
                   className='aspect-square'
@@ -195,7 +196,9 @@ export default function Navigation({ page, introPage }: any) {
                 >
                   {/* eslint-disable-next-line jsx-a11y/alt-text */}
                   <Image
-                    data={introPage.rightLogo.responsiveImage}
+                    data={
+                      introPage.rightLogo.responsiveImage as ResponsiveImage
+                    }
                     layout='fill'
                     lazyLoad={false}
                     className='aspect-square'
@@ -235,7 +238,7 @@ export default function Navigation({ page, introPage }: any) {
                 >
                   {/* eslint-disable-next-line jsx-a11y/alt-text */}
                   <Image
-                    data={introPage.leftLogo.responsiveImage}
+                    data={introPage.leftLogo.responsiveImage as ResponsiveImage}
                     layout='fill'
                     lazyLoad={false}
                     className='aspect-square'
@@ -330,7 +333,7 @@ export default function Navigation({ page, introPage }: any) {
               >
                 {/* eslint-disable-next-line jsx-a11y/alt-text */}
                 <Image
-                  data={introPage.rightLogo.responsiveImage}
+                  data={introPage.rightLogo.responsiveImage as ResponsiveImage}
                   layout='fill'
                   lazyLoad={false}
                   className='aspect-square'

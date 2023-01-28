@@ -3,9 +3,15 @@ import * as Dom from 'graphql-request/dist/types.dom';
 import gql from 'graphql-tag';
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
-export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
-export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
-export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
+export type Exact<T extends { [key: string]: unknown }> = {
+  [K in keyof T]: T[K];
+};
+export type MakeOptional<T, K extends keyof T> = Omit<T, K> & {
+  [SubKey in K]?: Maybe<T[SubKey]>;
+};
+export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & {
+  [SubKey in K]: Maybe<T[SubKey]>;
+};
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
   ID: string;
@@ -54,7 +60,6 @@ export type BiographyRecord = RecordInterface & {
   updatedAt: Scalars['DateTime'];
 };
 
-
 /** Block of type Biography (biography) */
 export type BiographyRecord_seoMetaTagsArgs = {
   locale?: InputMaybe<SiteLocale>;
@@ -83,7 +88,7 @@ export enum ColorBucketType {
   purple = 'purple',
   red = 'red',
   white = 'white',
-  yellow = 'yellow'
+  yellow = 'yellow',
 }
 
 export type ColorField = {
@@ -140,7 +145,6 @@ export type CustomHeadingRecord = RecordInterface & {
   updatedAt: Scalars['DateTime'];
 };
 
-
 /** Block of type Custom Heading (custom_heading) */
 export type CustomHeadingRecord_seoMetaTagsArgs = {
   locale?: InputMaybe<SiteLocale>;
@@ -149,7 +153,7 @@ export type CustomHeadingRecord_seoMetaTagsArgs = {
 export enum FaviconType {
   appleTouchIcon = 'appleTouchIcon',
   icon = 'icon',
-  msApplication = 'msApplication'
+  msApplication = 'msApplication',
 }
 
 export type FileField = FileFieldInterface & {
@@ -183,12 +187,10 @@ export type FileField = FileFieldInterface & {
   width?: Maybe<Scalars['IntType']>;
 };
 
-
 export type FileFieldaltArgs = {
   fallbackLocales?: InputMaybe<Array<SiteLocale>>;
   locale?: InputMaybe<SiteLocale>;
 };
-
 
 export type FileFieldblurUpThumbArgs = {
   imgixParams?: InputMaybe<ImgixParams>;
@@ -197,18 +199,15 @@ export type FileFieldblurUpThumbArgs = {
   size?: Scalars['Int'];
 };
 
-
 export type FileFieldcustomDataArgs = {
   fallbackLocales?: InputMaybe<Array<SiteLocale>>;
   locale?: InputMaybe<SiteLocale>;
 };
 
-
 export type FileFieldfocalPointArgs = {
   fallbackLocales?: InputMaybe<Array<SiteLocale>>;
   locale?: InputMaybe<SiteLocale>;
 };
-
 
 export type FileFieldresponsiveImageArgs = {
   fallbackLocales?: InputMaybe<Array<SiteLocale>>;
@@ -217,12 +216,10 @@ export type FileFieldresponsiveImageArgs = {
   sizes?: InputMaybe<Scalars['String']>;
 };
 
-
 export type FileFieldtitleArgs = {
   fallbackLocales?: InputMaybe<Array<SiteLocale>>;
   locale?: InputMaybe<SiteLocale>;
 };
-
 
 export type FileFieldurlArgs = {
   imgixParams?: InputMaybe<ImgixParams>;
@@ -258,12 +255,10 @@ export type FileFieldInterface = {
   width?: Maybe<Scalars['IntType']>;
 };
 
-
 export type FileFieldInterfacealtArgs = {
   fallbackLocales?: InputMaybe<Array<SiteLocale>>;
   locale?: InputMaybe<SiteLocale>;
 };
-
 
 export type FileFieldInterfaceblurUpThumbArgs = {
   imgixParams?: InputMaybe<ImgixParams>;
@@ -272,18 +267,15 @@ export type FileFieldInterfaceblurUpThumbArgs = {
   size?: Scalars['Int'];
 };
 
-
 export type FileFieldInterfacecustomDataArgs = {
   fallbackLocales?: InputMaybe<Array<SiteLocale>>;
   locale?: InputMaybe<SiteLocale>;
 };
 
-
 export type FileFieldInterfacefocalPointArgs = {
   fallbackLocales?: InputMaybe<Array<SiteLocale>>;
   locale?: InputMaybe<SiteLocale>;
 };
-
 
 export type FileFieldInterfaceresponsiveImageArgs = {
   fallbackLocales?: InputMaybe<Array<SiteLocale>>;
@@ -292,12 +284,10 @@ export type FileFieldInterfaceresponsiveImageArgs = {
   sizes?: InputMaybe<Scalars['String']>;
 };
 
-
 export type FileFieldInterfacetitleArgs = {
   fallbackLocales?: InputMaybe<Array<SiteLocale>>;
   locale?: InputMaybe<SiteLocale>;
 };
-
 
 export type FileFieldInterfaceurlArgs = {
   imgixParams?: InputMaybe<ImgixParams>;
@@ -356,7 +346,6 @@ export type FooterRecord = RecordInterface & {
   updatedAt: Scalars['DateTime'];
 };
 
-
 /** Block of type Footer (footer) */
 export type FooterRecord_seoMetaTagsArgs = {
   locale?: InputMaybe<SiteLocale>;
@@ -395,7 +384,6 @@ export type GridImageRecord = RecordInterface & {
   updatedAt: Scalars['DateTime'];
 };
 
-
 /** Block of type Grid Image (grid_image) */
 export type GridImageRecord_seoMetaTagsArgs = {
   locale?: InputMaybe<SiteLocale>;
@@ -433,7 +421,6 @@ export type GridRecord = RecordInterface & {
   updatedAt: Scalars['DateTime'];
 };
 
-
 /** Block of type Grid (grid) */
 export type GridRecord_seoMetaTagsArgs = {
   locale?: InputMaybe<SiteLocale>;
@@ -470,7 +457,6 @@ export type GridTextRecord = RecordInterface & {
   updatedAt: Scalars['DateTime'];
 };
 
-
 /** Block of type Grid Text (grid_text) */
 export type GridTextRecord_seoMetaTagsArgs = {
   locale?: InputMaybe<SiteLocale>;
@@ -497,7 +483,6 @@ export type HairMenuRecord = RecordInterface & {
   priceModules: Array<PriceModuleRecord>;
   updatedAt: Scalars['DateTime'];
 };
-
 
 /** Block of type Hair Menu (hair_menu) */
 export type HairMenuRecord_seoMetaTagsArgs = {
@@ -528,7 +513,6 @@ export type HeroRecord = RecordInterface & {
   updatedAt: Scalars['DateTime'];
 };
 
-
 /** Block of type Hero (hero) */
 export type HeroRecord_seoMetaTagsArgs = {
   locale?: InputMaybe<SiteLocale>;
@@ -557,7 +541,6 @@ export type ImageRecord = RecordInterface & {
   navigationId?: Maybe<Scalars['String']>;
   updatedAt: Scalars['DateTime'];
 };
-
 
 /** Block of type Image (image) */
 export type ImageRecord_seoMetaTagsArgs = {
@@ -1753,7 +1736,7 @@ export enum ImgixParamsAuto {
   compress = 'compress',
   enhance = 'enhance',
   format = 'format',
-  redeye = 'redeye'
+  redeye = 'redeye',
 }
 
 export enum ImgixParamsBlendAlign {
@@ -1762,7 +1745,7 @@ export enum ImgixParamsBlendAlign {
   left = 'left',
   middle = 'middle',
   right = 'right',
-  top = 'top'
+  top = 'top',
 }
 
 export enum ImgixParamsBlendCrop {
@@ -1770,7 +1753,7 @@ export enum ImgixParamsBlendCrop {
   faces = 'faces',
   left = 'left',
   right = 'right',
-  top = 'top'
+  top = 'top',
 }
 
 export enum ImgixParamsBlendFit {
@@ -1778,7 +1761,7 @@ export enum ImgixParamsBlendFit {
   clip = 'clip',
   crop = 'crop',
   max = 'max',
-  scale = 'scale'
+  scale = 'scale',
 }
 
 export enum ImgixParamsBlendMode {
@@ -1797,17 +1780,17 @@ export enum ImgixParamsBlendMode {
   overlay = 'overlay',
   saturation = 'saturation',
   screen = 'screen',
-  softlight = 'softlight'
+  softlight = 'softlight',
 }
 
 export enum ImgixParamsBlendSize {
-  inherit = 'inherit'
+  inherit = 'inherit',
 }
 
 export enum ImgixParamsCh {
   dpr = 'dpr',
   saveData = 'saveData',
-  width = 'width'
+  width = 'width',
 }
 
 export enum ImgixParamsCrop {
@@ -1818,19 +1801,19 @@ export enum ImgixParamsCrop {
   focalpoint = 'focalpoint',
   left = 'left',
   right = 'right',
-  top = 'top'
+  top = 'top',
 }
 
 export enum ImgixParamsCs {
   adobergb1998 = 'adobergb1998',
   srgb = 'srgb',
   strip = 'strip',
-  tinysrgb = 'tinysrgb'
+  tinysrgb = 'tinysrgb',
 }
 
 export enum ImgixParamsFill {
   blur = 'blur',
-  solid = 'solid'
+  solid = 'solid',
 }
 
 export enum ImgixParamsFit {
@@ -1842,13 +1825,13 @@ export enum ImgixParamsFit {
   fillmax = 'fillmax',
   max = 'max',
   min = 'min',
-  scale = 'scale'
+  scale = 'scale',
 }
 
 export enum ImgixParamsFlip {
   h = 'h',
   hv = 'hv',
-  v = 'v'
+  v = 'v',
 }
 
 export enum ImgixParamsFm {
@@ -1865,12 +1848,12 @@ export enum ImgixParamsFm {
   png8 = 'png8',
   png32 = 'png32',
   webm = 'webm',
-  webp = 'webp'
+  webp = 'webp',
 }
 
 export enum ImgixParamsIptc {
   allow = 'allow',
-  block = 'block'
+  block = 'block',
 }
 
 export enum ImgixParamsMarkAlign {
@@ -1879,7 +1862,7 @@ export enum ImgixParamsMarkAlign {
   left = 'left',
   middle = 'middle',
   right = 'right',
-  top = 'top'
+  top = 'top',
 }
 
 export enum ImgixParamsMarkFit {
@@ -1887,25 +1870,25 @@ export enum ImgixParamsMarkFit {
   crop = 'crop',
   fill = 'fill',
   max = 'max',
-  scale = 'scale'
+  scale = 'scale',
 }
 
 export enum ImgixParamsMarkTile {
-  grid = 'grid'
+  grid = 'grid',
 }
 
 export enum ImgixParamsPalette {
   css = 'css',
-  json = 'json'
+  json = 'json',
 }
 
 export enum ImgixParamsTransparency {
-  grid = 'grid'
+  grid = 'grid',
 }
 
 export enum ImgixParamsTrim {
   auto = 'auto',
-  color = 'color'
+  color = 'color',
 }
 
 export enum ImgixParamsTxtAlign {
@@ -1914,18 +1897,18 @@ export enum ImgixParamsTxtAlign {
   left = 'left',
   middle = 'middle',
   right = 'right',
-  top = 'top'
+  top = 'top',
 }
 
 export enum ImgixParamsTxtClip {
   ellipsis = 'ellipsis',
   end = 'end',
   middle = 'middle',
-  start = 'start'
+  start = 'start',
 }
 
 export enum ImgixParamsTxtFit {
-  max = 'max'
+  max = 'max',
 }
 
 /** Specifies how to filter by usage */
@@ -1978,7 +1961,6 @@ export type IntroPageRecord = RecordInterface & {
   updatedAt: Scalars['DateTime'];
 };
 
-
 /** Record of type Intro Page (intro_page) */
 export type IntroPageRecord_seoMetaTagsArgs = {
   locale?: InputMaybe<SiteLocale>;
@@ -1999,7 +1981,7 @@ export type ItemIdFilter = {
 export enum ItemStatus {
   draft = 'draft',
   published = 'published',
-  updated = 'updated'
+  updated = 'updated',
 }
 
 /** Specifies how to filter JSON fields */
@@ -2017,7 +1999,7 @@ export type LatLonField = {
 export enum MuxThumbnailFormatType {
   gif = 'gif',
   jpg = 'jpg',
-  png = 'png'
+  png = 'png',
 }
 
 /** Specifies how to filter by image orientation */
@@ -2028,7 +2010,16 @@ export type OrientationFilter = {
   neq?: InputMaybe<UploadOrientation>;
 };
 
-export type PageModelContentField = BiographyRecord | FooterRecord | GridRecord | HairMenuRecord | HeroRecord | ImageRecord | TextImageRecord | TextRecord | YoutubeVideoRecord;
+export type PageModelContentField =
+  | BiographyRecord
+  | FooterRecord
+  | GridRecord
+  | HairMenuRecord
+  | HeroRecord
+  | ImageRecord
+  | TextImageRecord
+  | TextRecord
+  | YoutubeVideoRecord;
 
 export type PageModelFilter = {
   OR?: InputMaybe<Array<InputMaybe<PageModelFilter>>>;
@@ -2086,7 +2077,7 @@ export enum PageModelOrderBy {
   position_ASC = 'position_ASC',
   position_DESC = 'position_DESC',
   updatedAt_ASC = 'updatedAt_ASC',
-  updatedAt_DESC = 'updatedAt_DESC'
+  updatedAt_DESC = 'updatedAt_DESC',
 }
 
 /** Record of type Pages (page) */
@@ -2120,7 +2111,6 @@ export type PageRecord = RecordInterface & {
   slug?: Maybe<Scalars['String']>;
   updatedAt: Scalars['DateTime'];
 };
-
 
 /** Record of type Pages (page) */
 export type PageRecord_seoMetaTagsArgs = {
@@ -2179,7 +2169,6 @@ export type PriceModuleRecord = RecordInterface & {
   updatedAt: Scalars['DateTime'];
 };
 
-
 /** Block of type Price module (price_module) */
 export type PriceModuleRecord_seoMetaTagsArgs = {
   locale?: InputMaybe<SiteLocale>;
@@ -2207,7 +2196,6 @@ export type PriceRecord = RecordInterface & {
   treatment?: Maybe<Scalars['String']>;
   updatedAt: Scalars['DateTime'];
 };
-
 
 /** Block of type Price (price) */
 export type PriceRecord_seoMetaTagsArgs = {
@@ -2253,7 +2241,6 @@ export type Query = {
   upload?: Maybe<FileField>;
 };
 
-
 /** The query root for this schema */
 export type Query_allPagesMetaArgs = {
   fallbackLocales?: InputMaybe<Array<SiteLocale>>;
@@ -2261,20 +2248,17 @@ export type Query_allPagesMetaArgs = {
   locale?: InputMaybe<SiteLocale>;
 };
 
-
 /** The query root for this schema */
 export type Query_allUploadsMetaArgs = {
   filter?: InputMaybe<UploadFilter>;
   locale?: InputMaybe<SiteLocale>;
 };
 
-
 /** The query root for this schema */
 export type Query_siteArgs = {
   fallbackLocales?: InputMaybe<Array<SiteLocale>>;
   locale?: InputMaybe<SiteLocale>;
 };
-
 
 /** The query root for this schema */
 export type QueryallPagesArgs = {
@@ -2286,7 +2270,6 @@ export type QueryallPagesArgs = {
   skip?: InputMaybe<Scalars['IntType']>;
 };
 
-
 /** The query root for this schema */
 export type QueryallUploadsArgs = {
   fallbackLocales?: InputMaybe<Array<SiteLocale>>;
@@ -2297,13 +2280,11 @@ export type QueryallUploadsArgs = {
   skip?: InputMaybe<Scalars['IntType']>;
 };
 
-
 /** The query root for this schema */
 export type QueryintroPageArgs = {
   fallbackLocales?: InputMaybe<Array<SiteLocale>>;
   locale?: InputMaybe<SiteLocale>;
 };
-
 
 /** The query root for this schema */
 export type QuerypageArgs = {
@@ -2312,7 +2293,6 @@ export type QuerypageArgs = {
   locale?: InputMaybe<SiteLocale>;
   orderBy?: InputMaybe<Array<InputMaybe<PageModelOrderBy>>>;
 };
-
 
 /** The query root for this schema */
 export type QueryuploadArgs = {
@@ -2337,7 +2317,6 @@ export type RecordInterface = {
   id: Scalars['ItemId'];
 };
 
-
 export type RecordInterface_seoMetaTagsArgs = {
   locale?: InputMaybe<SiteLocale>;
 };
@@ -2358,7 +2337,7 @@ export enum ResolutionType {
   icon = 'icon',
   large = 'large',
   medium = 'medium',
-  small = 'small'
+  small = 'small',
 }
 
 export type ResponsiveImage = {
@@ -2396,7 +2375,6 @@ export type RtImageRecord = RecordInterface & {
   updatedAt: Scalars['DateTime'];
 };
 
-
 /** Block of type RT Image (rt_image) */
 export type RtImageRecord_seoMetaTagsArgs = {
   locale?: InputMaybe<SiteLocale>;
@@ -2424,11 +2402,9 @@ export type Site = {
   locales: Array<SiteLocale>;
 };
 
-
 export type SitefaviconMetaTagsArgs = {
   variants?: InputMaybe<Array<InputMaybe<FaviconType>>>;
 };
-
 
 export type SiteglobalSeoArgs = {
   fallbackLocales?: InputMaybe<Array<SiteLocale>>;
@@ -2436,7 +2412,7 @@ export type SiteglobalSeoArgs = {
 };
 
 export enum SiteLocale {
-  en = 'en'
+  en = 'en',
 }
 
 /** Specifies how to filter Slug fields */
@@ -2496,7 +2472,9 @@ export type Tag = {
   tag: Scalars['String'];
 };
 
-export type TextImageModelContentBlocksField = CustomHeadingRecord | RtImageRecord;
+export type TextImageModelContentBlocksField =
+  | CustomHeadingRecord
+  | RtImageRecord;
 
 export type TextImageModelContentField = {
   __typename?: 'TextImageModelContentField';
@@ -2530,7 +2508,6 @@ export type TextImageRecord = RecordInterface & {
   navigationId?: Maybe<Scalars['String']>;
   updatedAt: Scalars['DateTime'];
 };
-
 
 /** Block of type Text&image (text_image) */
 export type TextImageRecord_seoMetaTagsArgs = {
@@ -2568,7 +2545,6 @@ export type TextRecord = RecordInterface & {
   navigationId?: Maybe<Scalars['String']>;
   updatedAt: Scalars['DateTime'];
 };
-
 
 /** Block of type Text (text) */
 export type TextRecord_seoMetaTagsArgs = {
@@ -2812,13 +2788,13 @@ export enum UploadOrderBy {
   resolution_ASC = 'resolution_ASC',
   resolution_DESC = 'resolution_DESC',
   size_ASC = 'size_ASC',
-  size_DESC = 'size_DESC'
+  size_DESC = 'size_DESC',
 }
 
 export enum UploadOrientation {
   landscape = 'landscape',
   portrait = 'portrait',
-  square = 'square'
+  square = 'square',
 }
 
 /** Specifies how to filter by size */
@@ -2877,7 +2853,7 @@ export enum UploadType {
   presentation = 'presentation',
   richtext = 'richtext',
   spreadsheet = 'spreadsheet',
-  video = 'video'
+  video = 'video',
 }
 
 /** Specifies how to filter by update datetime */
@@ -2907,12 +2883,10 @@ export type UploadVideoField = {
   thumbnailUrl: Scalars['String'];
 };
 
-
 export type UploadVideoFieldmp4UrlArgs = {
   exactRes?: InputMaybe<VideoMp4Res>;
   res?: InputMaybe<VideoMp4Res>;
 };
-
 
 export type UploadVideoFieldthumbnailUrlArgs = {
   format?: InputMaybe<MuxThumbnailFormatType>;
@@ -2948,7 +2922,7 @@ export type VideoField = {
 export enum VideoMp4Res {
   high = 'high',
   low = 'low',
-  medium = 'medium'
+  medium = 'medium',
 }
 
 /** Block of type Youtube Video (youtube_video) */
@@ -2974,7 +2948,6 @@ export type YoutubeVideoRecord = RecordInterface & {
   updatedAt: Scalars['DateTime'];
 };
 
-
 /** Block of type Youtube Video (youtube_video) */
 export type YoutubeVideoRecord_seoMetaTagsArgs = {
   locale?: InputMaybe<SiteLocale>;
@@ -2987,541 +2960,1533 @@ export type focalPoint = {
 };
 
 export const responsiveImageFragmentFragmentDoc = /*#__PURE__*/ gql`
-    fragment responsiveImageFragment on ResponsiveImage {
-  srcSet
-  webpSrcSet
-  sizes
-  src
-  width
-  height
-  aspectRatio
-  alt
-  title
-  base64
-}
-    `;
+  fragment responsiveImageFragment on ResponsiveImage {
+    srcSet
+    webpSrcSet
+    sizes
+    src
+    width
+    height
+    aspectRatio
+    alt
+    title
+    base64
+  }
+`;
 export const BiographyFragmentFragmentDoc = /*#__PURE__*/ gql`
-    fragment BiographyFragment on BiographyRecord {
-  __typename
-  id
-  navigationId
-  fadeIn
-  image {
-    responsiveImage(imgixParams: {fit: crop, auto: format}) {
-      ...responsiveImageFragment
+  fragment BiographyFragment on BiographyRecord {
+    __typename
+    id
+    navigationId
+    fadeIn
+    image {
+      responsiveImage(imgixParams: { fit: crop, auto: format }) {
+        ...responsiveImageFragment
+      }
+    }
+    bioDescription {
+      value
     }
   }
-  bioDescription {
-    value
-  }
-}
-    `;
+`;
 export const FooterFragmentFragmentDoc = /*#__PURE__*/ gql`
-    fragment FooterFragment on FooterRecord {
-  __typename
-  id
-  navigationId
-  address {
-    value
+  fragment FooterFragment on FooterRecord {
+    __typename
+    id
+    navigationId
+    address {
+      value
+    }
+    contact {
+      value
+    }
+    location {
+      latitude
+      longitude
+    }
+    openingHours {
+      value
+    }
+    info {
+      value
+    }
   }
-  contact {
-    value
-  }
-  location {
-    latitude
-    longitude
-  }
-  openingHours {
-    value
-  }
-  info {
-    value
-  }
-}
-    `;
+`;
 export const RtImageFragmentFragmentDoc = /*#__PURE__*/ gql`
-    fragment RtImageFragment on RtImageRecord {
-  id
-  image {
-    responsiveImage(
-      imgixParams: {fit: crop, crop: focalpoint, ar: "1:1", minH: 384, auto: format}
-    ) {
-      ...responsiveImageFragment
+  fragment RtImageFragment on RtImageRecord {
+    id
+    image {
+      responsiveImage(
+        imgixParams: {
+          fit: crop
+          crop: focalpoint
+          ar: "1:1"
+          minH: 384
+          auto: format
+        }
+      ) {
+        ...responsiveImageFragment
+      }
     }
   }
-}
-    `;
+`;
 export const GridFragmentFragmentDoc = /*#__PURE__*/ gql`
-    fragment GridFragment on GridRecord {
-  __typename
-  navigationId
-  backgroundColor
-  fadeIn
-  id
-  title
-  mobileColumns
-  tabletColumns
-  desktopColumns
-  gap
-  fullWidth
-  height
-  sections {
-    ... on GridImageRecord {
-      __typename
-      id
-      mobilePosition
-      tabletPosition
-      desktopPosition
-      image {
-        responsiveImage(
-          imgixParams: {fit: crop, crop: focalpoint, ar: "1:1", minH: 384, auto: format}
-        ) {
-          ...responsiveImageFragment
-        }
-      }
-    }
-    ... on GridTextRecord {
-      __typename
-      id
-      mobilePosition
-      tabletPosition
-      desktopPosition
-      content {
-        value
-        blocks {
-          __typename
-          ... on RtImageRecord {
-            ...RtImageFragment
-          }
-        }
-      }
-    }
-  }
-}
-    `;
-export const GridImageFragmentFragmentDoc = /*#__PURE__*/ gql`
-    fragment GridImageFragment on GridImageRecord {
-  __typename
-  id
-  mobilePosition
-  tabletPosition
-  desktopPosition
-  image {
-    responsiveImage(
-      imgixParams: {fit: crop, crop: focalpoint, ar: "1:1", minH: 384, auto: format}
-    ) {
-      ...responsiveImageFragment
-    }
-  }
-}
-    `;
-export const GridTextFragmentFragmentDoc = /*#__PURE__*/ gql`
-    fragment GridTextFragment on GridTextRecord {
-  __typename
-  id
-  mobilePosition
-  tabletPosition
-  desktopPosition
-  content {
-    value
-    blocks {
-      __typename
-      ... on RtImageRecord {
-        ...RtImageFragment
-      }
-    }
-  }
-}
-    `;
-export const PricesFragmentFragmentDoc = /*#__PURE__*/ gql`
-    fragment PricesFragment on PriceRecord {
-  id
-  treatment
-  description {
-    value
-  }
-  price
-  from
-}
-    `;
-export const PriceModulesFragmentFragmentDoc = /*#__PURE__*/ gql`
-    fragment PriceModulesFragment on PriceModuleRecord {
-  __typename
-  id
-  heading
-  prices {
-    ...PricesFragment
-  }
-}
-    `;
-export const HairMenuFragmentFragmentDoc = /*#__PURE__*/ gql`
-    fragment HairMenuFragment on HairMenuRecord {
-  __typename
-  id
-  navigationId
-  fadeIn
-  priceModules {
-    ...PriceModulesFragment
-  }
-}
-    `;
-export const HeroFragmentFragmentDoc = /*#__PURE__*/ gql`
-    fragment HeroFragment on HeroRecord {
-  __typename
-  id
-  navigationId
-  image {
-    responsiveImage(imgixParams: {fit: crop, auto: format}) {
-      ...responsiveImageFragment
-    }
-  }
-  backgroundImage {
-    responsiveImage(imgixParams: {fit: crop, auto: format}) {
-      ...responsiveImageFragment
-    }
-  }
-  buttonText
-  buttonLink
-}
-    `;
-export const ImageFragmentFragmentDoc = /*#__PURE__*/ gql`
-    fragment ImageFragment on ImageRecord {
-  __typename
-  navigationId
-  backgroundColor
-  fadeIn
-  imageTitle
-  image {
-    responsiveImage(imgixParams: {fit: crop, auto: format}) {
-      ...responsiveImageFragment
-    }
-  }
-}
-    `;
-export const CustomHeadingFragmentFragmentDoc = /*#__PURE__*/ gql`
-    fragment CustomHeadingFragment on CustomHeadingRecord {
-  id
-  title
-  subtitle
-}
-    `;
-export const TextFragmentFragmentDoc = /*#__PURE__*/ gql`
-    fragment TextFragment on TextRecord {
-  __typename
-  navigationId
-  backgroundColor
-  fadeIn
-  content {
-    value
-    blocks {
-      __typename
-      ... on RtImageRecord {
-        ...RtImageFragment
-      }
-      ... on CustomHeadingRecord {
-        ...CustomHeadingFragment
-      }
-    }
-  }
-}
-    `;
-export const TextImageFragmentFragmentDoc = /*#__PURE__*/ gql`
-    fragment TextImageFragment on TextImageRecord {
-  __typename
-  navigationId
-  backgroundColor
-  fadeIn
-  content {
-    value
-    blocks {
-      __typename
-      ... on RtImageRecord {
+  fragment GridFragment on GridRecord {
+    __typename
+    navigationId
+    backgroundColor
+    fadeIn
+    id
+    title
+    mobileColumns
+    tabletColumns
+    desktopColumns
+    gap
+    fullWidth
+    height
+    sections {
+      ... on GridImageRecord {
+        __typename
         id
+        mobilePosition
+        tabletPosition
+        desktopPosition
         image {
           responsiveImage(
-            imgixParams: {fit: crop, crop: focalpoint, ar: "1:1", minH: 384, auto: format}
+            imgixParams: {
+              fit: crop
+              crop: focalpoint
+              ar: "1:1"
+              minH: 384
+              auto: format
+            }
           ) {
             ...responsiveImageFragment
           }
         }
       }
-      ... on CustomHeadingRecord {
-        ...CustomHeadingFragment
+      ... on GridTextRecord {
+        __typename
+        id
+        mobilePosition
+        tabletPosition
+        desktopPosition
+        content {
+          value
+          blocks {
+            __typename
+            ... on RtImageRecord {
+              ...RtImageFragment
+            }
+          }
+        }
       }
     }
   }
-  imageLocation
-  imageStyle
-  image {
-    responsiveImage(imgixParams: {fit: crop, auto: format}) {
-      ...responsiveImageFragment
-    }
-  }
-}
-    `;
-export const YoutubeVideoFragmentFragmentDoc = /*#__PURE__*/ gql`
-    fragment YoutubeVideoFragment on YoutubeVideoRecord {
-  __typename
-  id
-  navigationId
-  backgroundColor
-  fadeIn
-  link {
-    providerUid
-  }
-}
-    `;
-export const metaTagsFragmentFragmentDoc = /*#__PURE__*/ gql`
-    fragment metaTagsFragment on Tag {
-  attributes
-  content
-  tag
-}
-    `;
-export const AllPagesSlugsDocument = /*#__PURE__*/ gql`
-    query AllPagesSlugs {
-  allPages(orderBy: position_ASC, filter: {slug: {neq: ""}}) {
-    slug
-  }
-}
-    `;
-export const HomePageDocument = /*#__PURE__*/ gql`
-    query HomePage {
-  site: _site {
-    favicon: faviconMetaTags {
-      ...metaTagsFragment
-    }
-  }
-  introPage {
-    seo: _seoMetaTags {
-      ...metaTagsFragment
-    }
-    leftLink {
-      name
-      slug
-    }
-    leftLogo {
-      responsiveImage(imgixParams: {fit: crop, auto: format}) {
-        ...responsiveImageFragment
-      }
-    }
-    leftIntro {
-      value
-    }
-    leftShowIntro
-    leftColor {
-      red
-      green
-      blue
-    }
-    rightLink {
-      name
-      slug
-    }
-    rightLogo {
-      responsiveImage(imgixParams: {fit: crop, auto: format}) {
-        ...responsiveImageFragment
-      }
-    }
-    rightIntro {
-      value
-    }
-    rightShowIntro
-    rightColor {
-      red
-      green
-      blue
-    }
-  }
-}
-    ${metaTagsFragmentFragmentDoc}
-${responsiveImageFragmentFragmentDoc}`;
-export const PageBySlugDocument = /*#__PURE__*/ gql`
-    query PageBySlug($slug: String) {
-  site: _site {
-    favicon: faviconMetaTags {
-      ...metaTagsFragment
-    }
-  }
-  page(filter: {slug: {eq: $slug}}) {
-    seo: _seoMetaTags {
-      ...metaTagsFragment
-    }
+`;
+export const GridImageFragmentFragmentDoc = /*#__PURE__*/ gql`
+  fragment GridImageFragment on GridImageRecord {
+    __typename
     id
-    name
-    slug
-    primaryColor {
-      red
-      green
-      blue
+    mobilePosition
+    tabletPosition
+    desktopPosition
+    image {
+      responsiveImage(
+        imgixParams: {
+          fit: crop
+          crop: focalpoint
+          ar: "1:1"
+          minH: 384
+          auto: format
+        }
+      ) {
+        ...responsiveImageFragment
+      }
     }
-    secondaryColor {
-      red
-      green
-      blue
-    }
-    accentColor {
-      red
-      green
-      blue
-    }
-    instagramUrl
-    facebookUrl
+  }
+`;
+export const GridTextFragmentFragmentDoc = /*#__PURE__*/ gql`
+  fragment GridTextFragment on GridTextRecord {
+    __typename
+    id
+    mobilePosition
+    tabletPosition
+    desktopPosition
     content {
-      ... on HeroRecord {
-        ...HeroFragment
-      }
-      ... on TextRecord {
-        ...TextFragment
-      }
-      ... on ImageRecord {
-        ...ImageFragment
-      }
-      ... on TextImageRecord {
-        ...TextImageFragment
-      }
-      ... on GridRecord {
-        ...GridFragment
-      }
-      ... on YoutubeVideoRecord {
-        ...YoutubeVideoFragment
-      }
-      ... on HairMenuRecord {
-        ...HairMenuFragment
-      }
-      ... on BiographyRecord {
-        ...BiographyFragment
-      }
-      ... on FooterRecord {
-        ...FooterFragment
+      value
+      blocks {
+        __typename
+        ... on RtImageRecord {
+          ...RtImageFragment
+        }
       }
     }
   }
-  allPages {
+`;
+export const PricesFragmentFragmentDoc = /*#__PURE__*/ gql`
+  fragment PricesFragment on PriceRecord {
     id
-    name
-    slug
+    treatment
+    description {
+      value
+    }
+    price
+    from
   }
-  introPage {
-    seo: _seoMetaTags {
-      ...metaTagsFragment
+`;
+export const PriceModulesFragmentFragmentDoc = /*#__PURE__*/ gql`
+  fragment PriceModulesFragment on PriceModuleRecord {
+    __typename
+    id
+    heading
+    prices {
+      ...PricesFragment
     }
-    leftLink {
-      name
-      slug
+  }
+`;
+export const HairMenuFragmentFragmentDoc = /*#__PURE__*/ gql`
+  fragment HairMenuFragment on HairMenuRecord {
+    __typename
+    id
+    navigationId
+    fadeIn
+    priceModules {
+      ...PriceModulesFragment
     }
-    leftLogo {
-      responsiveImage(
-        imgixParams: {fit: crop, crop: focalpoint, ar: "1:1", minH: 384, auto: format}
-      ) {
+  }
+`;
+export const HeroFragmentFragmentDoc = /*#__PURE__*/ gql`
+  fragment HeroFragment on HeroRecord {
+    __typename
+    id
+    navigationId
+    image {
+      responsiveImage(imgixParams: { fit: crop, auto: format }) {
         ...responsiveImageFragment
       }
     }
-    leftColor {
-      red
-      green
-      blue
-    }
-    rightLink {
-      name
-      slug
-    }
-    rightLogo {
-      responsiveImage(
-        imgixParams: {fit: crop, crop: focalpoint, ar: "1:1", minH: 384, auto: format}
-      ) {
+    backgroundImage {
+      responsiveImage(imgixParams: { fit: crop, auto: format }) {
         ...responsiveImageFragment
       }
     }
-    rightColor {
-      red
-      green
-      blue
+    buttonText
+    buttonLink
+  }
+`;
+export const ImageFragmentFragmentDoc = /*#__PURE__*/ gql`
+  fragment ImageFragment on ImageRecord {
+    __typename
+    navigationId
+    backgroundColor
+    fadeIn
+    imageTitle
+    image {
+      responsiveImage(imgixParams: { fit: crop, auto: format }) {
+        ...responsiveImageFragment
+      }
     }
   }
-}
-    ${metaTagsFragmentFragmentDoc}
-${HeroFragmentFragmentDoc}
-${responsiveImageFragmentFragmentDoc}
-${TextFragmentFragmentDoc}
-${RtImageFragmentFragmentDoc}
-${CustomHeadingFragmentFragmentDoc}
-${ImageFragmentFragmentDoc}
-${TextImageFragmentFragmentDoc}
-${GridFragmentFragmentDoc}
-${YoutubeVideoFragmentFragmentDoc}
-${HairMenuFragmentFragmentDoc}
-${PriceModulesFragmentFragmentDoc}
-${PricesFragmentFragmentDoc}
-${BiographyFragmentFragmentDoc}
-${FooterFragmentFragmentDoc}`;
+`;
+export const CustomHeadingFragmentFragmentDoc = /*#__PURE__*/ gql`
+  fragment CustomHeadingFragment on CustomHeadingRecord {
+    id
+    title
+    subtitle
+  }
+`;
+export const TextFragmentFragmentDoc = /*#__PURE__*/ gql`
+  fragment TextFragment on TextRecord {
+    __typename
+    navigationId
+    backgroundColor
+    fadeIn
+    content {
+      value
+      blocks {
+        __typename
+        ... on RtImageRecord {
+          ...RtImageFragment
+        }
+        ... on CustomHeadingRecord {
+          ...CustomHeadingFragment
+        }
+      }
+    }
+  }
+`;
+export const TextImageFragmentFragmentDoc = /*#__PURE__*/ gql`
+  fragment TextImageFragment on TextImageRecord {
+    __typename
+    navigationId
+    backgroundColor
+    fadeIn
+    content {
+      value
+      blocks {
+        __typename
+        ... on RtImageRecord {
+          id
+          image {
+            responsiveImage(
+              imgixParams: {
+                fit: crop
+                crop: focalpoint
+                ar: "1:1"
+                minH: 384
+                auto: format
+              }
+            ) {
+              ...responsiveImageFragment
+            }
+          }
+        }
+        ... on CustomHeadingRecord {
+          ...CustomHeadingFragment
+        }
+      }
+    }
+    imageLocation
+    imageStyle
+    image {
+      responsiveImage(imgixParams: { fit: crop, auto: format }) {
+        ...responsiveImageFragment
+      }
+    }
+  }
+`;
+export const YoutubeVideoFragmentFragmentDoc = /*#__PURE__*/ gql`
+  fragment YoutubeVideoFragment on YoutubeVideoRecord {
+    __typename
+    id
+    navigationId
+    backgroundColor
+    fadeIn
+    link {
+      providerUid
+    }
+  }
+`;
+export const metaTagsFragmentFragmentDoc = /*#__PURE__*/ gql`
+  fragment metaTagsFragment on Tag {
+    attributes
+    content
+    tag
+  }
+`;
+export const AllPagesSlugsDocument = /*#__PURE__*/ gql`
+  query AllPagesSlugs {
+    allPages(orderBy: position_ASC, filter: { slug: { neq: "" } }) {
+      slug
+    }
+  }
+`;
+export const HomePageDocument = /*#__PURE__*/ gql`
+  query HomePage {
+    site: _site {
+      favicon: faviconMetaTags {
+        ...metaTagsFragment
+      }
+    }
+    introPage {
+      seo: _seoMetaTags {
+        ...metaTagsFragment
+      }
+      leftLink {
+        name
+        slug
+      }
+      leftLogo {
+        responsiveImage(imgixParams: { fit: crop, auto: format }) {
+          ...responsiveImageFragment
+        }
+      }
+      leftIntro {
+        value
+      }
+      leftShowIntro
+      leftColor {
+        red
+        green
+        blue
+      }
+      rightLink {
+        name
+        slug
+      }
+      rightLogo {
+        responsiveImage(imgixParams: { fit: crop, auto: format }) {
+          ...responsiveImageFragment
+        }
+      }
+      rightIntro {
+        value
+      }
+      rightShowIntro
+      rightColor {
+        red
+        green
+        blue
+      }
+    }
+  }
+  ${metaTagsFragmentFragmentDoc}
+  ${responsiveImageFragmentFragmentDoc}
+`;
+export const PageBySlugDocument = /*#__PURE__*/ gql`
+  query PageBySlug($slug: String) {
+    site: _site {
+      favicon: faviconMetaTags {
+        ...metaTagsFragment
+      }
+    }
+    page(filter: { slug: { eq: $slug } }) {
+      seo: _seoMetaTags {
+        ...metaTagsFragment
+      }
+      id
+      name
+      slug
+      primaryColor {
+        red
+        green
+        blue
+      }
+      secondaryColor {
+        red
+        green
+        blue
+      }
+      accentColor {
+        red
+        green
+        blue
+      }
+      instagramUrl
+      facebookUrl
+      content {
+        ... on HeroRecord {
+          ...HeroFragment
+        }
+        ... on TextRecord {
+          ...TextFragment
+        }
+        ... on ImageRecord {
+          ...ImageFragment
+        }
+        ... on TextImageRecord {
+          ...TextImageFragment
+        }
+        ... on GridRecord {
+          ...GridFragment
+        }
+        ... on YoutubeVideoRecord {
+          ...YoutubeVideoFragment
+        }
+        ... on HairMenuRecord {
+          ...HairMenuFragment
+        }
+        ... on BiographyRecord {
+          ...BiographyFragment
+        }
+        ... on FooterRecord {
+          ...FooterFragment
+        }
+      }
+    }
+    allPages {
+      id
+      name
+      slug
+    }
+    introPage {
+      seo: _seoMetaTags {
+        ...metaTagsFragment
+      }
+      leftLink {
+        name
+        slug
+      }
+      leftLogo {
+        responsiveImage(
+          imgixParams: {
+            fit: crop
+            crop: focalpoint
+            ar: "1:1"
+            minH: 384
+            auto: format
+          }
+        ) {
+          ...responsiveImageFragment
+        }
+      }
+      leftColor {
+        red
+        green
+        blue
+      }
+      rightLink {
+        name
+        slug
+      }
+      rightLogo {
+        responsiveImage(
+          imgixParams: {
+            fit: crop
+            crop: focalpoint
+            ar: "1:1"
+            minH: 384
+            auto: format
+          }
+        ) {
+          ...responsiveImageFragment
+        }
+      }
+      rightColor {
+        red
+        green
+        blue
+      }
+    }
+  }
+  ${metaTagsFragmentFragmentDoc}
+  ${HeroFragmentFragmentDoc}
+  ${responsiveImageFragmentFragmentDoc}
+  ${TextFragmentFragmentDoc}
+  ${RtImageFragmentFragmentDoc}
+  ${CustomHeadingFragmentFragmentDoc}
+  ${ImageFragmentFragmentDoc}
+  ${TextImageFragmentFragmentDoc}
+  ${GridFragmentFragmentDoc}
+  ${YoutubeVideoFragmentFragmentDoc}
+  ${HairMenuFragmentFragmentDoc}
+  ${PriceModulesFragmentFragmentDoc}
+  ${PricesFragmentFragmentDoc}
+  ${BiographyFragmentFragmentDoc}
+  ${FooterFragmentFragmentDoc}
+`;
 
-export type SdkFunctionWrapper = <T>(action: (requestHeaders?:Record<string, string>) => Promise<T>, operationName: string, operationType?: string) => Promise<T>;
+export type SdkFunctionWrapper = <T>(
+  action: (requestHeaders?: Record<string, string>) => Promise<T>,
+  operationName: string,
+  operationType?: string
+) => Promise<T>;
 
+const defaultWrapper: SdkFunctionWrapper = (
+  action,
+  _operationName,
+  _operationType
+) => action();
 
-const defaultWrapper: SdkFunctionWrapper = (action, _operationName, _operationType) => action();
-
-export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = defaultWrapper) {
+export function getSdk(
+  client: GraphQLClient,
+  withWrapper: SdkFunctionWrapper = defaultWrapper
+) {
   return {
-    AllPagesSlugs(variables?: AllPagesSlugsQueryVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<AllPagesSlugsQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<AllPagesSlugsQuery>(AllPagesSlugsDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'AllPagesSlugs', 'query');
+    AllPagesSlugs(
+      variables?: AllPagesSlugsQueryVariables,
+      requestHeaders?: Dom.RequestInit['headers']
+    ): Promise<AllPagesSlugsQuery> {
+      return withWrapper(
+        (wrappedRequestHeaders) =>
+          client.request<AllPagesSlugsQuery>(AllPagesSlugsDocument, variables, {
+            ...requestHeaders,
+            ...wrappedRequestHeaders,
+          }),
+        'AllPagesSlugs',
+        'query'
+      );
     },
-    HomePage(variables?: HomePageQueryVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<HomePageQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<HomePageQuery>(HomePageDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'HomePage', 'query');
+    HomePage(
+      variables?: HomePageQueryVariables,
+      requestHeaders?: Dom.RequestInit['headers']
+    ): Promise<HomePageQuery> {
+      return withWrapper(
+        (wrappedRequestHeaders) =>
+          client.request<HomePageQuery>(HomePageDocument, variables, {
+            ...requestHeaders,
+            ...wrappedRequestHeaders,
+          }),
+        'HomePage',
+        'query'
+      );
     },
-    PageBySlug(variables?: PageBySlugQueryVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<PageBySlugQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<PageBySlugQuery>(PageBySlugDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'PageBySlug', 'query');
-    }
+    PageBySlug(
+      variables?: PageBySlugQueryVariables,
+      requestHeaders?: Dom.RequestInit['headers']
+    ): Promise<PageBySlugQuery> {
+      return withWrapper(
+        (wrappedRequestHeaders) =>
+          client.request<PageBySlugQuery>(PageBySlugDocument, variables, {
+            ...requestHeaders,
+            ...wrappedRequestHeaders,
+          }),
+        'PageBySlug',
+        'query'
+      );
+    },
   };
 }
 export type Sdk = ReturnType<typeof getSdk>;
-export type BiographyFragmentFragment = { __typename: 'BiographyRecord', id: any, navigationId?: string | null, fadeIn?: any | null, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null, title?: string | null, base64?: string | null } | null } | null, bioDescription?: { __typename?: 'BiographyModelBioDescriptionField', value: any } | null };
+export type BiographyFragmentFragment = {
+  __typename: 'BiographyRecord';
+  id: any;
+  navigationId?: string | null;
+  fadeIn?: any | null;
+  image?: {
+    __typename?: 'FileField';
+    responsiveImage?: {
+      __typename?: 'ResponsiveImage';
+      srcSet: string;
+      webpSrcSet: string;
+      sizes: string;
+      src: string;
+      width: any;
+      height: any;
+      aspectRatio: any;
+      alt?: string | null;
+      title?: string | null;
+      base64?: string | null;
+    } | null;
+  } | null;
+  bioDescription?: {
+    __typename?: 'BiographyModelBioDescriptionField';
+    value: any;
+  } | null;
+};
 
-export type CustomHeadingFragmentFragment = { __typename?: 'CustomHeadingRecord', id: any, title?: string | null, subtitle?: string | null };
+export type CustomHeadingFragmentFragment = {
+  __typename?: 'CustomHeadingRecord';
+  id: any;
+  title?: string | null;
+  subtitle?: string | null;
+};
 
-export type FooterFragmentFragment = { __typename: 'FooterRecord', id: any, navigationId?: string | null, address?: { __typename?: 'FooterModelAddressField', value: any } | null, contact?: { __typename?: 'FooterModelContactField', value: any } | null, location?: { __typename?: 'LatLonField', latitude: any, longitude: any } | null, openingHours?: { __typename?: 'FooterModelOpeningHoursField', value: any } | null, info?: { __typename?: 'FooterModelInfoField', value: any } | null };
+export type FooterFragmentFragment = {
+  __typename: 'FooterRecord';
+  id: any;
+  navigationId?: string | null;
+  address?: { __typename?: 'FooterModelAddressField'; value: any } | null;
+  contact?: { __typename?: 'FooterModelContactField'; value: any } | null;
+  location?: {
+    __typename?: 'LatLonField';
+    latitude: any;
+    longitude: any;
+  } | null;
+  openingHours?: {
+    __typename?: 'FooterModelOpeningHoursField';
+    value: any;
+  } | null;
+  info?: { __typename?: 'FooterModelInfoField'; value: any } | null;
+};
 
-export type GridFragmentFragment = { __typename: 'GridRecord', navigationId?: string | null, backgroundColor?: any | null, fadeIn?: any | null, id: any, title?: string | null, mobileColumns?: string | null, tabletColumns?: string | null, desktopColumns?: string | null, gap?: string | null, fullWidth?: any | null, height?: string | null, sections: Array<{ __typename: 'GridImageRecord', id: any, mobilePosition?: any | null, tabletPosition?: any | null, desktopPosition?: any | null, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null, title?: string | null, base64?: string | null } | null } | null } | { __typename: 'GridTextRecord', id: any, mobilePosition?: any | null, tabletPosition?: any | null, desktopPosition?: any | null, content?: { __typename?: 'GridTextModelContentField', value: any, blocks: Array<{ __typename: 'RtImageRecord', id: any, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null, title?: string | null, base64?: string | null } | null } | null }> } | null }> };
+export type GridFragmentFragment = {
+  __typename: 'GridRecord';
+  navigationId?: string | null;
+  backgroundColor?: any | null;
+  fadeIn?: any | null;
+  id: any;
+  title?: string | null;
+  mobileColumns?: string | null;
+  tabletColumns?: string | null;
+  desktopColumns?: string | null;
+  gap?: string | null;
+  fullWidth?: any | null;
+  height?: string | null;
+  sections: Array<
+    | {
+        __typename: 'GridImageRecord';
+        id: any;
+        mobilePosition?: any | null;
+        tabletPosition?: any | null;
+        desktopPosition?: any | null;
+        image?: {
+          __typename?: 'FileField';
+          responsiveImage?: {
+            __typename?: 'ResponsiveImage';
+            srcSet: string;
+            webpSrcSet: string;
+            sizes: string;
+            src: string;
+            width: any;
+            height: any;
+            aspectRatio: any;
+            alt?: string | null;
+            title?: string | null;
+            base64?: string | null;
+          } | null;
+        } | null;
+      }
+    | {
+        __typename: 'GridTextRecord';
+        id: any;
+        mobilePosition?: any | null;
+        tabletPosition?: any | null;
+        desktopPosition?: any | null;
+        content?: {
+          __typename?: 'GridTextModelContentField';
+          value: any;
+          blocks: Array<{
+            __typename: 'RtImageRecord';
+            id: any;
+            image?: {
+              __typename?: 'FileField';
+              responsiveImage?: {
+                __typename?: 'ResponsiveImage';
+                srcSet: string;
+                webpSrcSet: string;
+                sizes: string;
+                src: string;
+                width: any;
+                height: any;
+                aspectRatio: any;
+                alt?: string | null;
+                title?: string | null;
+                base64?: string | null;
+              } | null;
+            } | null;
+          }>;
+        } | null;
+      }
+  >;
+};
 
-export type GridImageFragmentFragment = { __typename: 'GridImageRecord', id: any, mobilePosition?: any | null, tabletPosition?: any | null, desktopPosition?: any | null, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null, title?: string | null, base64?: string | null } | null } | null };
+export type GridImageFragmentFragment = {
+  __typename: 'GridImageRecord';
+  id: any;
+  mobilePosition?: any | null;
+  tabletPosition?: any | null;
+  desktopPosition?: any | null;
+  image?: {
+    __typename?: 'FileField';
+    responsiveImage?: {
+      __typename?: 'ResponsiveImage';
+      srcSet: string;
+      webpSrcSet: string;
+      sizes: string;
+      src: string;
+      width: any;
+      height: any;
+      aspectRatio: any;
+      alt?: string | null;
+      title?: string | null;
+      base64?: string | null;
+    } | null;
+  } | null;
+};
 
-export type GridTextFragmentFragment = { __typename: 'GridTextRecord', id: any, mobilePosition?: any | null, tabletPosition?: any | null, desktopPosition?: any | null, content?: { __typename?: 'GridTextModelContentField', value: any, blocks: Array<{ __typename: 'RtImageRecord', id: any, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null, title?: string | null, base64?: string | null } | null } | null }> } | null };
+export type GridTextFragmentFragment = {
+  __typename: 'GridTextRecord';
+  id: any;
+  mobilePosition?: any | null;
+  tabletPosition?: any | null;
+  desktopPosition?: any | null;
+  content?: {
+    __typename?: 'GridTextModelContentField';
+    value: any;
+    blocks: Array<{
+      __typename: 'RtImageRecord';
+      id: any;
+      image?: {
+        __typename?: 'FileField';
+        responsiveImage?: {
+          __typename?: 'ResponsiveImage';
+          srcSet: string;
+          webpSrcSet: string;
+          sizes: string;
+          src: string;
+          width: any;
+          height: any;
+          aspectRatio: any;
+          alt?: string | null;
+          title?: string | null;
+          base64?: string | null;
+        } | null;
+      } | null;
+    }>;
+  } | null;
+};
 
-export type HairMenuFragmentFragment = { __typename: 'HairMenuRecord', id: any, navigationId?: string | null, fadeIn?: any | null, priceModules: Array<{ __typename: 'PriceModuleRecord', id: any, heading?: string | null, prices: Array<{ __typename?: 'PriceRecord', id: any, treatment?: string | null, price?: any | null, from?: any | null, description?: { __typename?: 'PriceModelDescriptionField', value: any } | null }> }> };
+export type HairMenuFragmentFragment = {
+  __typename: 'HairMenuRecord';
+  id: any;
+  navigationId?: string | null;
+  fadeIn?: any | null;
+  priceModules: Array<{
+    __typename: 'PriceModuleRecord';
+    id: any;
+    heading?: string | null;
+    prices: Array<{
+      __typename?: 'PriceRecord';
+      id: any;
+      treatment?: string | null;
+      price?: any | null;
+      from?: any | null;
+      description?: {
+        __typename?: 'PriceModelDescriptionField';
+        value: any;
+      } | null;
+    }>;
+  }>;
+};
 
-export type PriceModulesFragmentFragment = { __typename: 'PriceModuleRecord', id: any, heading?: string | null, prices: Array<{ __typename?: 'PriceRecord', id: any, treatment?: string | null, price?: any | null, from?: any | null, description?: { __typename?: 'PriceModelDescriptionField', value: any } | null }> };
+export type PriceModulesFragmentFragment = {
+  __typename: 'PriceModuleRecord';
+  id: any;
+  heading?: string | null;
+  prices: Array<{
+    __typename?: 'PriceRecord';
+    id: any;
+    treatment?: string | null;
+    price?: any | null;
+    from?: any | null;
+    description?: {
+      __typename?: 'PriceModelDescriptionField';
+      value: any;
+    } | null;
+  }>;
+};
 
-export type PricesFragmentFragment = { __typename?: 'PriceRecord', id: any, treatment?: string | null, price?: any | null, from?: any | null, description?: { __typename?: 'PriceModelDescriptionField', value: any } | null };
+export type PricesFragmentFragment = {
+  __typename?: 'PriceRecord';
+  id: any;
+  treatment?: string | null;
+  price?: any | null;
+  from?: any | null;
+  description?: {
+    __typename?: 'PriceModelDescriptionField';
+    value: any;
+  } | null;
+};
 
-export type HeroFragmentFragment = { __typename: 'HeroRecord', id: any, navigationId?: string | null, buttonText?: string | null, buttonLink?: string | null, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null, title?: string | null, base64?: string | null } | null } | null, backgroundImage?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null, title?: string | null, base64?: string | null } | null } | null };
+export type HeroFragmentFragment = {
+  __typename: 'HeroRecord';
+  id: any;
+  navigationId?: string | null;
+  buttonText?: string | null;
+  buttonLink?: string | null;
+  image?: {
+    __typename?: 'FileField';
+    responsiveImage?: {
+      __typename?: 'ResponsiveImage';
+      srcSet: string;
+      webpSrcSet: string;
+      sizes: string;
+      src: string;
+      width: any;
+      height: any;
+      aspectRatio: any;
+      alt?: string | null;
+      title?: string | null;
+      base64?: string | null;
+    } | null;
+  } | null;
+  backgroundImage?: {
+    __typename?: 'FileField';
+    responsiveImage?: {
+      __typename?: 'ResponsiveImage';
+      srcSet: string;
+      webpSrcSet: string;
+      sizes: string;
+      src: string;
+      width: any;
+      height: any;
+      aspectRatio: any;
+      alt?: string | null;
+      title?: string | null;
+      base64?: string | null;
+    } | null;
+  } | null;
+};
 
-export type ImageFragmentFragment = { __typename: 'ImageRecord', navigationId?: string | null, backgroundColor?: any | null, fadeIn?: any | null, imageTitle?: string | null, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null, title?: string | null, base64?: string | null } | null } | null };
+export type ImageFragmentFragment = {
+  __typename: 'ImageRecord';
+  navigationId?: string | null;
+  backgroundColor?: any | null;
+  fadeIn?: any | null;
+  imageTitle?: string | null;
+  image?: {
+    __typename?: 'FileField';
+    responsiveImage?: {
+      __typename?: 'ResponsiveImage';
+      srcSet: string;
+      webpSrcSet: string;
+      sizes: string;
+      src: string;
+      width: any;
+      height: any;
+      aspectRatio: any;
+      alt?: string | null;
+      title?: string | null;
+      base64?: string | null;
+    } | null;
+  } | null;
+};
 
-export type RtImageFragmentFragment = { __typename?: 'RtImageRecord', id: any, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null, title?: string | null, base64?: string | null } | null } | null };
+export type RtImageFragmentFragment = {
+  __typename?: 'RtImageRecord';
+  id: any;
+  image?: {
+    __typename?: 'FileField';
+    responsiveImage?: {
+      __typename?: 'ResponsiveImage';
+      srcSet: string;
+      webpSrcSet: string;
+      sizes: string;
+      src: string;
+      width: any;
+      height: any;
+      aspectRatio: any;
+      alt?: string | null;
+      title?: string | null;
+      base64?: string | null;
+    } | null;
+  } | null;
+};
 
-export type TextFragmentFragment = { __typename: 'TextRecord', navigationId?: string | null, backgroundColor?: any | null, fadeIn?: any | null, content?: { __typename?: 'TextModelContentField', value: any, blocks: Array<{ __typename: 'CustomHeadingRecord', id: any, title?: string | null, subtitle?: string | null } | { __typename: 'RtImageRecord', id: any, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null, title?: string | null, base64?: string | null } | null } | null }> } | null };
+export type TextFragmentFragment = {
+  __typename: 'TextRecord';
+  navigationId?: string | null;
+  backgroundColor?: any | null;
+  fadeIn?: any | null;
+  content?: {
+    __typename?: 'TextModelContentField';
+    value: any;
+    blocks: Array<
+      | {
+          __typename: 'CustomHeadingRecord';
+          id: any;
+          title?: string | null;
+          subtitle?: string | null;
+        }
+      | {
+          __typename: 'RtImageRecord';
+          id: any;
+          image?: {
+            __typename?: 'FileField';
+            responsiveImage?: {
+              __typename?: 'ResponsiveImage';
+              srcSet: string;
+              webpSrcSet: string;
+              sizes: string;
+              src: string;
+              width: any;
+              height: any;
+              aspectRatio: any;
+              alt?: string | null;
+              title?: string | null;
+              base64?: string | null;
+            } | null;
+          } | null;
+        }
+    >;
+  } | null;
+};
 
-export type TextImageFragmentFragment = { __typename: 'TextImageRecord', navigationId?: string | null, backgroundColor?: any | null, fadeIn?: any | null, imageLocation?: string | null, imageStyle?: string | null, content?: { __typename?: 'TextImageModelContentField', value: any, blocks: Array<{ __typename: 'CustomHeadingRecord', id: any, title?: string | null, subtitle?: string | null } | { __typename: 'RtImageRecord', id: any, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null, title?: string | null, base64?: string | null } | null } | null }> } | null, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null, title?: string | null, base64?: string | null } | null } | null };
+export type TextImageFragmentFragment = {
+  __typename: 'TextImageRecord';
+  navigationId?: string | null;
+  backgroundColor?: any | null;
+  fadeIn?: any | null;
+  imageLocation?: string | null;
+  imageStyle?: string | null;
+  content?: {
+    __typename?: 'TextImageModelContentField';
+    value: any;
+    blocks: Array<
+      | {
+          __typename: 'CustomHeadingRecord';
+          id: any;
+          title?: string | null;
+          subtitle?: string | null;
+        }
+      | {
+          __typename: 'RtImageRecord';
+          id: any;
+          image?: {
+            __typename?: 'FileField';
+            responsiveImage?: {
+              __typename?: 'ResponsiveImage';
+              srcSet: string;
+              webpSrcSet: string;
+              sizes: string;
+              src: string;
+              width: any;
+              height: any;
+              aspectRatio: any;
+              alt?: string | null;
+              title?: string | null;
+              base64?: string | null;
+            } | null;
+          } | null;
+        }
+    >;
+  } | null;
+  image?: {
+    __typename?: 'FileField';
+    responsiveImage?: {
+      __typename?: 'ResponsiveImage';
+      srcSet: string;
+      webpSrcSet: string;
+      sizes: string;
+      src: string;
+      width: any;
+      height: any;
+      aspectRatio: any;
+      alt?: string | null;
+      title?: string | null;
+      base64?: string | null;
+    } | null;
+  } | null;
+};
 
-export type YoutubeVideoFragmentFragment = { __typename: 'YoutubeVideoRecord', id: any, navigationId?: string | null, backgroundColor?: any | null, fadeIn?: any | null, link?: { __typename?: 'VideoField', providerUid: string } | null };
+export type YoutubeVideoFragmentFragment = {
+  __typename: 'YoutubeVideoRecord';
+  id: any;
+  navigationId?: string | null;
+  backgroundColor?: any | null;
+  fadeIn?: any | null;
+  link?: { __typename?: 'VideoField'; providerUid: string } | null;
+};
 
-export type AllPagesSlugsQueryVariables = Exact<{ [key: string]: never; }>;
+export type AllPagesSlugsQueryVariables = Exact<{ [key: string]: never }>;
 
+export type AllPagesSlugsQuery = {
+  __typename?: 'Query';
+  allPages: Array<{ __typename?: 'PageRecord'; slug?: string | null }>;
+};
 
-export type AllPagesSlugsQuery = { __typename?: 'Query', allPages: Array<{ __typename?: 'PageRecord', slug?: string | null }> };
+export type metaTagsFragmentFragment = {
+  __typename?: 'Tag';
+  attributes?: any | null;
+  content?: string | null;
+  tag: string;
+};
 
-export type metaTagsFragmentFragment = { __typename?: 'Tag', attributes?: any | null, content?: string | null, tag: string };
+export type responsiveImageFragmentFragment = {
+  __typename?: 'ResponsiveImage';
+  srcSet: string;
+  webpSrcSet: string;
+  sizes: string;
+  src: string;
+  width: any;
+  height: any;
+  aspectRatio: any;
+  alt?: string | null;
+  title?: string | null;
+  base64?: string | null;
+};
 
-export type responsiveImageFragmentFragment = { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null, title?: string | null, base64?: string | null };
+export type HomePageQueryVariables = Exact<{ [key: string]: never }>;
 
-export type HomePageQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type HomePageQuery = { __typename?: 'Query', site: { __typename?: 'Site', favicon: Array<{ __typename?: 'Tag', attributes?: any | null, content?: string | null, tag: string }> }, introPage?: { __typename?: 'IntroPageRecord', leftShowIntro?: any | null, rightShowIntro?: any | null, seo: Array<{ __typename?: 'Tag', attributes?: any | null, content?: string | null, tag: string }>, leftLink?: { __typename?: 'PageRecord', name?: string | null, slug?: string | null } | null, leftLogo?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null, title?: string | null, base64?: string | null } | null } | null, leftIntro?: { __typename?: 'IntroPageModelLeftIntroField', value: any } | null, leftColor?: { __typename?: 'ColorField', red: any, green: any, blue: any } | null, rightLink?: { __typename?: 'PageRecord', name?: string | null, slug?: string | null } | null, rightLogo?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null, title?: string | null, base64?: string | null } | null } | null, rightIntro?: { __typename?: 'IntroPageModelRightIntroField', value: any } | null, rightColor?: { __typename?: 'ColorField', red: any, green: any, blue: any } | null } | null };
+export type HomePageQuery = {
+  __typename?: 'Query';
+  site: {
+    __typename?: 'Site';
+    favicon: Array<{
+      __typename?: 'Tag';
+      attributes?: any | null;
+      content?: string | null;
+      tag: string;
+    }>;
+  };
+  introPage?: {
+    __typename?: 'IntroPageRecord';
+    leftShowIntro?: any | null;
+    rightShowIntro?: any | null;
+    seo: Array<{
+      __typename?: 'Tag';
+      attributes?: any | null;
+      content?: string | null;
+      tag: string;
+    }>;
+    leftLink?: {
+      __typename?: 'PageRecord';
+      name?: string | null;
+      slug?: string | null;
+    } | null;
+    leftLogo?: {
+      __typename?: 'FileField';
+      responsiveImage?: {
+        __typename?: 'ResponsiveImage';
+        srcSet: string;
+        webpSrcSet: string;
+        sizes: string;
+        src: string;
+        width: any;
+        height: any;
+        aspectRatio: any;
+        alt?: string | null;
+        title?: string | null;
+        base64?: string | null;
+      } | null;
+    } | null;
+    leftIntro?: {
+      __typename?: 'IntroPageModelLeftIntroField';
+      value: any;
+    } | null;
+    leftColor?: {
+      __typename?: 'ColorField';
+      red: any;
+      green: any;
+      blue: any;
+    } | null;
+    rightLink?: {
+      __typename?: 'PageRecord';
+      name?: string | null;
+      slug?: string | null;
+    } | null;
+    rightLogo?: {
+      __typename?: 'FileField';
+      responsiveImage?: {
+        __typename?: 'ResponsiveImage';
+        srcSet: string;
+        webpSrcSet: string;
+        sizes: string;
+        src: string;
+        width: any;
+        height: any;
+        aspectRatio: any;
+        alt?: string | null;
+        title?: string | null;
+        base64?: string | null;
+      } | null;
+    } | null;
+    rightIntro?: {
+      __typename?: 'IntroPageModelRightIntroField';
+      value: any;
+    } | null;
+    rightColor?: {
+      __typename?: 'ColorField';
+      red: any;
+      green: any;
+      blue: any;
+    } | null;
+  } | null;
+};
 
 export type PageBySlugQueryVariables = Exact<{
   slug?: InputMaybe<Scalars['String']>;
 }>;
 
-
-export type PageBySlugQuery = { __typename?: 'Query', site: { __typename?: 'Site', favicon: Array<{ __typename?: 'Tag', attributes?: any | null, content?: string | null, tag: string }> }, page?: { __typename?: 'PageRecord', id: any, name?: string | null, slug?: string | null, instagramUrl?: string | null, facebookUrl?: string | null, seo: Array<{ __typename?: 'Tag', attributes?: any | null, content?: string | null, tag: string }>, primaryColor?: { __typename?: 'ColorField', red: any, green: any, blue: any } | null, secondaryColor?: { __typename?: 'ColorField', red: any, green: any, blue: any } | null, accentColor?: { __typename?: 'ColorField', red: any, green: any, blue: any } | null, content: Array<{ __typename: 'BiographyRecord', id: any, navigationId?: string | null, fadeIn?: any | null, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null, title?: string | null, base64?: string | null } | null } | null, bioDescription?: { __typename?: 'BiographyModelBioDescriptionField', value: any } | null } | { __typename: 'FooterRecord', id: any, navigationId?: string | null, address?: { __typename?: 'FooterModelAddressField', value: any } | null, contact?: { __typename?: 'FooterModelContactField', value: any } | null, location?: { __typename?: 'LatLonField', latitude: any, longitude: any } | null, openingHours?: { __typename?: 'FooterModelOpeningHoursField', value: any } | null, info?: { __typename?: 'FooterModelInfoField', value: any } | null } | { __typename: 'GridRecord', navigationId?: string | null, backgroundColor?: any | null, fadeIn?: any | null, id: any, title?: string | null, mobileColumns?: string | null, tabletColumns?: string | null, desktopColumns?: string | null, gap?: string | null, fullWidth?: any | null, height?: string | null, sections: Array<{ __typename: 'GridImageRecord', id: any, mobilePosition?: any | null, tabletPosition?: any | null, desktopPosition?: any | null, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null, title?: string | null, base64?: string | null } | null } | null } | { __typename: 'GridTextRecord', id: any, mobilePosition?: any | null, tabletPosition?: any | null, desktopPosition?: any | null, content?: { __typename?: 'GridTextModelContentField', value: any, blocks: Array<{ __typename: 'RtImageRecord', id: any, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null, title?: string | null, base64?: string | null } | null } | null }> } | null }> } | { __typename: 'HairMenuRecord', id: any, navigationId?: string | null, fadeIn?: any | null, priceModules: Array<{ __typename: 'PriceModuleRecord', id: any, heading?: string | null, prices: Array<{ __typename?: 'PriceRecord', id: any, treatment?: string | null, price?: any | null, from?: any | null, description?: { __typename?: 'PriceModelDescriptionField', value: any } | null }> }> } | { __typename: 'HeroRecord', id: any, navigationId?: string | null, buttonText?: string | null, buttonLink?: string | null, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null, title?: string | null, base64?: string | null } | null } | null, backgroundImage?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null, title?: string | null, base64?: string | null } | null } | null } | { __typename: 'ImageRecord', navigationId?: string | null, backgroundColor?: any | null, fadeIn?: any | null, imageTitle?: string | null, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null, title?: string | null, base64?: string | null } | null } | null } | { __typename: 'TextImageRecord', navigationId?: string | null, backgroundColor?: any | null, fadeIn?: any | null, imageLocation?: string | null, imageStyle?: string | null, content?: { __typename?: 'TextImageModelContentField', value: any, blocks: Array<{ __typename: 'CustomHeadingRecord', id: any, title?: string | null, subtitle?: string | null } | { __typename: 'RtImageRecord', id: any, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null, title?: string | null, base64?: string | null } | null } | null }> } | null, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null, title?: string | null, base64?: string | null } | null } | null } | { __typename: 'TextRecord', navigationId?: string | null, backgroundColor?: any | null, fadeIn?: any | null, content?: { __typename?: 'TextModelContentField', value: any, blocks: Array<{ __typename: 'CustomHeadingRecord', id: any, title?: string | null, subtitle?: string | null } | { __typename: 'RtImageRecord', id: any, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null, title?: string | null, base64?: string | null } | null } | null }> } | null } | { __typename: 'YoutubeVideoRecord', id: any, navigationId?: string | null, backgroundColor?: any | null, fadeIn?: any | null, link?: { __typename?: 'VideoField', providerUid: string } | null }> } | null, allPages: Array<{ __typename?: 'PageRecord', id: any, name?: string | null, slug?: string | null }>, introPage?: { __typename?: 'IntroPageRecord', seo: Array<{ __typename?: 'Tag', attributes?: any | null, content?: string | null, tag: string }>, leftLink?: { __typename?: 'PageRecord', name?: string | null, slug?: string | null } | null, leftLogo?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null, title?: string | null, base64?: string | null } | null } | null, leftColor?: { __typename?: 'ColorField', red: any, green: any, blue: any } | null, rightLink?: { __typename?: 'PageRecord', name?: string | null, slug?: string | null } | null, rightLogo?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null, title?: string | null, base64?: string | null } | null } | null, rightColor?: { __typename?: 'ColorField', red: any, green: any, blue: any } | null } | null };
+export type PageBySlugQuery = {
+  __typename?: 'Query';
+  site: {
+    __typename?: 'Site';
+    favicon: Array<{
+      __typename?: 'Tag';
+      attributes?: any | null;
+      content?: string | null;
+      tag: string;
+    }>;
+  };
+  page?: {
+    __typename?: 'PageRecord';
+    id: any;
+    name?: string | null;
+    slug?: string | null;
+    instagramUrl?: string | null;
+    facebookUrl?: string | null;
+    seo: Array<{
+      __typename?: 'Tag';
+      attributes?: any | null;
+      content?: string | null;
+      tag: string;
+    }>;
+    primaryColor?: {
+      __typename?: 'ColorField';
+      red: any;
+      green: any;
+      blue: any;
+    } | null;
+    secondaryColor?: {
+      __typename?: 'ColorField';
+      red: any;
+      green: any;
+      blue: any;
+    } | null;
+    accentColor?: {
+      __typename?: 'ColorField';
+      red: any;
+      green: any;
+      blue: any;
+    } | null;
+    content: Array<
+      | {
+          __typename: 'BiographyRecord';
+          id: any;
+          navigationId?: string | null;
+          fadeIn?: any | null;
+          image?: {
+            __typename?: 'FileField';
+            responsiveImage?: {
+              __typename?: 'ResponsiveImage';
+              srcSet: string;
+              webpSrcSet: string;
+              sizes: string;
+              src: string;
+              width: any;
+              height: any;
+              aspectRatio: any;
+              alt?: string | null;
+              title?: string | null;
+              base64?: string | null;
+            } | null;
+          } | null;
+          bioDescription?: {
+            __typename?: 'BiographyModelBioDescriptionField';
+            value: any;
+          } | null;
+        }
+      | {
+          __typename: 'FooterRecord';
+          id: any;
+          navigationId?: string | null;
+          address?: {
+            __typename?: 'FooterModelAddressField';
+            value: any;
+          } | null;
+          contact?: {
+            __typename?: 'FooterModelContactField';
+            value: any;
+          } | null;
+          location?: {
+            __typename?: 'LatLonField';
+            latitude: any;
+            longitude: any;
+          } | null;
+          openingHours?: {
+            __typename?: 'FooterModelOpeningHoursField';
+            value: any;
+          } | null;
+          info?: { __typename?: 'FooterModelInfoField'; value: any } | null;
+        }
+      | {
+          __typename: 'GridRecord';
+          navigationId?: string | null;
+          backgroundColor?: any | null;
+          fadeIn?: any | null;
+          id: any;
+          title?: string | null;
+          mobileColumns?: string | null;
+          tabletColumns?: string | null;
+          desktopColumns?: string | null;
+          gap?: string | null;
+          fullWidth?: any | null;
+          height?: string | null;
+          sections: Array<
+            | {
+                __typename: 'GridImageRecord';
+                id: any;
+                mobilePosition?: any | null;
+                tabletPosition?: any | null;
+                desktopPosition?: any | null;
+                image?: {
+                  __typename?: 'FileField';
+                  responsiveImage?: {
+                    __typename?: 'ResponsiveImage';
+                    srcSet: string;
+                    webpSrcSet: string;
+                    sizes: string;
+                    src: string;
+                    width: any;
+                    height: any;
+                    aspectRatio: any;
+                    alt?: string | null;
+                    title?: string | null;
+                    base64?: string | null;
+                  } | null;
+                } | null;
+              }
+            | {
+                __typename: 'GridTextRecord';
+                id: any;
+                mobilePosition?: any | null;
+                tabletPosition?: any | null;
+                desktopPosition?: any | null;
+                content?: {
+                  __typename?: 'GridTextModelContentField';
+                  value: any;
+                  blocks: Array<{
+                    __typename: 'RtImageRecord';
+                    id: any;
+                    image?: {
+                      __typename?: 'FileField';
+                      responsiveImage?: {
+                        __typename?: 'ResponsiveImage';
+                        srcSet: string;
+                        webpSrcSet: string;
+                        sizes: string;
+                        src: string;
+                        width: any;
+                        height: any;
+                        aspectRatio: any;
+                        alt?: string | null;
+                        title?: string | null;
+                        base64?: string | null;
+                      } | null;
+                    } | null;
+                  }>;
+                } | null;
+              }
+          >;
+        }
+      | {
+          __typename: 'HairMenuRecord';
+          id: any;
+          navigationId?: string | null;
+          fadeIn?: any | null;
+          priceModules: Array<{
+            __typename: 'PriceModuleRecord';
+            id: any;
+            heading?: string | null;
+            prices: Array<{
+              __typename?: 'PriceRecord';
+              id: any;
+              treatment?: string | null;
+              price?: any | null;
+              from?: any | null;
+              description?: {
+                __typename?: 'PriceModelDescriptionField';
+                value: any;
+              } | null;
+            }>;
+          }>;
+        }
+      | {
+          __typename: 'HeroRecord';
+          id: any;
+          navigationId?: string | null;
+          buttonText?: string | null;
+          buttonLink?: string | null;
+          image?: {
+            __typename?: 'FileField';
+            responsiveImage?: {
+              __typename?: 'ResponsiveImage';
+              srcSet: string;
+              webpSrcSet: string;
+              sizes: string;
+              src: string;
+              width: any;
+              height: any;
+              aspectRatio: any;
+              alt?: string | null;
+              title?: string | null;
+              base64?: string | null;
+            } | null;
+          } | null;
+          backgroundImage?: {
+            __typename?: 'FileField';
+            responsiveImage?: {
+              __typename?: 'ResponsiveImage';
+              srcSet: string;
+              webpSrcSet: string;
+              sizes: string;
+              src: string;
+              width: any;
+              height: any;
+              aspectRatio: any;
+              alt?: string | null;
+              title?: string | null;
+              base64?: string | null;
+            } | null;
+          } | null;
+        }
+      | {
+          __typename: 'ImageRecord';
+          navigationId?: string | null;
+          backgroundColor?: any | null;
+          fadeIn?: any | null;
+          imageTitle?: string | null;
+          image?: {
+            __typename?: 'FileField';
+            responsiveImage?: {
+              __typename?: 'ResponsiveImage';
+              srcSet: string;
+              webpSrcSet: string;
+              sizes: string;
+              src: string;
+              width: any;
+              height: any;
+              aspectRatio: any;
+              alt?: string | null;
+              title?: string | null;
+              base64?: string | null;
+            } | null;
+          } | null;
+        }
+      | {
+          __typename: 'TextImageRecord';
+          navigationId?: string | null;
+          backgroundColor?: any | null;
+          fadeIn?: any | null;
+          imageLocation?: string | null;
+          imageStyle?: string | null;
+          content?: {
+            __typename?: 'TextImageModelContentField';
+            value: any;
+            blocks: Array<
+              | {
+                  __typename: 'CustomHeadingRecord';
+                  id: any;
+                  title?: string | null;
+                  subtitle?: string | null;
+                }
+              | {
+                  __typename: 'RtImageRecord';
+                  id: any;
+                  image?: {
+                    __typename?: 'FileField';
+                    responsiveImage?: {
+                      __typename?: 'ResponsiveImage';
+                      srcSet: string;
+                      webpSrcSet: string;
+                      sizes: string;
+                      src: string;
+                      width: any;
+                      height: any;
+                      aspectRatio: any;
+                      alt?: string | null;
+                      title?: string | null;
+                      base64?: string | null;
+                    } | null;
+                  } | null;
+                }
+            >;
+          } | null;
+          image?: {
+            __typename?: 'FileField';
+            responsiveImage?: {
+              __typename?: 'ResponsiveImage';
+              srcSet: string;
+              webpSrcSet: string;
+              sizes: string;
+              src: string;
+              width: any;
+              height: any;
+              aspectRatio: any;
+              alt?: string | null;
+              title?: string | null;
+              base64?: string | null;
+            } | null;
+          } | null;
+        }
+      | {
+          __typename: 'TextRecord';
+          navigationId?: string | null;
+          backgroundColor?: any | null;
+          fadeIn?: any | null;
+          content?: {
+            __typename?: 'TextModelContentField';
+            value: any;
+            blocks: Array<
+              | {
+                  __typename: 'CustomHeadingRecord';
+                  id: any;
+                  title?: string | null;
+                  subtitle?: string | null;
+                }
+              | {
+                  __typename: 'RtImageRecord';
+                  id: any;
+                  image?: {
+                    __typename?: 'FileField';
+                    responsiveImage?: {
+                      __typename?: 'ResponsiveImage';
+                      srcSet: string;
+                      webpSrcSet: string;
+                      sizes: string;
+                      src: string;
+                      width: any;
+                      height: any;
+                      aspectRatio: any;
+                      alt?: string | null;
+                      title?: string | null;
+                      base64?: string | null;
+                    } | null;
+                  } | null;
+                }
+            >;
+          } | null;
+        }
+      | {
+          __typename: 'YoutubeVideoRecord';
+          id: any;
+          navigationId?: string | null;
+          backgroundColor?: any | null;
+          fadeIn?: any | null;
+          link?: { __typename?: 'VideoField'; providerUid: string } | null;
+        }
+    >;
+  } | null;
+  allPages: Array<{
+    __typename?: 'PageRecord';
+    id: any;
+    name?: string | null;
+    slug?: string | null;
+  }>;
+  introPage?: {
+    __typename?: 'IntroPageRecord';
+    seo: Array<{
+      __typename?: 'Tag';
+      attributes?: any | null;
+      content?: string | null;
+      tag: string;
+    }>;
+    leftLink?: {
+      __typename?: 'PageRecord';
+      name?: string | null;
+      slug?: string | null;
+    } | null;
+    leftLogo?: {
+      __typename?: 'FileField';
+      responsiveImage?: {
+        __typename?: 'ResponsiveImage';
+        srcSet: string;
+        webpSrcSet: string;
+        sizes: string;
+        src: string;
+        width: any;
+        height: any;
+        aspectRatio: any;
+        alt?: string | null;
+        title?: string | null;
+        base64?: string | null;
+      } | null;
+    } | null;
+    leftColor?: {
+      __typename?: 'ColorField';
+      red: any;
+      green: any;
+      blue: any;
+    } | null;
+    rightLink?: {
+      __typename?: 'PageRecord';
+      name?: string | null;
+      slug?: string | null;
+    } | null;
+    rightLogo?: {
+      __typename?: 'FileField';
+      responsiveImage?: {
+        __typename?: 'ResponsiveImage';
+        srcSet: string;
+        webpSrcSet: string;
+        sizes: string;
+        src: string;
+        width: any;
+        height: any;
+        aspectRatio: any;
+        alt?: string | null;
+        title?: string | null;
+        base64?: string | null;
+      } | null;
+    } | null;
+    rightColor?: {
+      __typename?: 'ColorField';
+      red: any;
+      green: any;
+      blue: any;
+    } | null;
+  } | null;
+};

@@ -7,8 +7,7 @@ import {
 } from 'framer-motion';
 import Link from 'next/link';
 import { useEffect } from 'react';
-import { BsInstagram, BsFacebook } from 'react-icons/bs';
-import { PageRecord } from 'lib/graphql';
+import { BsFacebook, BsInstagram } from 'react-icons/bs';
 
 let clamp = (number: any, min: any, max: any) =>
   Math.min(Math.max(number, min), max);
@@ -60,7 +59,7 @@ export default function Navigation({ page }: any) {
         <a
           target='_blank'
           rel='noopener norefferer noreferrer'
-          href={page.instagramUrl}
+          href={page?.instagramUrl!}
           className='text-3xl text-gray-300 hover:text-white'
         >
           <BsInstagram />
@@ -68,14 +67,14 @@ export default function Navigation({ page }: any) {
         <a
           target='_blank'
           rel='noopener norefferer noreferrer'
-          href={page.facebookUrl}
+          href={page?.facebookUrl!}
           className='text-3xl text-gray-300 hover:text-white'
         >
           <BsFacebook />
         </a>
       </div>
       <div className='flex'>
-        {page.content?.map((navigation: any) => {
+        {page?.content?.map((navigation: any) => {
           return navigation.navigationId ? (
             <Link
               key={navigation.id}
