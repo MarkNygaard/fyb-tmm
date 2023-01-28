@@ -74,10 +74,10 @@ export default function Navigation({ page }: any) {
         </a>
       </div>
       <div className='flex'>
-        {page?.content?.map(({ navigation, i }: any) => {
+        {page?.content?.map((navigation: any) => {
           return navigation.navigationId ? (
             <Link
-              key={i}
+              key={navigation.id}
               href={'#' + navigation.navigationId}
               className='block py-2 px-3 text-lg font-light uppercase text-gray-300 opacity-100 hover:text-white xl:px-4 xl:text-xl'
             >
