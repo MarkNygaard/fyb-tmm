@@ -5,7 +5,6 @@ import {
   useScroll,
   useTransform,
 } from 'framer-motion';
-import { PageBySlugQuery } from 'lib/graphql';
 import Link from 'next/link';
 import { useEffect } from 'react';
 import { BsFacebook, BsInstagram } from 'react-icons/bs';
@@ -35,7 +34,7 @@ function useBoundedScroll(bounds: any) {
   return { scrollYBounded, scrollYBoundedProgress };
 }
 
-export default function Navigation({ page }: PageBySlugQuery) {
+export default function Navigation({ page }: any) {
   let { scrollYBoundedProgress } = useBoundedScroll(300);
   let scrollYBoundedProgressThrottled = useTransform(
     scrollYBoundedProgress,
@@ -75,7 +74,7 @@ export default function Navigation({ page }: PageBySlugQuery) {
         </a>
       </div>
       <div className='flex'>
-        {page?.content?.map((navigation, i) => {
+        {page?.content?.map(({ navigation, i }: any) => {
           return navigation.navigationId ? (
             <Link
               key={i}
