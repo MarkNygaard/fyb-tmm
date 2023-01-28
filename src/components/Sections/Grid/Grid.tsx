@@ -1,12 +1,27 @@
 import classNames from 'clsx';
 import { motion, useAnimation } from 'framer-motion';
+import { GridRecord } from 'lib/graphql';
 import React, { useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 
 import { GridImage } from './GridImage';
 import { GridText } from './GridText';
 
-export default function Grid({ details }: any) {
+export type StackModule<T> = Omit<T, 'title' | '__typename'>;
+export type GridProps = StackModule<GridRecord>;
+
+export default function Grid({
+  navigationId,
+  backgroundColor,
+  fadeIn,
+  mobileColumns,
+  tabletColumns,
+  desktopColumns,
+  gap,
+  fullWidth,
+  sections,
+  height,
+}: GridProps) {
   const { ref, inView } = useInView({
     threshold: 0.4,
   });
@@ -27,26 +42,23 @@ export default function Grid({ details }: any) {
   return (
     <div
       ref={ref}
-      id={details.navigationId}
+      id={navigationId!}
       className={classNames('flex justify-center py-20 px-0 md:px-10', {
-        'bg-skin-secondary': details.backgroundColor === true,
+        'bg-skin-secondary': backgroundColor === true,
       })}
     >
       <motion.div
-        initial={details.fadeIn ? { opacity: 0 } : { opacity: 1 }}
-        animate={details.fadeIn ? animation : { opacity: 1 }}
+        initial={fadeIn ? { opacity: 0 } : { opacity: 1 }}
+        animate={fadeIn ? animation : { opacity: 1 }}
         className={classNames('grid', {
-          [`grid-cols-${details.mobileColumns as string}`]:
-            details.mobileColumns,
-          [`md:grid-cols-${details.tabletColumns as string}`]:
-            details.tabletColumns,
-          [`xl:grid-cols-${details.desktopColumns as string}`]:
-            details.desktopColumns,
-          [`gap-${details.gap as string}`]: details.gap,
-          'md:w-10/12': details.fullWidth === false,
+          [`grid-cols-${mobileColumns as string}`]: mobileColumns,
+          [`md:grid-cols-${tabletColumns as string}`]: tabletColumns,
+          [`xl:grid-cols-${desktopColumns as string}`]: desktopColumns,
+          [`gap-${gap as string}`]: gap,
+          'md:w-10/12': fullWidth === false,
         })}
       >
-        {details.sections.map((section: any) => {
+        {sections.map((section: any) => {
           return (
             <div
               key={section.id}
@@ -62,11 +74,11 @@ export default function Grid({ details }: any) {
               {section.__typename === 'GridImage' ? (
                 <GridImage
                   key={section.id}
-                  details={details}
+                  height={height}
                   section={section}
                 ></GridImage>
               ) : section.__typename === 'GridText' ? (
-                <GridText details={details} section={section}></GridText>
+                <GridText height={height} section={section}></GridText>
               ) : (
                 <></>
               )}

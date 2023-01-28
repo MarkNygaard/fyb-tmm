@@ -1,11 +1,35 @@
 import classNames from 'clsx';
-import React from 'react';
+import { motion, useAnimation } from 'framer-motion';
+import React, { useEffect } from 'react';
+import { useInView } from 'react-intersection-observer';
 
 import Prices from '../Prices/Prices';
 
-export default function PriceModule({ content }: any) {
+export default function PriceModule({ content, fadeIn }: any) {
+  const { ref, inView } = useInView({
+    threshold: content.prices.length > 2 ? 0.2 : 0.5,
+  });
+  const animation = useAnimation();
+
+  useEffect(() => {
+    if (inView) {
+      animation.start({
+        y: 0,
+        opacity: 1,
+        transition: {
+          duration: 0.5,
+        },
+      });
+    }
+  }, [inView, animation]);
+
   return (
-    <div className='text-lg font-bold text-skin-accent xl:pb-4'>
+    <motion.div
+      ref={ref}
+      initial={fadeIn ? { opacity: 0 } : { opacity: 1 }}
+      animate={fadeIn ? animation : { opacity: 1 }}
+      className='text-lg font-bold text-skin-accent xl:pb-4'
+    >
       <div className='flex justify-center py-2 text-4xl font-semibold text-skin-accent lg:py-4'>
         {content?.heading}
       </div>
@@ -32,6 +56,6 @@ export default function PriceModule({ content }: any) {
           );
         })}
       </div>
-    </div>
+    </motion.div>
   );
 }

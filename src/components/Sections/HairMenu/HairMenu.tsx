@@ -1,45 +1,31 @@
 import classNames from 'clsx';
-import { motion, useAnimation } from 'framer-motion';
-import React, { useEffect } from 'react';
-import { useInView } from 'react-intersection-observer';
+import { HairMenuRecord } from 'lib/graphql';
+import React from 'react';
 
 import PriceModule from './PriceModules/PriceModule';
 
-export default function HairMenu({ details }: any) {
-  const { ref, inView } = useInView({
-    threshold: 0.2,
-  });
-  const animation = useAnimation();
+export type StackModule<T> = Omit<T, 'title' | '__typename'>;
+export type HairMenuProps = StackModule<HairMenuRecord>;
 
-  useEffect(() => {
-    if (inView) {
-      animation.start({
-        y: 0,
-        opacity: 1,
-        transition: {
-          duration: 0.5,
-        },
-      });
-    }
-  }, [inView, animation]);
-
+export default function HairMenu({
+  navigationId,
+  fadeIn,
+  priceModules,
+}: HairMenuProps) {
   return (
     <div
-      ref={ref}
-      id={details?.navigationId}
+      id={navigationId!}
       className={classNames(
         'align-center flex flex-col items-center justify-center overflow-hidden py-10 px-2 text-gray-200 md:px-10'
       )}
     >
-      <motion.div
-        initial={details.fadeIn ? { opacity: 0 } : { opacity: 1 }}
-        animate={details.fadeIn ? animation : { opacity: 1 }}
-        className='container space-y-2 xl:space-y-4'
-      >
-        {details.priceModules.map((module: any) => {
-          return <PriceModule key={module.id} content={module} />;
+      <div className='container space-y-2 xl:space-y-4'>
+        {priceModules.map((module: any) => {
+          return (
+            <PriceModule key={module.id} content={module} fadeIn={fadeIn} />
+          );
         })}
-      </motion.div>
+      </div>
     </div>
   );
 }

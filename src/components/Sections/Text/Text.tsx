@@ -1,11 +1,20 @@
 import CustomHeading from '@Sections/CustomHeading/CustomHeading';
 import classNames from 'clsx';
 import { motion, useAnimation } from 'framer-motion';
+import { TextRecord } from 'lib/graphql';
 import React, { useEffect } from 'react';
 import { Image, StructuredText } from 'react-datocms';
 import { useInView } from 'react-intersection-observer';
 
-export default function Text({ details }: any) {
+export type StackModule<T> = Omit<T, 'title' | '__typename'>;
+export type TextProps = StackModule<TextRecord>;
+
+export default function Text({
+  navigationId,
+  backgroundColor,
+  fadeIn,
+  content,
+}: TextProps) {
   const { ref, inView } = useInView({
     threshold: 0.4,
   });
@@ -26,22 +35,22 @@ export default function Text({ details }: any) {
   return (
     <div
       ref={ref}
-      id={details.navigationId}
+      id={navigationId!}
       className='align-center flex items-center justify-center overflow-hidden px-4 py-10 md:px-10'
     >
       <motion.div
-        initial={details.fadeIn ? { opacity: 0 } : { opacity: 1 }}
-        animate={details.fadeIn ? animation : { opacity: 1 }}
+        initial={fadeIn ? { opacity: 0 } : { opacity: 1 }}
+        animate={fadeIn ? animation : { opacity: 1 }}
         className={classNames(
           'prose prose-h2:text-4xl prose-h2:text-skin-accent prose-p:text-gray-300 prose-strong:text-skin-accent sm:w-full',
           {
-            'prose-invert': details.backgroundColor === true,
-            'prose-gray': details.backgroundColor === false,
+            'prose-invert': backgroundColor === true,
+            'prose-gray': backgroundColor === false,
           }
         )}
       >
         <StructuredText
-          data={details.content}
+          data={content as any}
           renderBlock={({ record }) => {
             if (
               record.__typename === 'RtImageRecord' &&

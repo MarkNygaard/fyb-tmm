@@ -8,9 +8,9 @@ export function GridText(props: any) {
       className={classNames(
         'flex justify-center overflow-hidden bg-skin-accent',
         {
-          'h-52': props.details.height === 'Small',
-          'h-96': props.details.height === 'Medium',
-          'h-132': props.details.height === 'Large',
+          'h-52': props.height === 'Small',
+          'h-96': props.height === 'Medium',
+          'h-132': props.height === 'Large',
         }
       )}
     >

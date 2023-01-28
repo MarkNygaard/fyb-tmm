@@ -9,9 +9,9 @@ export function GridImage(props: any) {
       className={classNames(
         'relative flex shrink-0 self-center overflow-hidden object-fill',
         {
-          'h-52': props.details.height === 'Small',
-          'h-96': props.details.height === 'Medium',
-          'h-132': props.details.height === 'Large',
+          'h-52': props.height === 'Small',
+          'h-96': props.height === 'Medium',
+          'h-132': props.height === 'Large',
         }
       )}
     >

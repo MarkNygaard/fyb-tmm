@@ -167,8 +167,10 @@ export default function Page({
 
           <motion.div className='bg-skin-primary'>
             <AnimatePresence>
-              {page.content?.map((section: any, i: any) => {
-                return <PageSection key={i} details={section} page={page} />;
+              {page.content?.map((section: unknown, i: any) => {
+                return (
+                  <PageSection key={i} sectionProps={section} page={page} />
+                );
               })}
             </AnimatePresence>
           </motion.div>

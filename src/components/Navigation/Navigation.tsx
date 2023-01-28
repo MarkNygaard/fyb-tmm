@@ -5,10 +5,10 @@ import {
   useScroll,
   useTransform,
 } from 'framer-motion';
+import { PageBySlugQuery } from 'lib/graphql';
 import Link from 'next/link';
 import { useEffect } from 'react';
-import { BsInstagram, BsFacebook } from 'react-icons/bs';
-import { PageRecord } from 'lib/graphql';
+import { BsFacebook, BsInstagram } from 'react-icons/bs';
 
 let clamp = (number: any, min: any, max: any) =>
   Math.min(Math.max(number, min), max);
@@ -35,7 +35,7 @@ function useBoundedScroll(bounds: any) {
   return { scrollYBounded, scrollYBoundedProgress };
 }
 
-export default function Navigation({ page }: any) {
+export default function Navigation({ page }: PageBySlugQuery) {
   let { scrollYBoundedProgress } = useBoundedScroll(300);
   let scrollYBoundedProgressThrottled = useTransform(
     scrollYBoundedProgress,
@@ -60,7 +60,7 @@ export default function Navigation({ page }: any) {
         <a
           target='_blank'
           rel='noopener norefferer noreferrer'
-          href={page.instagramUrl}
+          href={page?.instagramUrl!}
           className='text-3xl text-gray-300 hover:text-white'
         >
           <BsInstagram />
@@ -68,17 +68,17 @@ export default function Navigation({ page }: any) {
         <a
           target='_blank'
           rel='noopener norefferer noreferrer'
-          href={page.facebookUrl}
+          href={page?.facebookUrl!}
           className='text-3xl text-gray-300 hover:text-white'
         >
           <BsFacebook />
         </a>
       </div>
       <div className='flex'>
-        {page.content?.map((navigation: any) => {
+        {page?.content?.map((navigation, i) => {
           return navigation.navigationId ? (
             <Link
-              key={navigation.id}
+              key={i}
               href={'#' + navigation.navigationId}
               className='block py-2 px-3 text-lg font-light uppercase text-gray-300 opacity-100 hover:text-white xl:px-4 xl:text-xl'
             >

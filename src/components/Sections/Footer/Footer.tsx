@@ -1,10 +1,21 @@
 import { GoogleMap, Marker, useLoadScript } from '@react-google-maps/api';
 import { useAnimation } from 'framer-motion';
+import { FooterRecord } from 'lib/graphql';
 import React, { useEffect } from 'react';
 import { StructuredText } from 'react-datocms';
 import { useInView } from 'react-intersection-observer';
 
-export default function Footer({ details }: any) {
+export type StackModule<T> = Omit<T, 'title' | '__typename'>;
+export type FooterProps = StackModule<FooterRecord>;
+
+export default function Footer({
+  location,
+  navigationId,
+  address,
+  openingHours,
+  info,
+  contact,
+}: FooterProps) {
   const { ref, inView } = useInView({
     threshold: 0.4,
   });
@@ -23,8 +34,8 @@ export default function Footer({ details }: any) {
   }, [inView, animation]);
 
   const center = {
-    lat: details.location.latitude,
-    lng: details.location.longitude,
+    lat: location?.latitude,
+    lng: location?.longitude,
   };
 
   const { isLoaded } = useLoadScript({
@@ -35,7 +46,7 @@ export default function Footer({ details }: any) {
     return <div>Loading...</div>;
   }
   return (
-    <div ref={ref} id={details?.navigationId} className='pt-10 text-gray-300'>
+    <div ref={ref} id={navigationId!} className='pt-10 text-gray-300'>
       <div className='grid grid-cols-1 grid-rows-footerSmall md:grid-cols-footerMedium md:grid-rows-footerMedium lg:grid-rows-footerLarge xl:grid-cols-footerLarge xl:grid-rows-footerXLarge'>
         <div className='col-start-1 col-end-2 row-start-6 row-end-[8] bg-skin-secondary md:col-start-1 md:col-end-13 md:row-start-4 md:row-end-6 xl:row-start-5 xl:row-end-7'></div>
         <div className='col-start-1 col-end-2 row-start-5 row-end-7 px-4 md:col-start-2 md:col-end-5 md:row-start-3 md:row-end-5 md:px-0 lg:col-end-3 lg:row-start-3 lg:row-end-6 xl:row-start-2 xl:row-end-6'>
@@ -58,22 +69,22 @@ export default function Footer({ details }: any) {
         </div>
         <div className='col-start-1 col-end-1 row-start-4 row-end-5 md:col-start-2 md:col-end-3 md:row-start-2 md:row-end-3 lg:col-start-4 lg:col-end-5 lg:row-start-3 lg:row-end-4 xl:row-start-2 xl:row-end-3'>
           <div className='prose flex flex-col justify-center p-4 prose-p:text-gray-300 prose-a:text-gray-300 prose-strong:text-skin-accent md:p-8'>
-            <StructuredText data={details.address} />
+            <StructuredText data={address as any} />
           </div>
         </div>
         <div className='row-start-3 row-end-4 md:col-start-4 md:col-end-5 md:row-start-2 md:row-end-3 lg:row-start-4 lg:row-end-5 xl:row-start-3 xl:row-end-5'>
           <div className='prose flex flex-col justify-center p-4 prose-p:text-gray-300 prose-a:text-gray-300 prose-strong:text-skin-accent md:p-8'>
-            <StructuredText data={details.contact} />
+            <StructuredText data={contact as any} />
           </div>
         </div>
         <div className='row-start-1 row-end-2 md:col-start-2 md:col-end-3 md:row-end-2 lg:row-start-2 lg:row-end-3 xl:col-start-5 xl:col-end-6 xl:row-start-2 xl:row-end-3'>
           <div className='prose flex flex-col justify-center p-4 prose-p:text-gray-300 prose-a:text-gray-300 prose-strong:text-skin-accent md:p-8'>
-            <StructuredText data={details.openingHours} />
+            <StructuredText data={openingHours as any} />
           </div>
         </div>
         <div className='row-start-2 row-end-3 md:col-start-4 md:col-end-5 md:row-start-1 md:row-end-2 lg:row-start-2 lg:row-end-3 xl:col-start-5 xl:col-end-6 xl:row-start-3 xl:row-end-5'>
           <div className='prose flex flex-col justify-center p-4 prose-p:text-gray-300 prose-a:text-gray-300 prose-strong:text-skin-accent md:p-8'>
-            <StructuredText data={details.info} />
+            <StructuredText data={info as any} />
           </div>
         </div>
       </div>
