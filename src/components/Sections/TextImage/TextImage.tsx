@@ -2,7 +2,7 @@ import CustomHeading from '@Sections/CustomHeading/CustomHeading';
 import RtImage from '@Sections/RtImage/RtImage';
 import classNames from 'clsx';
 import { motion, useAnimation } from 'framer-motion';
-import { TextImageRecord } from 'lib/graphql';
+import { FileField, ResponsiveImage, TextImageRecord } from 'lib/graphql';
 import React, { useEffect } from 'react';
 import { Image, StructuredText } from 'react-datocms';
 import { useInView } from 'react-intersection-observer';
@@ -72,7 +72,7 @@ export default function TextImage({
             }}
           />
         </article>
-        {image?.responsiveImage ? (
+        {((image as FileField).responsiveImage as ResponsiveImage) ? (
           <div className='mx-auto md:mb-auto'>
             <div
               className={classNames(
@@ -84,7 +84,9 @@ export default function TextImage({
               )}
             >
               {/* eslint-disable-next-line jsx-a11y/alt-text */}
-              <Image data={image?.responsiveImage} />
+              <Image
+                data={(image as FileField).responsiveImage as ResponsiveImage}
+              />
             </div>
           </div>
         ) : null}

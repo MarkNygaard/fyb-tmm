@@ -1,4 +1,4 @@
-import Text from '@Sections/Text/Text';
+import Text, { TextProps } from '@Sections/Text/Text';
 import classNames from 'clsx';
 import React from 'react';
 
@@ -14,7 +14,7 @@ export function GridText(props: any) {
         }
       )}
     >
-      <Text details={props.section} />
+      <Text {...(props.section as TextProps)} />
     </div>
   );
 }

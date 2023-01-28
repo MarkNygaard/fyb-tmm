@@ -1,5 +1,5 @@
 import classNames from 'clsx';
-import { FileField } from 'lib/graphql';
+import { FileField, ResponsiveImage } from 'lib/graphql';
 import React from 'react';
 import { Image } from 'react-datocms';
 
@@ -17,7 +17,9 @@ export function GridImage(props: any) {
     >
       {/* eslint-disable-next-line jsx-a11y/alt-text */}
       <Image
-        data={(props.section.image as FileField).responsiveImage as any}
+        data={
+          (props.section.image as FileField).responsiveImage as ResponsiveImage
+        }
         layout='fill'
         objectFit='cover'
         objectPosition='50% 50%'

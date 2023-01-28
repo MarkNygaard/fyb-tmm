@@ -1,7 +1,7 @@
 import Layout from 'components/Layout';
 import { motion } from 'framer-motion';
 import { sdk } from 'lib/datocms';
-import { HomePageDocument } from 'lib/graphql';
+import { FileField, HomePageDocument, ResponsiveImage } from 'lib/graphql';
 import type { GetStaticPropsContext, InferGetStaticPropsType } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
@@ -45,7 +45,10 @@ export default function Home({
             >
               {/* eslint-disable-next-line jsx-a11y/alt-text */}
               <Image
-                data={introPage.leftLogo.responsiveImage}
+                data={
+                  (introPage.leftLogo as FileField)
+                    .responsiveImage as ResponsiveImage
+                }
                 layout='fill'
                 objectFit='cover'
                 objectPosition='50% 50%'
@@ -65,7 +68,10 @@ export default function Home({
             >
               {/* eslint-disable-next-line jsx-a11y/alt-text */}
               <Image
-                data={introPage.rightLogo.responsiveImage}
+                data={
+                  (introPage.rightLogo as FileField)
+                    .responsiveImage as ResponsiveImage
+                }
                 layout='fill'
                 priority
               />

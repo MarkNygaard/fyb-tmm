@@ -3,7 +3,7 @@ import Layout from 'components/Layout';
 import PageSection from 'components/PageSection';
 import { AnimatePresence, motion } from 'framer-motion';
 import { sdk } from 'lib/datocms';
-import { PageBySlugDocument } from 'lib/graphql';
+import { FileField, PageBySlugDocument, ResponsiveImage } from 'lib/graphql';
 import type { InferGetStaticPropsType } from 'next';
 import { GetStaticPaths, GetStaticPropsContext } from 'next';
 import ErrorPage from 'next/error';
@@ -90,7 +90,10 @@ export default function Page({
                   >
                     {/* eslint-disable-next-line jsx-a11y/alt-text */}
                     <Image
-                      data={introPage.leftLogo.responsiveImage}
+                      data={
+                        (introPage.leftLogo as FileField)
+                          .responsiveImage as ResponsiveImage
+                      }
                       layout='fill'
                       lazyLoad={false}
                       className='aspect-square'
@@ -151,7 +154,10 @@ export default function Page({
                   >
                     {/* eslint-disable-next-line jsx-a11y/alt-text */}
                     <Image
-                      data={introPage.rightLogo.responsiveImage}
+                      data={
+                        (introPage.rightLogo as FileField)
+                          .responsiveImage as ResponsiveImage
+                      }
                       layout='fill'
                       lazyLoad={false}
                       className='aspect-square'

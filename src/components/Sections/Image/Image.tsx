@@ -1,6 +1,6 @@
 import classNames from 'clsx';
 import { motion, useAnimation } from 'framer-motion';
-import { ImageRecord } from 'lib/graphql';
+import { FileField, ImageRecord, ResponsiveImage } from 'lib/graphql';
 import React, { useEffect } from 'react';
 import { Image } from 'react-datocms';
 import { useInView } from 'react-intersection-observer';
@@ -45,7 +45,7 @@ export default function ImageSection({
         className='flex justify-center'
       >
         {/* eslint-disable-next-line jsx-a11y/alt-text */}
-        <Image data={image?.responsiveImage as any} />
+        <Image data={(image as FileField).responsiveImage as ResponsiveImage} />
       </motion.div>
     </div>
   );

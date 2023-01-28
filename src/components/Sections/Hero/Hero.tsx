@@ -1,6 +1,11 @@
 import classNames from 'clsx';
 import { motion } from 'framer-motion';
-import { HeroRecord, PageRecord } from 'lib/graphql';
+import {
+  FileField,
+  HeroRecord,
+  PageRecord,
+  ResponsiveImage,
+} from 'lib/graphql';
 import Link from 'next/link';
 import React from 'react';
 import { Image } from 'react-datocms';
@@ -29,7 +34,9 @@ export default function Hero({
         <div className='relative col-start-1 col-end-2 row-start-1 row-end-7 h-screen w-full md:col-end-7 xl:col-end-13'>
           {/* eslint-disable-next-line jsx-a11y/alt-text */}
           <Image
-            data={backgroundImage?.responsiveImage!}
+            data={
+              (backgroundImage as FileField).responsiveImage as ResponsiveImage
+            }
             layout='fill'
             objectFit='cover'
             objectPosition='50% 50%'
@@ -42,7 +49,7 @@ export default function Hero({
         <div className='relative col-start-1 col-end-2 row-start-2 row-end-4 md:col-start-2 md:col-end-3 md:row-end-3 xl:col-start-6 xl:col-end-8 xl:row-start-2 xl:row-end-5'>
           {/* eslint-disable-next-line jsx-a11y/alt-text */}
           <Image
-            data={image?.responsiveImage!}
+            data={(image as FileField).responsiveImage as ResponsiveImage}
             layout='fill'
             objectFit='contain'
             objectPosition='50% 50%'
