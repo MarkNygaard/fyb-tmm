@@ -1,5 +1,5 @@
 import classNames from 'clsx';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import {
   FileField,
   HeroRecord,
@@ -7,7 +7,7 @@ import {
   ResponsiveImage,
 } from 'lib/graphql';
 import Link from 'next/link';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Image } from 'react-datocms';
 import { SlArrowDown } from 'react-icons/sl';
 
@@ -23,6 +23,25 @@ export default function Hero({
   buttonText,
   content,
 }: any) {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    window.addEventListener('scroll', listenToScroll);
+    return () => window.removeEventListener('scroll', listenToScroll);
+  });
+
+  const listenToScroll = () => {
+    let heightToShowFrom = 600;
+    const winScroll =
+      document.body.scrollTop || document.documentElement.scrollTop;
+
+    if (winScroll > heightToShowFrom) {
+      setIsVisible(true);
+    } else {
+      isVisible && setIsVisible(false);
+    }
+  };
+
   return (
     <div
       id={navigationId!}
@@ -73,6 +92,22 @@ export default function Hero({
       >
         <SlArrowDown />
       </Link>
+      <AnimatePresence>
+        {isVisible && (
+          <motion.button
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0 }}
+            whileHover={{ scale: 1.1 }}
+            transition={{ duration: 0.3 }}
+            className='fixed bottom-14 right-20 z-50 mt-8 hidden bg-skin-accent py-4 px-8 text-lg font-light text-white shadow-lg lg:flex xl:py-6 xl:px-12'
+          >
+            <a href={buttonLink!} target='_blank' rel='noreferrer'>
+              {buttonText}
+            </a>
+          </motion.button>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
