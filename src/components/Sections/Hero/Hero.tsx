@@ -77,14 +77,14 @@ export default function Hero({
         </div>
       )}
       <div className='relative col-start-1 col-end-2 row-start-4 row-end-5 flex items-center justify-center md:col-start-2 md:col-end-5 md:justify-start xl:col-start-6 xl:col-end-8 xl:row-start-5 xl:row-end-6 xl:justify-center'>
-        <motion.button
-          whileHover={{ scale: 1.1 }}
-          className='mt-8 bg-skin-accent py-4 px-8 text-lg font-light text-white xl:py-6 xl:px-16'
-        >
-          <a href={buttonLink!} target='_blank' rel='noreferrer'>
+        <a href={buttonLink!} target='_blank' rel='noreferrer'>
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            className='mt-8 bg-skin-accent py-4 px-8 text-lg font-light text-white xl:py-6 xl:px-16'
+          >
             {buttonText}
-          </a>
-        </motion.button>
+          </motion.button>
+        </a>
       </div>
       <Link
         href={'#' + content[1]?.navigationId}
@@ -94,18 +94,18 @@ export default function Hero({
       </Link>
       <AnimatePresence>
         {isVisible && (
-          <motion.button
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0 }}
-            whileHover={{ scale: 1.1 }}
-            transition={{ duration: 0.3 }}
-            className='fixed bottom-14 right-20 z-50 mt-8 hidden bg-skin-accent py-4 px-8 text-lg font-light text-white shadow-lg lg:flex xl:py-6 xl:px-12'
-          >
-            <a href={buttonLink!} target='_blank' rel='noreferrer'>
+          <a href={buttonLink!} target='_blank' rel='noreferrer'>
+            <motion.button
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0 }}
+              whileHover={{ scale: 1.1 }}
+              transition={{ duration: 0.3 }}
+              className='fixed bottom-14 right-20 z-50 mt-8 hidden bg-skin-accent py-4 px-8 text-lg font-light text-white shadow-lg lg:flex xl:py-6 xl:px-12'
+            >
               {buttonText}
-            </a>
-          </motion.button>
+            </motion.button>
+          </a>
         )}
       </AnimatePresence>
     </div>
