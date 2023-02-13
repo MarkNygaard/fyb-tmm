@@ -546,10 +546,10 @@
   dependencies:
     fast-deep-equal "^3.1.3"
 
-"@googlemaps/markerclusterer@2.0.13":
-  version "2.0.13"
-  resolved "https://registry.yarnpkg.com/@googlemaps/markerclusterer/-/markerclusterer-2.0.13.tgz#cb61db9be52c9d8b061dfad77dca33b2965e7b2a"
-  integrity sha512-302GjQ9gsHOK/ef6hif+rJDv+AB3THst02iDCbXH2PS9GFwb/5yuytaLpuzJiqGNG+k2zvTAWTsGY/fQN5DZ7w==
+"@googlemaps/markerclusterer@2.0.15":
+  version "2.0.15"
+  resolved "https://registry.yarnpkg.com/@googlemaps/markerclusterer/-/markerclusterer-2.0.15.tgz#72052a23a061789c6055a13713b8852359cc03a9"
+  integrity sha512-/I6Esi5FtyeVHsezN9Kut8zRJoqe7KkTIJXGVqpKFf6BjC7qQ1xRajLMkOz0s8XKgLevbr+KdYjuvmj+LohOGg==
   dependencies:
     fast-deep-equal "^3.1.3"
     supercluster "^7.1.3"
@@ -617,18 +617,6 @@
     lodash "~4.17.0"
     tslib "~2.4.0"
 
-"@graphql-codegen/plugin-helpers@^3.1.2":
-  version "3.1.2"
-  resolved "https://registry.yarnpkg.com/@graphql-codegen/plugin-helpers/-/plugin-helpers-3.1.2.tgz#69a2e91178f478ea6849846ade0a59a844d34389"
-  integrity sha512-emOQiHyIliVOIjKVKdsI5MXj312zmRDwmHpyUTZMjfpvxq/UVAHUJIVdVf+lnjjrI+LXBTgMlTWTgHQfmICxjg==
-  dependencies:
-    "@graphql-tools/utils" "^9.0.0"
-    change-case-all "1.0.15"
-    common-tags "1.8.2"
-    import-from "4.0.0"
-    lodash "~4.17.0"
-    tslib "~2.4.0"
-
 "@graphql-codegen/plugin-helpers@^4.0.0":
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/@graphql-codegen/plugin-helpers/-/plugin-helpers-4.0.0.tgz#9c10e4700dc6efe657781dff47347d0c99674061"
@@ -639,15 +627,6 @@
     common-tags "1.8.2"
     import-from "4.0.0"
     lodash "~4.17.0"
-    tslib "~2.4.0"
-
-"@graphql-codegen/schema-ast@^2.6.1":
-  version "2.6.1"
-  resolved "https://registry.yarnpkg.com/@graphql-codegen/schema-ast/-/schema-ast-2.6.1.tgz#8ba1b38827c034b51ecd3ce88622c2ae6cd3fe1a"
-  integrity sha512-5TNW3b1IHJjCh07D2yQNGDQzUpUl2AD+GVe1Dzjqyx/d2Fn0TPMxLsHsKPS4Plg4saO8FK/QO70wLsP7fdbQ1w==
-  dependencies:
-    "@graphql-codegen/plugin-helpers" "^3.1.2"
-    "@graphql-tools/utils" "^9.0.0"
     tslib "~2.4.0"
 
 "@graphql-codegen/schema-ast@^3.0.0":
@@ -680,17 +659,6 @@
     auto-bind "~4.0.0"
     tslib "~2.4.0"
 
-"@graphql-codegen/typescript@^2.8.8":
-  version "2.8.8"
-  resolved "https://registry.yarnpkg.com/@graphql-codegen/typescript/-/typescript-2.8.8.tgz#8c3b9153e334db43c65f8f31ced69b4c60d14861"
-  integrity sha512-A0oUi3Oy6+DormOlrTC4orxT9OBZkIglhbJBcDmk34jAKKUgesukXRd4yOhmTrnbchpXz2T8IAOFB3FWIaK4Rw==
-  dependencies:
-    "@graphql-codegen/plugin-helpers" "^3.1.2"
-    "@graphql-codegen/schema-ast" "^2.6.1"
-    "@graphql-codegen/visitor-plugin-common" "2.13.8"
-    auto-bind "~4.0.0"
-    tslib "~2.4.0"
-
 "@graphql-codegen/typescript@^3.0.0":
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/@graphql-codegen/typescript/-/typescript-3.0.0.tgz#473dde1646540039bca5db4b6daf174d13af0ce3"
@@ -713,22 +681,6 @@
     "@graphql-tools/utils" "^8.8.0"
     auto-bind "~4.0.0"
     change-case-all "1.0.14"
-    dependency-graph "^0.11.0"
-    graphql-tag "^2.11.0"
-    parse-filepath "^1.0.2"
-    tslib "~2.4.0"
-
-"@graphql-codegen/visitor-plugin-common@2.13.8":
-  version "2.13.8"
-  resolved "https://registry.yarnpkg.com/@graphql-codegen/visitor-plugin-common/-/visitor-plugin-common-2.13.8.tgz#09bc6317b227e5a278f394f4cef0d6c2d1910597"
-  integrity sha512-IQWu99YV4wt8hGxIbBQPtqRuaWZhkQRG2IZKbMoSvh0vGeWb3dB0n0hSgKaOOxDY+tljtOf9MTcUYvJslQucMQ==
-  dependencies:
-    "@graphql-codegen/plugin-helpers" "^3.1.2"
-    "@graphql-tools/optimize" "^1.3.0"
-    "@graphql-tools/relay-operation-optimizer" "^6.5.0"
-    "@graphql-tools/utils" "^9.0.0"
-    auto-bind "~4.0.0"
-    change-case-all "1.0.15"
     dependency-graph "^0.11.0"
     graphql-tag "^2.11.0"
     parse-filepath "^1.0.2"
@@ -1328,13 +1280,13 @@
     tiny-glob "^0.2.9"
     tslib "^2.4.0"
 
-"@react-google-maps/api@^2.17.1":
-  version "2.17.1"
-  resolved "https://registry.yarnpkg.com/@react-google-maps/api/-/api-2.17.1.tgz#6f783f01deeffc09ae478a9a971666ae2cadc71b"
-  integrity sha512-XesubSCFfyMtilqljF2kU5zdPru4nks4I4O0HH6H2xOw51wQXs26btJKlRac2/jbJ/gIiGZ/l14q0xaL/6OaBg==
+"@react-google-maps/api@^2.18.1":
+  version "2.18.1"
+  resolved "https://registry.yarnpkg.com/@react-google-maps/api/-/api-2.18.1.tgz#140bb134f50c98939b6eb440d01dbb7df562090c"
+  integrity sha512-KVlUO/Shh+0g/3egWaKmY0sz6+0QOnYkBGvrBMJbz23519LauA+iJFc4NDCmWNHqD5Vhb/Bkg0kSJgq0Stz3Iw==
   dependencies:
     "@googlemaps/js-api-loader" "1.15.1"
-    "@googlemaps/markerclusterer" "2.0.13"
+    "@googlemaps/markerclusterer" "2.0.15"
     "@react-google-maps/infobox" "2.16.0"
     "@react-google-maps/marker-clusterer" "2.16.1"
     "@types/google.maps" "3.50.5"
