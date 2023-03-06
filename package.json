@@ -15,7 +15,7 @@
     "postbuild": "next-sitemap --config next-sitemap.config.js"
   },
   "dependencies": {
-    "@headlessui/react": "^1.7.8",
+    "@headlessui/react": "^1.7.13",
     "@react-google-maps/api": "^2.18.1",
     "class-variance-authority": "^0.4.0",
     "clsx": "^1.2.1",
