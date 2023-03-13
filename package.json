@@ -20,7 +20,7 @@
     "class-variance-authority": "^0.4.0",
     "clsx": "^1.2.1",
     "d": "^1.0.1",
-    "framer-motion": "^10.1.0",
+    "framer-motion": "^10.2.5",
     "graphql": "^16.6.0",
     "graphql-request": "^5.2.0",
     "next": "13.2.3",
