@@ -9,7 +9,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
 
   return (
-    <AnimatePresence initial={false} exitBeforeEnter>
+    <AnimatePresence initial={false} mode='wait'>
       <div key={router.route}>
         <Head>
           <meta
