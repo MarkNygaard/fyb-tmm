@@ -59,7 +59,7 @@ export default function Page({
             animate={{ x: '-100vw' }}
             transition={{ duration: 1.6, ease: [0.8, 0, 0.1, 1], delay: 0.6 }}
           >
-            {page.slug === introPage.leftLink.slug ? (
+            {page?.slug === introPage.leftLink?.slug ? (
               <>
                 <motion.div
                   className='relative flex items-center justify-center bg-skin-left'
