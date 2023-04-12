@@ -4,45 +4,57 @@ query HomePage {
       ...metaTagsFragment
     }
   }
-  introPage {
+  page {
     seo: _seoMetaTags {
       ...metaTagsFragment
     }
-    leftLink {
-      name
-      slug
-    }
-    leftLogo {
-      responsiveImage(imgixParams: { fit: crop, auto: format }) {
-        ...responsiveImageFragment
-      }
-    }
-    leftIntro {
-      value
-    }
-    leftShowIntro
-    leftColor {
+    id
+    name
+    primaryColor {
       red
       green
       blue
     }
-    rightLink {
-      name
-      slug
-    }
-    rightLogo {
-      responsiveImage(imgixParams: { fit: crop, auto: format }) {
-        ...responsiveImageFragment
-      }
-    }
-    rightIntro {
-      value
-    }
-    rightShowIntro
-    rightColor {
+    secondaryColor {
       red
       green
       blue
+    }
+    accentColor {
+      red
+      green
+      blue
+    }
+    instagramUrl
+    facebookUrl
+    content {
+      ... on HeroRecord {
+        ...HeroFragment
+      }
+      ... on TextRecord {
+        ...TextFragment
+      }
+      ... on ImageRecord {
+        ...ImageFragment
+      }
+      ... on TextImageRecord {
+        ...TextImageFragment
+      }
+      ... on GridRecord {
+        ...GridFragment
+      }
+      ... on YoutubeVideoRecord {
+        ...YoutubeVideoFragment
+      }
+      ... on HairMenuRecord {
+        ...HairMenuFragment
+      }
+      ... on BiographyRecord {
+        ...BiographyFragment
+      }
+      ... on FooterRecord {
+        ...FooterFragment
+      }
     }
   }
 }
