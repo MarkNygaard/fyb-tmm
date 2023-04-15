@@ -40,7 +40,7 @@ export default function TextImage({
     <div
       ref={ref}
       id={navigationId!}
-      className={classNames('py-20 px-2 md:px-10', {
+      className={classNames('px-2 py-20 md:px-10', {
         'bg-skin-secondary': backgroundColor === true,
       })}
     >
@@ -52,7 +52,7 @@ export default function TextImage({
         })}
       >
         <article
-          className={classNames('prose max-w-none grow py-4 px-3 md:px-4', {
+          className={classNames('prose max-w-none grow px-3 py-4 md:px-4', {
             'prose-invert text-gray-200': backgroundColor === true,
           })}
         >

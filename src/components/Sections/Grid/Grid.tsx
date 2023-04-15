@@ -43,7 +43,7 @@ export default function Grid({
     <div
       ref={ref}
       id={navigationId!}
-      className={classNames('flex justify-center py-20 px-0 md:px-10', {
+      className={classNames('flex justify-center px-0 py-20 md:px-10', {
         'bg-skin-secondary': backgroundColor === true,
       })}
     >

@@ -89,8 +89,8 @@ export default function Footer({
         </div>
       </div>
       <div className='flex h-12 items-center justify-center bg-skin-accent text-xs text-white md:text-base'>
-        &copy; {new Date().getFullYear()} The Motley Monkey.
-        All rights reserved.
+        &copy; {new Date().getFullYear()} The Motley Monkey. All rights
+        reserved.
       </div>
     </div>
   );

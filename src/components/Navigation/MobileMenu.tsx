@@ -1,6 +1,7 @@
 import { Dialog } from '@headlessui/react';
 import { motion } from 'framer-motion';
 import React from 'react';
+import { BsFacebook, BsInstagram } from 'react-icons/bs';
 
 export default function MobileMenu({ onClose, page }: any) {
   return (
@@ -44,7 +45,7 @@ export default function MobileMenu({ onClose, page }: any) {
         }}
         className='flex h-screen w-5/6 flex-col justify-between bg-skin-accent shadow-2xl md:w-3/12 xl:w-2/12'
       >
-        <div className='w-full space-y-1 px-8 pt-24 pb-3'>
+        <div className='w-full space-y-1 px-8 pb-3 pt-24'>
           {page.content?.map((navigation: any, i: any) => {
             return (
               navigation.navigationId && (
@@ -69,7 +70,7 @@ export default function MobileMenu({ onClose, page }: any) {
                   }}
                 >
                   <a
-                    className='block py-2 px-4 text-2xl font-normal text-white outline-none'
+                    className='block px-4 py-2 text-2xl font-normal text-white outline-none'
                     href={'#' + navigation.navigationId}
                     onClick={onClose}
                   >
@@ -79,6 +80,43 @@ export default function MobileMenu({ onClose, page }: any) {
               )
             );
           })}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{
+              opacity: 1,
+              transition: {
+                duration: 0.2,
+                delay: 0.64,
+                type: 'spring',
+              },
+            }}
+            exit={{
+              opacity: 0,
+              transition: {
+                duration: 0.2,
+                delay: 0.24,
+                type: 'spring',
+              },
+            }}
+            className='flex h-full w-full items-end'
+          >
+            <a
+              target='_blank'
+              rel='noopener norefferer noreferrer'
+              href={page?.instagramUrl!}
+              className='flex w-1/2 justify-center text-4xl text-white'
+            >
+              <BsInstagram />
+            </a>
+            <a
+              target='_blank'
+              rel='noopener norefferer noreferrer'
+              href={page?.facebookUrl!}
+              className='flex w-1/2 justify-center text-4xl text-white'
+            >
+              <BsFacebook />
+            </a>
+          </motion.div>
         </div>
       </Dialog.Panel>
     </Dialog>
