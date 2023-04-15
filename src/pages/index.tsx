@@ -28,23 +28,20 @@ export default function Home({
 
   return (
     <Layout preview={subscription.enabled ?? false}>
-          <Head>
-            {renderMetaTags(metaTags)}
-            <style>
-              :root{' '}
-              {`{${primaryColor} ${secondaryColor}  ${accentColor}}`}
-            </style>
-          </Head>
-          <Header page={page} />
-          <motion.div className='bg-skin-primary'>
-            <AnimatePresence>
-              {page.content?.map((section: unknown, i: any) => {
-                return (
-                  <PageSection key={i} sectionProps={section} page={page} />
-                );
-              })}
-            </AnimatePresence>
-          </motion.div>
+      <Head>
+        {renderMetaTags(metaTags)}
+        <style>
+          :root {`{${primaryColor} ${secondaryColor}  ${accentColor}}`}
+        </style>
+      </Head>
+      <Header page={page} />
+      <motion.div className='bg-skin-primary'>
+        <AnimatePresence>
+          {page.content?.map((section: unknown, i: any) => {
+            return <PageSection key={i} sectionProps={section} page={page} />;
+          })}
+        </AnimatePresence>
+      </motion.div>
     </Layout>
   );
 }

@@ -79,7 +79,7 @@ export default function Navigation({ page }: any) {
             <Link
               key={navigation.id}
               href={'#' + navigation.navigationId}
-              className='block py-2 px-3 text-lg font-light uppercase text-gray-300 opacity-100 hover:text-white xl:px-4 xl:text-xl'
+              className='block px-3 py-2 text-lg font-light uppercase text-gray-300 opacity-100 hover:text-white xl:px-4 xl:text-xl'
             >
               {navigation.navigationId}
             </Link>

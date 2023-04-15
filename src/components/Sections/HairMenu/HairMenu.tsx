@@ -16,7 +16,7 @@ export default function HairMenu({
     <div
       id={navigationId!}
       className={classNames(
-        'align-center flex flex-col items-center justify-center overflow-hidden py-10 px-2 text-gray-200 md:px-10'
+        'align-center flex flex-col items-center justify-center overflow-hidden px-2 py-10 text-gray-200 md:px-10'
       )}
     >
       <div className='container space-y-2 xl:space-y-4'>

@@ -1,16 +1,16 @@
-import { type VariantProps, cva } from 'class-variance-authority';
+import { cva, type VariantProps } from 'class-variance-authority';
 
-const buttonStyles = cva(['font-semibold', 'border', 'rounded'], {
+const buttonStyles = cva(['font-light', 'shadow-lg', 'py-4', 'xl:py-6'], {
   variants: {
     intent: {
       primary: [
-        'bg-blue-500',
+        'bg-skin-accent',
         'text-white',
-        'border-transparent',
-        'hover:bg-blue-600',
+        'hover:scale-110',
+        'transform',
+        'transition',
+        'duration-300',
       ],
-      // **or**
-      // primary: "bg-blue-500 text-white border-transparent hover:bg-blue-600",
       secondary: [
         'bg-white',
         'text-gray-800',
@@ -20,13 +20,18 @@ const buttonStyles = cva(['font-semibold', 'border', 'rounded'], {
     },
     size: {
       small: ['text-sm', 'py-1', 'px-2'],
-      medium: ['text-base', 'py-2', 'px-4'],
+      medium: ['text-lg', 'py-2', 'px-4'],
+    },
+    width: {
+      small: ['px-4', 'xl:px-12'],
+      medium: ['px-8', 'xl:px-16'],
     },
   },
   compoundVariants: [{ intent: 'primary', size: 'medium', class: 'uppercase' }],
   defaultVariants: {
     intent: 'primary',
     size: 'medium',
+    width: 'medium',
   },
 });
 
@@ -37,7 +42,10 @@ export interface ButtonProps
 export const Button: React.FC<ButtonProps> = ({
   intent,
   size,
+  width,
   ...props
 }: ButtonProps) => {
-  return <button className={buttonStyles({ intent, size })} {...props} />;
+  return (
+    <button className={buttonStyles({ intent, size, width })} {...props} />
+  );
 };

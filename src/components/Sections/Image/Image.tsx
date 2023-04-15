@@ -35,7 +35,7 @@ export default function ImageSection({
     <div
       ref={ref}
       id={navigationId!}
-      className={classNames('py-20 px-2 md:px-10', {
+      className={classNames('px-2 py-20 md:px-10', {
         'bg-skin-secondary': backgroundColor === true,
       })}
     >
