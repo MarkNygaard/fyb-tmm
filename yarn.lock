@@ -4301,10 +4301,10 @@ queue-microtask@^1.2.2:
   resolved "https://registry.yarnpkg.com/queue-microtask/-/queue-microtask-1.2.3.tgz#4929228bbc724dfac43e0efb058caf7b6cfb6243"
   integrity sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==
 
-react-datocms@^4.0.13:
-  version "4.0.13"
-  resolved "https://registry.yarnpkg.com/react-datocms/-/react-datocms-4.0.13.tgz#edd310a5dbfc7ff0264ab61ed841007da3fa1ee3"
-  integrity sha512-0QBKt8KlUb6UInqnyLDLazVUsjSAGiT6rrfXRqskH7+IwPp87kDtaLiwaKW5rBoi4393X88eJdSj/Ax9TIMotg==
+react-datocms@^4.0.14:
+  version "4.0.14"
+  resolved "https://registry.yarnpkg.com/react-datocms/-/react-datocms-4.0.14.tgz#d52988fce7c2ac971eb751b43c78e04a34900840"
+  integrity sha512-V9eZLJSJx2FaSTs52Ro3tg2p1OJwMjE2HtmDZys4Cxect+Ky5u0ELjt09tgTfPT/AnH0/NgmHmPPpDsfahRkXw==
   dependencies:
     datocms-listen "^0.1.9"
     datocms-structured-text-generic-html-renderer "^2.0.1"
