@@ -4,7 +4,7 @@ export default function Document() {
   return (
     <Html
       lang='da'
-      className='scroll-pt-0 scroll-smooth lg:scroll-pt-20 xl:scroll-pt-16'
+      className='scroll-pt-0 scroll-smooth bg-[#1E262B] lg:scroll-pt-20 xl:scroll-pt-16'
     >
       <Head />
       <body className='pb-safe-bottom'>
