@@ -1,17 +1,18 @@
 import { AnimatePresence } from 'framer-motion';
+import { PageRecord } from 'lib/graphql';
 import React, { useState } from 'react';
 import { RiCloseLine, RiMenuFill } from 'react-icons/ri';
 
 import MobileMenu from './Navigation/MobileMenu';
 import Navigation from './Navigation/Navigation';
 
-export default function Header({ introPage, page }: any) {
-  const [menuIsOpen, setMenuIsOpen] = useState(false);
+export default function Header({ page }: any) {
+  const [menuIsOpen, setMenuIsOpen] = useState<boolean>(false);
 
   return (
     <>
       <div className='hidden w-full lg:sticky lg:top-0 lg:z-40 lg:flex'>
-        <Navigation introPage={introPage} page={page} />
+        <Navigation {...(page as PageRecord)} />
       </div>
       <div className='absolute z-30 flex w-full justify-end p-8 text-3xl text-white lg:hidden'>
         <button onClick={() => setMenuIsOpen(!menuIsOpen)}>
