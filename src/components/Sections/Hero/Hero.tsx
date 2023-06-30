@@ -1,4 +1,4 @@
-import { Button } from '@ui/Button';
+import { Button } from '@ui/Button/Button';
 import classNames from 'clsx';
 import { AnimatePresence, motion } from 'framer-motion';
 import {
@@ -79,7 +79,7 @@ export default function Hero({
       )}
       <div className='relative col-start-1 col-end-2 row-start-4 row-end-5 mt-8 flex items-center justify-center md:col-start-2 md:col-end-5 md:justify-start xl:col-start-6 xl:col-end-8 xl:row-start-5 xl:row-end-6 xl:justify-center'>
         <a href={buttonLink!} target='_blank' rel='noreferrer'>
-          <Button>{buttonText}</Button>
+          <Button label={buttonText} />
         </a>
       </div>
       <Link
@@ -98,7 +98,7 @@ export default function Hero({
               transition={{ duration: 0.3 }}
               className='fixed bottom-14 right-20 z-50 hidden lg:flex'
             >
-              <Button width='small'>{buttonText}</Button>
+              <Button width='small' label={buttonText} />
             </motion.div>
           </a>
         )}

@@ -10,10 +10,10 @@ import Link from 'next/link';
 import { useEffect } from 'react';
 import { BsFacebook, BsInstagram } from 'react-icons/bs';
 
-let clamp = (number: any, min: any, max: any) =>
+let clamp = (number: number, min: number, max: number) =>
   Math.min(Math.max(number, min), max);
 
-function useBoundedScroll(bounds: any) {
+function useBoundedScroll(bounds: number) {
   let { scrollY } = useScroll();
   let scrollYBounded = useMotionValue(0);
   let scrollYBoundedProgress = useTransform(

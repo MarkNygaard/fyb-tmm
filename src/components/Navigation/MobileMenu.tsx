@@ -3,7 +3,13 @@ import { motion } from 'framer-motion';
 import React from 'react';
 import { BsFacebook, BsInstagram } from 'react-icons/bs';
 
-export default function MobileMenu({ onClose, page }: any) {
+export default function MobileMenu({
+  onClose,
+  page,
+}: {
+  onClose: () => void;
+  page: any;
+}) {
   return (
     <Dialog
       as={motion.div}
