@@ -46,7 +46,7 @@
     "@storybook/react": "^7.0.25",
     "@storybook/testing-library": "^0.2.0",
     "@tailwindcss/typography": "^0.5.9",
-    "@types/node": "20.3.1",
+    "@types/node": "20.4.1",
     "@types/react": "18.2.13",
     "@types/react-dom": "18.2.6",
     "autoprefixer": "^10.4.14",
