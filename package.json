@@ -20,7 +20,7 @@
     "@headlessui/react": "^1.7.15",
     "@react-google-maps/api": "^2.18.1",
     "class-variance-authority": "^0.7.0",
-    "clsx": "^1.2.1",
+    "clsx": "^2.0.0",
     "d": "^1.0.1",
     "framer-motion": "^10.12.18",
     "graphql": "^16.7.1",
