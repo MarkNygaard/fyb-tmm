@@ -23,7 +23,7 @@
     "clsx": "^2.0.0",
     "d": "^1.0.1",
     "framer-motion": "^10.15.0",
-    "graphql": "^16.7.1",
+    "graphql": "^16.8.0",
     "graphql-request": "5.1.0",
     "next": "13.4.12",
     "react": "18.2.0",
