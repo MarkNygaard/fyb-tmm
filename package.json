@@ -17,7 +17,7 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
-    "@headlessui/react": "^1.7.15",
+    "@headlessui/react": "^1.7.17",
     "@react-google-maps/api": "^2.19.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
