@@ -58,7 +58,7 @@
     "eslint-plugin-unused-imports": "^3.0.0",
     "graphql-tag": "^2.12.6",
     "next-sitemap": "^4.2.2",
-    "postcss": "^8.4.27",
+    "postcss": "^8.4.29",
     "prettier": "3.0.2",
     "prettier-plugin-tailwindcss": "^0.4.1",
     "storybook": "^7.3.2",

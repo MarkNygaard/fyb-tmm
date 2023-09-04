@@ -3291,36 +3291,7 @@
     "@storybook/client-logger" "7.1.1"
     "@storybook/manager-api" "7.1.1"
 
-"@storybook/blocks@7.3.2":
-  version "7.3.2"
-  resolved "https://registry.yarnpkg.com/@storybook/blocks/-/blocks-7.3.2.tgz#3fcc55848cdd972311d4d5b15282156ec8005204"
-  integrity sha512-j/PRnvGLn0Y3VAu/t6RrU7pjenb7II7Cl/SnFW8LzjMBKXBrkFaq8BRbglzDAUtGdAa9HmJBosogenoZ9iWoBw==
-  dependencies:
-    "@storybook/channels" "7.3.2"
-    "@storybook/client-logger" "7.3.2"
-    "@storybook/components" "7.3.2"
-    "@storybook/core-events" "7.3.2"
-    "@storybook/csf" "^0.1.0"
-    "@storybook/docs-tools" "7.3.2"
-    "@storybook/global" "^5.0.0"
-    "@storybook/manager-api" "7.3.2"
-    "@storybook/preview-api" "7.3.2"
-    "@storybook/theming" "7.3.2"
-    "@storybook/types" "7.3.2"
-    "@types/lodash" "^4.14.167"
-    color-convert "^2.0.1"
-    dequal "^2.0.2"
-    lodash "^4.17.21"
-    markdown-to-jsx "^7.1.8"
-    memoizerific "^1.11.3"
-    polished "^4.2.2"
-    react-colorful "^5.1.2"
-    telejson "^7.0.3"
-    tocbot "^4.20.1"
-    ts-dedent "^2.0.0"
-    util-deprecate "^1.0.2"
-
-"@storybook/blocks@^7.3.2":
+"@storybook/blocks@7.3.2", "@storybook/blocks@^7.3.2":
   version "7.3.2"
   resolved "https://registry.yarnpkg.com/@storybook/blocks/-/blocks-7.3.2.tgz#3fcc55848cdd972311d4d5b15282156ec8005204"
   integrity sha512-j/PRnvGLn0Y3VAu/t6RrU7pjenb7II7Cl/SnFW8LzjMBKXBrkFaq8BRbglzDAUtGdAa9HmJBosogenoZ9iWoBw==
@@ -10021,10 +9992,10 @@ postcss@8.4.14:
     picocolors "^1.0.0"
     source-map-js "^1.0.2"
 
-postcss@^8.2.14, postcss@^8.4.21, postcss@^8.4.23, postcss@^8.4.27:
-  version "8.4.27"
-  resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.4.27.tgz#234d7e4b72e34ba5a92c29636734349e0d9c3057"
-  integrity sha512-gY/ACJtJPSmUFPDCHtX78+01fHa64FaU4zaaWfuh1MhGJISufJAH4cun6k/8fwsHYeK4UQmENQK+tRLCFJE8JQ==
+postcss@^8.2.14, postcss@^8.4.21, postcss@^8.4.23, postcss@^8.4.29:
+  version "8.4.29"
+  resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.4.29.tgz#33bc121cf3b3688d4ddef50be869b2a54185a1dd"
+  integrity sha512-cbI+jaqIeu/VGqXEarWkRCCffhjgXc0qjBtXpqJhTBohMUjUQnbBr0xqX3vEKudc4iviTewcJo5ajcec5+wdJw==
   dependencies:
     nanoid "^3.3.6"
     picocolors "^1.0.0"
