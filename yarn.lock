@@ -3546,6 +3546,14 @@
     "@storybook/client-logger" "7.4.2"
     "@storybook/preview-api" "7.4.2"
 
+"@storybook/core-client@7.4.5":
+  version "7.4.5"
+  resolved "https://registry.yarnpkg.com/@storybook/core-client/-/core-client-7.4.5.tgz#58143b8d387d757b81104d877c497f32f4c71621"
+  integrity sha512-d/qiCUZeOKY0HX/YmomxlccxJ2NKC3ttRrAsAXzJGypClKabv20X+qbeO/E7Kp5UQxIEJx1wuwJPcnlCvjgPDA==
+  dependencies:
+    "@storybook/client-logger" "7.4.5"
+    "@storybook/preview-api" "7.4.5"
+
 "@storybook/core-common@7.4.2":
   version "7.4.2"
   resolved "https://registry.yarnpkg.com/@storybook/core-common/-/core-common-7.4.2.tgz#6f2873cb49e893967764839cb240c18df737372b"
@@ -4034,7 +4042,7 @@
   resolved "https://registry.yarnpkg.com/@storybook/react-dom-shim/-/react-dom-shim-7.4.5.tgz#77c27c169aaacbeb0a601a53f81421abcfbe8d1c"
   integrity sha512-/hGe8yuiWbT7L3ZsllmJPgxT9MEQE3k23FhliyKx6IGHsWoYaEsPYPZ9tygqtKY8RpqqMUKWz8+kbO79zUxaoQ==
 
-"@storybook/react@7.4.2", "@storybook/react@^7.4.2":
+"@storybook/react@7.4.2":
   version "7.4.2"
   resolved "https://registry.yarnpkg.com/@storybook/react/-/react-7.4.2.tgz#a5b5f0f2e63ca60936e874eca243082d0eb2544c"
   integrity sha512-8bAnSOpDTiE1c9pSkIKRipvqbuZP6Hu1CYaG1RXWF8AIBsjiV9+SsR919Flj1UiCmcw4BLO/ZIvIDGny4ktHhA==
@@ -4046,6 +4054,33 @@
     "@storybook/preview-api" "7.4.2"
     "@storybook/react-dom-shim" "7.4.2"
     "@storybook/types" "7.4.2"
+    "@types/escodegen" "^0.0.6"
+    "@types/estree" "^0.0.51"
+    "@types/node" "^16.0.0"
+    acorn "^7.4.1"
+    acorn-jsx "^5.3.1"
+    acorn-walk "^7.2.0"
+    escodegen "^2.1.0"
+    html-tags "^3.1.0"
+    lodash "^4.17.21"
+    prop-types "^15.7.2"
+    react-element-to-jsx-string "^15.0.0"
+    ts-dedent "^2.0.0"
+    type-fest "~2.19"
+    util-deprecate "^1.0.2"
+
+"@storybook/react@^7.4.5":
+  version "7.4.5"
+  resolved "https://registry.yarnpkg.com/@storybook/react/-/react-7.4.5.tgz#b6675b3b42fe1fbb2f68973f8a792a4efe2ebb0f"
+  integrity sha512-Tiylrs3uFO8QSvH1w3ueSxlAgh2fteH0edRVKaX01M/h47+QqEiZqq/dYkVDvLHngF+CCCwE3OY8nNe6L14Xkw==
+  dependencies:
+    "@storybook/client-logger" "7.4.5"
+    "@storybook/core-client" "7.4.5"
+    "@storybook/docs-tools" "7.4.5"
+    "@storybook/global" "^5.0.0"
+    "@storybook/preview-api" "7.4.5"
+    "@storybook/react-dom-shim" "7.4.5"
+    "@storybook/types" "7.4.5"
     "@types/escodegen" "^0.0.6"
     "@types/estree" "^0.0.51"
     "@types/node" "^16.0.0"
