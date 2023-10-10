@@ -1,3 +1,5 @@
+'use client';
+
 import classNames from 'clsx';
 import { motion, useAnimation } from 'framer-motion';
 import { FileField, ImageRecord, ResponsiveImage } from 'lib/graphql';

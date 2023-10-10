@@ -1,3 +1,5 @@
+'use client';
+
 import { AnimatePresence } from 'framer-motion';
 import { PageRecord } from 'lib/graphql';
 import React, { useState } from 'react';

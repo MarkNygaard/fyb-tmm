@@ -1,3 +1,5 @@
+'use client';
+
 import CustomHeading from '@Sections/CustomHeading/CustomHeading';
 import RtImage from '@Sections/RtImage/RtImage';
 import classNames from 'clsx';
@@ -80,7 +82,7 @@ export default function TextImage({
                 {
                   'rounded-full': imageStyle === 'Round',
                   'rounded-xl': imageStyle === 'Rounded Corners',
-                }
+                },
               )}
             >
               {/* eslint-disable-next-line jsx-a11y/alt-text */}

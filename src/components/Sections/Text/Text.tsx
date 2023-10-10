@@ -1,3 +1,5 @@
+'use client';
+
 import CustomHeading from '@Sections/CustomHeading/CustomHeading';
 import classNames from 'clsx';
 import { motion, useAnimation } from 'framer-motion';
@@ -46,7 +48,7 @@ export default function Text({
           {
             'prose-invert': backgroundColor === true,
             'prose-gray': backgroundColor === false,
-          }
+          },
         )}
       >
         <StructuredText

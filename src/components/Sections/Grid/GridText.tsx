@@ -11,7 +11,7 @@ export function GridText(props: any) {
           'h-52': props.height === 'Small',
           'h-96': props.height === 'Medium',
           'h-132': props.height === 'Large',
-        }
+        },
       )}
     >
       <Text {...(props.section as TextProps)} />

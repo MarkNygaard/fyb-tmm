@@ -9,9 +9,16 @@ import TextImage, { TextImageProps } from '@Sections/TextImage/TextImage';
 import YoutubeVideo, {
   YoutubeVideoProps,
 } from '@Sections/YoutubeVideo/YoutubeVideo';
+import { PageModelContentField } from 'lib/graphql';
 import React from 'react';
 
-export default function PageSection({ sectionProps, page }: any) {
+export default function PageSection({
+  sectionProps,
+  page,
+}: {
+  sectionProps: PageModelContentField;
+  page: any;
+}) {
   if (sectionProps.__typename === 'HeroRecord') {
     return <Hero {...(sectionProps as HeroProps)} {...(page as PageProps)} />;
   } else if (sectionProps.__typename === 'TextImageRecord') {
