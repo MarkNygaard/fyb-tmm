@@ -47,7 +47,7 @@ export default function Hero({
     <div
       id={navigationId!}
       className={classNames(
-        'grid grid-cols-1 grid-rows-6 md:grid-cols-6 xl:grid-cols-12'
+        'grid grid-cols-1 grid-rows-6 md:grid-cols-6 xl:grid-cols-12',
       )}
     >
       {backgroundImage && (

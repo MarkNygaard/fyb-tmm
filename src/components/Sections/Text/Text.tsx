@@ -46,7 +46,7 @@ export default function Text({
           {
             'prose-invert': backgroundColor === true,
             'prose-gray': backgroundColor === false,
-          }
+          },
         )}
       >
         <StructuredText

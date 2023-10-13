@@ -19,7 +19,7 @@ function useBoundedScroll(bounds: number) {
   let scrollYBoundedProgress = useTransform(
     scrollYBounded,
     [0, bounds],
-    [0, 1]
+    [0, 1],
   );
 
   useEffect(() => {
@@ -44,7 +44,7 @@ export default function Navigation({
   let scrollYBoundedProgressThrottled = useTransform(
     scrollYBoundedProgress,
     [0, 0.75, 1],
-    [0, 0, 1]
+    [0, 0, 1],
   );
 
   return (
@@ -54,7 +54,7 @@ export default function Navigation({
         backgroundColor: useMotionTemplate`rgb(0 0 0 / ${useTransform(
           scrollYBoundedProgressThrottled,
           [0, 1],
-          [0.5, 0.2]
+          [0.5, 0.2],
         )})`,
       }}
       className='absolute z-20 flex w-full items-center justify-between bg-black/30 px-16 shadow-sm backdrop-blur-sm xl:px-28'

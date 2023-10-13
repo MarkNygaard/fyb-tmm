@@ -36,7 +36,7 @@ export default function Biography({
       ref={ref}
       id={navigationId!}
       className={classNames(
-        'align-center flex flex-col items-center justify-center overflow-hidden px-2 py-10 text-gray-200 md:px-10'
+        'align-center flex flex-col items-center justify-center overflow-hidden px-2 py-10 text-gray-200 md:px-10',
       )}
     >
       <motion.div

@@ -80,7 +80,7 @@ export default function TextImage({
                 {
                   'rounded-full': imageStyle === 'Round',
                   'rounded-xl': imageStyle === 'Rounded Corners',
-                }
+                },
               )}
             >
               {/* eslint-disable-next-line jsx-a11y/alt-text */}

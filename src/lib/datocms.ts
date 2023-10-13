@@ -1,17 +1,33 @@
-import { GraphQLClient } from 'graphql-request';
-import { getSdk } from 'lib/graphql';
+import { TypedDocumentNode } from '@graphql-typed-document-node/core';
+import { print } from 'graphql';
+import { GraphQLClientRequestHeaders } from 'graphql-request/build/esm/types';
 
-export const DATOCMS_ENDPOINT =
-  process.env.NODE_ENV == 'production'
-    ? 'https://graphql.datocms.com'
-    : 'https://graphql.datocms.com/preview';
+export default async function queryDatoCMS<
+  TResult = unknown,
+  TVariables = Record<string, any>,
+>(
+  document: TypedDocumentNode<TResult, TVariables>,
+  variables?: TVariables,
+  isDraft?: boolean,
+): Promise<TResult> {
+  const headers: GraphQLClientRequestHeaders = {
+    'Content-Type': 'application/json',
+    Accept: 'application/json',
+    'X-Exclude-Invalid': 'true',
+    Authorization: `Bearer ${process.env.DATOCMS_API_TOKEN}`,
+  };
 
-export const DATOCMS_HEADERS = {
-  Authorization: process.env.DATOCMS_API_TOKEN!,
-};
+  if (isDraft) headers['X-Include-Drafts'] = 'true';
 
-export const client = new GraphQLClient(DATOCMS_ENDPOINT, {
-  headers: DATOCMS_HEADERS,
-});
+  const { data } = await (
+    await fetch('https://graphql.datocms.com/', {
+      cache: 'force-cache',
+      next: { tags: ['datocms'] },
+      method: 'POST',
+      headers,
+      body: JSON.stringify({ query: print(document), variables }),
+    })
+  ).json();
 
-export const sdk = getSdk(client);
+  return data;
+}
