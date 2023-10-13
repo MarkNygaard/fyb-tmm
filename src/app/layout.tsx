@@ -1,9 +1,9 @@
 import Header from 'components/Header';
 import queryDatoCMS from 'lib/datocms';
 import { HomePageDocument } from 'lib/graphql';
+import ColorThemeRegistry from 'lib/registry';
 
 import '../styles/globals.css';
-import ColorThemeRegistry from 'lib/registry';
 
 export default async function RootLayout({
   children,
@@ -25,16 +25,17 @@ export default async function RootLayout({
 
   return (
     <html lang='en'>
-      <ColorThemeRegistry
-        primaryColor={primaryColor}
-        secondaryColor={secondaryColor}
-        accentColor={accentColor}
-      >
-        <body style={{ WebkitTapHighlightColor: 'transparent' }}>
-          <Header page={data.page} />
-          {children}
-        </body>
-      </ColorThemeRegistry>
+      <head>
+        <ColorThemeRegistry
+          primaryColor={primaryColor}
+          secondaryColor={secondaryColor}
+          accentColor={accentColor}
+        />
+      </head>
+      <body style={{ WebkitTapHighlightColor: 'transparent' }}>
+        <Header page={data.page} />
+        {children}
+      </body>
     </html>
   );
 }
