@@ -1,9 +1,9 @@
 import Header from 'components/Header';
 import queryDatoCMS from 'lib/datocms';
 import { HomePageDocument } from 'lib/graphql';
-import { useServerInsertedHTML } from 'next/navigation';
 
 import '../styles/globals.css';
+import ColorThemeRegistry from 'lib/registry';
 
 export default async function RootLayout({
   children,
@@ -23,20 +23,18 @@ export default async function RootLayout({
     ? `--color-accent: ${data.page.accentColor.red}, ${data.page.accentColor.green}, ${data.page.accentColor.blue};`
     : '';
 
-  useServerInsertedHTML(() => {
-    return (
-      <style>
-          :root {`{${primaryColor} ${secondaryColor}  ${accentColor}}`}
-        </style>
-    );
-  });
-
   return (
     <html lang='en'>
-      <body style={{ WebkitTapHighlightColor: 'transparent' }}>
-        <Header page={data.page} />
-        {children}
-      </body>
+      <ColorThemeRegistry
+        primaryColor={primaryColor}
+        secondaryColor={secondaryColor}
+        accentColor={accentColor}
+      >
+        <body style={{ WebkitTapHighlightColor: 'transparent' }}>
+          <Header page={data.page} />
+          {children}
+        </body>
+      </ColorThemeRegistry>
     </html>
   );
 }
