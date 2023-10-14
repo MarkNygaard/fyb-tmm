@@ -12,7 +12,7 @@ export function GridImage(props: any) {
           'h-52': props.height === 'Small',
           'h-96': props.height === 'Medium',
           'h-132': props.height === 'Large',
-        }
+        },
       )}
     >
       {/* eslint-disable-next-line jsx-a11y/alt-text */}

@@ -43,7 +43,7 @@ export default function PriceModule({ content, fadeIn }: any) {
             'grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3':
               content?.prices.length === 3,
             'grid-cols-1 md:grid-cols-2': content?.prices.length > 3,
-          }
+          },
         )}
       >
         {content?.prices.map((priceContent: any) => {

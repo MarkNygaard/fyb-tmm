@@ -1,9 +1,9 @@
 import classNames from 'clsx';
-import { motion, useAnimation } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { BiographyRecord, FileField, ResponsiveImage } from 'lib/graphql';
-import React, { useEffect } from 'react';
+import { useAnimatedSectionInView } from 'lib/hooks';
+import React from 'react';
 import { Image, StructuredText } from 'react-datocms';
-import { useInView } from 'react-intersection-observer';
 
 export type StackModule<T> = Omit<T, 'title' | '__typename'>;
 export type BiographyProps = StackModule<BiographyRecord>;
@@ -14,29 +14,16 @@ export default function Biography({
   bioDescription,
   image,
 }: BiographyProps) {
-  const { ref, inView } = useInView({
-    threshold: 0.4,
+  const { ref, animation } = useAnimatedSectionInView({
+    navigationId: navigationId as string,
   });
-  const animation = useAnimation();
-
-  useEffect(() => {
-    if (inView) {
-      animation.start({
-        y: 0,
-        opacity: 1,
-        transition: {
-          duration: 0.5,
-        },
-      });
-    }
-  }, [inView, animation]);
 
   return (
     <div
       ref={ref}
       id={navigationId!}
       className={classNames(
-        'align-center flex flex-col items-center justify-center overflow-hidden px-2 py-10 text-gray-200 md:px-10'
+        'align-center flex flex-col items-center justify-center overflow-hidden px-2 py-10 text-gray-200 md:px-10',
       )}
     >
       <motion.div

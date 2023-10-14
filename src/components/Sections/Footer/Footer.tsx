@@ -1,9 +1,8 @@
 import { GoogleMap, Marker, useLoadScript } from '@react-google-maps/api';
-import { useAnimation } from 'framer-motion';
 import { FooterRecord } from 'lib/graphql';
-import React, { useEffect } from 'react';
+import { useSectionInView } from 'lib/hooks';
+import React from 'react';
 import { StructuredText } from 'react-datocms';
-import { useInView } from 'react-intersection-observer';
 
 export type StackModule<T> = Omit<T, 'title' | '__typename'>;
 export type FooterProps = StackModule<FooterRecord>;
@@ -16,22 +15,9 @@ export default function Footer({
   info,
   contact,
 }: FooterProps) {
-  const { ref, inView } = useInView({
-    threshold: 0.4,
+  const { ref } = useSectionInView({
+    navigationId: navigationId as string,
   });
-  const animation = useAnimation();
-
-  useEffect(() => {
-    if (inView) {
-      animation.start({
-        y: 0,
-        opacity: 1,
-        transition: {
-          duration: 0.5,
-        },
-      });
-    }
-  }, [inView, animation]);
 
   const center = {
     lat: location?.latitude,

@@ -7,6 +7,7 @@ import {
   PageRecord,
   ResponsiveImage,
 } from 'lib/graphql';
+import { useSectionInView } from 'lib/hooks';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import { Image } from 'react-datocms';
@@ -24,6 +25,7 @@ export default function Hero({
   buttonText,
   content,
 }: any) {
+  const { ref } = useSectionInView({ navigationId: navigationId as string });
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -45,9 +47,10 @@ export default function Hero({
 
   return (
     <div
+      ref={ref}
       id={navigationId!}
       className={classNames(
-        'grid grid-cols-1 grid-rows-6 md:grid-cols-6 xl:grid-cols-12'
+        'grid grid-cols-1 grid-rows-6 md:grid-cols-6 xl:grid-cols-12',
       )}
     >
       {backgroundImage && (

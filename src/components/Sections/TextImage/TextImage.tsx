@@ -1,11 +1,11 @@
 import CustomHeading from '@Sections/CustomHeading/CustomHeading';
 import RtImage from '@Sections/RtImage/RtImage';
 import classNames from 'clsx';
-import { motion, useAnimation } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { FileField, ResponsiveImage, TextImageRecord } from 'lib/graphql';
-import React, { useEffect } from 'react';
+import { useAnimatedSectionInView } from 'lib/hooks';
+import React from 'react';
 import { Image, StructuredText } from 'react-datocms';
-import { useInView } from 'react-intersection-observer';
 
 export type StackModule<T> = Omit<T, 'title' | '__typename'>;
 export type TextImageProps = StackModule<TextImageRecord>;
@@ -19,22 +19,9 @@ export default function TextImage({
   imageStyle,
   image,
 }: TextImageProps) {
-  const { ref, inView } = useInView({
-    threshold: 0.4,
+  const { ref, animation } = useAnimatedSectionInView({
+    navigationId: navigationId as string,
   });
-  const animation = useAnimation();
-
-  useEffect(() => {
-    if (inView) {
-      animation.start({
-        y: 0,
-        opacity: 1,
-        transition: {
-          duration: 0.5,
-        },
-      });
-    }
-  }, [inView, animation]);
 
   return (
     <div
@@ -80,7 +67,7 @@ export default function TextImage({
                 {
                   'rounded-full': imageStyle === 'Round',
                   'rounded-xl': imageStyle === 'Rounded Corners',
-                }
+                },
               )}
             >
               {/* eslint-disable-next-line jsx-a11y/alt-text */}
