@@ -67,7 +67,7 @@ export default function MobileMenu({
             },
           }}
         >
-          <button onClick={onClose}>
+          <button className='focus:outline-none' onClick={onClose}>
             <span className='sr-only'>Open main menu</span>
             <RiCloseLine />
           </button>
