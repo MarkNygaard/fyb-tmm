@@ -4,7 +4,9 @@ import { useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 
 export function useSectionInView({ navigationId }: { navigationId: string }) {
-  const { ref, inView } = useInView();
+  const { ref, inView } = useInView({
+    threshold: 0.4,
+  });
   const { setActiveSection, timeOfLastClick } = useActiveSectionContext();
 
   useEffect(() => {
