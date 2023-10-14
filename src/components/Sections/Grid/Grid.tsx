@@ -1,7 +1,7 @@
 import classNames from 'clsx';
 import { motion } from 'framer-motion';
 import { GridRecord } from 'lib/graphql';
-import { useSectionInView } from 'lib/hooks';
+import { useAnimatedSectionInView } from 'lib/hooks';
 import React from 'react';
 
 import { GridImage } from './GridImage';
@@ -22,7 +22,7 @@ export default function Grid({
   sections,
   height,
 }: GridProps) {
-  const { ref, animation } = useSectionInView({
+  const { ref, animation } = useAnimatedSectionInView({
     navigationId: navigationId as string,
   });
 
