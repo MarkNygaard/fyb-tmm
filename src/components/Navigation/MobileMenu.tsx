@@ -2,6 +2,7 @@ import { Dialog } from '@headlessui/react';
 import { motion } from 'framer-motion';
 import React from 'react';
 import { BsFacebook, BsInstagram } from 'react-icons/bs';
+import { RiCloseLine } from 'react-icons/ri';
 
 export default function MobileMenu({
   onClose,
@@ -51,6 +52,26 @@ export default function MobileMenu({
         }}
         className='flex h-screen w-5/6 flex-col justify-between bg-skin-accent shadow-2xl md:w-3/12 xl:w-2/12'
       >
+        <motion.div
+          className='absolute flex w-full justify-end p-8 text-3xl text-white lg:hidden'
+          initial={{ opacity: 0 }}
+          animate={{
+            opacity: 1,
+            transition: { duration: 0.6, ease: [0.8, 0, 0.1, 1], delay: 0.4 },
+          }}
+          exit={{
+            opacity: 0,
+            transition: {
+              duration: 0.6,
+              ease: [0.36, 0.66, 0.04, 1],
+            },
+          }}
+        >
+          <button onClick={onClose}>
+            <span className='sr-only'>Open main menu</span>
+            <RiCloseLine />
+          </button>
+        </motion.div>
         <div className='w-full space-y-1 px-8 pb-3 pt-24'>
           {page.content?.map((navigation: any, i: any) => {
             return (
