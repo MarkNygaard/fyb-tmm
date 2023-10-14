@@ -5,7 +5,7 @@ import { useInView } from 'react-intersection-observer';
 
 export function useSectionInView({ navigationId }: { navigationId: string }) {
   const { ref, inView } = useInView({
-    threshold: 0.4,
+    threshold: 0.2,
   });
   const { setActiveSection, timeOfLastClick } = useActiveSectionContext();
 
