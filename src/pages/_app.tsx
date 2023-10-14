@@ -1,3 +1,4 @@
+import ActiveSectionContextProvider from 'context/ActiveSectionContext';
 import { AnimatePresence } from 'framer-motion';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
@@ -21,7 +22,9 @@ function MyApp({ Component, pageProps }: AppProps) {
             content='initial-scale=1.0, viewport-fit=cover'
           />
         </Head>
-        <Component {...pageProps} />{' '}
+        <ActiveSectionContextProvider>
+          <Component {...pageProps} />{' '}
+        </ActiveSectionContextProvider>
       </div>
     </AnimatePresence>
   );

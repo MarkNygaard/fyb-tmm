@@ -1,8 +1,8 @@
 import classNames from 'clsx';
-import { motion, useAnimation } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { YoutubeVideoRecord } from 'lib/graphql';
-import React, { useEffect } from 'react';
-import { useInView } from 'react-intersection-observer';
+import { useAnimatedSectionInView } from 'lib/hooks';
+import React from 'react';
 import LiteYouTubeEmbed from 'react-lite-youtube-embed';
 
 export type StackModule<T> = Omit<T, 'title' | '__typename'>;
@@ -14,22 +14,9 @@ export default function YoutubeVideo({
   fadeIn,
   link,
 }: YoutubeVideoProps) {
-  const { ref, inView } = useInView({
-    threshold: 0.4,
+  const { ref, animation } = useAnimatedSectionInView({
+    navigationId: navigationId as string,
   });
-  const animation = useAnimation();
-
-  useEffect(() => {
-    if (inView) {
-      animation.start({
-        y: 0,
-        opacity: 1,
-        transition: {
-          duration: 0.5,
-        },
-      });
-    }
-  }, [inView, animation]);
 
   return (
     <div

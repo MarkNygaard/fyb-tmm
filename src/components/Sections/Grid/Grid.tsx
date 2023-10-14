@@ -1,8 +1,8 @@
 import classNames from 'clsx';
-import { motion, useAnimation } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { GridRecord } from 'lib/graphql';
-import React, { useEffect } from 'react';
-import { useInView } from 'react-intersection-observer';
+import { useSectionInView } from 'lib/hooks';
+import React from 'react';
 
 import { GridImage } from './GridImage';
 import { GridText } from './GridText';
@@ -22,22 +22,9 @@ export default function Grid({
   sections,
   height,
 }: GridProps) {
-  const { ref, inView } = useInView({
-    threshold: 0.4,
+  const { ref, animation } = useSectionInView({
+    navigationId: navigationId as string,
   });
-  const animation = useAnimation();
-
-  useEffect(() => {
-    if (inView) {
-      animation.start({
-        y: 0,
-        opacity: 1,
-        transition: {
-          duration: 0.5,
-        },
-      });
-    }
-  }, [inView, animation]);
 
   return (
     <div

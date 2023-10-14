@@ -1,10 +1,10 @@
 import CustomHeading from '@Sections/CustomHeading/CustomHeading';
-import classNames from 'clsx';
-import { motion, useAnimation } from 'framer-motion';
+import clsx from 'clsx';
+import { motion } from 'framer-motion';
 import { TextRecord } from 'lib/graphql';
-import React, { useEffect } from 'react';
+import { useAnimatedSectionInView } from 'lib/hooks';
+import React from 'react';
 import { Image, StructuredText } from 'react-datocms';
-import { useInView } from 'react-intersection-observer';
 
 export type StackModule<T> = Omit<T, 'title' | '__typename'>;
 export type TextProps = StackModule<TextRecord>;
@@ -15,22 +15,9 @@ export default function Text({
   fadeIn,
   content,
 }: TextProps) {
-  const { ref, inView } = useInView({
-    threshold: 0.4,
+  const { ref, animation } = useAnimatedSectionInView({
+    navigationId: navigationId as string,
   });
-  const animation = useAnimation();
-
-  useEffect(() => {
-    if (inView) {
-      animation.start({
-        y: 0,
-        opacity: 1,
-        transition: {
-          duration: 0.5,
-        },
-      });
-    }
-  }, [inView, animation]);
 
   return (
     <div
@@ -41,12 +28,12 @@ export default function Text({
       <motion.div
         initial={fadeIn ? { opacity: 0 } : { opacity: 1 }}
         animate={fadeIn ? animation : { opacity: 1 }}
-        className={classNames(
+        className={clsx(
           'prose prose-h2:text-4xl prose-h2:text-skin-accent prose-p:text-gray-300 prose-strong:text-skin-accent sm:w-full',
           {
             'prose-invert': backgroundColor === true,
             'prose-gray': backgroundColor === false,
-          }
+          },
         )}
       >
         <StructuredText

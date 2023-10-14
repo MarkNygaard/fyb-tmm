@@ -18,7 +18,7 @@ export default function Prices({ content, arrayLength }: any) {
               'h-full items-center justify-center font-thin lg:max-w-[655px] lg:py-6 lg:font-light xl:max-w-[800px] xl:py-8':
                 arrayLength === 1,
               'font-thin': arrayLength > 1,
-            }
+            },
           )}
         >
           <StructuredText data={content?.description} />

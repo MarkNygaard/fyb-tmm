@@ -1,3 +1,5 @@
+import clsx from 'clsx';
+import { useActiveSectionContext } from 'context/ActiveSectionContext';
 import {
   motion,
   useMotionTemplate,
@@ -19,7 +21,7 @@ function useBoundedScroll(bounds: number) {
   let scrollYBoundedProgress = useTransform(
     scrollYBounded,
     [0, bounds],
-    [0, 1]
+    [0, 1],
   );
 
   useEffect(() => {
@@ -40,11 +42,14 @@ export default function Navigation({
   facebookUrl,
   content,
 }: PageRecord) {
+  const { activeSection, setActiveSection, setTimeOfLastClick } =
+    useActiveSectionContext();
+
   let { scrollYBoundedProgress } = useBoundedScroll(300);
   let scrollYBoundedProgressThrottled = useTransform(
     scrollYBoundedProgress,
     [0, 0.75, 1],
-    [0, 0, 1]
+    [0, 0, 1],
   );
 
   return (
@@ -54,7 +59,7 @@ export default function Navigation({
         backgroundColor: useMotionTemplate`rgb(0 0 0 / ${useTransform(
           scrollYBoundedProgressThrottled,
           [0, 1],
-          [0.5, 0.2]
+          [0.5, 0.2],
         )})`,
       }}
       className='absolute z-20 flex w-full items-center justify-between bg-black/30 px-16 shadow-sm backdrop-blur-sm xl:px-28'
@@ -78,16 +83,41 @@ export default function Navigation({
           <BsFacebook />
         </a>
       </div>
-      <div className='flex'>
+      <div className='flex space-x-2'>
         {content?.map((Section: PageModelContentField) => {
           return (
             Section.navigationId && (
               <Link
                 key={Section.id}
                 href={'#' + Section.navigationId}
-                className='block px-3 py-2 text-lg font-light uppercase text-gray-300 opacity-100 hover:text-white xl:px-4 xl:text-xl'
+                onClick={() => {
+                  setActiveSection(Section.navigationId as string);
+                  setTimeOfLastClick(Date.now());
+                }}
+                className={clsx(
+                  'flex relative px-3 py-2 text-lg uppercase opacity-100  xl:px-4 xl:text-xl',
+                  {
+                    'font-light text-gray-300 hover:text-white':
+                      Section.navigationId !== activeSection,
+                  },
+                  {
+                    'font-base text-skin-accent':
+                      Section.navigationId === activeSection,
+                  },
+                )}
               >
                 {Section.navigationId}
+                {Section.navigationId === activeSection && (
+                  <motion.span
+                    className='bg-gray-300/10 rounded-full absolute inset-0 -z-10'
+                    layoutId='activeSection'
+                    transition={{
+                      type: 'spring',
+                      stiffness: 380,
+                      damping: 30,
+                    }}
+                  ></motion.span>
+                )}
               </Link>
             )
           );

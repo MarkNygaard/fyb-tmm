@@ -1,5 +1,6 @@
 import classNames from 'clsx';
 import { HairMenuRecord } from 'lib/graphql';
+import { useSectionInView } from 'lib/hooks';
 import React from 'react';
 
 import PriceModule from './PriceModules/PriceModule';
@@ -12,11 +13,14 @@ export default function HairMenu({
   fadeIn,
   priceModules,
 }: HairMenuProps) {
+  const { ref } = useSectionInView({ navigationId: navigationId as string });
+
   return (
     <div
+      ref={ref}
       id={navigationId!}
       className={classNames(
-        'align-center flex flex-col items-center justify-center overflow-hidden px-2 py-10 text-gray-200 md:px-10'
+        'align-center flex flex-col items-center justify-center overflow-hidden px-2 py-10 text-gray-200 md:px-10',
       )}
     >
       <div className='container space-y-2 xl:space-y-4'>
