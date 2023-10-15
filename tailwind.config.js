@@ -32,8 +32,13 @@ module.exports = {
           primary: withOpacity('--color-primary'),
           secondary: withOpacity('--color-secondary'),
           accent: withOpacity('--color-accent'),
-          left: withOpacity('--color-left'),
-          right: withOpacity('--color-right'),
+        },
+      },
+      colors: {
+        skin: {
+          primary: withOpacity('--color-primary'),
+          secondary: withOpacity('--color-secondary'),
+          accent: withOpacity('--color-accent'),
         },
       },
       gridTemplateRows: {
@@ -57,6 +62,12 @@ module.exports = {
       },
       width: {
         132: '33rem',
+      },
+      lineClamp: {
+        7: '7',
+        8: '8',
+        9: '9',
+        10: '10',
       },
     },
   },
