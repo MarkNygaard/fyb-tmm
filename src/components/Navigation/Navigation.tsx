@@ -62,7 +62,7 @@ export default function Navigation({
           [0.5, 0.2],
         )})`,
       }}
-      className='absolute z-20 flex w-full items-center justify-between bg-black/30 px-16 shadow-sm backdrop-blur-sm xl:px-28'
+      className='absolute z-20 flex w-full items-center justify-between bg-black/30 px-6 lg:px-16 shadow-sm backdrop-blur-sm xl:px-28'
       id='nav'
     >
       <div className='flex items-center space-x-4'>
@@ -95,7 +95,7 @@ export default function Navigation({
                   setTimeOfLastClick(Date.now());
                 }}
                 className={clsx(
-                  'flex relative px-3 py-2 text-lg uppercase opacity-100  xl:px-4 xl:text-xl',
+                  'flex relative px-2 lg:px-3 py-1 lg:py-2 lg:text-lg uppercase opacity-100  xl:px-4 xl:text-xl',
                   {
                     'font-light text-gray-300 hover:text-white':
                       Section.navigationId !== activeSection,
