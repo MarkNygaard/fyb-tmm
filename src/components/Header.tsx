@@ -14,8 +14,11 @@ export default function Header({ page }: any) {
       <div className='hidden w-full lg:sticky lg:top-0 lg:z-40 lg:flex'>
         <Navigation {...(page as PageRecord)} />
       </div>
-      <div className='sticky  top-0 z-20 flex w-full justify-end p-8 text-3xl text-white lg:hidden'>
-        <button onClick={() => setMenuIsOpen(!menuIsOpen)}>
+      <div className='sticky  top-0 z-20 flex w-full justify-end text-3xl text-white lg:hidden'>
+        <button
+          className='absolute p-8'
+          onClick={() => setMenuIsOpen(!menuIsOpen)}
+        >
           <span className='sr-only'>Open main menu</span>
           {!menuIsOpen && <RiMenuFill className='rotate-90' />}
         </button>
