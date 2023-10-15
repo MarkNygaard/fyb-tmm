@@ -14,9 +14,10 @@ export default function Header({ page }: any) {
       <div className='hidden w-full lg:sticky lg:top-0 lg:z-40 lg:flex'>
         <Navigation {...(page as PageRecord)} />
       </div>
-      <div className='sticky  top-0 z-20 flex w-full justify-end text-3xl text-white lg:hidden'>
+      <div className='sticky top-0 z-20 flex w-full justify-end text-3xl text-white lg:hidden'>
         <button
-          className='absolute p-8'
+          aria-label='menu'
+          className='absolute m-6 p-2 rounded-full active:bg-gray-300/20'
           onClick={() => setMenuIsOpen(!menuIsOpen)}
         >
           <span className='sr-only'>Open main menu</span>
