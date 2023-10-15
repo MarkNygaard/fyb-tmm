@@ -1,5 +1,6 @@
 import { Dialog } from '@headlessui/react';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import React from 'react';
 import { BsFacebook, BsInstagram } from 'react-icons/bs';
 import { RiCloseLine } from 'react-icons/ri';
@@ -53,7 +54,7 @@ export default function MobileMenu({
         className='flex h-screen w-5/6 flex-col justify-between bg-skin-accent shadow-2xl md:w-3/12 xl:w-2/12'
       >
         <motion.div
-          className='absolute flex w-full justify-end p-8 text-3xl text-white lg:hidden'
+          className='absolute flex w-full justify-end text-3xl text-white lg:hidden'
           initial={{ opacity: 0 }}
           animate={{
             opacity: 1,
@@ -67,7 +68,10 @@ export default function MobileMenu({
             },
           }}
         >
-          <button className='focus:outline-none' onClick={onClose}>
+          <button
+            className='focus:outline-none m-6 p-2 rounded-full active:bg-gray-200/20'
+            onClick={onClose}
+          >
             <span className='sr-only'>Open main menu</span>
             <RiCloseLine />
           </button>
@@ -96,13 +100,15 @@ export default function MobileMenu({
                     },
                   }}
                 >
-                  <a
-                    className='block px-4 py-2 text-2xl font-normal text-white outline-none'
+                  <Link
+                    className='block px-4 py-2 text-2xl font-normal text-white outline-none '
                     href={'#' + navigation.navigationId}
                     onClick={onClose}
                   >
-                    {navigation.navigationId}
-                  </a>
+                    <span className='active:bg-gray-200/20 rounded-full py-2 px-4'>
+                      {navigation.navigationId}
+                    </span>
+                  </Link>
                 </motion.div>
               )
             );
