@@ -11,10 +11,10 @@ export default function Header({ page }: any) {
 
   return (
     <>
-      <div className='hidden w-full lg:sticky lg:top-0 lg:z-40 lg:flex'>
+      <div className='hidden w-full md:sticky lg:top-0 lg:z-40 lg:flex'>
         <Navigation {...(page as PageRecord)} />
       </div>
-      <div className='sticky top-0 z-20 flex w-full justify-end text-3xl text-white lg:hidden'>
+      <div className='sticky top-0 z-20 flex w-full justify-end text-3xl text-white md:hidden'>
         <button
           aria-label='menu'
           className='absolute m-6 p-2 rounded-full active:bg-gray-300/20'
