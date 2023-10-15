@@ -34,35 +34,35 @@ export default function Biography({
       <motion.div
         initial={fadeIn ? { opacity: 0 } : { opacity: 1 }}
         animate={fadeIn ? animation : { opacity: 1 }}
-        className='container flex flex-col px-1 lg:grid lg:grid-cols-bio lg:grid-rows-bio'
+        className='container flex flex-col px-1 xl:grid xl:grid-cols-bio xl:grid-rows-bio'
       >
-        <div className='grid grid-rows-2 lg:col-start-1 lg:col-end-3 lg:row-start-1 lg:row-end-4'>
-          <div className='aspect-square row-start-1 row-end-3 col-start-1 col-end-2 relative w-4/5 md:w-1/2 lg:w-full mx-auto lg:aspect-auto'>
+        <div className='grid grid-rows-2 xl:col-start-1 xl:col-end-3 xl:row-start-1 xl:row-end-4'>
+          <div className='aspect-square row-start-1 row-end-3 col-start-1 col-end-2 relative w-4/5 md:w-1/2 xl:w-full mx-auto xl:aspect-auto'>
             {/* eslint-disable-next-line jsx-a11y/alt-text */}
             <Image
-              className='rounded-full lg:rounded-none border-8 lg:border-0 border-skin-primary'
+              className='rounded-full xl:rounded-none border-8 xl:border-0 border-skin-primary'
               data={(image as FileField).responsiveImage as ResponsiveImage}
               layout='fill'
               objectFit='cover'
               objectPosition='50% 50%'
             />
           </div>
-          <div className='bg-skin-secondary row-span-1 row-start-2 col-start-1 col-end-2 row-end-3 h-full w-full lg:hidden'></div>
+          <div className='bg-skin-secondary row-span-1 row-start-2 col-start-1 col-end-2 row-end-3 h-full w-full xl:hidden'></div>
         </div>
-        <div className='flex flex-col justify-center bg-skin-secondary pt-2 md:pt-4 md:pb-6 lg:grid lg:col-start-2 lg:col-end-6 lg:row-start-2 lg:row-end-5 lg:grid-rows-bioText lg:grid-cols-bioText'>
+        <div className='flex flex-col justify-center bg-skin-secondary pt-2 md:pt-4 md:pb-6 xl:grid xl:col-start-2 xl:col-end-6 xl:row-start-2 xl:row-end-5 xl:grid-rows-bioText xl:grid-cols-bioText'>
           <AnimatePresence>
             <motion.div
               animate={{
                 height: height || 'auto',
                 transition: { duration: 0.8 },
               }}
-              className='lg:col-start-2 lg:col-end-3 lg:row-start-2 lg:row-end-4'
+              className='xl:col-start-2 xl:col-end-3 xl:row-start-2 xl:row-end-4'
             >
               <div
                 ref={ref2}
                 className={`${
                   !fullText && 'line-clamp-8'
-                } leading-[30px] lg:leading-7 md:line-clamp-none max-w-none prose px-2 md:px-4 font-thin md:font-light prose-h3:text-skin-accent prose-p:text-gray-200 prose-a:text-skin-accent prose-strong:text-gray-200 lg:p-0`}
+                } leading-[30px] xl:leading-7 md:line-clamp-none max-w-none prose px-2 md:px-4 lg:px-6 font-thin md:font-light prose-h3:text-skin-accent prose-p:text-gray-200 prose-a:text-skin-accent prose-strong:text-gray-200 xl:p-0`}
               >
                 <StructuredText data={bioDescription as any} />
               </div>
