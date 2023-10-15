@@ -69,7 +69,7 @@ export default function Hero({
         </div>
       )}
       {image && (
-        <div className='relative col-start-1 col-end-2 row-start-2 row-end-4 md:col-start-2 md:col-end-3 md:row-end-3 xl:col-start-6 xl:col-end-8 xl:row-start-2 xl:row-end-5'>
+        <div className='relative col-start-1 col-end-2 row-start-2 row-end-4 md:col-start-3 md:col-end-5 lg:row-start-2 lg:row-end-5 md:row-end-5 xl:col-start-6 xl:col-end-8 xl:row-start-2 xl:row-end-5'>
           {/* eslint-disable-next-line jsx-a11y/alt-text */}
           <Image
             data={(image as FileField).responsiveImage as ResponsiveImage}
@@ -80,7 +80,7 @@ export default function Hero({
           />
         </div>
       )}
-      <div className='relative col-start-1 col-end-2 row-start-4 row-end-5 mt-8 flex items-center justify-center md:col-start-2 md:col-end-5 md:justify-start xl:col-start-6 xl:col-end-8 xl:row-start-5 xl:row-end-6 xl:justify-center'>
+      <div className='relative col-start-1 col-end-2 row-start-4 row-end-5 lg:row-start-5 md:row-end-6 mt-8 flex items-center justify-center md:col-start-3 md:col-end-5 xl:col-start-6 xl:col-end-8 xl:row-start-5 xl:row-end-6'>
         <a href={buttonLink!} target='_blank' rel='noreferrer'>
           <Button label={buttonText} />
         </a>

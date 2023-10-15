@@ -31,7 +31,7 @@ export default function MobileMenu({
           delay: 0.5,
         },
       }}
-      className='fixed inset-0 top-0 z-20 flex justify-end bg-black/75 h-screen-safe md:hidden'
+      className='absolute inset-0 top-0 z-20 flex justify-end bg-black/75 h-screen-safe md:hidden'
       open={true}
       onClose={onClose}
     >
