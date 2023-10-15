@@ -11,7 +11,7 @@ export default function Header({ page }: any) {
 
   return (
     <>
-      <div className='hidden w-full md:sticky lg:top-0 lg:z-40 lg:flex'>
+      <div className='hidden w-full md:sticky md:top-0 md:z-40 md:flex'>
         <Navigation {...(page as PageRecord)} />
       </div>
       <div className='sticky top-0 z-20 flex w-full justify-end text-3xl text-white md:hidden'>
