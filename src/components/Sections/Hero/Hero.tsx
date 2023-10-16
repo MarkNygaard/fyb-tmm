@@ -27,6 +27,7 @@ export default function Hero({
 }: any) {
   const { ref } = useSectionInView({ navigationId: navigationId as string });
   const [isVisible, setIsVisible] = useState(false);
+  const navigationIdNoSpace = navigationId?.replace(/\s/g, '');
 
   useEffect(() => {
     window.addEventListener('scroll', listenToScroll);
@@ -48,7 +49,7 @@ export default function Hero({
   return (
     <div
       ref={ref}
-      id={navigationId!}
+      id={navigationIdNoSpace!}
       className={classNames(
         'grid grid-cols-1 grid-rows-6 md:grid-cols-6 xl:grid-cols-12',
       )}

@@ -85,11 +85,13 @@ export default function Navigation({
       </div>
       <div className='flex space-x-2'>
         {content?.map((Section: PageModelContentField) => {
+          const navigationIdNoSpace = Section.navigationId?.replace(/\s/g, '');
+
           return (
             Section.navigationId && (
               <Link
                 key={Section.id}
-                href={'#' + Section.navigationId}
+                href={'#' + navigationIdNoSpace}
                 onClick={() => {
                   setActiveSection(Section.navigationId as string);
                   setTimeOfLastClick(Date.now());

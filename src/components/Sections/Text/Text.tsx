@@ -18,11 +18,12 @@ export default function Text({
   const { ref, animation } = useAnimatedSectionInView({
     navigationId: navigationId as string,
   });
+  const navigationIdNoSpace = navigationId?.replace(/\s/g, '');
 
   return (
     <div
       ref={ref}
-      id={navigationId!}
+      id={navigationIdNoSpace!}
       className='align-center flex items-center justify-center overflow-hidden px-4 py-10 md:px-10'
     >
       <motion.div
