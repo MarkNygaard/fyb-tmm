@@ -95,6 +95,11 @@ export default function MobileMenu({
         </motion.div>
         <div className='w-full space-y-1 px-8 pb-3 pt-24'>
           {page.content?.map((navigation: any, i: any) => {
+            const navigationIdNoSpace = navigation.navigationId?.replace(
+              /\s/g,
+              '',
+            );
+
             return (
               navigation.navigationId && (
                 <motion.div
@@ -119,7 +124,7 @@ export default function MobileMenu({
                 >
                   <Link
                     className='block px-4 py-2 text-2xl font-normal text-white outline-none '
-                    href={'#' + navigation.navigationId}
+                    href={'#' + navigationIdNoSpace}
                     onClick={onClose}
                   >
                     <span className='active:bg-gray-200/20 rounded-full py-2 px-4'>
