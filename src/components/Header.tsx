@@ -1,8 +1,7 @@
 import { AnimatePresence, useAnimation } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { PageRecord } from 'lib/graphql';
 import React, { useState } from 'react';
-// import { RiMenuFill } from 'react-icons/ri';
-import { motion } from 'framer-motion';
 
 import MobileMenu from './Navigation/MobileMenu';
 import Navigation from './Navigation/Navigation';
@@ -19,20 +18,27 @@ const path03Variants = {
   open: { d: 'M22.5 0L22.5 20' },
   closed: { d: 'M22.5 0L22.5 0' },
 };
+const removeFromDom = {
+  remove: { display: 'none' },
+  add: { display: 'block' },
+};
 
 export default function Header({ page }: any) {
   const [menuIsOpen, setMenuIsOpen] = useState<boolean>(false);
   const path01Controls = useAnimation();
   const path02Controls = useAnimation();
   const path03Controls = useAnimation();
+  const button = useAnimation();
 
   const onClick = async () => {
     setMenuIsOpen(!menuIsOpen);
     if (!menuIsOpen) {
       await path03Controls.start(path03Variants.closed);
       await path02Controls.start(path02Variants.closed);
-      path01Controls.start(path01Variants.closed);
+      await path01Controls.start(path01Variants.closed);
+      button.start(removeFromDom.remove);
     } else {
+      await button.start(removeFromDom.add);
       await path03Controls.start(path03Variants.open);
       await path02Controls.start(path02Variants.open);
       path01Controls.start(path01Variants.open);
@@ -50,6 +56,7 @@ export default function Header({ page }: any) {
           aria-label='menu'
           className='absolute m-6 p-2 rounded-full active:bg-gray-300/20'
           onClick={onClick}
+          animate={button}
         >
           <span className='sr-only'>Open main menu</span>
           <svg

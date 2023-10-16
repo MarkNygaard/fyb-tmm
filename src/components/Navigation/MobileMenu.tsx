@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import React from 'react';
 import { BsFacebook, BsInstagram } from 'react-icons/bs';
-import { RiCloseLine } from 'react-icons/ri';
 
 export default function MobileMenu({
   onClose,
@@ -76,14 +75,6 @@ export default function MobileMenu({
               transition: {
                 duration: 0.5,
                 delay: 0.4,
-              },
-            }}
-            exit={{
-              opacity: 0,
-              transition: {
-                duration: 0.2,
-                delay: 0.04,
-                type: 'spring',
               },
             }}
             className='focus:outline-none m-6 p-2 rounded-full active:bg-gray-200/20 z-50'

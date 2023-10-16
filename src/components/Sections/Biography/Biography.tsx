@@ -4,7 +4,7 @@ import { BiographyRecord, FileField, ResponsiveImage } from 'lib/graphql';
 import { useAnimatedSectionInView } from 'lib/hooks';
 import React, { useState } from 'react';
 import { Image, StructuredText } from 'react-datocms';
-import { AiOutlineDown, AiOutlineUp } from 'react-icons/ai';
+import { AiOutlineDownCircle, AiOutlineUpCircle } from 'react-icons/ai';
 import useMeasure from 'react-use-measure';
 
 export type StackModule<T> = Omit<T, 'title' | '__typename'>;
@@ -72,7 +72,7 @@ export default function Biography({
             onClick={() => setFullText(!fullText)}
             className='rounded-full aspect-square md:hidden text-gray-400 text-3xl mx-auto p-2 mb-2 active:bg-gray-300/20'
           >
-            {fullText ? <AiOutlineUp /> : <AiOutlineDown />}
+            {fullText ? <AiOutlineUpCircle /> : <AiOutlineDownCircle />}
           </button>
         </div>
         <div></div>
