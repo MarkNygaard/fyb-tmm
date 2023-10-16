@@ -123,12 +123,9 @@ export default function MobileMenu({
                   className='block px-4 py-2 text-2xl font-normal text-white outline-none'
                   href={'#' + navigationIdNoSpace}
                 >
-                  <button
-                    onClick={onClose}
-                    className='active:bg-gray-200/20 rounded-full py-2 px-4'
-                  >
+                  <span className='active:bg-gray-200/20 rounded-full py-2 px-4'>
                     {navigation.navigationId}
-                  </button>
+                  </span>
                 </motion.a>
               )
             );
