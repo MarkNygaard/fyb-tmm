@@ -17,11 +17,12 @@ export default function YoutubeVideo({
   const { ref, animation } = useAnimatedSectionInView({
     navigationId: navigationId as string,
   });
+  const navigationIdNoSpace = navigationId?.replace(/\s/g, '');
 
   return (
     <div
       ref={ref}
-      id={navigationId!}
+      id={navigationIdNoSpace!}
       className={classNames('flex justify-center px-2 py-10 md:px-10', {
         'bg-skin-secondary': backgroundColor === true,
       })}

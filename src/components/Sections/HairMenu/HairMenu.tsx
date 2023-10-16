@@ -14,11 +14,12 @@ export default function HairMenu({
   priceModules,
 }: HairMenuProps) {
   const { ref } = useSectionInView({ navigationId: navigationId as string });
+  const navigationIdNoSpace = navigationId?.replace(/\s/g, '');
 
   return (
     <div
       ref={ref}
-      id={navigationId!}
+      id={navigationIdNoSpace!}
       className={classNames(
         'align-center flex flex-col items-center justify-center overflow-hidden px-2 py-10 text-gray-200 md:px-10',
       )}

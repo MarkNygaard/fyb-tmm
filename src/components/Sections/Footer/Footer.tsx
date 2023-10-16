@@ -19,6 +19,8 @@ export default function Footer({
     navigationId: navigationId as string,
   });
 
+  const navigationIdNoSpace = navigationId?.replace(/\s/g, '');
+
   const center = {
     lat: location?.latitude,
     lng: location?.longitude,
@@ -32,7 +34,7 @@ export default function Footer({
     return <div>Loading...</div>;
   }
   return (
-    <div ref={ref} id={navigationId!} className='pt-10 text-gray-300'>
+    <div ref={ref} id={navigationIdNoSpace!} className='pt-10 text-gray-300'>
       <div className='grid grid-cols-1 grid-rows-footerSmall md:grid-cols-footerMedium md:grid-rows-footerMedium lg:grid-rows-footerLarge xl:grid-cols-footerLarge xl:grid-rows-footerXLarge'>
         <div className='col-start-1 col-end-2 row-start-6 row-end-[8] bg-skin-secondary md:col-start-1 md:col-end-13 md:row-start-4 md:row-end-7 xl:row-start-5 xl:row-end-7'></div>
         <div className='col-start-1 col-end-2 row-start-5 row-end-7 px-4 md:col-start-2 md:col-end-5 md:row-start-3 md:row-end-5 md:px-0 lg:col-end-3 lg:row-start-3 lg:row-end-6 xl:row-start-2 xl:row-end-6'>

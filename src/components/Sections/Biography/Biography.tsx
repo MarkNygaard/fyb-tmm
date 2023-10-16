@@ -22,11 +22,12 @@ export default function Biography({
 
   const [fullText, setFullText] = useState<boolean>(false);
   let [ref2, { height }] = useMeasure();
+  const navigationIdNoSpace = navigationId?.replace(/\s/g, '');
 
   return (
     <div
       ref={ref}
-      id={navigationId!}
+      id={navigationIdNoSpace!}
       className={classNames(
         'align-center flex flex-col items-center justify-center overflow-hidden px-2 md:py-10 text-gray-200 md:px-10',
       )}
