@@ -1,6 +1,5 @@
 import { Dialog } from '@headlessui/react';
 import { motion } from 'framer-motion';
-import Link from 'next/link';
 import React from 'react';
 import { BsFacebook, BsInstagram } from 'react-icons/bs';
 
@@ -122,15 +121,15 @@ export default function MobileMenu({
                     },
                   }}
                 >
-                  <Link
+                  <a
                     className='block px-4 py-2 text-2xl font-normal text-white outline-none '
-                    href={'#' + navigationIdNoSpace}
                     onClick={onClose}
+                    href={'#' + navigationIdNoSpace}
                   >
                     <span className='active:bg-gray-200/20 rounded-full py-2 px-4'>
                       {navigation.navigationId}
                     </span>
-                  </Link>
+                  </a>
                 </motion.div>
               )
             );
