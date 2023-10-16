@@ -1,7 +1,17 @@
 import { Dialog } from '@headlessui/react';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import React from 'react';
 import { BsFacebook, BsInstagram } from 'react-icons/bs';
+
+function NextLink(props: any) {
+  const { href, children, ...rest } = props;
+  return (
+    <Link href={href}>
+      <a {...rest}>{children}</a>
+    </Link>
+  );
+}
 
 export default function MobileMenu({
   onClose,
@@ -121,7 +131,7 @@ export default function MobileMenu({
                     },
                   }}
                 >
-                  <a
+                  <NextLink
                     className='block px-4 py-2 text-2xl font-normal text-white outline-none '
                     onClick={onClose}
                     href={'#' + navigationIdNoSpace}
@@ -129,7 +139,7 @@ export default function MobileMenu({
                     <span className='active:bg-gray-200/20 rounded-full py-2 px-4'>
                       {navigation.navigationId}
                     </span>
-                  </a>
+                  </NextLink>
                 </motion.div>
               )
             );
