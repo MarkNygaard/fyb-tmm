@@ -101,36 +101,33 @@ export default function MobileMenu({
 
             return (
               navigation.navigationId && (
-                <div
+                <motion.a
                   key={navigation.id}
-                  // initial={{ opacity: 0 }}
-                  // animate={{
-                  //   opacity: 1,
-                  //   transition: {
-                  //     duration: 0.2,
-                  //     delay: 0.4 + 0.04 * i,
-                  //     type: 'spring',
-                  //   },
-                  // }}
-                  // exit={{
-                  //   opacity: 0,
-                  //   transition: {
-                  //     duration: 0.2,
-                  //     delay: 0.04 * i,
-                  //     type: 'spring',
-                  //   },
-                  // }}
+                  initial={{ opacity: 0 }}
+                  animate={{
+                    opacity: 1,
+                    transition: {
+                      duration: 0.2,
+                      delay: 0.4 + 0.04 * i,
+                      type: 'spring',
+                    },
+                  }}
+                  exit={{
+                    opacity: 0,
+                    transition: {
+                      duration: 0.2,
+                      delay: 0.04 * i,
+                      type: 'spring',
+                    },
+                  }}
+                  className='block px-4 py-2 text-2xl font-normal text-white outline-none'
+                  onClick={onClose}
+                  href={'#' + navigationIdNoSpace}
                 >
-                  <a
-                    className='block px-4 py-2 text-2xl font-normal text-white outline-none'
-                    onClick={onClose}
-                    href={'#' + navigationIdNoSpace}
-                  >
-                    <span className='active:bg-gray-200/20 rounded-full py-2 px-4'>
-                      {navigation.navigationId}
-                    </span>
-                  </a>
-                </div>
+                  <span className='active:bg-gray-200/20 rounded-full py-2 px-4'>
+                    {navigation.navigationId}
+                  </span>
+                </motion.a>
               )
             );
           })}
