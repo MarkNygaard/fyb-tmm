@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import React from 'react';
 import { BsFacebook, BsInstagram } from 'react-icons/bs';
-import { RiCloseLine } from 'react-icons/ri';
 
 export default function MobileMenu({
   onClose,
@@ -54,7 +53,7 @@ export default function MobileMenu({
         className='flex h-screen w-5/6 flex-col justify-between bg-skin-accent shadow-2xl md:w-3/12 xl:w-2/12'
       >
         <motion.div
-          className='absolute flex w-full justify-end text-3xl text-white lg:hidden'
+          className='flex absolute w-full justify-end text-3xl text-white lg:hidden'
           initial={{ opacity: 0 }}
           animate={{
             opacity: 1,
@@ -68,13 +67,31 @@ export default function MobileMenu({
             },
           }}
         >
-          <button
-            className='focus:outline-none m-6 p-2 rounded-full active:bg-gray-200/20'
+          <motion.button
+            initial={{ opacity: 0, y: '-4vh' }}
+            animate={{
+              y: 0,
+              opacity: 1,
+              transition: {
+                duration: 0.5,
+                delay: 0.4,
+              },
+            }}
+            className='focus:outline-none m-6 p-2 rounded-full active:bg-gray-200/20 z-50'
             onClick={onClose}
           >
             <span className='sr-only'>Open main menu</span>
-            <RiCloseLine />
-          </button>
+            <svg
+              width='24'
+              height='24'
+              viewBox='0 0 24 24'
+              fill='none'
+              xmlns='http://www.w3.org/2000/svg'
+            >
+              <path d='M3.00006 21.0607L21 3.06064' stroke='#FFFFFF' />
+              <path d='M3.06061 2.99999L21.0606 21' stroke='#FFFFFF' />
+            </svg>
+          </motion.button>
         </motion.div>
         <div className='w-full space-y-1 px-8 pb-3 pt-24'>
           {page.content?.map((navigation: any, i: any) => {

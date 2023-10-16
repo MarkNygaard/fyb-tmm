@@ -89,7 +89,9 @@ export default function Hero({
         href={'#' + content[1]?.navigationId}
         className='relative col-start-1 col-end-2 row-start-6 row-end-7 flex items-center justify-center text-4xl text-gray-300 md:col-end-7 xl:col-end-13'
       >
-        <SlArrowDown />
+        <button className='active:bg-gray-300/20 rounded-full p-2'>
+          <SlArrowDown />
+        </button>
       </Link>
       <AnimatePresence>
         {isVisible && (
