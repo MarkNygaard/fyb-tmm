@@ -31,7 +31,7 @@ export default function MobileMenu({
           delay: 0.5,
         },
       }}
-      className='absolute inset-0 top-0 z-20 flex justify-end bg-black/75 h-screen-safe md:hidden'
+      className='absolute inset-0 top-0 z-20 flex justify-end bg-black/50 h-screen-safe md:hidden'
       open={true}
       onClose={onClose}
     >
@@ -135,44 +135,44 @@ export default function MobileMenu({
               )
             );
           })}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{
-              opacity: 1,
-              transition: {
-                duration: 0.2,
-                delay: 0.64,
-                type: 'spring',
-              },
-            }}
-            exit={{
-              opacity: 0,
-              transition: {
-                duration: 0.2,
-                delay: 0.24,
-                type: 'spring',
-              },
-            }}
-            className='flex h-full w-full items-end'
-          >
-            <a
-              target='_blank'
-              rel='noopener norefferer noreferrer'
-              href={page?.instagramUrl!}
-              className='flex w-1/2 justify-center text-4xl text-white'
-            >
-              <BsInstagram />
-            </a>
-            <a
-              target='_blank'
-              rel='noopener norefferer noreferrer'
-              href={page?.facebookUrl!}
-              className='flex w-1/2 justify-center text-4xl text-white'
-            >
-              <BsFacebook />
-            </a>
-          </motion.div>
         </div>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{
+            opacity: 1,
+            transition: {
+              duration: 0.2,
+              delay: 0.64,
+              type: 'spring',
+            },
+          }}
+          exit={{
+            opacity: 0,
+            transition: {
+              duration: 0.2,
+              delay: 0.24,
+              type: 'spring',
+            },
+          }}
+          className='flex grow w-full items-end pb-6'
+        >
+          <a
+            target='_blank'
+            rel='noopener norefferer noreferrer'
+            href={page?.instagramUrl!}
+            className='flex w-1/2 justify-center text-4xl text-white'
+          >
+            <BsInstagram />
+          </a>
+          <a
+            target='_blank'
+            rel='noopener norefferer noreferrer'
+            href={page?.facebookUrl!}
+            className='flex w-1/2 justify-center text-4xl text-white'
+          >
+            <BsFacebook />
+          </a>
+        </motion.div>
       </Dialog.Panel>
     </Dialog>
   );
