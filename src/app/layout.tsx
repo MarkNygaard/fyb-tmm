@@ -1,5 +1,6 @@
 import CustomColor from 'components/CustomColor/CustomColor';
-import Header from 'components/Header';
+import DesktopNavigation from 'components/Navigation/DesktopNavigation';
+import MobileNavigation from 'components/Navigation/MobileNavigation';
 import ActiveSectionContextProvider from 'context/ActiveSectionContext';
 import queryDatoCMS from 'lib/datocms';
 import { CustomColorDocument, HomePageDocument } from 'lib/graphql';
@@ -52,7 +53,8 @@ export default async function RootLayout({
           style={{ WebkitTapHighlightColor: 'transparent' }}
           className='pb-safe-bottom'
         >
-          <Header page={data.page} />
+          <DesktopNavigation {...data.page} />
+          <MobileNavigation page={data.page} />
           {children}
         </body>
       </ActiveSectionContextProvider>
