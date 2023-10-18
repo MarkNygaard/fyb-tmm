@@ -50,7 +50,7 @@ export default function MobileNavigation({ page }: { page: any }) {
       <div className='sticky top-0 z-50 flex w-full justify-end text-3xl text-white md:hidden'>
         <motion.button
           aria-label='menu'
-          className='absolute m-6 p-2 rounded-full active:bg-gray-300/20'
+          className='absolute m-6 p-2 rounded-full active:bg-gray-300/20 z-50 translate-z-50'
           onClick={onClick}
           animate={button}
         >
