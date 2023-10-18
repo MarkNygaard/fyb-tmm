@@ -3,7 +3,6 @@ import Header from 'components/Header';
 import ActiveSectionContextProvider from 'context/ActiveSectionContext';
 import queryDatoCMS from 'lib/datocms';
 import { CustomColorDocument, HomePageDocument } from 'lib/graphql';
-import { draftMode } from 'next/headers';
 
 import '../styles/globals.css';
 
@@ -24,9 +23,8 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const { isEnabled } = draftMode();
-  const data = await queryDatoCMS(HomePageDocument, {}, isEnabled);
-  const colors = await queryDatoCMS(CustomColorDocument, {}, isEnabled);
+  const data = await queryDatoCMS(HomePageDocument);
+  const colors = await queryDatoCMS(CustomColorDocument);
 
   // Colors
   const primaryColor = colors.layout?.primaryColor

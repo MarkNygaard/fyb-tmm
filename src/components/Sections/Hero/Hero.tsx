@@ -1,3 +1,5 @@
+'use client';
+
 import { Button } from '@ui/Button/Button';
 import classNames from 'clsx';
 import { AnimatePresence, motion } from 'framer-motion';

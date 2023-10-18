@@ -1,3 +1,5 @@
+'use client';
+
 import CustomHeading from '@Sections/CustomHeading/CustomHeading';
 import clsx from 'clsx';
 import { motion } from 'framer-motion';

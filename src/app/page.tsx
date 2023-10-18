@@ -1,23 +1,18 @@
 import PageSection from 'components/PageSection';
-// import { AnimatePresence, motion } from 'framer-motion';
 import queryDatoCMS from 'lib/datocms';
 import { HomePageDocument, PageModelContentField } from 'lib/graphql';
 import { Metadata } from 'next';
-import { draftMode } from 'next/headers';
 import { notFound } from 'next/navigation';
 import { toNextMetadata } from 'react-datocms';
 
 export async function generateMetadata(): Promise<Metadata> {
-  const { isEnabled } = draftMode();
-  const data = await queryDatoCMS(HomePageDocument, {}, isEnabled);
+  const data = await queryDatoCMS(HomePageDocument);
 
   return toNextMetadata(data?.page?.seo || []);
 }
 
 export default async function Home() {
-  const { isEnabled } = draftMode();
-
-  const data = await queryDatoCMS(HomePageDocument, {}, isEnabled);
+  const data = await queryDatoCMS(HomePageDocument);
 
   if (!data?.page) notFound();
 

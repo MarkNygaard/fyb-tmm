@@ -1,3 +1,5 @@
+'use client';
+
 import CustomHeading from '@Sections/CustomHeading/CustomHeading';
 import RtImage from '@Sections/RtImage/RtImage';
 import classNames from 'clsx';

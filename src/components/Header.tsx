@@ -1,3 +1,5 @@
+'use client';
+
 import { AnimatePresence, useAnimation } from 'framer-motion';
 import { motion } from 'framer-motion';
 import { PageRecord } from 'lib/graphql';

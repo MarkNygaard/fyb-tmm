@@ -1,3 +1,5 @@
+'use client';
+
 import classNames from 'clsx';
 import { motion, useAnimation } from 'framer-motion';
 import React, { useEffect } from 'react';

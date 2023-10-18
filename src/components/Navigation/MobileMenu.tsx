@@ -1,3 +1,5 @@
+'use client';
+
 import { Dialog } from '@headlessui/react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
