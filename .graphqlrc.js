@@ -16,7 +16,7 @@ module.exports = {
         'src/lib/graphql.ts': {
           plugins: [
             'typescript',
-            'typescript-graphql-request',
+            'typed-document-node',
             'typescript-operations',
           ],
           config: {

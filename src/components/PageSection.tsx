@@ -2,7 +2,7 @@ import Biography, { BiographyProps } from '@Sections/Biography/Biography';
 import Footer, { FooterProps } from '@Sections/Footer/Footer';
 import Grid, { GridProps } from '@Sections/Grid/Grid';
 import HairMenu, { HairMenuProps } from '@Sections/HairMenu/HairMenu';
-import Hero, { HeroProps, PageProps } from '@Sections/Hero/Hero';
+import Hero, { HeroProps } from '@Sections/Hero/Hero';
 import ImageSection, { ImageProps } from '@Sections/Image/Image';
 import Text, { TextProps } from '@Sections/Text/Text';
 import TextImage, { TextImageProps } from '@Sections/TextImage/TextImage';
@@ -11,9 +11,17 @@ import YoutubeVideo, {
 } from '@Sections/YoutubeVideo/YoutubeVideo';
 import React from 'react';
 
-export default function PageSection({ sectionProps, page }: any) {
+export default function PageSection({
+  sectionProps,
+  firstSection,
+}: {
+  sectionProps: any;
+  firstSection: any;
+}) {
   if (sectionProps.__typename === 'HeroRecord') {
-    return <Hero {...(sectionProps as HeroProps)} {...(page as PageProps)} />;
+    return (
+      <Hero {...(sectionProps as HeroProps)} firstSection={firstSection} />
+    );
   } else if (sectionProps.__typename === 'TextImageRecord') {
     return <TextImage {...(sectionProps as TextImageProps)} />;
   } else if (sectionProps.__typename === 'ImageRecord') {

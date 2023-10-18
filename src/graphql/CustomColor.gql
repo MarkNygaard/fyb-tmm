@@ -1,0 +1,19 @@
+query CustomColors {
+  layout {
+    primaryColor {
+      red
+      green
+      blue
+    }
+    secondaryColor {
+      red
+      green
+      blue
+    }
+    accentColor {
+      red
+      green
+      blue
+    }
+  }
+}

@@ -1,3 +1,5 @@
+'use client';
+
 import classNames from 'clsx';
 import { AnimatePresence, motion } from 'framer-motion';
 import { BiographyRecord, FileField, ResponsiveImage } from 'lib/graphql';

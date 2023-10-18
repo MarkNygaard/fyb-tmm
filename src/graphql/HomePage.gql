@@ -10,23 +10,6 @@ query HomePage {
     }
     id
     name
-    primaryColor {
-      red
-      green
-      blue
-    }
-    secondaryColor {
-      red
-      green
-      blue
-    }
-    accentColor {
-      red
-      green
-      blue
-    }
-    instagramUrl
-    facebookUrl
     content {
       ... on HeroRecord {
         ...HeroFragment

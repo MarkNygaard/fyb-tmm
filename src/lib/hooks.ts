@@ -1,3 +1,5 @@
+'use client';
+
 import { useActiveSectionContext } from 'context/ActiveSectionContext';
 import { useAnimation } from 'framer-motion';
 import { useEffect } from 'react';

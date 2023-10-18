@@ -1,3 +1,5 @@
+'use client';
+
 import classNames from 'clsx';
 import { motion } from 'framer-motion';
 import { YoutubeVideoRecord } from 'lib/graphql';

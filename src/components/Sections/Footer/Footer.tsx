@@ -1,3 +1,5 @@
+'use client';
+
 import { GoogleMap, Marker, useLoadScript } from '@react-google-maps/api';
 import { FooterRecord } from 'lib/graphql';
 import { useSectionInView } from 'lib/hooks';

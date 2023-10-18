@@ -1,3 +1,5 @@
+'use client';
+
 import classNames from 'clsx';
 import { HairMenuRecord } from 'lib/graphql';
 import { useSectionInView } from 'lib/hooks';
