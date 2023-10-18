@@ -23,8 +23,8 @@ export default async function Home() {
           return (
             <PageSection
               key={i}
-              sectionProps={section as PageModelContentField}
-              page={data.page}
+              sectionProps={section as Array<PageModelContentField>}
+              firstSection={data.page?.content[1]?.navigationId}
             />
           );
         })}
