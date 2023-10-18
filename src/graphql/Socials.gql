@@ -1,0 +1,14 @@
+query Socials {
+  layout {
+    socialMediaLinks {
+      id
+      name
+      url
+      icon {
+        url
+        height
+        width
+      }
+    }
+  }
+}

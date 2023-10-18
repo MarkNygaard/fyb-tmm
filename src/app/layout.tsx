@@ -1,9 +1,13 @@
-import CustomColor from 'components/CustomColor/CustomColor';
+import CustomColors from 'components/CustomColors/CustomColors';
 import DesktopNavigation from 'components/Navigation/DesktopNavigation';
 import MobileNavigation from 'components/Navigation/MobileNavigation';
 import ActiveSectionContextProvider from 'context/ActiveSectionContext';
 import queryDatoCMS from 'lib/datocms';
-import { CustomColorDocument, HomePageDocument } from 'lib/graphql';
+import {
+  CustomColorsDocument,
+  HomePageDocument,
+  SocialsDocument,
+} from 'lib/graphql';
 
 import '../styles/globals.css';
 
@@ -25,7 +29,8 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   const data = await queryDatoCMS(HomePageDocument);
-  const colors = await queryDatoCMS(CustomColorDocument);
+  const colors = await queryDatoCMS(CustomColorsDocument);
+  const socials = await queryDatoCMS(SocialsDocument);
 
   // Colors
   const primaryColor = colors.layout?.primaryColor
@@ -43,7 +48,7 @@ export default async function RootLayout({
       lang='en'
       className='scroll-pt-0 scroll-smooth bg-[#1E262B] md:scroll-pt-12 lg:scroll-pt-20 xl:scroll-pt-16'
     >
-      <CustomColor
+      <CustomColors
         primary={primaryColor}
         secondary={secondaryColor}
         accent={accentColor}
@@ -53,8 +58,8 @@ export default async function RootLayout({
           style={{ WebkitTapHighlightColor: 'transparent' }}
           className='pb-safe-bottom'
         >
-          <DesktopNavigation {...data.page} />
-          <MobileNavigation page={data.page} />
+          <DesktopNavigation {...data.page} {...socials.layout} />
+          <MobileNavigation {...data.page} {...socials.layout} />
           {children}
         </body>
       </ActiveSectionContextProvider>

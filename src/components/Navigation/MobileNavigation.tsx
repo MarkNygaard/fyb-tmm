@@ -1,10 +1,10 @@
 'use client';
 
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
+import SvgRenderer from 'components/SvgRenderer';
 import { AnimatePresence, motion, useAnimation } from 'framer-motion';
 import Link from 'next/link';
 import React, { useState } from 'react';
-import { BsFacebook, BsInstagram } from 'react-icons/bs';
 
 const path01Variants = {
   open: { d: 'M1.5 0L1.5 20' },
@@ -23,7 +23,7 @@ const removeFromDom = {
   add: { display: 'block' },
 };
 
-export default function MobileNavigation({ page }: { page: any }) {
+export default function MobileNavigation({ content, socialMediaLinks }: any) {
   const [menuIsOpen, setMenuIsOpen] = useState<boolean>(false);
   const path01Controls = useAnimation();
   const path02Controls = useAnimation();
@@ -179,7 +179,7 @@ export default function MobileNavigation({ page }: { page: any }) {
                       </motion.button>
                     </motion.div>
                     <NavigationMenu.List className='w-full space-y-1 px-8 pb-3 pt-24'>
-                      {page.content?.map((navigation: any, i: any) => {
+                      {content?.map((navigation: any, i: any) => {
                         const navigationIdNoSpace =
                           navigation.navigationId?.replace(/\s/g, '');
 
@@ -242,26 +242,21 @@ export default function MobileNavigation({ page }: { page: any }) {
                         }}
                         className='flex w-full items-end pb-6'
                       >
-                        <NavigationMenu.Link asChild>
-                          <Link
-                            target='_blank'
-                            rel='noopener norefferer noreferrer'
-                            href={page?.instagramUrl!}
-                            className='flex w-1/2 justify-center text-4xl text-white'
-                          >
-                            <BsInstagram />
-                          </Link>
-                        </NavigationMenu.Link>
-                        <NavigationMenu.Link asChild>
-                          <Link
-                            target='_blank'
-                            rel='noopener norefferer noreferrer'
-                            href={page?.facebookUrl!}
-                            className='flex w-1/2 justify-center text-4xl text-white'
-                          >
-                            <BsFacebook />
-                          </Link>
-                        </NavigationMenu.Link>
+                        {socialMediaLinks.map((links: any) => {
+                          return (
+                            <NavigationMenu.Link key={links.id} asChild>
+                              <Link
+                                aria-label='social-link'
+                                target='_blank'
+                                rel='noopener norefferer noreferrer'
+                                href={links.url}
+                                className='flex grow justify-center text-4xl text-white'
+                              >
+                                <SvgRenderer url={links.icon.url} />
+                              </Link>
+                            </NavigationMenu.Link>
+                          );
+                        })}
                       </motion.div>
                     </NavigationMenu.List>
                   </div>

@@ -6,7 +6,7 @@ type Props = {
   accent: string;
 };
 
-const CustomColor = ({ primary, secondary, accent }: Props) => {
+const CustomColors = ({ primary, secondary, accent }: Props) => {
   return (
     <style global jsx>{`
       :root {
@@ -18,4 +18,4 @@ const CustomColor = ({ primary, secondary, accent }: Props) => {
   );
 };
 
-export default CustomColor;
+export default CustomColors;

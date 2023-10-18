@@ -1,6 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
+import SvgRenderer from 'components/SvgRenderer';
 import { useActiveSectionContext } from 'context/ActiveSectionContext';
 import {
   motion,
@@ -12,7 +13,6 @@ import {
 import { PageModelContentField } from 'lib/graphql';
 import Link from 'next/link';
 import { useEffect } from 'react';
-import { BsFacebook, BsInstagram } from 'react-icons/bs';
 
 let clamp = (number: number, min: number, max: number) =>
   Math.min(Math.max(number, min), max);
@@ -39,11 +39,7 @@ function useBoundedScroll(bounds: number) {
   return { scrollYBounded, scrollYBoundedProgress };
 }
 
-export default function DesktopNavigation({
-  instagramUrl,
-  facebookUrl,
-  content,
-}: any) {
+export default function DesktopNavigation({ socialMediaLinks, content }: any) {
   const { activeSection, setActiveSection, setTimeOfLastClick } =
     useActiveSectionContext();
 
@@ -73,22 +69,20 @@ export default function DesktopNavigation({
         id='nav'
       >
         <div className='flex items-center space-x-4'>
-          <a
-            target='_blank'
-            rel='noopener norefferer noreferrer'
-            href={instagramUrl!}
-            className='text-3xl text-gray-300 hover:text-white'
-          >
-            <BsInstagram />
-          </a>
-          <a
-            target='_blank'
-            rel='noopener norefferer noreferrer'
-            href={facebookUrl!}
-            className='text-3xl text-gray-300 hover:text-white'
-          >
-            <BsFacebook />
-          </a>
+          {socialMediaLinks.map((links: any) => {
+            return (
+              <Link
+                key={links.id}
+                aria-label='social-link'
+                target='_blank'
+                rel='noopener norefferer noreferrer'
+                href={links.url}
+                className='text-gray-300 hover:text-white'
+              >
+                <SvgRenderer url={links.icon.url} />
+              </Link>
+            );
+          })}
         </div>
         <div className='flex space-x-2'>
           {content?.map((Section: PageModelContentField) => {
