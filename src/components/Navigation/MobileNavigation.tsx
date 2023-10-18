@@ -250,7 +250,7 @@ export default function MobileNavigation({ content, socialMediaLinks }: any) {
                                 target='_blank'
                                 rel='noopener norefferer noreferrer'
                                 href={links.url}
-                                className='flex grow justify-center text-4xl text-white'
+                                className='flex grow justify-center text-white'
                               >
                                 <SvgRenderer url={links.icon.url} />
                               </Link>
