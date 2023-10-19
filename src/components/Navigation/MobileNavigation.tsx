@@ -23,7 +23,44 @@ const removeFromDom = {
   add: { display: 'block' },
 };
 
-export default function MobileNavigation({ content, socialMediaLinks }: any) {
+let cache = new Map();
+
+function set(el: HTMLElement, styles: Record<string, string>) {
+  let originalStyles: Record<string, string> = {};
+
+  Object.entries(styles).forEach(([key, value]: [string, string]) => {
+    originalStyles[key] = el.style[key as any];
+    el.style[key as any] = value;
+  });
+
+  cache.set(el, originalStyles);
+}
+
+function reset(el: HTMLElement, prop?: keyof CSSStyleDeclaration) {
+  let originalStyles = cache.get(el);
+
+  if (prop) {
+    el.style.setProperty(
+      prop.toString(),
+      originalStyles[prop as string] as string,
+    );
+  } else {
+    Object.entries(originalStyles).forEach(([key, value]) => {
+      originalStyles[key as keyof CSSStyleDeclaration] = el.style[
+        key as keyof CSSStyleDeclaration
+      ] as string;
+      el.style.setProperty(key as string, value as string);
+    });
+  }
+}
+
+export default function MobileNavigation({
+  content,
+  socialMediaLinks,
+}: {
+  content: any;
+  socialMediaLinks: any;
+}) {
   const [menuIsOpen, setMenuIsOpen] = useState<boolean>(false);
   const path01Controls = useAnimation();
   const path02Controls = useAnimation();
@@ -87,21 +124,37 @@ export default function MobileNavigation({ content, socialMediaLinks }: any) {
             <>
               <motion.div
                 onClick={onClick}
-                initial={{ opacity: 0 }}
-                animate={{
-                  opacity: 1,
-                  transition: {
-                    duration: 0.3,
-                    ease: [0.36, 0.66, 0.04, 1],
+                variants={{
+                  open: {
+                    opacity: 1,
+                    transition: {
+                      duration: 0.3,
+                      ease: [0.36, 0.66, 0.04, 1],
+                    },
+                  },
+                  closed: {
+                    opacity: 0,
+                    transition: {
+                      duration: 0.3,
+                      ease: [0.36, 0.66, 0.04, 1],
+                      delay: 0.5,
+                    },
                   },
                 }}
-                exit={{
-                  opacity: 0,
-                  transition: {
-                    duration: 0.3,
-                    ease: [0.36, 0.66, 0.04, 1],
-                    delay: 0.5,
-                  },
+                initial='closed'
+                animate='open'
+                exit='closed'
+                onAnimationStart={(variant) => {
+                  if (variant === 'open') {
+                    set(document.body, { overflow: 'hidden' });
+                  } else {
+                    reset(document.body, 'overflow');
+                  }
+                }}
+                onAnimationComplete={(variant) => {
+                  if (variant === 'closed') {
+                    reset(document.body);
+                  }
                 }}
                 className='fixed inset-0 bg-black/50'
               />
