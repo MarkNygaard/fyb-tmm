@@ -13,9 +13,9 @@ export type TextProps = StackModule<TextRecord>;
 
 export default function Text({
   navigationId,
-  headerTitle,
+  headerTitle = false,
   backgroundColor,
-  fullWidth,
+  fullWidth = false,
   fadeIn,
   content,
 }: TextProps) {
