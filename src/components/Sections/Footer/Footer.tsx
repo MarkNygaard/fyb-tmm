@@ -46,7 +46,7 @@ export default function Footer({
         </div>
       </div>
       <div className='grid grid-cols-1 grid-rows-3'>
-        <div className='col-start-1 col-end-2 row-start-1 row-end-4 px-4 md:px-8 h-60 md:h-80 xl:h-96'>
+        <div className='col-start-1 col-end-2 row-start-1 row-end-4 px-4 md:px-8 h-60 md:h-80 xl:h-96 container'>
           <GoogleMap
             center={center}
             zoom={17}
@@ -66,12 +66,14 @@ export default function Footer({
         </div>
         <div className='col-start-1 col-end-2 row-start-3 row-end-4 bg-skin-secondary'></div>
       </div>
-      <div className='bg-skin-secondary md:flex md:px-8'>
-        <div className='prose flex flex-col justify-center pb-8 px-4 prose-p:text-gray-300 prose-a:text-gray-300 prose-strong:text-skin-accent md:p-8 md:w-1/2'>
-          <StructuredText data={contact as any} />
-        </div>
-        <div className='prose flex flex-col justify-center p-4 prose-p:text-gray-300 prose-a:text-gray-300 prose-strong:text-skin-accent md:p-8 md:w-1/2'>
-          <StructuredText data={address as any} />
+      <div className='bg-skin-secondary md:flex md:px-10 xl:pb-16 md:py-8 lg:py-16 p-4'>
+        <div className='container flex mx-auto justify-center flex-col md:flex-row'>
+          <div className='prose flex flex-col justify-center pb-8 py-4 prose-p:text-gray-300 prose-a:text-gray-300 prose-strong:text-skin-accent md:w-1/2'>
+            <StructuredText data={contact as any} />
+          </div>
+          <div className='prose flex flex-col justify-center pb-8 py-4 prose-p:text-gray-300 prose-a:text-gray-300 prose-strong:text-skin-accent md:w-1/2'>
+            <StructuredText data={address as any} />
+          </div>
         </div>
       </div>
 
