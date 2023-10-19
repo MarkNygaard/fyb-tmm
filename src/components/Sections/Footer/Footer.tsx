@@ -37,7 +37,7 @@ export default function Footer({
   }
   return (
     <div ref={ref} id={navigationIdNoSpace!} className='pt-10 text-gray-300'>
-      <div className='flex flex-col md:items-center xl:pb-8'>
+      <div className='flex flex-col md:items-center pb-4 xl:pb-8'>
         <div className='prose flex flex-col justify-center p-4 prose-p:text-gray-300 prose-a:text-gray-300 prose-strong:text-skin-accent md:pb-8'>
           <StructuredText data={openingHours as any} />
         </div>
