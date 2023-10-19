@@ -2,6 +2,7 @@ import PageSection from 'components/PageSection';
 import queryDatoCMS from 'lib/datocms';
 import { HomePageDocument, PageModelContentField } from 'lib/graphql';
 import { Metadata } from 'next';
+import { draftMode } from 'next/headers';
 import { notFound } from 'next/navigation';
 import { toNextMetadata } from 'react-datocms';
 
@@ -12,7 +13,8 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function Home() {
-  const data = await queryDatoCMS(HomePageDocument);
+  const { isEnabled } = draftMode();
+  const data = await queryDatoCMS(HomePageDocument, {}, isEnabled);
 
   if (!data?.page) notFound();
 

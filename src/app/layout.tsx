@@ -8,6 +8,7 @@ import {
   HomePageDocument,
   SocialsDocument,
 } from 'lib/graphql';
+import { draftMode } from 'next/headers';
 
 import '../styles/globals.css';
 
@@ -28,9 +29,10 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const data = await queryDatoCMS(HomePageDocument);
-  const colors = await queryDatoCMS(CustomColorsDocument);
-  const socials = await queryDatoCMS(SocialsDocument);
+  const { isEnabled } = draftMode();
+  const data = await queryDatoCMS(HomePageDocument, {}, isEnabled);
+  const colors = await queryDatoCMS(CustomColorsDocument, {}, isEnabled);
+  const socials = await queryDatoCMS(SocialsDocument, {}, isEnabled);
 
   // Colors
   const primaryColor = colors.layout?.primaryColor
