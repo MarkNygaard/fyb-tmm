@@ -13,7 +13,9 @@ export type TextProps = StackModule<TextRecord>;
 
 export default function Text({
   navigationId,
+  headerTitle,
   backgroundColor,
+  fullWidth,
   fadeIn,
   content,
 }: TextProps) {
@@ -26,18 +28,31 @@ export default function Text({
     <div
       ref={ref}
       id={navigationIdNoSpace!}
-      className='align-center flex items-center justify-center overflow-hidden px-4 py-10 md:px-10'
+      className={clsx(
+        'align-center flex flex-col items-center justify-center overflow-hidden px-4 py-10 md:px-10',
+        {
+          'bg-skin-secondary': backgroundColor === true,
+        },
+        {
+          'min-h-[50vh]': fullWidth === true,
+          'container mx-auto': fullWidth === false,
+        },
+      )}
     >
+      {headerTitle && (
+        <div className='container pb-6'>
+          <div className='xl:w-3/4 border-b-2 border-skin-primary mx-auto'>
+            <div className='m-0 text-4xl font-bold text-skin-accent w-full max-w-2xl mx-auto pb-6'>
+              {navigationId}
+            </div>
+          </div>
+        </div>
+      )}
+
       <motion.div
         initial={fadeIn ? { opacity: 0 } : { opacity: 1 }}
         animate={fadeIn ? animation : { opacity: 1 }}
-        className={clsx(
-          'prose prose-h2:text-4xl prose-h2:text-skin-accent prose-p:text-gray-300 prose-strong:text-skin-accent sm:w-full',
-          {
-            'prose-invert': backgroundColor === true,
-            'prose-gray': backgroundColor === false,
-          },
-        )}
+        className='prose prose-h2:text-4xl prose-h2:text-skin-accent prose-p:text-gray-300 prose-strong:text-skin-accent sm:w-full'
       >
         <StructuredText
           data={content as any}

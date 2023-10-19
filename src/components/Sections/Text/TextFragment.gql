@@ -1,7 +1,9 @@
 fragment TextFragment on TextRecord {
   __typename
   navigationId
+  headerTitle
   backgroundColor
+  fullWidth
   fadeIn
   content {
     value
