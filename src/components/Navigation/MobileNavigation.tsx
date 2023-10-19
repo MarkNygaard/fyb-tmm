@@ -54,13 +54,7 @@ function reset(el: HTMLElement, prop?: keyof CSSStyleDeclaration) {
   }
 }
 
-export default function MobileNavigation({
-  content,
-  socialMediaLinks,
-}: {
-  content: any;
-  socialMediaLinks: any;
-}) {
+export default function MobileNavigation({ content, socialMediaLinks }: any) {
   const [menuIsOpen, setMenuIsOpen] = useState<boolean>(false);
   const path01Controls = useAnimation();
   const path02Controls = useAnimation();
