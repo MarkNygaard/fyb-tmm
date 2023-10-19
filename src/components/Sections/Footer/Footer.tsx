@@ -37,7 +37,7 @@ export default function Footer({
   }
   return (
     <div ref={ref} id={navigationIdNoSpace!} className='pt-10 text-gray-300'>
-      <div className='flex flex-col md:items-center'>
+      <div className='flex flex-col md:items-center xl:pb-8'>
         <div className='prose flex flex-col justify-center p-4 prose-p:text-gray-300 prose-a:text-gray-300 prose-strong:text-skin-accent md:pb-8'>
           <StructuredText data={openingHours as any} />
         </div>
@@ -46,7 +46,7 @@ export default function Footer({
         </div>
       </div>
       <div className='grid grid-cols-1 grid-rows-3'>
-        <div className='col-start-1 col-end-2 row-start-1 row-end-4 px-4 md:px-8 h-60 md:h-80 xl:h-96 container'>
+        <div className='col-start-1 col-end-2 row-start-1 row-end-4 px-4 md:px-10 h-60 md:h-80 xl:h-96 container mx-auto'>
           <GoogleMap
             center={center}
             zoom={17}
