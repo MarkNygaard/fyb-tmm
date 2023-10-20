@@ -38,11 +38,15 @@ export default function Footer({
   return (
     <div ref={ref} id={navigationIdNoSpace!} className='pt-10 text-gray-300'>
       <div className='flex flex-col md:items-center pb-4 xl:pb-8'>
-        <div className='prose flex flex-col justify-center p-4 prose-p:text-gray-300 prose-a:text-gray-300 prose-strong:text-skin-accent md:pb-8'>
-          <StructuredText data={openingHours as any} />
-        </div>
-        <div className='prose flex flex-col justify-center p-4 prose-p:text-gray-300 prose-a:text-gray-300 prose-strong:text-skin-accent md:pb-8'>
-          <StructuredText data={info as any} />
+        <div className='container mx-auto md:px-10'>
+          <div className='mx-auto xl:w-3/4'>
+            <div className='prose flex flex-col justify-center p-4 prose-p:text-gray-300 prose-a:text-gray-300 prose-strong:text-skin-accent md:pb-8 mx-auto'>
+              <StructuredText data={openingHours as any} />
+            </div>
+            <div className='prose flex flex-col justify-center p-4 prose-p:text-gray-300 prose-a:text-gray-300 prose-strong:text-skin-accent md:pb-8 mx-auto'>
+              <StructuredText data={info as any} />
+            </div>
+          </div>
         </div>
       </div>
       <div className='grid grid-cols-1 grid-rows-3'>
@@ -70,8 +74,8 @@ export default function Footer({
         </div>
         <div className='col-start-1 col-end-2 row-start-3 row-end-4 bg-skin-secondary'></div>
       </div>
-      <div className='bg-skin-secondary md:flex md:px-10 xl:pb-16 md:py-8 lg:py-16 p-4'>
-        <div className='container mx-auto'>
+      <div className='bg-skin-secondary md:flex xl:pb-16 md:py-8 lg:py-16 py-4'>
+        <div className='container mx-auto px-4 md:px-10 xl:px-0'>
           <div className='mx-auto xl:w-3/4'>
             <div className='md:mx-4 flex justify-center flex-col md:flex-row'>
               <div className='prose flex flex-col justify-center pb-8 py-4 prose-p:text-gray-300 prose-a:text-gray-300 prose-strong:text-skin-accent md:w-1/2'>
@@ -84,7 +88,6 @@ export default function Footer({
           </div>
         </div>
       </div>
-
       <div className='flex h-12 items-center justify-center bg-skin-accent text-xs text-white md:text-base'>
         &copy; {new Date().getFullYear()} The Motley Monkey. All rights
         reserved.
