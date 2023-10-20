@@ -5,6 +5,7 @@ import SvgRenderer from 'components/SvgRenderer';
 import { AnimatePresence, motion, useAnimation } from 'framer-motion';
 import Link from 'next/link';
 import React, { useState } from 'react';
+import { debounce } from 'throttle-debounce';
 
 const path01Variants = {
   open: { d: 'M1.5 0L1.5 20' },
@@ -82,7 +83,7 @@ export default function MobileNavigation({ content, socialMediaLinks }: any) {
         <motion.button
           aria-label='menu'
           className='absolute m-6 p-2 rounded-full active:bg-gray-300/20 z-50 translate-z-50'
-          onClick={onClick}
+          onClick={debounce(600, onClick)}
           animate={button}
         >
           <span className='sr-only'>Open menu</span>
