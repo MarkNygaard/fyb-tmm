@@ -3,12 +3,12 @@ fragment HeroFragment on HeroRecord {
   id
   navigationId
   image {
-    responsiveImage(imgixParams: { fit: crop, auto: format }) {
+    responsiveImage(imgixParams: { fit: crop, auto: compress, fm: avif }) {
       ...responsiveImageFragment
     }
   }
   backgroundImage {
-    responsiveImage(imgixParams: { fit: crop, auto: format }) {
+    responsiveImage(imgixParams: { fit: crop, auto: compress, fm: avif }) {
       ...responsiveImageFragment
     }
   }
