@@ -1,12 +1,8 @@
 fragment responsiveImageFragment on ResponsiveImage {
-  srcSet
-  webpSrcSet
-  sizes
   src
+  base64
   width
   height
-  aspectRatio
   alt
   title
-  base64
 }
