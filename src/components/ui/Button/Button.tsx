@@ -1,6 +1,7 @@
 import { cva, type VariantProps } from 'class-variance-authority';
+import { cn } from 'lib/utils';
 
-const buttonStyles = cva(['font-light', 'shadow-lg', 'py-4', 'xl:py-6'], {
+const buttonStyles = cva(['font-light', 'shadow-lg'], {
   variants: {
     intent: {
       primary: [
@@ -19,9 +20,9 @@ const buttonStyles = cva(['font-light', 'shadow-lg', 'py-4', 'xl:py-6'], {
       ],
     },
     size: {
-      small: ['text-sm', 'py-1', 'px-2'],
-      medium: ['text-lg', 'py-2', 'px-4'],
-      large: ['text-2xl', 'py-3', 'px-6'],
+      small: ['text-sm', 'py-2', 'xl:py-4'],
+      medium: ['text-lg', 'py-4', 'xl:py-6'],
+      large: ['text-2xl', 'py-6', 'xl:py-8'],
     },
     width: {
       small: ['px-4', 'xl:px-12'],
@@ -54,7 +55,7 @@ export const Button: React.FC<ButtonProps> = ({
   ...props
 }: ButtonProps) => {
   return (
-    <button className={buttonStyles({ intent, size, width })} {...props}>
+    <button className={cn(buttonStyles({ intent, size, width }))} {...props}>
       {label}
     </button>
   );

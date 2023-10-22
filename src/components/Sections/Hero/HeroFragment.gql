@@ -8,7 +8,9 @@ fragment HeroFragment on HeroRecord {
     }
   }
   backgroundImage {
-    responsiveImage(imgixParams: { fit: crop, auto: compress, fm: avif }) {
+    responsiveImage(
+      imgixParams: { fit: crop, auto: compress, q: 60, fm: avif }
+    ) {
       ...responsiveImageFragment
     }
   }

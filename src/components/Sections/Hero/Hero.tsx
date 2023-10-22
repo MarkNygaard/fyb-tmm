@@ -1,8 +1,13 @@
 'use client';
 
 import { Button } from '@ui/Button/Button';
-import classNames from 'clsx';
-import { AnimatePresence, motion } from 'framer-motion';
+import Magnetic from 'components/Magnetic';
+import {
+  AnimatePresence,
+  motion,
+  useScroll,
+  useTransform,
+} from 'framer-motion';
 import {
   FileField,
   HeroRecord,
@@ -48,16 +53,18 @@ export default function Hero({
     }
   };
 
+  let { scrollYProgress } = useScroll();
+  let y = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
+
   return (
-    <div
-      ref={ref}
-      id={navigationIdNoSpace!}
-      className={classNames(
-        'grid grid-cols-1 grid-rows-6 md:grid-cols-6 xl:grid-cols-12',
-      )}
-    >
+    <div ref={ref} id={navigationIdNoSpace!} className='relative flex flex-col'>
       {backgroundImage && (
-        <div className='relative col-start-1 col-end-2 row-start-1 row-end-7 h-screen w-full md:col-end-7 xl:col-end-13'>
+        <motion.div
+          style={{ y }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className='absolute inset-0 top-0 mx-auto h-screen'
+        >
           {/* eslint-disable-next-line jsx-a11y/alt-text */}
           <Image
             data={
@@ -69,33 +76,42 @@ export default function Hero({
             priority
             className='opacity-30'
           />
-        </div>
+        </motion.div>
       )}
-      {image && (
-        <div className='relative col-start-1 col-end-2 row-start-2 row-end-4 md:col-start-3 md:col-end-5 lg:row-start-2 lg:row-end-5 md:row-end-5 xl:col-start-6 xl:col-end-8 xl:row-start-2 xl:row-end-5'>
-          {/* eslint-disable-next-line jsx-a11y/alt-text */}
-          <Image
-            data={(image as FileField).responsiveImage as ResponsiveImage}
-            layout='fill'
-            objectFit='contain'
-            objectPosition='50% 50%'
-            priority
-          />
+      <div className='relative h-screen flex justify-center items-center flex-col'>
+        {image && (
+          <motion.div
+            // style={{ y }}
+            className='relative w-9/12 h-9/12 mt-24 md:w-4/12 md:h-4/12 md:mt-44 lg:mt-28 xl:w-2/12 xl:h-2/12 flex flex-grow xl:mt-32'
+          >
+            {/* eslint-disable-next-line jsx-a11y/alt-text */}
+            <Image
+              data={(image as FileField).responsiveImage as ResponsiveImage}
+              layout='fill'
+              objectFit='contain'
+              objectPosition='50% 50%'
+              priority
+            />
+          </motion.div>
+        )}
+        <div className='flex flex-col space-y-48 lg:space-y-14 xl:space-y-28 justify-center items-center pb-10 xl:pb-16'>
+          <div className='relative mt-8 flex items-center justify-center'>
+            <Magnetic>
+              <Link href={buttonLink!} target='_blank' rel='noreferrer'>
+                <Button label={buttonText} />
+              </Link>
+            </Magnetic>
+          </div>
+          <Link
+            href={'#' + firstSection}
+            className='relative flex items-center justify-center text-4xl text-gray-300'
+          >
+            <button className='active:bg-gray-300/20 rounded-full p-2'>
+              <SlArrowDown />
+            </button>
+          </Link>
         </div>
-      )}
-      <div className='relative col-start-1 col-end-2 row-start-4 row-end-5 lg:row-start-5 md:row-end-6 mt-8 flex items-center justify-center md:col-start-3 md:col-end-5 xl:col-start-6 xl:col-end-8 xl:row-start-5 xl:row-end-6'>
-        <a href={buttonLink!} target='_blank' rel='noreferrer'>
-          <Button label={buttonText} />
-        </a>
       </div>
-      <Link
-        href={'#' + firstSection}
-        className='relative col-start-1 col-end-2 row-start-6 row-end-7 flex items-center justify-center text-4xl text-gray-300 md:col-end-7 xl:col-end-13'
-      >
-        <button className='active:bg-gray-300/20 rounded-full p-2'>
-          <SlArrowDown />
-        </button>
-      </Link>
       <AnimatePresence>
         {isVisible && (
           <a href={buttonLink!} target='_blank' rel='noreferrer'>
