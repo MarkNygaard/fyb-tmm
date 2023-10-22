@@ -31,7 +31,7 @@ export default function Biography({
       ref={ref}
       id={navigationIdNoSpace!}
       className={classNames(
-        'align-center flex flex-col items-center justify-center overflow-hidden px-2 md:py-10 text-gray-200 md:px-10',
+        'align-center flex flex-col items-center justify-center overflow-hidden px-2 text-gray-200 md:px-10 md:py-10',
       )}
     >
       <motion.div
@@ -40,19 +40,19 @@ export default function Biography({
         className='container flex flex-col px-1 xl:grid xl:grid-cols-bio xl:grid-rows-bio'
       >
         <div className='grid grid-rows-2 xl:col-start-1 xl:col-end-3 xl:row-start-1 xl:row-end-4'>
-          <div className='aspect-square row-start-1 row-end-3 col-start-1 col-end-2 relative w-4/5 md:w-1/2 xl:w-full mx-auto xl:aspect-auto'>
+          <div className='relative col-start-1 col-end-2 row-start-1 row-end-3 mx-auto aspect-square w-4/5 md:w-1/2 xl:aspect-auto xl:w-full'>
             {/* eslint-disable-next-line jsx-a11y/alt-text */}
             <Image
-              className='rounded-full xl:rounded-none border-8 xl:border-0 border-skin-primary'
+              className='rounded-full border-8 border-skin-primary xl:rounded-none xl:border-0'
               data={(image as FileField).responsiveImage as ResponsiveImage}
               layout='fill'
               objectFit='cover'
               objectPosition='50% 50%'
             />
           </div>
-          <div className='bg-skin-secondary row-span-1 row-start-2 col-start-1 col-end-2 row-end-3 h-full w-full xl:hidden'></div>
+          <div className='col-start-1 col-end-2 row-span-1 row-start-2 row-end-3 h-full w-full bg-skin-secondary xl:hidden'></div>
         </div>
-        <div className='flex flex-col justify-center bg-skin-secondary pt-2 md:pt-4 md:pb-6 xl:grid xl:col-start-2 xl:col-end-6 xl:row-start-2 xl:row-end-5 xl:grid-rows-bioText xl:grid-cols-bioText'>
+        <div className='flex flex-col justify-center bg-skin-secondary pt-2 md:pb-6 md:pt-4 xl:col-start-2 xl:col-end-6 xl:row-start-2 xl:row-end-5 xl:grid xl:grid-cols-bioText xl:grid-rows-bioText'>
           <AnimatePresence>
             <motion.div
               animate={{
@@ -65,7 +65,7 @@ export default function Biography({
                 ref={ref2}
                 className={`${
                   !fullText && 'line-clamp-8'
-                } leading-[30px] xl:leading-7 md:line-clamp-none max-w-none prose px-2 md:px-4 lg:px-6 font-thin md:font-light prose-h3:text-skin-accent prose-p:text-gray-200 prose-a:text-skin-accent prose-strong:text-gray-200 xl:p-0`}
+                } prose max-w-none px-2 font-thin leading-[30px] prose-h3:text-skin-accent prose-p:text-gray-200 prose-a:text-skin-accent prose-strong:text-gray-200 md:line-clamp-none md:px-4 md:font-light lg:px-6 xl:p-0 xl:leading-7`}
               >
                 <StructuredText data={bioDescription as any} />
               </div>
@@ -73,7 +73,7 @@ export default function Biography({
           </AnimatePresence>
           <button
             onClick={() => setFullText(!fullText)}
-            className='rounded-full aspect-square md:hidden text-gray-400 text-3xl mx-auto p-2 mb-2 active:bg-gray-300/20'
+            className='mx-auto mb-2 aspect-square rounded-full p-2 text-3xl text-gray-400 active:bg-gray-300/20 md:hidden'
           >
             {fullText ? <AiOutlineUpCircle /> : <AiOutlineDownCircle />}
           </button>

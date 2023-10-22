@@ -41,8 +41,8 @@ export default function Text({
     >
       {headerTitle && (
         <div className='container pb-6'>
-          <div className='xl:w-3/4 border-b-2 border-skin-primary mx-auto'>
-            <div className='m-0 text-4xl font-bold text-skin-accent w-full max-w-2xl mx-auto pb-6'>
+          <div className='mx-auto border-b-2 border-skin-primary xl:w-3/4'>
+            <div className='m-0 mx-auto w-full max-w-2xl pb-6 text-4xl font-bold text-skin-accent'>
               {navigationId}
             </div>
           </div>
