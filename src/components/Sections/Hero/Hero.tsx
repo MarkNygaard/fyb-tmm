@@ -80,10 +80,7 @@ export default function Hero({
       )}
       <div className='relative h-screen flex justify-center items-center flex-col'>
         {image && (
-          <motion.div
-            // style={{ y }}
-            className='relative w-9/12 h-9/12 mt-24 md:w-4/12 md:h-4/12 md:mt-44 lg:mt-28 xl:w-2/12 xl:h-2/12 flex flex-grow xl:mt-32'
-          >
+          <motion.div className='relative w-9/12 h-9/12 mt-24 md:w-4/12 md:h-4/12 md:mt-44 lg:mt-28 xl:w-2/12 xl:h-2/12 flex flex-grow xl:mt-32'>
             {/* eslint-disable-next-line jsx-a11y/alt-text */}
             <Image
               data={(image as FileField).responsiveImage as ResponsiveImage}
