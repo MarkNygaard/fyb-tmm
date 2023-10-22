@@ -78,9 +78,9 @@ export default function Hero({
           />
         </motion.div>
       )}
-      <div className='relative h-screen flex justify-center items-center flex-col'>
+      <div className='relative flex h-screen flex-col items-center justify-center'>
         {image && (
-          <motion.div className='relative w-9/12 h-9/12 mt-24 md:w-4/12 md:h-4/12 md:mt-44 lg:mt-28 xl:w-2/12 xl:h-2/12 flex flex-grow xl:mt-32'>
+          <motion.div className='h-9/12 md:h-4/12 xl:h-2/12 relative mt-24 flex w-9/12 flex-grow md:mt-44 md:w-4/12 lg:mt-28 xl:mt-32 xl:w-2/12'>
             {/* eslint-disable-next-line jsx-a11y/alt-text */}
             <Image
               data={(image as FileField).responsiveImage as ResponsiveImage}
@@ -91,7 +91,7 @@ export default function Hero({
             />
           </motion.div>
         )}
-        <div className='flex flex-col space-y-48 lg:space-y-14 xl:space-y-28 justify-center items-center pb-10 xl:pb-16'>
+        <div className='flex flex-col items-center justify-center space-y-48 pb-10 lg:space-y-14 xl:space-y-28 xl:pb-16'>
           <div className='relative mt-8 flex items-center justify-center'>
             <Magnetic>
               <Link href={buttonLink!} target='_blank' rel='noreferrer'>
@@ -103,7 +103,7 @@ export default function Hero({
             href={'#' + firstSection}
             className='relative flex items-center justify-center text-4xl text-gray-300'
           >
-            <button className='active:bg-gray-300/20 rounded-full p-2'>
+            <button className='rounded-full p-2 active:bg-gray-300/20'>
               <SlArrowDown />
             </button>
           </Link>

@@ -65,7 +65,7 @@ export default function DesktopNavigation({ socialMediaLinks, content }: any) {
             [0.5, 0.2],
           )})`,
         }}
-        className='absolute z-20 flex w-full items-center justify-between bg-black/30 px-6 lg:px-16 shadow-sm backdrop-blur-sm xl:px-28'
+        className='absolute z-20 flex w-full items-center justify-between bg-black/30 px-6 shadow-sm backdrop-blur-sm lg:px-16 xl:px-28'
         id='nav'
       >
         <div className='flex items-center space-x-4'>
@@ -101,7 +101,7 @@ export default function DesktopNavigation({ socialMediaLinks, content }: any) {
                     setTimeOfLastClick(Date.now());
                   }}
                   className={clsx(
-                    'flex relative px-2 lg:px-3 py-1 lg:py-2 lg:text-lg uppercase opacity-100  xl:px-4 xl:text-xl',
+                    'relative flex px-2 py-1 uppercase opacity-100 lg:px-3 lg:py-2 lg:text-lg  xl:px-4 xl:text-xl',
                     {
                       'font-light text-gray-300 hover:text-white':
                         Section.navigationId !== activeSection,
@@ -115,7 +115,7 @@ export default function DesktopNavigation({ socialMediaLinks, content }: any) {
                   {Section.navigationId}
                   {Section.navigationId === activeSection && (
                     <motion.span
-                      className='bg-gray-300/10 rounded-full absolute inset-0 -z-10'
+                      className='absolute inset-0 -z-10 rounded-full bg-gray-300/10'
                       layoutId='activeSection'
                       transition={{
                         type: 'spring',

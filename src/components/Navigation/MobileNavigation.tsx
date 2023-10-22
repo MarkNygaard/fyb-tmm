@@ -82,7 +82,7 @@ export default function MobileNavigation({ content, socialMediaLinks }: any) {
       <div className='sticky top-0 z-50 flex w-full justify-end text-3xl text-white md:hidden'>
         <motion.button
           aria-label='menu'
-          className='absolute m-6 p-2 rounded-full active:bg-gray-300/20 z-50 translate-z-50'
+          className='translate-z-50 absolute z-50 m-6 rounded-full p-2 active:bg-gray-300/20'
           onClick={debounce(600, onClick)}
           animate={button}
         >
@@ -174,9 +174,9 @@ export default function MobileNavigation({ content, socialMediaLinks }: any) {
                   }}
                   className='absolute h-screen w-5/6 bg-skin-accent shadow-2xl'
                 >
-                  <div className='flex flex-col justify-between h-full'>
+                  <div className='flex h-full flex-col justify-between'>
                     <motion.div
-                      className='flex absolute w-full justify-end text-3xl text-white lg:hidden'
+                      className='absolute flex w-full justify-end text-3xl text-white lg:hidden'
                       initial={{ opacity: 0 }}
                       animate={{
                         opacity: 1,
@@ -204,7 +204,7 @@ export default function MobileNavigation({ content, socialMediaLinks }: any) {
                             delay: 0.4,
                           },
                         }}
-                        className='focus:outline-none m-6 p-2 rounded-full active:bg-gray-200/20 z-50'
+                        className='z-50 m-6 rounded-full p-2 focus:outline-none active:bg-gray-200/20'
                         onClick={onClick}
                       >
                         <span className='sr-only'>Close menu</span>
@@ -259,7 +259,7 @@ export default function MobileNavigation({ content, socialMediaLinks }: any) {
                                   href={'#' + navigationIdNoSpace}
                                   onClick={onClick}
                                 >
-                                  <span className='active:bg-gray-200/20 rounded-full py-2 px-4'>
+                                  <span className='rounded-full px-4 py-2 active:bg-gray-200/20'>
                                     {navigation.navigationId}
                                   </span>
                                 </Link>
@@ -298,7 +298,7 @@ export default function MobileNavigation({ content, socialMediaLinks }: any) {
                                 target='_blank'
                                 rel='noopener norefferer noreferrer'
                                 href={links.url}
-                                className='flex grow text-base justify-center text-white'
+                                className='flex grow justify-center text-base text-white'
                               >
                                 <SvgRenderer url={links.icon.url} />
                               </Link>
