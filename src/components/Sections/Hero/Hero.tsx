@@ -9,33 +9,27 @@ import {
   useScroll,
   useTransform,
 } from 'framer-motion';
-import {
-  FileField,
-  HeroRecord,
-  PageRecord,
-  ResponsiveImage,
-} from 'lib/graphql';
+import { FileField, HeroRecord, ResponsiveImage } from 'lib/graphql';
 import { useSectionInView } from 'lib/hooks';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import { Image } from 'react-datocms';
 import { SlArrowDown } from 'react-icons/sl';
 
-export type StackModule<T> = Omit<T, 'title' | '__typename'>;
-export type HeroProps = StackModule<HeroRecord>;
-export type PageProps = StackModule<PageRecord>;
+export type FirstSection = {
+  firstSection: any;
+};
+export type HeroProps = HeroRecord & FirstSection;
 
-export default function Hero(
-  {
-    navigationId,
-    image,
-    backgroundImage,
-    buttonLink,
-    buttonText,
-    magneticButton,
-  }: HeroProps,
-  firstSection: any,
-) {
+export default function Hero({
+  navigationId,
+  image,
+  backgroundImage,
+  buttonLink,
+  buttonText,
+  magneticButton,
+  firstSection,
+}: HeroProps) {
   const { ref } = useSectionInView({ navigationId: navigationId as string });
   const [isVisible, setIsVisible] = useState(false);
   const navigationIdNoSpace = navigationId?.replace(/\s/g, '');
