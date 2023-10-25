@@ -16,10 +16,7 @@ import React, { useEffect, useState } from 'react';
 import { Image } from 'react-datocms';
 import { SlArrowDown } from 'react-icons/sl';
 
-export type FirstSection = {
-  firstSection: any;
-};
-export type HeroProps = HeroRecord & FirstSection;
+export type HeroProps = HeroRecord & { firstSection: any };
 
 export default function Hero({
   navigationId,
