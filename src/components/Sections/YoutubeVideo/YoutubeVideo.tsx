@@ -7,15 +7,12 @@ import { useAnimatedSectionInView } from 'lib/hooks';
 import React from 'react';
 import LiteYouTubeEmbed from 'react-lite-youtube-embed';
 
-export type StackModule<T> = Omit<T, 'title' | '__typename'>;
-export type YoutubeVideoProps = StackModule<YoutubeVideoRecord>;
-
 export default function YoutubeVideo({
   navigationId,
   backgroundColor,
   fadeIn,
   link,
-}: YoutubeVideoProps) {
+}: YoutubeVideoRecord) {
   const { ref, animation } = useAnimatedSectionInView({
     navigationId: navigationId as string,
   });
