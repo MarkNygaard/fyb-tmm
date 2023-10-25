@@ -16,4 +16,5 @@ fragment HeroFragment on HeroRecord {
   }
   buttonText
   buttonLink
+  magneticButton
 }

@@ -1,6 +1,7 @@
 'use client';
 
 import { Button } from '@ui/Button/Button';
+import { ConditionalWrap } from '@ui/ConditionalWrap/ConditionalWrap';
 import Magnetic from 'components/Magnetic';
 import {
   AnimatePresence,
@@ -8,21 +9,14 @@ import {
   useScroll,
   useTransform,
 } from 'framer-motion';
-import {
-  FileField,
-  HeroRecord,
-  PageRecord,
-  ResponsiveImage,
-} from 'lib/graphql';
+import { FileField, HeroRecord, ResponsiveImage } from 'lib/graphql';
 import { useSectionInView } from 'lib/hooks';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import { Image } from 'react-datocms';
 import { SlArrowDown } from 'react-icons/sl';
 
-export type StackModule<T> = Omit<T, 'title' | '__typename'>;
-export type HeroProps = StackModule<HeroRecord>;
-export type PageProps = StackModule<PageRecord>;
+export type HeroProps = HeroRecord & { firstSection: any };
 
 export default function Hero({
   navigationId,
@@ -30,8 +24,9 @@ export default function Hero({
   backgroundImage,
   buttonLink,
   buttonText,
+  magneticButton,
   firstSection,
-}: any) {
+}: HeroProps) {
   const { ref } = useSectionInView({ navigationId: navigationId as string });
   const [isVisible, setIsVisible] = useState(false);
   const navigationIdNoSpace = navigationId?.replace(/\s/g, '');
@@ -93,11 +88,14 @@ export default function Hero({
         )}
         <div className='flex flex-col items-center justify-center space-y-20 pb-10 md:space-y-48 lg:space-y-14 xl:space-y-28 xl:pb-16'>
           <div className='relative mt-8 flex items-center justify-center'>
-            <Magnetic>
+            <ConditionalWrap
+              condition={magneticButton}
+              wrap={(children) => <Magnetic>{children}</Magnetic>}
+            >
               <Link href={buttonLink!} target='_blank' rel='noreferrer'>
-                <Button label={buttonText} />
+                <Button label={buttonText as string} />
               </Link>
-            </Magnetic>
+            </ConditionalWrap>
           </div>
           <Link
             href={'#' + firstSection}
@@ -119,7 +117,7 @@ export default function Hero({
               transition={{ duration: 0.3 }}
               className='fixed bottom-14 right-20 z-50 hidden lg:flex'
             >
-              <Button width='small' label={buttonText} />
+              <Button width='small' label={buttonText as string} />
             </motion.div>
           </a>
         )}
