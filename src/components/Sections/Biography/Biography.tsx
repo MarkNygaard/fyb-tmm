@@ -9,15 +9,12 @@ import { Image, StructuredText } from 'react-datocms';
 import { AiOutlineDownCircle, AiOutlineUpCircle } from 'react-icons/ai';
 import useMeasure from 'react-use-measure';
 
-export type StackModule<T> = Omit<T, 'title' | '__typename'>;
-export type BiographyProps = StackModule<BiographyRecord>;
-
 export default function Biography({
   navigationId,
   fadeIn,
   bioDescription,
   image,
-}: BiographyProps) {
+}: BiographyRecord) {
   const { ref, animation } = useAnimatedSectionInView({
     navigationId: navigationId as string,
   });

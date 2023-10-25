@@ -7,15 +7,12 @@ import { useAnimatedSectionInView } from 'lib/hooks';
 import React from 'react';
 import { Image } from 'react-datocms';
 
-export type StackModule<T> = Omit<T, 'title' | '__typename'>;
-export type ImageProps = StackModule<ImageRecord>;
-
 export default function ImageSection({
   navigationId,
   backgroundColor,
   fadeIn,
   image,
-}: ImageProps) {
+}: ImageRecord) {
   const { ref, animation } = useAnimatedSectionInView({
     navigationId: navigationId as string,
   });

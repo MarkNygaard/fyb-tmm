@@ -9,9 +9,6 @@ import { useAnimatedSectionInView } from 'lib/hooks';
 import React from 'react';
 import { Image, StructuredText } from 'react-datocms';
 
-export type StackModule<T> = Omit<T, 'title' | '__typename'>;
-export type TextImageProps = StackModule<TextImageRecord>;
-
 export default function TextImage({
   navigationId,
   backgroundColor,
@@ -20,7 +17,7 @@ export default function TextImage({
   imageLocation,
   imageStyle,
   image,
-}: TextImageProps) {
+}: TextImageRecord) {
   const { ref, animation } = useAnimatedSectionInView({
     navigationId: navigationId as string,
   });

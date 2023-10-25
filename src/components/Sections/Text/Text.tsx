@@ -8,9 +8,6 @@ import { useAnimatedSectionInView } from 'lib/hooks';
 import React from 'react';
 import { Image, StructuredText } from 'react-datocms';
 
-export type StackModule<T> = Omit<T, 'title' | '__typename'>;
-export type TextProps = StackModule<TextRecord>;
-
 export default function Text({
   navigationId,
   headerTitle = false,
@@ -18,7 +15,7 @@ export default function Text({
   fullWidth = false,
   fadeIn,
   content,
-}: TextProps) {
+}: TextRecord) {
   const { ref, animation } = useAnimatedSectionInView({
     navigationId: navigationId as string,
   });

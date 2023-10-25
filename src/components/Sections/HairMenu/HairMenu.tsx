@@ -7,14 +7,11 @@ import React from 'react';
 
 import PriceModule from './PriceModules/PriceModule';
 
-export type StackModule<T> = Omit<T, 'title' | '__typename'>;
-export type HairMenuProps = StackModule<HairMenuRecord>;
-
 export default function HairMenu({
   navigationId,
   fadeIn,
   priceModules,
-}: HairMenuProps) {
+}: HairMenuRecord) {
   const { ref } = useSectionInView({ navigationId: navigationId as string });
   const navigationIdNoSpace = navigationId?.replace(/\s/g, '');
 

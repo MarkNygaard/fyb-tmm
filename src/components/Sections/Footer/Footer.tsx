@@ -6,9 +6,6 @@ import { useSectionInView } from 'lib/hooks';
 import React from 'react';
 import { StructuredText } from 'react-datocms';
 
-export type StackModule<T> = Omit<T, 'title' | '__typename'>;
-export type FooterProps = StackModule<FooterRecord>;
-
 export default function Footer({
   location,
   navigationId,
@@ -16,7 +13,7 @@ export default function Footer({
   openingHours,
   info,
   contact,
-}: FooterProps) {
+}: FooterRecord) {
   const { ref } = useSectionInView({
     navigationId: navigationId as string,
   });

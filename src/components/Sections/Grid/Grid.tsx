@@ -9,9 +9,6 @@ import React from 'react';
 import { GridImage } from './GridImage';
 import { GridText } from './GridText';
 
-export type StackModule<T> = Omit<T, 'title' | '__typename'>;
-export type GridProps = StackModule<GridRecord>;
-
 export default function Grid({
   navigationId,
   backgroundColor,
@@ -23,7 +20,7 @@ export default function Grid({
   fullWidth,
   sections,
   height,
-}: GridProps) {
+}: GridRecord) {
   const { ref, animation } = useAnimatedSectionInView({
     navigationId: navigationId as string,
   });
