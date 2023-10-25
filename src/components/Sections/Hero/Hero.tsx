@@ -80,7 +80,7 @@ export default function Hero({
       )}
       <div className='relative flex h-screen flex-col items-center justify-center'>
         {image && (
-          <motion.div className='h-9/12 md:h-4/12 xl:h-2/12 relative mt-24 flex w-9/12 flex-grow md:mt-44 md:w-4/12 lg:mt-28 xl:mt-32 xl:w-2/12'>
+          <motion.div className='relative mt-24 flex h-full w-7/12 flex-grow md:mt-44 md:w-4/12 lg:mt-28 xl:mt-32 xl:w-2/12'>
             {/* eslint-disable-next-line jsx-a11y/alt-text */}
             <Image
               data={(image as FileField).responsiveImage as ResponsiveImage}
@@ -91,7 +91,7 @@ export default function Hero({
             />
           </motion.div>
         )}
-        <div className='flex flex-col items-center justify-center space-y-48 pb-10 lg:space-y-14 xl:space-y-28 xl:pb-16'>
+        <div className='flex flex-col items-center justify-center space-y-20 pb-10 md:space-y-48 lg:space-y-14 xl:space-y-28 xl:pb-16'>
           <div className='relative mt-8 flex items-center justify-center'>
             <Magnetic>
               <Link href={buttonLink!} target='_blank' rel='noreferrer'>
