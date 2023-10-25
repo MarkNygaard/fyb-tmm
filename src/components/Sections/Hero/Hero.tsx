@@ -34,7 +34,7 @@ export default function Hero(
     buttonText,
     magneticButton,
   }: HeroProps,
-  { firstSection }: any,
+  firstSection: any,
 ) {
   const { ref } = useSectionInView({ navigationId: navigationId as string });
   const [isVisible, setIsVisible] = useState(false);
