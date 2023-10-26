@@ -1,19 +1,12 @@
 'use client';
 
-import CustomHeading from '@Sections/CustomHeading/CustomHeading';
-import RtImage from '@Sections/RtImage/RtImage';
+import StructuredText from '@ui/StructuredText/StructuredText';
 import classNames from 'clsx';
 import { motion } from 'framer-motion';
-import {
-  CustomHeadingRecord,
-  FileField,
-  ResponsiveImage,
-  RtImageRecord,
-  TextImageRecord,
-} from 'lib/graphql';
+import { ResponsiveImage, TextImageRecord } from 'lib/graphql';
 import { useAnimatedSectionInView } from 'lib/hooks';
 import React from 'react';
-import { Image, StructuredText } from 'react-datocms';
+import { Image } from 'react-datocms';
 
 export default function TextImage({
   id,
@@ -51,19 +44,9 @@ export default function TextImage({
             'prose-invert text-gray-200': backgroundColor === true,
           })}
         >
-          <StructuredText
-            data={content as any}
-            renderBlock={({ record }) => {
-              if (record.__typename === 'RtImageRecord') {
-                return <RtImage {...(record as RtImageRecord)} />;
-              } else if (record.__typename === 'CustomHeadingRecord') {
-                return <CustomHeading {...(record as CustomHeadingRecord)} />;
-              }
-              return null;
-            }}
-          />
+          <StructuredText content={content} />
         </article>
-        {((image as FileField).responsiveImage as ResponsiveImage) ? (
+        {image?.responsiveImage && (
           <div className='mx-auto md:mb-auto'>
             <div
               className={classNames(
@@ -75,12 +58,10 @@ export default function TextImage({
               )}
             >
               {/* eslint-disable-next-line jsx-a11y/alt-text */}
-              <Image
-                data={(image as FileField).responsiveImage as ResponsiveImage}
-              />
+              <Image data={image?.responsiveImage as ResponsiveImage} />
             </div>
           </div>
-        ) : null}
+        )}
       </motion.div>
     </div>
   );

@@ -1,13 +1,11 @@
 'use client';
 
-import CustomHeading from '@Sections/CustomHeading/CustomHeading';
-import RtImage from '@Sections/RtImage/RtImage';
+import StructuredText from '@ui/StructuredText/StructuredText';
 import clsx from 'clsx';
 import { motion } from 'framer-motion';
-import { CustomHeadingRecord, RtImageRecord, TextRecord } from 'lib/graphql';
+import { TextRecord } from 'lib/graphql';
 import { useAnimatedSectionInView } from 'lib/hooks';
 import React from 'react';
-import { StructuredText } from 'react-datocms';
 
 export default function Text({
   id,
@@ -54,17 +52,7 @@ export default function Text({
         animate={fadeIn ? animation : { opacity: 1 }}
         className='prose prose-h2:text-4xl prose-h2:text-skin-accent prose-p:text-gray-300 prose-strong:text-skin-accent sm:w-full'
       >
-        <StructuredText
-          data={content as any}
-          renderBlock={({ record }) => {
-            if (record.__typename === 'RtImageRecord') {
-              return <RtImage {...(record as RtImageRecord)} />;
-            } else if (record.__typename === 'CustomHeadingRecord') {
-              return <CustomHeading {...(record as CustomHeadingRecord)} />;
-            }
-            return null;
-          }}
-        />
+        <StructuredText content={content} />
       </motion.div>
     </div>
   );
