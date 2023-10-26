@@ -2,7 +2,7 @@
 
 import classNames from 'clsx';
 import { motion } from 'framer-motion';
-import { GridRecord } from 'lib/graphql';
+import { GridModelSectionsField, GridRecord, TextRecord } from 'lib/graphql';
 import { useAnimatedSectionInView } from 'lib/hooks';
 import React from 'react';
 
@@ -47,7 +47,7 @@ export default function Grid({
           'md:w-10/12': fullWidth === false,
         })}
       >
-        {sections.map((section: any) => {
+        {sections.map((section: GridModelSectionsField) => {
           return (
             <div
               key={section.id}
@@ -60,14 +60,17 @@ export default function Grid({
                   section.desktopPosition,
               })}
             >
-              {section.__typename === 'GridImage' ? (
+              {section.__typename === 'GridImageRecord' ? (
                 <GridImage
                   key={section.id}
-                  height={height}
+                  height={height as string}
                   {...section}
-                ></GridImage>
-              ) : section.__typename === 'GridText' ? (
-                <GridText height={height} section={section}></GridText>
+                />
+              ) : section.__typename === 'GridTextRecord' ? (
+                <GridText
+                  height={height as string}
+                  section={section as TextRecord}
+                />
               ) : (
                 <></>
               )}

@@ -3,7 +3,7 @@
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import SvgRenderer from 'components/SvgRenderer';
 import { AnimatePresence, motion, useAnimation } from 'framer-motion';
-import { PageModelContentField } from 'lib/graphql';
+import { LinkRecord, PageModelContentField } from 'lib/graphql';
 import Link from 'next/link';
 import React, { useState } from 'react';
 import { debounce } from 'throttle-debounce';
@@ -56,7 +56,15 @@ function reset(el: HTMLElement, prop?: keyof CSSStyleDeclaration) {
   }
 }
 
-export default function MobileNavigation({ content, socialMediaLinks }: any) {
+type MobileNavigationProps = {
+  content: Array<PageModelContentField>;
+  socialMediaLinks: Array<LinkRecord>;
+};
+
+export default function MobileNavigation({
+  content,
+  socialMediaLinks,
+}: MobileNavigationProps) {
   const [menuIsOpen, setMenuIsOpen] = useState<boolean>(false);
   const path01Controls = useAnimation();
   const path02Controls = useAnimation();
@@ -293,17 +301,17 @@ export default function MobileNavigation({ content, socialMediaLinks }: any) {
                         }}
                         className='flex w-full items-end pb-6'
                       >
-                        {socialMediaLinks.map((links: any) => {
+                        {socialMediaLinks.map((links: LinkRecord) => {
                           return (
                             <NavigationMenu.Link key={links.id} asChild>
                               <Link
                                 aria-label='social-link'
                                 target='_blank'
                                 rel='noopener norefferer noreferrer'
-                                href={links.url}
+                                href={links.url as string}
                                 className='flex grow justify-center text-base text-white'
                               >
-                                <SvgRenderer url={links.icon.url} />
+                                <SvgRenderer url={links.icon?.url as string} />
                               </Link>
                             </NavigationMenu.Link>
                           );

@@ -10,7 +10,7 @@ import {
   useScroll,
   useTransform,
 } from 'framer-motion';
-import { PageModelContentField } from 'lib/graphql';
+import { LinkRecord, PageModelContentField } from 'lib/graphql';
 import Link from 'next/link';
 import { useEffect } from 'react';
 
@@ -39,7 +39,15 @@ function useBoundedScroll(bounds: number) {
   return { scrollYBounded, scrollYBoundedProgress };
 }
 
-export default function DesktopNavigation({ socialMediaLinks, content }: any) {
+type DesktopNavigationProps = {
+  content: Array<PageModelContentField>;
+  socialMediaLinks: Array<LinkRecord>;
+};
+
+export default function DesktopNavigation({
+  content,
+  socialMediaLinks,
+}: DesktopNavigationProps) {
   const { activeSection, setActiveSection, setTimeOfLastClick } =
     useActiveSectionContext();
 
@@ -70,51 +78,51 @@ export default function DesktopNavigation({ socialMediaLinks, content }: any) {
           id='nav'
         >
           <div className='flex items-center space-x-4'>
-            {socialMediaLinks.map((links: any) => {
+            {socialMediaLinks.map((links: LinkRecord) => {
               return (
                 <Link
                   key={links.id}
                   aria-label='social-link'
                   target='_blank'
                   rel='noopener norefferer noreferrer'
-                  href={links.url}
+                  href={links.url as string}
                   className='text-gray-300 hover:text-white'
                 >
-                  <SvgRenderer url={links.icon.url} />
+                  <SvgRenderer url={links.icon?.url as string} />
                 </Link>
               );
             })}
           </div>
           <div className='flex space-x-2'>
-            {content?.map((Section: PageModelContentField) => {
-              const navigationIdNoSpace = Section.navigationId?.replace(
+            {content?.map((section: PageModelContentField) => {
+              const navigationIdNoSpace = section.navigationId?.replace(
                 /\s/g,
                 '',
               );
 
               return (
-                Section.navigationId && (
+                section.navigationId && (
                   <Link
-                    key={Section.id}
+                    key={section.id}
                     href={'#' + navigationIdNoSpace}
                     onClick={() => {
-                      setActiveSection(Section.navigationId as string);
+                      setActiveSection(section.navigationId as string);
                       setTimeOfLastClick(Date.now());
                     }}
                     className={clsx(
                       'relative flex px-2 py-1 uppercase opacity-100 lg:px-3 lg:py-2 lg:text-lg  xl:px-4 xl:text-xl',
                       {
                         'font-light text-gray-300 hover:text-white':
-                          Section.navigationId !== activeSection,
+                          section.navigationId !== activeSection,
                       },
                       {
                         'font-base text-skin-accent':
-                          Section.navigationId === activeSection,
+                          section.navigationId === activeSection,
                       },
                     )}
                   >
-                    {Section.navigationId}
-                    {Section.navigationId === activeSection && (
+                    {section.navigationId}
+                    {section.navigationId === activeSection && (
                       <motion.span
                         className='absolute inset-0 -z-10 rounded-full bg-gray-300/10'
                         layoutId='activeSection'
