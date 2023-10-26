@@ -10,6 +10,7 @@ import { AiOutlineDownCircle, AiOutlineUpCircle } from 'react-icons/ai';
 import useMeasure from 'react-use-measure';
 
 export default function Biography({
+  id,
   navigationId,
   fadeIn,
   bioDescription,
@@ -27,6 +28,7 @@ export default function Biography({
     <div
       ref={ref}
       id={navigationIdNoSpace!}
+      key={id}
       className={classNames(
         'align-center flex flex-col items-center justify-center overflow-hidden px-2 text-gray-200 md:px-10 md:py-10',
       )}

@@ -2,7 +2,7 @@
 
 import classNames from 'clsx';
 import { motion } from 'framer-motion';
-import { GridRecord } from 'lib/graphql';
+import { GridModelSectionsField, GridRecord, TextRecord } from 'lib/graphql';
 import { useAnimatedSectionInView } from 'lib/hooks';
 import React from 'react';
 
@@ -10,6 +10,7 @@ import { GridImage } from './GridImage';
 import { GridText } from './GridText';
 
 export default function Grid({
+  id,
   navigationId,
   backgroundColor,
   fadeIn,
@@ -30,6 +31,7 @@ export default function Grid({
     <div
       ref={ref}
       id={navigationIdNoSpace!}
+      key={id}
       className={classNames('flex justify-center px-0 py-20 md:px-10', {
         'bg-skin-secondary': backgroundColor === true,
       })}
@@ -45,7 +47,7 @@ export default function Grid({
           'md:w-10/12': fullWidth === false,
         })}
       >
-        {sections.map((section: any) => {
+        {sections.map((section: GridModelSectionsField) => {
           return (
             <div
               key={section.id}
@@ -58,14 +60,17 @@ export default function Grid({
                   section.desktopPosition,
               })}
             >
-              {section.__typename === 'GridImage' ? (
+              {section.__typename === 'GridImageRecord' ? (
                 <GridImage
                   key={section.id}
-                  height={height}
-                  section={section}
-                ></GridImage>
-              ) : section.__typename === 'GridText' ? (
-                <GridText height={height} section={section}></GridText>
+                  height={height as string}
+                  {...section}
+                />
+              ) : section.__typename === 'GridTextRecord' ? (
+                <GridText
+                  height={height as string}
+                  section={section as TextRecord}
+                />
               ) : (
                 <></>
               )}

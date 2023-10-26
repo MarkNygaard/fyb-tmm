@@ -1,14 +1,16 @@
 'use client';
 
 import CustomHeading from '@Sections/CustomHeading/CustomHeading';
+import RtImage from '@Sections/RtImage/RtImage';
 import clsx from 'clsx';
 import { motion } from 'framer-motion';
-import { TextRecord } from 'lib/graphql';
+import { CustomHeadingRecord, RtImageRecord, TextRecord } from 'lib/graphql';
 import { useAnimatedSectionInView } from 'lib/hooks';
 import React from 'react';
-import { Image, StructuredText } from 'react-datocms';
+import { StructuredText } from 'react-datocms';
 
 export default function Text({
+  id,
   navigationId,
   headerTitle = false,
   backgroundColor,
@@ -25,6 +27,7 @@ export default function Text({
     <div
       ref={ref}
       id={navigationIdNoSpace!}
+      key={id}
       className={clsx(
         'align-center flex flex-col items-center justify-center overflow-hidden px-4 py-10 md:px-10',
         {
@@ -54,21 +57,10 @@ export default function Text({
         <StructuredText
           data={content as any}
           renderBlock={({ record }) => {
-            if (
-              record.__typename === 'RtImageRecord' &&
-              (record as any).rtImage &&
-              (record as any).rtImage?.responsiveImage
-            ) {
-              return (
-                <div className='flex justify-center'>
-                  {/* eslint-disable-next-line jsx-a11y/alt-text */}
-                  <Image
-                    data={(record.rtImage as any).responsiveImage as any}
-                  />
-                </div>
-              );
+            if (record.__typename === 'RtImageRecord') {
+              return <RtImage {...(record as RtImageRecord)} />;
             } else if (record.__typename === 'CustomHeadingRecord') {
-              return <CustomHeading record={record}></CustomHeading>;
+              return <CustomHeading {...(record as CustomHeadingRecord)} />;
             }
             return null;
           }}

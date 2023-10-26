@@ -6,6 +6,8 @@ import queryDatoCMS from 'lib/datocms';
 import {
   CustomColorsDocument,
   HomePageDocument,
+  LinkRecord,
+  PageModelContentField,
   SocialsDocument,
 } from 'lib/graphql';
 import { draftMode } from 'next/headers';
@@ -60,8 +62,18 @@ export default async function RootLayout({
           style={{ WebkitTapHighlightColor: 'transparent' }}
           className='pb-safe-bottom'
         >
-          <DesktopNavigation {...data.page} {...socials.layout} />
-          <MobileNavigation {...data.page} {...socials.layout} />
+          <DesktopNavigation
+            content={data.page?.content as Array<PageModelContentField>}
+            socialMediaLinks={
+              socials.layout?.socialMediaLinks as Array<LinkRecord>
+            }
+          />
+          <MobileNavigation
+            content={data.page?.content as Array<PageModelContentField>}
+            socialMediaLinks={
+              socials.layout?.socialMediaLinks as Array<LinkRecord>
+            }
+          />
           {children}
         </body>
       </ActiveSectionContextProvider>

@@ -16,9 +16,12 @@ import React, { useEffect, useState } from 'react';
 import { Image } from 'react-datocms';
 import { SlArrowDown } from 'react-icons/sl';
 
-export type HeroProps = HeroRecord & { firstSection: any };
+export type HeroProps = HeroRecord & {
+  firstSection: string | null | undefined;
+};
 
 export default function Hero({
+  id,
   navigationId,
   image,
   backgroundImage,
@@ -52,7 +55,12 @@ export default function Hero({
   let y = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
 
   return (
-    <div ref={ref} id={navigationIdNoSpace!} className='relative flex flex-col'>
+    <div
+      ref={ref}
+      id={navigationIdNoSpace!}
+      key={id}
+      className='relative flex flex-col'
+    >
       {backgroundImage && (
         <motion.div
           style={{ y }}

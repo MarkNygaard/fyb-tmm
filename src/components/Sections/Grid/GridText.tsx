@@ -3,16 +3,18 @@ import clsx from 'clsx';
 import { TextRecord } from 'lib/graphql';
 import React from 'react';
 
-export function GridText(props: any) {
+type GridTextProps = { section: TextRecord; height: string };
+
+export function GridText({ section, height }: GridTextProps) {
   return (
     <div
       className={clsx('flex justify-center overflow-hidden bg-skin-accent', {
-        'h-52': props.height === 'Small',
-        'h-96': props.height === 'Medium',
-        'h-132': props.height === 'Large',
+        'h-52': height === 'Small',
+        'h-96': height === 'Medium',
+        'h-132': height === 'Large',
       })}
     >
-      <Text {...(props.section as TextRecord)} />
+      <Text {...section} />
     </div>
   );
 }

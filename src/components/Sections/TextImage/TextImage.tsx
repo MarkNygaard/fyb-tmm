@@ -4,12 +4,19 @@ import CustomHeading from '@Sections/CustomHeading/CustomHeading';
 import RtImage from '@Sections/RtImage/RtImage';
 import classNames from 'clsx';
 import { motion } from 'framer-motion';
-import { FileField, ResponsiveImage, TextImageRecord } from 'lib/graphql';
+import {
+  CustomHeadingRecord,
+  FileField,
+  ResponsiveImage,
+  RtImageRecord,
+  TextImageRecord,
+} from 'lib/graphql';
 import { useAnimatedSectionInView } from 'lib/hooks';
 import React from 'react';
 import { Image, StructuredText } from 'react-datocms';
 
 export default function TextImage({
+  id,
   navigationId,
   backgroundColor,
   fadeIn,
@@ -27,6 +34,7 @@ export default function TextImage({
     <div
       ref={ref}
       id={navigationIdNoSpace!}
+      key={id}
       className={classNames('px-2 py-20 md:px-10', {
         'bg-skin-secondary': backgroundColor === true,
       })}
@@ -46,14 +54,10 @@ export default function TextImage({
           <StructuredText
             data={content as any}
             renderBlock={({ record }) => {
-              if (
-                record.__typename === 'RtImageRecord' &&
-                (record as any).image &&
-                (record as any).image?.responsiveImage
-              ) {
-                return <RtImage record={record} />;
+              if (record.__typename === 'RtImageRecord') {
+                return <RtImage {...(record as RtImageRecord)} />;
               } else if (record.__typename === 'CustomHeadingRecord') {
-                return <CustomHeading record={record} />;
+                return <CustomHeading {...(record as CustomHeadingRecord)} />;
               }
               return null;
             }}

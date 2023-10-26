@@ -8,6 +8,7 @@ import React from 'react';
 import LiteYouTubeEmbed from 'react-lite-youtube-embed';
 
 export default function YoutubeVideo({
+  id,
   navigationId,
   backgroundColor,
   fadeIn,
@@ -22,6 +23,7 @@ export default function YoutubeVideo({
     <div
       ref={ref}
       id={navigationIdNoSpace!}
+      key={id}
       className={classNames('flex justify-center px-2 py-10 md:px-10', {
         'bg-skin-secondary': backgroundColor === true,
       })}
