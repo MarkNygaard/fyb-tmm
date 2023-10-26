@@ -1,15 +1,24 @@
 import classNames from 'clsx';
+import { PriceRecord } from 'lib/graphql';
 import React from 'react';
 import { StructuredText } from 'react-datocms';
 
-export default function Prices({ content, arrayLength }: any) {
+type PricesProps = PriceRecord & { arrayLength: number };
+
+export default function Prices({
+  treatment,
+  description,
+  price,
+  from,
+  arrayLength,
+}: PricesProps) {
   return (
     <div
       className={classNames('m-4 flex flex-col bg-skin-secondary p-5', {
         'lg:min-h-[250px]': arrayLength > 1,
       })}
     >
-      <div className='font-medium text-skin-accent'>{content?.treatment}</div>
+      <div className='font-medium text-skin-accent'>{treatment}</div>
       <div className='flex h-full w-full justify-center'>
         <div
           className={classNames(
@@ -21,12 +30,12 @@ export default function Prices({ content, arrayLength }: any) {
             },
           )}
         >
-          <StructuredText data={content?.description} />
+          <StructuredText data={description as any} />
         </div>
       </div>
-      {content?.price && (
+      {price && (
         <div className='flex justify-end pt-4 text-xl text-skin-accent'>
-          {content?.from === true ? 'fra' : null} {content?.price} kr.
+          {from === true ? 'fra' : null} {price} kr.
         </div>
       )}
     </div>

@@ -1,4 +1,4 @@
-import PageSection from 'components/PageSection';
+import Sections from '@Sections/Sections';
 import queryDatoCMS from 'lib/datocms';
 import { HomePageDocument, PageModelContentField } from 'lib/graphql';
 import { Metadata } from 'next';
@@ -21,15 +21,10 @@ export default async function Home() {
   return (
     <>
       <div className='bg-skin-primary'>
-        {data.page?.content?.map((section: unknown, i: any) => {
-          return (
-            <PageSection
-              key={i}
-              sectionProps={section as Array<PageModelContentField>}
-              firstSection={data.page?.content[1]?.navigationId}
-            />
-          );
-        })}
+        <Sections
+          sections={data.page?.content as Array<PageModelContentField>}
+          firstSection={data.page?.content[1]?.navigationId}
+        />
       </div>
     </>
   );

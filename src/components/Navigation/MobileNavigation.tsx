@@ -3,6 +3,7 @@
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import SvgRenderer from 'components/SvgRenderer';
 import { AnimatePresence, motion, useAnimation } from 'framer-motion';
+import { PageModelContentField } from 'lib/graphql';
 import Link from 'next/link';
 import React, { useState } from 'react';
 import { debounce } from 'throttle-debounce';
@@ -227,47 +228,49 @@ export default function MobileNavigation({ content, socialMediaLinks }: any) {
                       </motion.button>
                     </motion.div>
                     <NavigationMenu.List className='w-full space-y-1 px-8 pb-3 pt-24'>
-                      {content?.map((navigation: any, i: any) => {
-                        const navigationIdNoSpace =
-                          navigation.navigationId?.replace(/\s/g, '');
+                      {content?.map(
+                        (navigation: PageModelContentField, i: any) => {
+                          const navigationIdNoSpace =
+                            navigation.navigationId?.replace(/\s/g, '');
 
-                        return (
-                          navigation.navigationId && (
-                            <motion.div
-                              key={navigation.id}
-                              initial={{ opacity: 0 }}
-                              animate={{
-                                opacity: 1,
-                                transition: {
-                                  duration: 0.2,
-                                  delay: 0.4 + 0.04 * i,
-                                  type: 'spring',
-                                },
-                              }}
-                              exit={{
-                                opacity: 0,
-                                transition: {
-                                  duration: 0.2,
-                                  delay: 0.04 * i,
-                                  type: 'spring',
-                                },
-                              }}
-                            >
-                              <NavigationMenu.Link asChild>
-                                <Link
-                                  className='block px-4 py-2 text-2xl font-normal text-white outline-none '
-                                  href={'#' + navigationIdNoSpace}
-                                  onClick={onClick}
-                                >
-                                  <span className='rounded-full px-4 py-2 active:bg-gray-200/20'>
-                                    {navigation.navigationId}
-                                  </span>
-                                </Link>
-                              </NavigationMenu.Link>
-                            </motion.div>
-                          )
-                        );
-                      })}
+                          return (
+                            navigation.navigationId && (
+                              <motion.div
+                                key={navigation.id}
+                                initial={{ opacity: 0 }}
+                                animate={{
+                                  opacity: 1,
+                                  transition: {
+                                    duration: 0.2,
+                                    delay: 0.4 + 0.04 * i,
+                                    type: 'spring',
+                                  },
+                                }}
+                                exit={{
+                                  opacity: 0,
+                                  transition: {
+                                    duration: 0.2,
+                                    delay: 0.04 * i,
+                                    type: 'spring',
+                                  },
+                                }}
+                              >
+                                <NavigationMenu.Link asChild>
+                                  <Link
+                                    className='block px-4 py-2 text-2xl font-normal text-white outline-none '
+                                    href={'#' + navigationIdNoSpace}
+                                    onClick={onClick}
+                                  >
+                                    <span className='rounded-full px-4 py-2 active:bg-gray-200/20'>
+                                      {navigation.navigationId}
+                                    </span>
+                                  </Link>
+                                </NavigationMenu.Link>
+                              </motion.div>
+                            )
+                          );
+                        },
+                      )}
                     </NavigationMenu.List>
                     <NavigationMenu.List asChild>
                       <motion.div

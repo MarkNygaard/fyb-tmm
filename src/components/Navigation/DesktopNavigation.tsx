@@ -51,85 +51,87 @@ export default function DesktopNavigation({ socialMediaLinks, content }: any) {
   );
 
   return (
-    <div className='hidden w-full md:sticky md:top-0 md:z-40 md:flex'>
-      <motion.div
-        style={{
-          height: useTransform(
-            scrollYBoundedProgressThrottled,
-            [0, 1],
-            [95, 65],
-          ),
-          backgroundColor: useMotionTemplate`rgb(0 0 0 / ${useTransform(
-            scrollYBoundedProgressThrottled,
-            [0, 1],
-            [0.5, 0.2],
-          )})`,
-        }}
-        className='absolute z-20 flex w-full items-center justify-between bg-black/30 px-6 shadow-sm backdrop-blur-sm lg:px-16 xl:px-28'
-        id='nav'
-      >
-        <div className='flex items-center space-x-4'>
-          {socialMediaLinks.map((links: any) => {
-            return (
-              <Link
-                key={links.id}
-                aria-label='social-link'
-                target='_blank'
-                rel='noopener norefferer noreferrer'
-                href={links.url}
-                className='text-gray-300 hover:text-white'
-              >
-                <SvgRenderer url={links.icon.url} />
-              </Link>
-            );
-          })}
-        </div>
-        <div className='flex space-x-2'>
-          {content?.map((Section: PageModelContentField) => {
-            const navigationIdNoSpace = Section.navigationId?.replace(
-              /\s/g,
-              '',
-            );
-
-            return (
-              Section.navigationId && (
+    <>
+      <div className='hidden w-full md:sticky md:top-0 md:z-40 md:flex'>
+        <motion.div
+          style={{
+            height: useTransform(
+              scrollYBoundedProgressThrottled,
+              [0, 1],
+              [95, 65],
+            ),
+            backgroundColor: useMotionTemplate`rgb(0 0 0 / ${useTransform(
+              scrollYBoundedProgressThrottled,
+              [0, 1],
+              [0.5, 0.2],
+            )})`,
+          }}
+          className='absolute z-20 flex w-full items-center justify-between bg-black/30 px-6 shadow-sm backdrop-blur-sm lg:px-16 xl:px-28'
+          id='nav'
+        >
+          <div className='flex items-center space-x-4'>
+            {socialMediaLinks.map((links: any) => {
+              return (
                 <Link
-                  key={Section.id}
-                  href={'#' + navigationIdNoSpace}
-                  onClick={() => {
-                    setActiveSection(Section.navigationId as string);
-                    setTimeOfLastClick(Date.now());
-                  }}
-                  className={clsx(
-                    'relative flex px-2 py-1 uppercase opacity-100 lg:px-3 lg:py-2 lg:text-lg  xl:px-4 xl:text-xl',
-                    {
-                      'font-light text-gray-300 hover:text-white':
-                        Section.navigationId !== activeSection,
-                    },
-                    {
-                      'font-base text-skin-accent':
-                        Section.navigationId === activeSection,
-                    },
-                  )}
+                  key={links.id}
+                  aria-label='social-link'
+                  target='_blank'
+                  rel='noopener norefferer noreferrer'
+                  href={links.url}
+                  className='text-gray-300 hover:text-white'
                 >
-                  {Section.navigationId}
-                  {Section.navigationId === activeSection && (
-                    <motion.span
-                      className='absolute inset-0 -z-10 rounded-full bg-gray-300/10'
-                      layoutId='activeSection'
-                      transition={{
-                        type: 'spring',
-                        stiffness: 380,
-                        damping: 30,
-                      }}
-                    ></motion.span>
-                  )}
+                  <SvgRenderer url={links.icon.url} />
                 </Link>
-              )
-            );
-          })}
-        </div>
-      </motion.div>
-    </div>
+              );
+            })}
+          </div>
+          <div className='flex space-x-2'>
+            {content?.map((Section: PageModelContentField) => {
+              const navigationIdNoSpace = Section.navigationId?.replace(
+                /\s/g,
+                '',
+              );
+
+              return (
+                Section.navigationId && (
+                  <Link
+                    key={Section.id}
+                    href={'#' + navigationIdNoSpace}
+                    onClick={() => {
+                      setActiveSection(Section.navigationId as string);
+                      setTimeOfLastClick(Date.now());
+                    }}
+                    className={clsx(
+                      'relative flex px-2 py-1 uppercase opacity-100 lg:px-3 lg:py-2 lg:text-lg  xl:px-4 xl:text-xl',
+                      {
+                        'font-light text-gray-300 hover:text-white':
+                          Section.navigationId !== activeSection,
+                      },
+                      {
+                        'font-base text-skin-accent':
+                          Section.navigationId === activeSection,
+                      },
+                    )}
+                  >
+                    {Section.navigationId}
+                    {Section.navigationId === activeSection && (
+                      <motion.span
+                        className='absolute inset-0 -z-10 rounded-full bg-gray-300/10'
+                        layoutId='activeSection'
+                        transition={{
+                          type: 'spring',
+                          stiffness: 380,
+                          damping: 30,
+                        }}
+                      ></motion.span>
+                    )}
+                  </Link>
+                )
+              );
+            })}
+          </div>
+        </motion.div>
+      </div>
+    </>
   );
 }

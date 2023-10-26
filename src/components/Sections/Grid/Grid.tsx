@@ -10,6 +10,7 @@ import { GridImage } from './GridImage';
 import { GridText } from './GridText';
 
 export default function Grid({
+  id,
   navigationId,
   backgroundColor,
   fadeIn,
@@ -30,6 +31,7 @@ export default function Grid({
     <div
       ref={ref}
       id={navigationIdNoSpace!}
+      key={id}
       className={classNames('flex justify-center px-0 py-20 md:px-10', {
         'bg-skin-secondary': backgroundColor === true,
       })}
@@ -62,7 +64,7 @@ export default function Grid({
                 <GridImage
                   key={section.id}
                   height={height}
-                  section={section}
+                  {...section}
                 ></GridImage>
               ) : section.__typename === 'GridText' ? (
                 <GridText height={height} section={section}></GridText>
