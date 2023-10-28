@@ -1,3 +1,4 @@
+import RealTimeSections from '@Sections/RealTimeSections';
 import Sections from '@Sections/Sections';
 import queryDatoCMS from 'lib/datocms';
 import { HomePageDocument, PageModelContentField } from 'lib/graphql';
@@ -21,10 +22,19 @@ export default async function Home() {
   return (
     <>
       <div className='bg-skin-primary'>
-        <Sections
-          sections={data.page?.content as Array<PageModelContentField>}
-          firstSection={data.page?.content[1]?.navigationId}
-        />
+        {!isEnabled && (
+          <Sections
+            sections={data.page?.content as Array<PageModelContentField>}
+            firstSection={data.page?.content[1]?.navigationId}
+          />
+        )}
+        {isEnabled && (
+          <RealTimeSections
+            initialData={data}
+            token={process.env.DATOCMS_API_TOKEN || ''}
+            query={HomePageDocument}
+          />
+        )}
       </div>
     </>
   );
