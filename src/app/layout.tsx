@@ -32,9 +32,9 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   const { isEnabled } = draftMode();
-  const data = await queryDatoCMS(HomePageDocument, {}, isEnabled);
-  const colors = await queryDatoCMS(CustomColorsDocument, {}, isEnabled);
-  const socials = await queryDatoCMS(SocialsDocument, {}, isEnabled);
+  const data = await queryDatoCMS(HomePageDocument, isEnabled);
+  const colors = await queryDatoCMS(CustomColorsDocument, isEnabled);
+  const socials = await queryDatoCMS(SocialsDocument, isEnabled);
 
   // Colors
   const primaryColor = colors.layout?.primaryColor
