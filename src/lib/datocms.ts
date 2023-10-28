@@ -7,7 +7,6 @@ export default async function queryDatoCMS<
   TVariables = Record<string, any>,
 >(
   document: TypedDocumentNode<TResult, TVariables>,
-  variables?: TVariables,
   isDraft?: boolean,
 ): Promise<TResult> {
   const headers: GraphQLClientRequestHeaders = {
@@ -26,7 +25,7 @@ export default async function queryDatoCMS<
       next: { tags: ['datocms'] },
       method: 'POST',
       headers,
-      body: JSON.stringify({ query: print(document), variables }),
+      body: JSON.stringify({ query: print(document) }),
     })
   ).json();
 

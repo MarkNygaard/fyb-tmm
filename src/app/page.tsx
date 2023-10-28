@@ -15,7 +15,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function Home() {
   const { isEnabled } = draftMode();
-  const data = await queryDatoCMS(HomePageDocument, {}, isEnabled);
+  const data = await queryDatoCMS(HomePageDocument, isEnabled);
 
   if (!data?.page) notFound();
 
