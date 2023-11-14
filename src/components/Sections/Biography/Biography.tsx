@@ -1,8 +1,14 @@
 'use client';
 
+import CustomHeading from '@ui/StructuredText/Blocks/CustomHeading/CustomHeading';
 import classNames from 'clsx';
 import { AnimatePresence, motion } from 'framer-motion';
-import { BiographyRecord, FileField, ResponsiveImage } from 'lib/graphql';
+import {
+  BiographyRecord,
+  CustomHeadingRecord,
+  FileField,
+  ResponsiveImage,
+} from 'lib/graphql';
 import { useAnimatedSectionInView } from 'lib/hooks';
 import React, { useState } from 'react';
 import { Image, StructuredText } from 'react-datocms';
@@ -70,7 +76,18 @@ export default function Biography({
                   !fullText && 'line-clamp-8'
                 } prose max-w-none px-2 font-thin leading-[30px] prose-h3:text-skin-accent prose-p:text-gray-200 prose-a:text-skin-accent prose-strong:text-gray-200 md:line-clamp-none md:px-4 md:font-light lg:px-6 xl:p-0 xl:leading-7`}
               >
-                <StructuredText data={bioDescription as any} />
+                <StructuredText
+                  data={bioDescription as any}
+                  renderBlock={({ record }) => {
+                    if (record.__typename === 'CustomHeadingRecord') {
+                      const CustomHeadingRecord = record as CustomHeadingRecord;
+                      return (
+                        <CustomHeading {...CustomHeadingRecord}></CustomHeading>
+                      );
+                    }
+                    return null;
+                  }}
+                />
               </div>
             </motion.div>
           </AnimatePresence>
