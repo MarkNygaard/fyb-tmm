@@ -22,7 +22,7 @@ export default function Grid({
   sections,
   height,
 }: GridRecord) {
-  const { ref, animation } = useAnimatedSectionInView({
+  const { ref, fadeInAnimation } = useAnimatedSectionInView({
     navigationId: navigationId as string,
   });
   const navigationIdNoSpace = navigationId?.replace(/\s/g, '');
@@ -38,7 +38,7 @@ export default function Grid({
     >
       <motion.div
         initial={fadeIn ? { opacity: 0 } : { opacity: 1 }}
-        animate={fadeIn ? animation : { opacity: 1 }}
+        animate={fadeIn ? fadeInAnimation : { opacity: 1 }}
         className={classNames('grid', {
           [`grid-cols-${mobileColumns as string}`]: mobileColumns,
           [`md:grid-cols-${tabletColumns as string}`]: tabletColumns,

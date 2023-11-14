@@ -16,7 +16,7 @@ export default function Text({
   fadeIn,
   content,
 }: TextRecord) {
-  const { ref, animation } = useAnimatedSectionInView({
+  const { ref, fadeInAnimation, slideInAnimation } = useAnimatedSectionInView({
     navigationId: navigationId as string,
   });
   const navigationIdNoSpace = navigationId?.replace(/\s/g, '');
@@ -39,17 +39,26 @@ export default function Text({
     >
       {headerTitle && (
         <div className='container pb-6'>
-          <div className='mx-auto border-b-2 border-skin-primary xl:w-3/4'>
-            <div className='m-0 mx-auto w-full max-w-2xl pb-6 text-4xl font-bold text-skin-accent'>
-              {navigationId}
-            </div>
+          <motion.div
+            initial={fadeIn ? { opacity: 0, y: 50 } : { opacity: 1 }}
+            animate={fadeIn ? fadeInAnimation : { opacity: 1 }}
+            className='m-0 mx-auto w-full max-w-2xl pb-6 text-4xl font-bold text-gray-300'
+          >
+            {navigationId}
+          </motion.div>
+          <div className='mx-auto w-full max-w-2xl'>
+            <motion.div
+              initial={{ opacity: 0, x: 300 }}
+              animate={slideInAnimation}
+              className='h-[1px] w-28 bg-skin-accent'
+            ></motion.div>
           </div>
         </div>
       )}
 
       <motion.div
         initial={fadeIn ? { opacity: 0 } : { opacity: 1 }}
-        animate={fadeIn ? animation : { opacity: 1 }}
+        animate={fadeIn ? fadeInAnimation : { opacity: 1 }}
         className='prose prose-h2:text-4xl prose-h2:text-skin-accent prose-p:text-gray-300 prose-strong:text-skin-accent sm:w-full'
       >
         <StructuredText content={content} />
