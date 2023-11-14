@@ -12,5 +12,10 @@ fragment BiographyFragment on BiographyRecord {
   }
   bioDescription {
     value
+    blocks {
+      id
+      title
+      subtitle
+    }
   }
 }
