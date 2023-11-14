@@ -18,7 +18,7 @@ export default function TextImage({
   imageStyle,
   image,
 }: TextImageRecord) {
-  const { ref, animation } = useAnimatedSectionInView({
+  const { ref, fadeInAnimation } = useAnimatedSectionInView({
     navigationId: navigationId as string,
   });
   const navigationIdNoSpace = navigationId?.replace(/\s/g, '');
@@ -34,7 +34,7 @@ export default function TextImage({
     >
       <motion.div
         initial={fadeIn ? { opacity: 0 } : { opacity: 1 }}
-        animate={fadeIn ? animation : { opacity: 1 }}
+        animate={fadeIn ? fadeInAnimation : { opacity: 1 }}
         className={classNames('mx-auto flex max-w-6xl flex-col md:flex-row', {
           'flex-col-reverse md:flex-row-reverse': imageLocation === 'LEFT',
         })}

@@ -28,28 +28,44 @@ export function useAnimatedSectionInView({
   navigationId: string;
 }) {
   const { ref, inView } = useInView({
-    threshold: 0.4,
+    threshold: 0.5,
   });
   const { setActiveSection, timeOfLastClick } = useActiveSectionContext();
-  const animation = useAnimation();
+  const fadeInAnimation = useAnimation();
+  const slideInAnimation = useAnimation();
 
   useEffect(() => {
     if (inView) {
-      animation.start({
+      fadeInAnimation.start({
         y: 0,
         opacity: 1,
         transition: {
-          duration: 0.5,
+          duration: 0.8,
+        },
+      });
+      slideInAnimation.start({
+        x: 0,
+        opacity: 1,
+        transition: {
+          duration: 1,
         },
       });
     }
     if (inView && Date.now() - timeOfLastClick > 1000) {
       setActiveSection(navigationId!);
     }
-  }, [inView, animation, navigationId, setActiveSection, timeOfLastClick]);
+  }, [
+    inView,
+    fadeInAnimation,
+    slideInAnimation,
+    navigationId,
+    setActiveSection,
+    timeOfLastClick,
+  ]);
 
   return {
-    animation,
+    fadeInAnimation,
+    slideInAnimation,
     ref,
   };
 }

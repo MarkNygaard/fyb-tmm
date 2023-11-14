@@ -14,7 +14,7 @@ export default function YoutubeVideo({
   fadeIn,
   link,
 }: YoutubeVideoRecord) {
-  const { ref, animation } = useAnimatedSectionInView({
+  const { ref, fadeInAnimation } = useAnimatedSectionInView({
     navigationId: navigationId as string,
   });
   const navigationIdNoSpace = navigationId?.replace(/\s/g, '');
@@ -30,7 +30,7 @@ export default function YoutubeVideo({
     >
       <motion.div
         initial={fadeIn ? { opacity: 0 } : { opacity: 1 }}
-        animate={fadeIn ? animation : { opacity: 1 }}
+        animate={fadeIn ? fadeInAnimation : { opacity: 1 }}
         className='mx-auto w-full max-w-4xl py-8'
       >
         <div

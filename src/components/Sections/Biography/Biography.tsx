@@ -16,7 +16,7 @@ export default function Biography({
   bioDescription,
   image,
 }: BiographyRecord) {
-  const { ref, animation } = useAnimatedSectionInView({
+  const { ref, fadeInAnimation } = useAnimatedSectionInView({
     navigationId: navigationId as string,
   });
 
@@ -35,7 +35,7 @@ export default function Biography({
     >
       <motion.div
         initial={fadeIn ? { opacity: 0 } : { opacity: 1 }}
-        animate={fadeIn ? animation : { opacity: 1 }}
+        animate={fadeIn ? fadeInAnimation : { opacity: 1 }}
         className='container flex flex-col px-1 xl:grid xl:grid-cols-bio xl:grid-rows-bio'
       >
         <div className='grid grid-rows-2 xl:col-start-1 xl:col-end-3 xl:row-start-1 xl:row-end-4'>
