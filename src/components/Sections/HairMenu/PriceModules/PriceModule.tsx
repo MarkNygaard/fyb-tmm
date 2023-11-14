@@ -47,7 +47,7 @@ export default function PriceModule({
       animate={fadeIn ? fadeInAnimation : { opacity: 1 }}
       className='text-lg font-bold text-skin-accent xl:pb-4'
     >
-      <div className='flex justify-center py-2 text-4xl font-semibold text-gray-400 lg:py-4'>
+      <div className='flex justify-center py-2 text-4xl font-medium text-white lg:py-4'>
         {heading}
       </div>
       <motion.div

@@ -1,10 +1,11 @@
 'use client';
 
 import { GoogleMap, Marker, useLoadScript } from '@react-google-maps/api';
+import { motion, useAnimation } from 'framer-motion';
 import { FooterRecord } from 'lib/graphql';
-import { useSectionInView } from 'lib/hooks';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { StructuredText } from 'react-datocms';
+import { useInView } from 'react-intersection-observer';
 
 export default function Footer({
   id,
@@ -15,9 +16,30 @@ export default function Footer({
   info,
   contact,
 }: FooterRecord) {
-  const { ref } = useSectionInView({
-    navigationId: navigationId as string,
+  const { ref, inView } = useInView({
+    threshold: 0.2,
   });
+  const fadeInAnimation = useAnimation();
+  const slideInAnimation = useAnimation();
+
+  useEffect(() => {
+    if (inView) {
+      fadeInAnimation.start({
+        y: 0,
+        opacity: 1,
+        transition: {
+          duration: 0.5,
+        },
+      });
+      slideInAnimation.start({
+        x: 0,
+        opacity: 1,
+        transition: {
+          duration: 0.8,
+        },
+      });
+    }
+  }, [inView, fadeInAnimation, slideInAnimation]);
 
   const navigationIdNoSpace = navigationId?.replace(/\s/g, '');
 
@@ -43,6 +65,22 @@ export default function Footer({
       <div className='flex flex-col pb-4 md:items-center xl:pb-8'>
         <div className='container mx-auto md:px-10'>
           <div className='mx-auto xl:w-3/4'>
+            <div className='container pb-6'>
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                animate={fadeInAnimation}
+                className='m-0 mx-auto w-full max-w-2xl pb-6 text-4xl font-medium text-white'
+              >
+                {navigationId}
+              </motion.div>
+              <div className='mx-auto w-full max-w-2xl'>
+                <motion.div
+                  initial={{ opacity: 0, x: 300 }}
+                  animate={slideInAnimation}
+                  className='h-[1px] w-28 bg-skin-accent'
+                ></motion.div>
+              </div>
+            </div>
             <div className='prose mx-auto flex flex-col justify-center p-4 prose-p:text-gray-300 prose-a:text-gray-300 prose-strong:text-skin-accent md:pb-8'>
               <StructuredText data={openingHours as any} />
             </div>

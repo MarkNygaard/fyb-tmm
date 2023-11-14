@@ -8,10 +8,10 @@ export default function CustomHeading({
 }: CustomHeadingRecord) {
   return (
     <div key={id}>
-      <p className='m-0 text-4xl font-bold text-gray-200'>{title}</p>
-      <p className='mb-10 mt-0 block text-6xl font-medium text-yellow-200'>
+      <div className='m-0 text-2xl font-medium text-white'>{title}</div>
+      <div className='mb-10 mt-0 block text-xl font-medium text-skin-accent'>
         {subtitle}
-      </p>
+      </div>
     </div>
   );
 }
