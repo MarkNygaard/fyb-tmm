@@ -28,7 +28,7 @@ export function useAnimatedSectionInView({
   navigationId: string;
 }) {
   const { ref, inView } = useInView({
-    threshold: 0.5,
+    threshold: 0.4,
   });
   const { setActiveSection, timeOfLastClick } = useActiveSectionContext();
   const fadeInAnimation = useAnimation();
@@ -47,7 +47,7 @@ export function useAnimatedSectionInView({
         x: 0,
         opacity: 1,
         transition: {
-          duration: 1,
+          duration: 0.8,
         },
       });
     }

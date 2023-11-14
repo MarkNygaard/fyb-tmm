@@ -42,7 +42,7 @@ export default function Text({
           <motion.div
             initial={fadeIn ? { opacity: 0, y: 50 } : { opacity: 1 }}
             animate={fadeIn ? fadeInAnimation : { opacity: 1 }}
-            className='m-0 mx-auto w-full max-w-2xl pb-6 text-4xl font-bold text-gray-300'
+            className='m-0 mx-auto w-full max-w-2xl pb-6 text-4xl font-bold text-gray-400'
           >
             {navigationId}
           </motion.div>

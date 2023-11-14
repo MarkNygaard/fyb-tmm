@@ -16,7 +16,7 @@ export default function Biography({
   bioDescription,
   image,
 }: BiographyRecord) {
-  const { ref, fadeInAnimation } = useAnimatedSectionInView({
+  const { ref, fadeInAnimation, slideInAnimation } = useAnimatedSectionInView({
     navigationId: navigationId as string,
   });
 
@@ -39,7 +39,11 @@ export default function Biography({
         className='container flex flex-col px-1 xl:grid xl:grid-cols-bio xl:grid-rows-bio'
       >
         <div className='grid grid-rows-2 xl:col-start-1 xl:col-end-3 xl:row-start-1 xl:row-end-4'>
-          <div className='relative col-start-1 col-end-2 row-start-1 row-end-3 mx-auto aspect-square w-4/5 md:w-1/2 xl:aspect-auto xl:w-full'>
+          <motion.div
+            initial={{ opacity: 0, x: -400 }}
+            animate={slideInAnimation}
+            className='relative col-start-1 col-end-2 row-start-1 row-end-3 mx-auto aspect-square w-4/5 md:w-1/2 xl:aspect-auto xl:w-full'
+          >
             {/* eslint-disable-next-line jsx-a11y/alt-text */}
             <Image
               className='rounded-full border-8 border-skin-primary xl:rounded-none xl:border-0'
@@ -48,7 +52,7 @@ export default function Biography({
               objectFit='cover'
               objectPosition='50% 50%'
             />
-          </div>
+          </motion.div>
           <div className='col-start-1 col-end-2 row-span-1 row-start-2 row-end-3 h-full w-full bg-skin-secondary xl:hidden'></div>
         </div>
         <div className='flex flex-col justify-center bg-skin-secondary pt-2 md:pb-6 md:pt-4 xl:col-start-2 xl:col-end-6 xl:row-start-2 xl:row-end-5 xl:grid xl:grid-cols-bioText xl:grid-rows-bioText'>
