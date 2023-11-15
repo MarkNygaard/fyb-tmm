@@ -60,7 +60,7 @@ export default function Footer({
       ref={ref}
       id={navigationIdNoSpace!}
       key={id}
-      className='pt-10 text-gray-300'
+      className='overflow-hidden px-4 pt-10 text-gray-300'
     >
       <div className='flex flex-col pb-4 md:items-center xl:pb-8'>
         <div className='container mx-auto md:px-10'>
@@ -73,7 +73,7 @@ export default function Footer({
               >
                 {navigationId}
               </motion.div>
-              <div className='mx-auto w-full max-w-2xl'>
+              <div className='m-0 mx-auto w-full max-w-2xl'>
                 <motion.div
                   initial={{ opacity: 0, x: 300 }}
                   animate={slideInAnimation}
@@ -81,10 +81,10 @@ export default function Footer({
                 ></motion.div>
               </div>
             </div>
-            <div className='prose mx-auto flex flex-col justify-center p-4 prose-p:text-gray-300 prose-a:text-gray-300 prose-strong:text-skin-accent md:pb-8'>
+            <div className='prose mx-auto flex flex-col justify-center py-4 prose-p:text-gray-300 prose-a:text-gray-300 prose-strong:text-white md:pb-8'>
               <StructuredText data={openingHours as any} />
             </div>
-            <div className='prose mx-auto flex flex-col justify-center p-4 prose-p:text-gray-300 prose-a:text-gray-300 prose-strong:text-skin-accent md:pb-8'>
+            <div className='prose mx-auto flex flex-col justify-center py-4 prose-p:text-gray-300 prose-a:text-gray-300 prose-strong:text-white md:pb-8'>
               <StructuredText data={info as any} />
             </div>
           </div>
@@ -119,10 +119,10 @@ export default function Footer({
         <div className='container mx-auto px-4 md:px-10 xl:px-0'>
           <div className='mx-auto xl:w-3/4'>
             <div className='flex flex-col justify-center md:mx-4 md:flex-row'>
-              <div className='prose flex flex-col justify-center py-4 pb-8 prose-p:text-gray-300 prose-a:text-gray-300 prose-strong:text-skin-accent md:w-1/2'>
+              <div className='prose flex flex-col justify-center py-4 pb-8 prose-p:text-gray-300 prose-a:text-gray-300 prose-strong:text-white md:w-1/2'>
                 <StructuredText data={contact as any} />
               </div>
-              <div className='prose flex flex-col justify-center py-4 pb-8 prose-p:text-gray-300 prose-a:text-gray-300 prose-strong:text-skin-accent md:w-1/2'>
+              <div className='prose flex flex-col justify-center py-4 pb-8 prose-p:text-gray-300 prose-a:text-gray-300 prose-strong:text-white md:w-1/2'>
                 <StructuredText data={address as any} />
               </div>
             </div>
