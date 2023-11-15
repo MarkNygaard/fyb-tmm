@@ -1,17 +1,12 @@
 'use client';
 
-import CustomHeading from '@ui/StructuredText/Blocks/CustomHeading/CustomHeading';
+import StructuredText from '@ui/StructuredText/StructuredText';
 import classNames from 'clsx';
 import { AnimatePresence, motion } from 'framer-motion';
-import {
-  BiographyRecord,
-  CustomHeadingRecord,
-  FileField,
-  ResponsiveImage,
-} from 'lib/graphql';
+import { BiographyRecord, ResponsiveImage } from 'lib/graphql';
 import { useAnimatedSectionInView } from 'lib/hooks';
 import React, { useState } from 'react';
-import { Image, StructuredText } from 'react-datocms';
+import { Image } from 'react-datocms';
 import { AiOutlineDownCircle, AiOutlineUpCircle } from 'react-icons/ai';
 import useMeasure from 'react-use-measure';
 
@@ -46,14 +41,14 @@ export default function Biography({
       >
         <div className='grid grid-rows-2 xl:col-start-1 xl:col-end-3 xl:row-start-1 xl:row-end-4'>
           <motion.div
-            initial={{ opacity: 0, x: -400 }}
-            animate={slideInAnimation}
+            initial={fadeIn ? { opacity: 0, x: -400 } : { opacity: 1, x: 0 }}
+            animate={fadeIn ? slideInAnimation : { opacity: 1, x: 0 }}
             className='relative col-start-1 col-end-2 row-start-1 row-end-3 mx-auto aspect-square w-4/5 md:w-1/2 xl:aspect-auto xl:w-full'
           >
             {/* eslint-disable-next-line jsx-a11y/alt-text */}
             <Image
               className='rounded-full border-8 border-skin-primary xl:rounded-none xl:border-0'
-              data={(image as FileField).responsiveImage as ResponsiveImage}
+              data={image?.responsiveImage as ResponsiveImage}
               layout='fill'
               objectFit='cover'
               objectPosition='50% 50%'
@@ -76,18 +71,7 @@ export default function Biography({
                   !fullText && 'line-clamp-8'
                 } prose max-w-none px-2 font-thin leading-[30px] prose-h3:text-skin-accent prose-p:text-gray-200 prose-a:text-skin-accent prose-strong:text-gray-200 md:line-clamp-none md:px-4 md:font-light lg:px-6 xl:p-0 xl:leading-7`}
               >
-                <StructuredText
-                  data={bioDescription as any}
-                  renderBlock={({ record }) => {
-                    if (record.__typename === 'CustomHeadingRecord') {
-                      const CustomHeadingRecord = record as CustomHeadingRecord;
-                      return (
-                        <CustomHeading {...CustomHeadingRecord}></CustomHeading>
-                      );
-                    }
-                    return null;
-                  }}
-                />
+                <StructuredText content={bioDescription} />
               </div>
             </motion.div>
           </AnimatePresence>
