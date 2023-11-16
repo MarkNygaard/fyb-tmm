@@ -9,8 +9,9 @@ import {
   useScroll,
   useTransform,
 } from 'framer-motion';
-import { FileField, HeroRecord, ResponsiveImage } from 'lib/graphql';
+import { HeroRecord, ResponsiveImage } from 'lib/graphql';
 import { useSectionInView } from 'lib/hooks';
+import { useBreakpoint } from 'lib/hooks';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import { Image } from 'react-datocms';
@@ -33,6 +34,7 @@ export default function Hero({
   const { ref } = useSectionInView({ navigationId: navigationId as string });
   const [isVisible, setIsVisible] = useState(false);
   const navigationIdNoSpace = navigationId?.replace(/\s/g, '');
+  const { isBelowXl } = useBreakpoint('xl');
 
   useEffect(() => {
     window.addEventListener('scroll', listenToScroll);
@@ -52,7 +54,8 @@ export default function Hero({
   };
 
   let { scrollYProgress } = useScroll();
-  let y = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
+  let scrollSpeed = isBelowXl ? [0, 0.5] : [0, 1];
+  let y = useTransform(scrollYProgress, scrollSpeed, ['0%', '100%']);
 
   return (
     <div
@@ -70,9 +73,7 @@ export default function Hero({
         >
           {/* eslint-disable-next-line jsx-a11y/alt-text */}
           <Image
-            data={
-              (backgroundImage as FileField).responsiveImage as ResponsiveImage
-            }
+            data={backgroundImage.responsiveImage as ResponsiveImage}
             layout='fill'
             objectFit='cover'
             objectPosition='50% 50%'
@@ -86,7 +87,7 @@ export default function Hero({
           <motion.div className='relative mt-24 flex h-full w-7/12 flex-grow md:mt-44 md:w-4/12 lg:mt-28 xl:mt-32 xl:w-2/12'>
             {/* eslint-disable-next-line jsx-a11y/alt-text */}
             <Image
-              data={(image as FileField).responsiveImage as ResponsiveImage}
+              data={image.responsiveImage as ResponsiveImage}
               layout='fill'
               objectFit='contain'
               objectPosition='50% 50%'
