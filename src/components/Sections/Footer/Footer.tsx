@@ -1,11 +1,11 @@
 'use client';
 
 import { GoogleMap, Marker, useLoadScript } from '@react-google-maps/api';
-import { motion, useAnimation } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { FooterRecord } from 'lib/graphql';
-import React, { useEffect } from 'react';
+import { useAnimatedSectionInView } from 'lib/hooks';
+import React from 'react';
 import { StructuredText } from 'react-datocms';
-import { useInView } from 'react-intersection-observer';
 
 export default function Footer({
   id,
@@ -16,30 +16,9 @@ export default function Footer({
   info,
   contact,
 }: FooterRecord) {
-  const { ref, inView } = useInView({
-    threshold: 0.2,
+  const { ref, fadeInAnimation, slideInAnimation } = useAnimatedSectionInView({
+    navigationId: navigationId as string,
   });
-  const fadeInAnimation = useAnimation();
-  const slideInAnimation = useAnimation();
-
-  useEffect(() => {
-    if (inView) {
-      fadeInAnimation.start({
-        y: 0,
-        opacity: 1,
-        transition: {
-          duration: 0.5,
-        },
-      });
-      slideInAnimation.start({
-        x: 0,
-        opacity: 1,
-        transition: {
-          duration: 0.8,
-        },
-      });
-    }
-  }, [inView, fadeInAnimation, slideInAnimation]);
 
   const navigationIdNoSpace = navigationId?.replace(/\s/g, '');
 
