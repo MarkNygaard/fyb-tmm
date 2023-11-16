@@ -7,7 +7,9 @@ const buttonStyles = cva(['font-light', 'shadow-lg'], {
       primary: [
         'bg-skin-accent',
         'text-white',
-        'hover:scale-110',
+        'hover:bg-transparent',
+        'border-2',
+        'border-skin-accent',
         'transform',
         'transition',
         'duration-300',
@@ -20,14 +22,18 @@ const buttonStyles = cva(['font-light', 'shadow-lg'], {
       ],
     },
     size: {
-      small: ['text-sm', 'py-2', 'xl:py-4'],
-      medium: ['text-lg', 'py-4', 'xl:py-6'],
+      small: ['text-sm', 'py-2', 'xl:py-3'],
+      medium: ['text-xl', 'py-4', ' xl:py-5'],
       large: ['text-2xl', 'py-6', 'xl:py-8'],
     },
     width: {
-      small: ['px-4', 'xl:px-12'],
-      medium: ['px-8', 'xl:px-16'],
+      small: ['px-4', 'xl:px-10'],
+      medium: ['px-8', 'xl:px-14'],
       large: ['px-12', 'xl:px-20'],
+    },
+    form: {
+      square: ['rounded-none'],
+      rounded: ['rounded-md'],
     },
   },
   compoundVariants: [{ intent: 'primary', size: 'medium', class: 'uppercase' }],
@@ -35,6 +41,7 @@ const buttonStyles = cva(['font-light', 'shadow-lg'], {
     intent: 'primary',
     size: 'medium',
     width: 'medium',
+    form: 'rounded',
   },
 });
 
@@ -44,6 +51,7 @@ export interface ButtonProps
   intent?: 'primary' | 'secondary';
   size?: 'small' | 'medium' | 'large';
   width?: 'small' | 'medium' | 'large';
+  form?: 'square' | 'rounded';
   label: string;
 }
 
@@ -51,11 +59,15 @@ export const Button: React.FC<ButtonProps> = ({
   intent,
   size,
   width,
+  form,
   label,
   ...props
 }: ButtonProps) => {
   return (
-    <button className={cn(buttonStyles({ intent, size, width }))} {...props}>
+    <button
+      className={cn(buttonStyles({ intent, size, width, form }))}
+      {...props}
+    >
       {label}
     </button>
   );
