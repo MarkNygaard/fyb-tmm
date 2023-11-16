@@ -59,6 +59,7 @@ module.exports = {
       height: {
         132: '33rem',
         screen: ['100vh /* fallback for Opera, IE and etc. */', '100dvh'],
+        smallScreen: ['100vh /* fallback for Opera, IE and etc. */', '100svh'],
       },
       width: {
         132: '33rem',

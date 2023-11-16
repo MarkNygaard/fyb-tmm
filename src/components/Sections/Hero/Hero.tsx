@@ -66,7 +66,7 @@ export default function Hero({
           style={{ y }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          className='absolute inset-0 top-0 mx-auto h-screen'
+          className='absolute inset-0 top-0 mx-auto'
         >
           {/* eslint-disable-next-line jsx-a11y/alt-text */}
           <Image
@@ -81,7 +81,7 @@ export default function Hero({
           />
         </motion.div>
       )}
-      <div className='relative flex h-screen flex-col items-center justify-center'>
+      <div className='h-smallScreen relative flex flex-col items-center justify-center'>
         {image && (
           <motion.div className='relative mt-24 flex h-full w-7/12 flex-grow md:mt-44 md:w-4/12 lg:mt-28 xl:mt-32 xl:w-2/12'>
             {/* eslint-disable-next-line jsx-a11y/alt-text */}

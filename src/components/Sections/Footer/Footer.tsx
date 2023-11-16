@@ -60,12 +60,12 @@ export default function Footer({
       ref={ref}
       id={navigationIdNoSpace!}
       key={id}
-      className='overflow-hidden px-4 pt-10 text-gray-300'
+      className='overflow-hidden pt-10 text-gray-300'
     >
       <div className='flex flex-col pb-4 md:items-center xl:pb-8'>
         <div className='container mx-auto md:px-10'>
           <div className='mx-auto xl:w-3/4'>
-            <div className='container pb-6'>
+            <div className='container px-4 pb-6'>
               <motion.div
                 initial={{ opacity: 0, y: 50 }}
                 animate={fadeInAnimation}
@@ -81,10 +81,10 @@ export default function Footer({
                 ></motion.div>
               </div>
             </div>
-            <div className='prose mx-auto flex flex-col justify-center py-4 prose-p:text-gray-300 prose-a:text-gray-300 prose-strong:text-white md:pb-8'>
+            <div className='prose mx-auto flex flex-col justify-center p-4 prose-p:text-gray-300 prose-a:text-gray-300 prose-strong:text-white md:pb-8'>
               <StructuredText data={openingHours as any} />
             </div>
-            <div className='prose mx-auto flex flex-col justify-center py-4 prose-p:text-gray-300 prose-a:text-gray-300 prose-strong:text-white md:pb-8'>
+            <div className='prose mx-auto flex flex-col justify-center p-4 prose-p:text-gray-300 prose-a:text-gray-300 prose-strong:text-white md:pb-8'>
               <StructuredText data={info as any} />
             </div>
           </div>
