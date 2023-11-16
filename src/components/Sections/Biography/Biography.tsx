@@ -41,7 +41,7 @@ export default function Biography({
       >
         <div className='grid grid-rows-2 xl:col-start-1 xl:col-end-3 xl:row-start-1 xl:row-end-4'>
           <motion.div
-            initial={fadeIn ? { opacity: 0, x: -400 } : { opacity: 1, x: 0 }}
+            initial={fadeIn ? { opacity: 0, x: -200 } : { opacity: 1, x: 0 }}
             animate={fadeIn ? slideInAnimation : { opacity: 1, x: 0 }}
             className='relative col-start-1 col-end-2 row-start-1 row-end-3 mx-auto aspect-square w-4/5 md:w-1/2 xl:aspect-auto xl:w-full'
           >
