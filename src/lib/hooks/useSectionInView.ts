@@ -8,7 +8,7 @@ import { useBreakpoint } from './useBreakpoint';
 
 export function useSectionInView({ navigationId }: { navigationId: string }) {
   const { isBelowXl } = useBreakpoint('xl');
-  const threshold = isBelowXl ? 0.05 : 0.4;
+  const threshold = isBelowXl ? 0.05 : 0.2;
 
   const { ref, inView } = useInView({
     threshold: threshold,

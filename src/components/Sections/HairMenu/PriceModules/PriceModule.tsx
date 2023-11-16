@@ -3,9 +3,9 @@
 import classNames from 'clsx';
 import { motion, useAnimation } from 'framer-motion';
 import { PriceModuleRecord, PriceRecord } from 'lib/graphql';
+import { useBreakpoint } from 'lib/hooks';
 import React, { useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
-import { useBreakpoint } from 'lib/hooks';
 
 import Prices from '../Prices/Prices';
 
