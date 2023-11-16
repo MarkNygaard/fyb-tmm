@@ -81,12 +81,20 @@ export default function Footer({
                 ></motion.div>
               </div>
             </div>
-            <div className='prose mx-auto flex flex-col justify-center p-4 prose-p:text-gray-300 prose-a:text-gray-300 prose-strong:text-white md:pb-8'>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={fadeInAnimation}
+              className='prose mx-auto flex flex-col justify-center p-4 prose-p:text-gray-300 prose-a:text-gray-300 prose-strong:text-white md:pb-8'
+            >
               <StructuredText data={openingHours as any} />
-            </div>
-            <div className='prose mx-auto flex flex-col justify-center p-4 prose-p:text-gray-300 prose-a:text-gray-300 prose-strong:text-white md:pb-8'>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={fadeInAnimation}
+              className='prose mx-auto flex flex-col justify-center p-4 prose-p:text-gray-300 prose-a:text-gray-300 prose-strong:text-white md:pb-8'
+            >
               <StructuredText data={info as any} />
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>

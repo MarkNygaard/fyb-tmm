@@ -5,6 +5,7 @@ import { motion, useAnimation } from 'framer-motion';
 import { PriceModuleRecord, PriceRecord } from 'lib/graphql';
 import React, { useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
+import { useBreakpoint } from 'lib/hooks';
 
 import Prices from '../Prices/Prices';
 
@@ -15,8 +16,11 @@ export default function PriceModule({
   heading,
   fadeIn,
 }: PriceModuleProps) {
+  const isBelowXl = useBreakpoint('xl');
+  const threshold = isBelowXl ? 0.05 : prices.length > 2 ? 0.2 : 0.5;
+
   const { ref, inView } = useInView({
-    threshold: prices.length > 2 ? 0.2 : 0.5,
+    threshold: threshold,
   });
   const fadeInAnimation = useAnimation();
   const slideInAnimation = useAnimation();
