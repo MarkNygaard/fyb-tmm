@@ -6,7 +6,6 @@ import { AnimatePresence, motion, useAnimation } from 'framer-motion';
 import { LinkRecord, PageModelContentField } from 'lib/graphql';
 import Link from 'next/link';
 import React, { useState } from 'react';
-import { debounce } from 'throttle-debounce';
 
 const path01Variants = {
   open: { d: 'M1.5 0L1.5 20' },
@@ -71,9 +70,12 @@ export default function MobileNavigation({
   const path03Controls = useAnimation();
   const button = useAnimation();
 
+  const [disabled, setDisabled] = useState<boolean>(false);
+
   const onClick = async () => {
     setMenuIsOpen(!menuIsOpen);
     if (!menuIsOpen) {
+      setDisabled(true);
       await path03Controls.start(path03Variants.closed);
       await path02Controls.start(path02Variants.closed);
       await path01Controls.start(path01Variants.closed);
@@ -83,6 +85,7 @@ export default function MobileNavigation({
       await path03Controls.start(path03Variants.open);
       await path02Controls.start(path02Variants.open);
       path01Controls.start(path01Variants.open);
+      setDisabled(false);
     }
   };
 
@@ -90,9 +93,10 @@ export default function MobileNavigation({
     <>
       <div className='sticky top-0 z-50 flex w-full justify-end text-3xl text-white md:hidden'>
         <motion.button
+          disabled={disabled}
           aria-label='menu'
           className='translate-z-50 absolute z-50 m-6 rounded-full p-2 active:bg-gray-300/20'
-          onClick={debounce(600, onClick)}
+          onClick={onClick}
           animate={button}
         >
           <span className='sr-only'>Open menu</span>
