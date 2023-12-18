@@ -34,7 +34,7 @@
     "react-lite-youtube-embed": "^2.4.0",
     "react-responsive": "^9.0.2",
     "react-use-measure": "^2.1.1",
-    "tailwind-merge": "^2.0.0",
+    "tailwind-merge": "^2.1.0",
     "throttle-debounce": "^5.0.0"
   },
   "devDependencies": {
