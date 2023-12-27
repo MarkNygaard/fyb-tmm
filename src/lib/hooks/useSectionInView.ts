@@ -17,7 +17,7 @@ export function useSectionInView({ navigationId }: { navigationId: string }) {
 
   useEffect(() => {
     if (inView && Date.now() - timeOfLastClick > 1000) {
-      setActiveSection(navigationId!);
+      setActiveSection(navigationId);
     }
   }, [inView, setActiveSection, navigationId, timeOfLastClick]);
 

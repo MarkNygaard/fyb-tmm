@@ -6,11 +6,11 @@ type generatePreviewUrlParams = {
 };
 
 const generatePreviewUrl = ({ itemType }: generatePreviewUrlParams) => {
-  switch (itemType.attributes.api_key) {
-    case 'page':
-      return `/`;
-    case 'layout':
-      return `/`;
+  if (
+    itemType.attributes.api_key === 'page' ||
+    itemType.attributes.api_key === 'layout'
+  ) {
+    return '/';
   }
 };
 

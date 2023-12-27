@@ -3,7 +3,7 @@
 import StructuredText from '@ui/StructuredText/StructuredText';
 import classNames from 'clsx';
 import { motion } from 'framer-motion';
-import { ResponsiveImage, TextImageRecord } from 'lib/graphql';
+import { TextImageRecord } from 'lib/graphql';
 import { useAnimatedSectionInView } from 'lib/hooks';
 import React from 'react';
 import { Image } from 'react-datocms';
@@ -58,7 +58,7 @@ export default function TextImage({
               )}
             >
               {/* eslint-disable-next-line jsx-a11y/alt-text */}
-              <Image data={image?.responsiveImage as ResponsiveImage} />
+              <Image data={image?.responsiveImage} />
             </div>
           </div>
         )}

@@ -15,9 +15,9 @@ export default function RealTimeSections({
   token,
   query,
 }: {
-  initialData: HomePageQuery;
-  query: TypedDocumentNode<HomePageQuery, HomePageQueryVariables>;
-  token: string;
+  readonly initialData: HomePageQuery;
+  readonly query: TypedDocumentNode<HomePageQuery, HomePageQueryVariables>;
+  readonly token: string;
 }) {
   const { data } = useQuerySubscription({
     query,
@@ -26,7 +26,7 @@ export default function RealTimeSections({
     preview: true,
   });
 
-  if (!data || !data.page) return <></>;
+  if (!data?.page) return <></>;
 
   return (
     <Sections

@@ -20,22 +20,20 @@ export default async function Home() {
   if (!data?.page) notFound();
 
   return (
-    <>
-      <div className='bg-skin-primary'>
-        {!isEnabled && (
-          <Sections
-            sections={data.page?.content as Array<PageModelContentField>}
-            firstSection={data.page?.content[1]?.navigationId}
-          />
-        )}
-        {isEnabled && (
-          <RealTimeSections
-            initialData={data}
-            token={process.env.DATOCMS_API_TOKEN || ''}
-            query={HomePageDocument}
-          />
-        )}
-      </div>
-    </>
+    <div className='bg-skin-primary'>
+      {!isEnabled && (
+        <Sections
+          sections={data.page?.content as Array<PageModelContentField>}
+          firstSection={data.page?.content[1]?.navigationId}
+        />
+      )}
+      {isEnabled && (
+        <RealTimeSections
+          initialData={data}
+          token={process.env.DATOCMS_API_TOKEN || ''}
+          query={HomePageDocument}
+        />
+      )}
+    </div>
   );
 }

@@ -8,7 +8,7 @@ type Props = {
 
 const CustomColors = ({ primary, secondary, accent }: Props) => {
   return (
-    <style global jsx>{`
+    <style>{`
       :root {
         ${primary};
         ${secondary};
