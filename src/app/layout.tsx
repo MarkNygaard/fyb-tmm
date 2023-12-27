@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/react';
 import CustomColors from 'components/CustomColors/CustomColors';
 import DesktopNavigation from 'components/Navigation/DesktopNavigation';
 import MobileNavigation from 'components/Navigation/MobileNavigation';
@@ -75,6 +76,7 @@ export default async function RootLayout({
             }
           />
           {children}
+          <Analytics />
         </body>
       </ActiveSectionContextProvider>
     </html>
