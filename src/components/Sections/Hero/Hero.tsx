@@ -10,8 +10,7 @@ import {
   useTransform,
 } from 'framer-motion';
 import { HeroRecord, ResponsiveImage } from 'lib/graphql';
-import { useSectionInView } from 'lib/hooks';
-import { useBreakpoint } from 'lib/hooks';
+import { useBreakpoint, useSectionInView } from 'lib/hooks';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import { Image } from 'react-datocms';
@@ -82,7 +81,7 @@ export default function Hero({
           />
         </motion.div>
       )}
-      <div className='h-smallScreen relative flex flex-col items-center justify-center'>
+      <div className='relative flex h-smallScreen flex-col items-center justify-center'>
         {image && (
           <motion.div className='relative mt-24 flex h-full w-7/12 flex-grow md:mt-44 md:w-4/12 lg:mt-28 xl:mt-32 xl:w-2/12'>
             {/* eslint-disable-next-line jsx-a11y/alt-text */}

@@ -5,7 +5,7 @@ import React from 'react';
 
 type GridTextProps = { section: TextRecord; height: string };
 
-export function GridText({ section, height }: GridTextProps) {
+export function GridText({ section, height }: Readonly<GridTextProps>) {
   return (
     <div
       className={clsx('flex justify-center overflow-hidden bg-skin-accent', {

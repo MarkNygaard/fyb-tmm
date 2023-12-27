@@ -28,7 +28,7 @@ export function useBreakpoint<K extends string>(breakpointKey: K) {
   type KeyBelow = `isBelow${Capitalize<K>}`;
 
   return {
-    [breakpointKey]: Number(String(breakpointValue).replace(/[^0-9]/g, '')),
+    [breakpointKey]: Number(String(breakpointValue).replace(/\D/g, '')),
     [`isAbove${capitalizedKey}`]: !bool,
     [`isBelow${capitalizedKey}`]: bool,
   } as Record<K, number> & Record<KeyAbove | KeyBelow, boolean>;

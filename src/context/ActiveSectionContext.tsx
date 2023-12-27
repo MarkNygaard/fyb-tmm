@@ -1,6 +1,6 @@
 'use client';
 
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useMemo, useState } from 'react';
 
 type ActiveSectionContextType = {
   activeSection: string | null;
@@ -15,20 +15,23 @@ export const ActiveSectionContext =
 export default function ActiveSectionContextProvider({
   children,
 }: {
-  children: React.ReactNode;
+  readonly children: React.ReactNode;
 }) {
   const [activeSection, setActiveSection] = useState<string | null>('Home');
   const [timeOfLastClick, setTimeOfLastClick] = useState(0);
 
+  const contextValue = useMemo(
+    () => ({
+      activeSection,
+      setActiveSection,
+      timeOfLastClick,
+      setTimeOfLastClick,
+    }),
+    [activeSection, setActiveSection, timeOfLastClick, setTimeOfLastClick],
+  );
+
   return (
-    <ActiveSectionContext.Provider
-      value={{
-        activeSection,
-        setActiveSection,
-        timeOfLastClick,
-        setTimeOfLastClick,
-      }}
-    >
+    <ActiveSectionContext.Provider value={contextValue}>
       {children}
     </ActiveSectionContext.Provider>
   );

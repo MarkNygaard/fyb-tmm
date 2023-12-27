@@ -60,19 +60,18 @@ export default function Grid({
                   section.desktopPosition,
               })}
             >
-              {section.__typename === 'GridImageRecord' ? (
+              {section.__typename === 'GridImageRecord' && (
                 <GridImage
                   key={section.id}
                   height={height as string}
                   {...section}
                 />
-              ) : section.__typename === 'GridTextRecord' ? (
+              )}
+              {section.__typename === 'GridTextRecord' && (
                 <GridText
                   height={height as string}
                   section={section as TextRecord}
                 />
-              ) : (
-                <></>
               )}
             </div>
           );

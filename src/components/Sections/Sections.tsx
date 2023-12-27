@@ -15,7 +15,7 @@ type Props = {
   firstSection: string | null | undefined;
 };
 
-export default function Sections({ sections, firstSection }: Props) {
+export default function Sections({ sections, firstSection }: Readonly<Props>) {
   return (
     <>
       {sections.map((section) => {

@@ -40,7 +40,7 @@ export function useAnimatedSectionInView({
       });
     }
     if (inView && Date.now() - timeOfLastClick > 1000) {
-      setActiveSection(navigationId!);
+      setActiveSection(navigationId);
     }
   }, [
     inView,

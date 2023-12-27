@@ -17,7 +17,15 @@ export default function PriceModule({
   fadeIn,
 }: PriceModuleProps) {
   const isBelowXl = useBreakpoint('xl');
-  const threshold = isBelowXl ? 0.05 : prices.length > 2 ? 0.2 : 0.5;
+
+  let threshold;
+  if (isBelowXl) {
+    threshold = 0.05;
+  } else if (prices.length > 2) {
+    threshold = 0.2;
+  } else {
+    threshold = 0.5;
+  }
 
   const { ref, inView } = useInView({
     threshold: threshold,
