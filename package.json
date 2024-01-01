@@ -21,7 +21,7 @@
     "@react-google-maps/api": "^2.19.2",
     "@vercel/analytics": "^1.1.1",
     "class-variance-authority": "^0.7.0",
-    "clsx": "^2.0.0",
+    "clsx": "^2.1.0",
     "d": "^1.0.1",
     "framer-motion": "^10.16.16",
     "graphql": "^16.8.1",
