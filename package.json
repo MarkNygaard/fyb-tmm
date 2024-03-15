@@ -56,7 +56,7 @@
     "@tailwindcss/typography": "^0.5.10",
     "@types/node": "20.11.20",
     "@types/react": "18.2.59",
-    "@types/react-dom": "18.2.19",
+    "@types/react-dom": "18.2.22",
     "@types/throttle-debounce": "^5.0.2",
     "autoprefixer": "^10.4.17",
     "eslint": "8.57.0",
