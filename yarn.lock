@@ -2752,6 +2752,18 @@
     polished "^4.2.2"
     uuid "^9.0.0"
 
+"@storybook/addon-actions@8.0.1":
+  version "8.0.1"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-actions/-/addon-actions-8.0.1.tgz#264770ad5da76099802fb3e4313122e2650608e8"
+  integrity sha512-qFd1NOI9C16/Jo+7XQQXRsoTzcvKPlT6M5lU47lGLuyLwbZSp5EKxmy8+uKTnyLF/2BTAvOLZ/wYmw+Gj4VzOA==
+  dependencies:
+    "@storybook/core-events" "8.0.1"
+    "@storybook/global" "^5.0.0"
+    "@types/uuid" "^9.0.1"
+    dequal "^2.0.2"
+    polished "^4.2.2"
+    uuid "^9.0.0"
+
 "@storybook/addon-backgrounds@8.0.0":
   version "8.0.0"
   resolved "https://registry.yarnpkg.com/@storybook/addon-backgrounds/-/addon-backgrounds-8.0.0.tgz#033bcae9d257e8aca612bf147da54b66ecbf1796"
@@ -2954,19 +2966,19 @@
     process "^0.11.10"
     util "^0.12.4"
 
-"@storybook/builder-webpack5@8.0.0":
-  version "8.0.0"
-  resolved "https://registry.yarnpkg.com/@storybook/builder-webpack5/-/builder-webpack5-8.0.0.tgz#df862aa3cb105e5942aa81d4c0051b36449fcd37"
-  integrity sha512-Pkqeume16aXR1jkMFfafTuhFXviBZWguCqSsTCzH+fyN28k9QYfcsUUZ5LlEGz9ZKFEO2+ZIuq2Mg1iBeSzUSw==
+"@storybook/builder-webpack5@8.0.1":
+  version "8.0.1"
+  resolved "https://registry.yarnpkg.com/@storybook/builder-webpack5/-/builder-webpack5-8.0.1.tgz#d67fe2abc6f8758e1cd8f428b9330ba0e27d34be"
+  integrity sha512-1UOdF5Ic5Ss86VwcZ5E0h5TJT6hcQTQFF+mjSla3Yy9Q9mvWtyr4xHYnTH7RXNB0cQXbFvaPvQLnBA0aOq/8HQ==
   dependencies:
-    "@storybook/channels" "8.0.0"
-    "@storybook/client-logger" "8.0.0"
-    "@storybook/core-common" "8.0.0"
-    "@storybook/core-events" "8.0.0"
-    "@storybook/core-webpack" "8.0.0"
-    "@storybook/node-logger" "8.0.0"
-    "@storybook/preview" "8.0.0"
-    "@storybook/preview-api" "8.0.0"
+    "@storybook/channels" "8.0.1"
+    "@storybook/client-logger" "8.0.1"
+    "@storybook/core-common" "8.0.1"
+    "@storybook/core-events" "8.0.1"
+    "@storybook/core-webpack" "8.0.1"
+    "@storybook/node-logger" "8.0.1"
+    "@storybook/preview" "8.0.1"
+    "@storybook/preview-api" "8.0.1"
     "@types/node" "^18.0.0"
     "@types/semver" "^7.3.4"
     browser-assert "^1.2.1"
@@ -3310,14 +3322,14 @@
     watchpack "^2.2.0"
     ws "^8.2.3"
 
-"@storybook/core-webpack@8.0.0":
-  version "8.0.0"
-  resolved "https://registry.yarnpkg.com/@storybook/core-webpack/-/core-webpack-8.0.0.tgz#4e74b077374c62800465fb0e2f2221422c04948a"
-  integrity sha512-JhZwPFoL92ntTdhwGSokodNZlpogs/u2OjImynfcXpnz7FqEQVJ/d3GiPwG9Wx+Ek2mUOn8XeorZI1LNTj+ihA==
+"@storybook/core-webpack@8.0.1":
+  version "8.0.1"
+  resolved "https://registry.yarnpkg.com/@storybook/core-webpack/-/core-webpack-8.0.1.tgz#647b9e37927db6b7dccf2020488c88cfa23415b0"
+  integrity sha512-QiZYA6mDgfInk10s2pXwSCGIgaUWeix/eo9Iizby3uGlNIu3XOfqfxvCwAE5EjlpLOaUdUbrB9UYr57k0x1PAg==
   dependencies:
-    "@storybook/core-common" "8.0.0"
-    "@storybook/node-logger" "8.0.0"
-    "@storybook/types" "8.0.0"
+    "@storybook/core-common" "8.0.1"
+    "@storybook/node-logger" "8.0.1"
+    "@storybook/types" "8.0.1"
     "@types/node" "^18.0.0"
     ts-dedent "^2.0.0"
 
@@ -3472,10 +3484,10 @@
   resolved "https://registry.yarnpkg.com/@storybook/manager/-/manager-8.0.0.tgz#ad48c7341f9906b6eabd99eba295dd100a20756a"
   integrity sha512-1aCHzc+A4IOdDves+mE0K9bjyyPzPAIlR7oI6kSuO416/HXXJDdN5G825OQB/VIBYc1b8cNElMdNVKQK2FQorQ==
 
-"@storybook/nextjs@^8.0.0":
-  version "8.0.0"
-  resolved "https://registry.yarnpkg.com/@storybook/nextjs/-/nextjs-8.0.0.tgz#8bf4c7e490cb83921a8372b8e564fe85af6cdb65"
-  integrity sha512-Z+eWizq7k+Nsr8edFwQmJAhEjJEu8o8i0lkcD+v/7kQbmwl+WDpRbSBu824FCaQNNkSLArXk6FgItlxGk31KrA==
+"@storybook/nextjs@^8.0.1":
+  version "8.0.1"
+  resolved "https://registry.yarnpkg.com/@storybook/nextjs/-/nextjs-8.0.1.tgz#0a720e8e0fe682f965f2cfb402bff8c182ffb5db"
+  integrity sha512-h8MK/vGfP2pPERhx6sHa8O2GgbcwDAI4G3G4MbsgKy+6OI5GB4dfjAaE0CpWjJL1DItP9Aj23JMPGeddiOgqlQ==
   dependencies:
     "@babel/core" "^7.23.2"
     "@babel/plugin-syntax-bigint" "^7.8.3"
@@ -3491,15 +3503,15 @@
     "@babel/preset-typescript" "^7.23.2"
     "@babel/runtime" "^7.23.2"
     "@pmmmwh/react-refresh-webpack-plugin" "^0.5.11"
-    "@storybook/addon-actions" "8.0.0"
-    "@storybook/builder-webpack5" "8.0.0"
-    "@storybook/core-common" "8.0.0"
-    "@storybook/core-events" "8.0.0"
-    "@storybook/node-logger" "8.0.0"
-    "@storybook/preset-react-webpack" "8.0.0"
-    "@storybook/preview-api" "8.0.0"
-    "@storybook/react" "8.0.0"
-    "@storybook/types" "8.0.0"
+    "@storybook/addon-actions" "8.0.1"
+    "@storybook/builder-webpack5" "8.0.1"
+    "@storybook/core-common" "8.0.1"
+    "@storybook/core-events" "8.0.1"
+    "@storybook/node-logger" "8.0.1"
+    "@storybook/preset-react-webpack" "8.0.1"
+    "@storybook/preview-api" "8.0.1"
+    "@storybook/react" "8.0.1"
+    "@storybook/types" "8.0.1"
     "@types/node" "^18.0.0"
     "@types/semver" "^7.3.4"
     babel-loader "^9.1.3"
@@ -3538,15 +3550,15 @@
   resolved "https://registry.yarnpkg.com/@storybook/node-logger/-/node-logger-8.0.1.tgz#e27e5796c462a12331fcf71e01df6db34cea848e"
   integrity sha512-uYWKSz9NhLOe2O60sJ4UPT1nzvbH0oR/YjK+OP3B4BySa6e195xY/5Uhou4lEaPSNU/0XXaLHCYeXjqeBjZopA==
 
-"@storybook/preset-react-webpack@8.0.0":
-  version "8.0.0"
-  resolved "https://registry.yarnpkg.com/@storybook/preset-react-webpack/-/preset-react-webpack-8.0.0.tgz#c459d10abd3a651529273a38fbb2026648290a0c"
-  integrity sha512-3XGtKR684A91CZVcD7l7CfuaaVl6ih5hKy+ITAGSulTyxz4Ym2MakZwz0VrenPHdndu1+vFvBWkf4Kh3WbyjYQ==
+"@storybook/preset-react-webpack@8.0.1":
+  version "8.0.1"
+  resolved "https://registry.yarnpkg.com/@storybook/preset-react-webpack/-/preset-react-webpack-8.0.1.tgz#5c2cfd95e9ae972ce99820090591299122d868aa"
+  integrity sha512-PqEKrNy2efVYuhDJXtq+eMvsGy7NUngec4AIaGwX2CRG8bJsAx9x6p8f2hmRwNn9fkhloPyM/+ryI31QW/ZgCA==
   dependencies:
-    "@storybook/core-webpack" "8.0.0"
-    "@storybook/docs-tools" "8.0.0"
-    "@storybook/node-logger" "8.0.0"
-    "@storybook/react" "8.0.0"
+    "@storybook/core-webpack" "8.0.1"
+    "@storybook/docs-tools" "8.0.1"
+    "@storybook/node-logger" "8.0.1"
+    "@storybook/react" "8.0.1"
     "@storybook/react-docgen-typescript-plugin" "1.0.6--canary.9.0c3f3b7.0"
     "@types/node" "^18.0.0"
     "@types/semver" "^7.3.4"
@@ -3619,10 +3631,10 @@
     ts-dedent "^2.0.0"
     util-deprecate "^1.0.2"
 
-"@storybook/preview@8.0.0":
-  version "8.0.0"
-  resolved "https://registry.yarnpkg.com/@storybook/preview/-/preview-8.0.0.tgz#5de15b6b3010b273d9efe9d2cdb7f3008ae93e6e"
-  integrity sha512-cFV7+6LYe1qr1HXm+oc74Z6ygAKgkjkhfGsfDhdS+UrzoFL9JF/+++RcE+xSBNVfzZjL19U1CsPEN0v0smIbkQ==
+"@storybook/preview@8.0.1":
+  version "8.0.1"
+  resolved "https://registry.yarnpkg.com/@storybook/preview/-/preview-8.0.1.tgz#27a38d4b4d7050dd3d14c7b93a7b4b40add48a5e"
+  integrity sha512-HSYwtMFJPJuNPfrBizCjDH/P8ZcyzBpgQg+/D6xcI4odSY7j2ub7QWCvbrSv1/llp0lMHDDRsFyT847qRPgwuQ==
 
 "@storybook/react-docgen-typescript-plugin@1.0.6--canary.9.0c3f3b7.0":
   version "1.0.6--canary.9.0c3f3b7.0"
@@ -3647,34 +3659,7 @@
   resolved "https://registry.yarnpkg.com/@storybook/react-dom-shim/-/react-dom-shim-8.0.1.tgz#8b690d95f05c5affa0561dbe0afe42ff9917e70b"
   integrity sha512-WQJiImmR4ToJTLYICwm50c3c8+vv3PFzvkoW+sMxQbYoJBJM8lfvbvsQu80aedG6C1VGEMe68mXSXSQqTvL+bA==
 
-"@storybook/react@8.0.0":
-  version "8.0.0"
-  resolved "https://registry.yarnpkg.com/@storybook/react/-/react-8.0.0.tgz#2a32327d39a2df2b7ac16e330d1113cd7e55e44a"
-  integrity sha512-Nl3jEd8Ezd2aDXfoQAgfGmwna3U6NOLMcCRSYOR63bH4/u16MnnDE8ACy+mH/+yWGEoxNjqcWUJiDk2h4C07LA==
-  dependencies:
-    "@storybook/client-logger" "8.0.0"
-    "@storybook/docs-tools" "8.0.0"
-    "@storybook/global" "^5.0.0"
-    "@storybook/preview-api" "8.0.0"
-    "@storybook/react-dom-shim" "8.0.0"
-    "@storybook/types" "8.0.0"
-    "@types/escodegen" "^0.0.6"
-    "@types/estree" "^0.0.51"
-    "@types/node" "^18.0.0"
-    acorn "^7.4.1"
-    acorn-jsx "^5.3.1"
-    acorn-walk "^7.2.0"
-    escodegen "^2.1.0"
-    html-tags "^3.1.0"
-    lodash "^4.17.21"
-    prop-types "^15.7.2"
-    react-element-to-jsx-string "^15.0.0"
-    semver "^7.3.7"
-    ts-dedent "^2.0.0"
-    type-fest "~2.19"
-    util-deprecate "^1.0.2"
-
-"@storybook/react@^8.0.1":
+"@storybook/react@8.0.1", "@storybook/react@^8.0.1":
   version "8.0.1"
   resolved "https://registry.yarnpkg.com/@storybook/react/-/react-8.0.1.tgz#5780c3dcb8594f1604aa0f4f6d0dabab63c93d88"
   integrity sha512-8d3nklcf2ePC/23kPVdKyQGjCfgnOeETU3b/DxA3bBE6T9EkiknjH4JJebBkmYh21oMgDYn5RpCrP73niyc0MQ==
