@@ -10687,10 +10687,10 @@ react-colorful@^5.1.2:
   resolved "https://registry.yarnpkg.com/react-colorful/-/react-colorful-5.6.1.tgz#7dc2aed2d7c72fac89694e834d179e32f3da563b"
   integrity sha512-1exovf0uGTGyq5mXQT0zgQ80uvj2PCwvF8zY1RN9/vbJVSjSo3fsB/4L3ObbF7u70NduSiK4xu4Y6q1MHoUGEw==
 
-react-datocms@^5.0.3:
-  version "5.0.3"
-  resolved "https://registry.yarnpkg.com/react-datocms/-/react-datocms-5.0.3.tgz#bb2eb2ff13994af3c1b5d641534fa7da53f5f0fa"
-  integrity sha512-NzX3jVNuXbrPYzoQVJkhHQ3ldl4fpWylPnC8k723Ncigb3WDKSO7DWEB3ifUp3JJceBe1agKf6HVFYolPZxOjA==
+react-datocms@^6.0.1:
+  version "6.0.1"
+  resolved "https://registry.yarnpkg.com/react-datocms/-/react-datocms-6.0.1.tgz#2408508246ab32ae20657c6319858fc0736ff9ef"
+  integrity sha512-8uoG/kkl4qFeJ/QOijTD7tejbMPuswwUmLD3nBlaHdIxyFIMbKA7Zd/zwnM18s4ilX9NnQPRBPeh/Q3+MSquZQ==
   dependencies:
     "@mux/mux-player-react" "*"
     datocms-listen "^0.1.9"
@@ -10698,7 +10698,6 @@ react-datocms@^5.0.3:
     datocms-structured-text-utils "^2.0.1"
     react-intersection-observer "^9.4.3"
     react-string-replace "^1.1.0"
-    universal-base64 "^2.1.0"
     use-deep-compare-effect "^1.6.1"
 
 react-docgen-typescript@^2.2.2:
@@ -12393,11 +12392,6 @@ unist-util-visit@^5.0.0:
     "@types/unist" "^3.0.0"
     unist-util-is "^6.0.0"
     unist-util-visit-parents "^6.0.0"
-
-universal-base64@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/universal-base64/-/universal-base64-2.1.0.tgz#511af92b3a07340fc2647036045aadb3bedcc320"
-  integrity sha512-WeOkACVnIXJZr/qlv7++Rl1zuZOHN96v2yS5oleUuv8eJOs5j9M5U3xQEIoWqn1OzIuIcgw0fswxWnUVGDfW6g==
 
 universalify@^2.0.0:
   version "2.0.1"
