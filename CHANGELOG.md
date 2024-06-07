@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/MarkNygaard/TheMotleyMonkey/compare/themotleymonkey-v1.1.0...themotleymonkey-v1.1.1) (2024-06-07)
+
+
+### Bug Fixes
+
+* deleted storybook ([#638](https://github.com/MarkNygaard/TheMotleyMonkey/issues/638)) ([d34a1af](https://github.com/MarkNygaard/TheMotleyMonkey/commit/d34a1af17db292523a5e36dee2d53fa09b8774e6))
+
 ## [1.1.0](https://github.com/MarkNygaard/TheMotleyMonkey/compare/themotleymonkey-v1.0.0...themotleymonkey-v1.1.0) (2023-12-28)
 
 
