@@ -10,7 +10,6 @@ module.exports = {
     'next',
     'next/core-web-vitals',
     'prettier',
-    'plugin:storybook/recommended',
   ],
   rules: {
     'no-unused-vars': 'off',
