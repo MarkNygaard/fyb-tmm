@@ -105,14 +105,26 @@ export default function Hero({
               </Link>
             </ConditionalWrap>
           </div>
-          <Link
-            href={'#' + firstSection}
-            className='relative flex items-center justify-center text-4xl text-gray-300'
-          >
-            <button className='rounded-full p-2 active:bg-gray-300/20'>
-              <SlArrowDown />
-            </button>
-          </Link>
+          <motion.div 
+            initial={{ opacity: 0, y: 100 }}
+            animate={{
+              y: 0,
+              opacity: 1,
+              transition: {
+                duration: 0.4,
+                delay: 0.5,
+                type: 'spring',
+              }
+            }}>
+            <Link
+              href={'#' + firstSection}
+              className='relative flex items-center justify-center text-4xl text-gray-300'
+              >
+              <button className='rounded-full p-2 active:bg-gray-300/20'>
+                <SlArrowDown />
+              </button>
+            </Link>
+          </motion.div>
         </div>
       </div>
       <AnimatePresence>
