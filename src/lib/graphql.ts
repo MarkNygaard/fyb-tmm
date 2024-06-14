@@ -49,7 +49,7 @@ export type BiographyRecord = RecordInterface & {
   _updatedAt: Scalars['DateTime']['output'];
   bioDescription?: Maybe<BiographyModelBioDescriptionField>;
   createdAt: Scalars['DateTime']['output'];
-  fadeIn?: Maybe<Scalars['BooleanType']['output']>;
+  fadeIn: Scalars['BooleanType']['output'];
   id: Scalars['ItemId']['output'];
   image?: Maybe<FileField>;
   navigationId?: Maybe<Scalars['String']['output']>;
@@ -404,11 +404,11 @@ export type GridRecord = RecordInterface & {
   _status: ItemStatus;
   _unpublishingScheduledAt?: Maybe<Scalars['DateTime']['output']>;
   _updatedAt: Scalars['DateTime']['output'];
-  backgroundColor?: Maybe<Scalars['BooleanType']['output']>;
+  backgroundColor: Scalars['BooleanType']['output'];
   createdAt: Scalars['DateTime']['output'];
   desktopColumns?: Maybe<Scalars['String']['output']>;
-  fadeIn?: Maybe<Scalars['BooleanType']['output']>;
-  fullWidth?: Maybe<Scalars['BooleanType']['output']>;
+  fadeIn: Scalars['BooleanType']['output'];
+  fullWidth: Scalars['BooleanType']['output'];
   gap?: Maybe<Scalars['String']['output']>;
   height?: Maybe<Scalars['String']['output']>;
   id: Scalars['ItemId']['output'];
@@ -482,7 +482,7 @@ export type HairMenuRecord = RecordInterface & {
   _unpublishingScheduledAt?: Maybe<Scalars['DateTime']['output']>;
   _updatedAt: Scalars['DateTime']['output'];
   createdAt: Scalars['DateTime']['output'];
-  fadeIn?: Maybe<Scalars['BooleanType']['output']>;
+  fadeIn: Scalars['BooleanType']['output'];
   id: Scalars['ItemId']['output'];
   navigationId?: Maybe<Scalars['String']['output']>;
   priceModules: Array<PriceModuleRecord>;
@@ -517,7 +517,7 @@ export type HeroRecord = RecordInterface & {
   createdAt: Scalars['DateTime']['output'];
   id: Scalars['ItemId']['output'];
   image?: Maybe<FileField>;
-  magneticButton?: Maybe<Scalars['BooleanType']['output']>;
+  magneticButton: Scalars['BooleanType']['output'];
   navigationId?: Maybe<Scalars['String']['output']>;
   updatedAt: Scalars['DateTime']['output'];
 };
@@ -544,9 +544,9 @@ export type ImageRecord = RecordInterface & {
   _status: ItemStatus;
   _unpublishingScheduledAt?: Maybe<Scalars['DateTime']['output']>;
   _updatedAt: Scalars['DateTime']['output'];
-  backgroundColor?: Maybe<Scalars['BooleanType']['output']>;
+  backgroundColor: Scalars['BooleanType']['output'];
   createdAt: Scalars['DateTime']['output'];
-  fadeIn?: Maybe<Scalars['BooleanType']['output']>;
+  fadeIn: Scalars['BooleanType']['output'];
   id: Scalars['ItemId']['output'];
   image?: Maybe<FileField>;
   imageTitle?: Maybe<Scalars['String']['output']>;
@@ -592,9 +592,41 @@ export type ImgixParams = {
    *
    * Removes background from image.
    *
-   * [Open Imgix reference »](https://docs.imgix.com/apis/rendering/background-removal/bg-remove)
+   * [Open Imgix reference »](https://docs.imgix.com/apis/rendering/background/bg-remove)
    */
   bgRemove?: InputMaybe<Scalars['BooleanType']['input']>;
+  /**
+   * Background Removal Fallback
+   *
+   * Overrides default fallback behavior for bg-remove failures.
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/rendering/background/bg-remove)
+   */
+  bgRemoveFallback?: InputMaybe<Scalars['BooleanType']['input']>;
+  /**
+   * Background Replacement
+   *
+   * Replaces background from image using a string based prompt.
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/rendering/background/bg-replace)
+   */
+  bgReplace?: InputMaybe<Scalars['String']['input']>;
+  /**
+   * Background Removal Fallback
+   *
+   * Overrides default fallback behavior for bg-replace failures.
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/rendering/background/bg-replace)
+   */
+  bgReplaceFallback?: InputMaybe<Scalars['BooleanType']['input']>;
+  /**
+   * Background Replacement Negative Prompt
+   *
+   * Provides a negative text suggestion for background replacement.
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/rendering/background/bg-replace-neg-prompt)
+   */
+  bgReplaceNegPrompt?: InputMaybe<Scalars['String']['input']>;
   /**
    * Blend
    *
@@ -984,6 +1016,136 @@ export type ImgixParams = {
    */
   fillColor?: InputMaybe<Scalars['String']['input']>;
   /**
+   * Fill Generative Fallback
+   *
+   * Sets the fallback behavior for generative fill.
+   *
+   * Depends on: `fit=fill`, `fill=gen`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/fill/fill-gen-fallback)
+   */
+  fillGenFallback?: InputMaybe<Scalars['BooleanType']['input']>;
+  /**
+   * Fill Generative Negative Prompt
+   *
+   * Provides a negative text suggestion to the generative fill parameter. Used to reduce the probability of a subject, detail, or object appearing in generative output.
+   *
+   * Depends on: `fit=fill`, `fill=gen`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/fill/fill-gen-neg-prompt)
+   */
+  fillGenNegPrompt?: InputMaybe<Scalars['String']['input']>;
+  /**
+   * Fill Generative Position
+   *
+   * Sets the position of the Origin Image in relation to the generative fill.
+   *
+   * Depends on: `fit=fill`, `fill=gen`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/fill/fill-gen-pos)
+   */
+  fillGenPos?: InputMaybe<Array<ImgixParamsFillGenPos>>;
+  /**
+   * Fill Generative Prompt
+   *
+   * Provides a text suggestion to the generative fill parameter.
+   *
+   * Depends on: `fit=fill`, `fill=gen`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/fill/fill-gen-prompt)
+   */
+  fillGenPrompt?: InputMaybe<Scalars['String']['input']>;
+  /**
+   * Fill Generative Seed
+   *
+   * Sets the generative seed value. Used to generate similar outputs from different prompts.
+   *
+   * Depends on: `fit=fill`, `fill=gen`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/fill/fill-gen-seed)
+   */
+  fillGenSeed?: InputMaybe<Scalars['IntType']['input']>;
+  /**
+   * Fill Gradient Color Space
+   *
+   * Defines the color space as linear, sRGB, Oklab, HSL, or LCH for gradient color interpolation
+   *
+   * Depends on: `fit=fill`, `fill=gradient`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/fill/fill-gradient-cs)
+   */
+  fillGradientCs?: InputMaybe<ImgixParamsFillGradientCs>;
+  /**
+   * Fill Gradient Linear
+   *
+   * Blends a gradient between two colors, {color1} and {color2}, along a straight path
+   *
+   * Depends on: `fit=fill`, `fill=gradient`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/fill/fill-gradient-linear)
+   */
+  fillGradientLinear?: InputMaybe<Scalars['String']['input']>;
+  /**
+   * Fill Gradient Linear Direction
+   *
+   * The fill-gradient-linear-direction specifies the gradient's direction, flowing towards the bottom, top, right, or left
+   *
+   * Depends on: `fit=fill`, `fill=gen`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/fill/fill-gradient-linear-direction)
+   */
+  fillGradientLinearDirection?: InputMaybe<Array<ImgixParamsFillGradientLinearDirection>>;
+  /**
+   * Fill Gradient Radial
+   *
+   * The fill-gradient-radial parameter creates a circular gradient transitioning from a central color (Color1) to an outer color (Color2)
+   *
+   * Depends on: `fit=fill`, `fill=gradient`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/fill/fill-gradient-radial)
+   */
+  fillGradientRadial?: InputMaybe<Scalars['String']['input']>;
+  /**
+   * Fill Gradient Radial Radius
+   *
+   * Parameter defines the radial gradient's radius as pixels or a percentage (0.0-1.0) of the image's smallest dimension
+   *
+   * Depends on: `fit=fill`, `fill=gradient`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/fill/fill-gradient-radial-radius)
+   */
+  fillGradientRadialRadius?: InputMaybe<Scalars['String']['input']>;
+  /**
+   * Fill Gradient Radial X
+   *
+   * Specifies the location of the radial gradient's center along the x-axis, using either a pixel value or a floating point percentage (ranging from 0.0 to 1.0) of the image's width
+   *
+   * Depends on: `fit=fill`, `fill=gradient`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/fill/fill-gradient-radial-x)
+   */
+  fillGradientRadialX?: InputMaybe<Scalars['FloatType']['input']>;
+  /**
+   * Fill Gradient Radial Y
+   *
+   * Parameter sets the radial gradient's center on the y-axis, using pixels or a 0.0 to 1.0 percentage of the image's height
+   *
+   * Depends on: `fit=fill`, `fill=gradient`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/fill/fill-gradient-radial-y)
+   */
+  fillGradientRadialY?: InputMaybe<Scalars['FloatType']['input']>;
+  /**
+   * Fill Gradient Type
+   *
+   * Specifies if a gradient is radial (circular) or linear (straight)
+   *
+   * Depends on: `fit=fill`, `fill=gradient`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/fill/fill-gradient-type)
+   */
+  fillGradientType?: InputMaybe<ImgixParamsFillGradientType>;
+  /**
    * Resize Fit Mode
    *
    * Specifies how to map the source image to the output image dimensions.
@@ -1070,6 +1232,8 @@ export type ImgixParams = {
   /**
    * Animated Gif Quality
    *
+   * Specifies the quality of the animated gif. The higher the value, the better more compression is applied.
+   *
    * Depends on: `fm=gif`
    */
   gifQ?: InputMaybe<Scalars['IntType']['input']>;
@@ -1141,6 +1305,12 @@ export type ImgixParams = {
    * Determine if IPTC data should be passed for JPEG images.
    */
   iptc?: InputMaybe<ImgixParamsIptc>;
+  /**
+   * Jpg Progressive
+   *
+   * Specifies whether or not a jpg/jpeg uses progressive (true) or baseline (false)
+   */
+  jpgProgressive?: InputMaybe<Scalars['BooleanType']['input']>;
   /**
    * Animation Loop Count
    *
@@ -1526,6 +1696,18 @@ export type ImgixParams = {
    */
   skip?: InputMaybe<Scalars['IntType']['input']>;
   /**
+   * Bypasses any [DatoCMS Automatic Image Optimization](https://www.datocms.com/docs/cdn-settings/advanced-asset-settings) that might be set up for the project.
+   *
+   * Exercise caution when using this parameter, as it could significantly increase your bandwidth costs.
+   */
+  skipDefaultOptimizations?: InputMaybe<Scalars['BooleanType']['input']>;
+  /**
+   * Sanitize Svg
+   *
+   * Specifies whether to sanitize an SVG.
+   */
+  svgSanitize?: InputMaybe<Scalars['BooleanType']['input']>;
+  /**
    * Transparency
    *
    * Adds checkerboard behind images which support transparency.
@@ -1660,16 +1842,6 @@ export type ImgixParams = {
    */
   txtLead?: InputMaybe<Scalars['IntType']['input']>;
   /**
-   * Text Ligatures
-   *
-   * Controls the level of ligature substitution
-   *
-   * Depends on: `txt`
-   *
-   * [Open Imgix reference »](https://docs.imgix.com/apis/url/text/txt-lig)
-   */
-  txtLig?: InputMaybe<Scalars['IntType']['input']>;
-  /**
    * Text Outline
    *
    * Outlines the rendered text with a specified color.
@@ -1759,6 +1931,22 @@ export type ImgixParams = {
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/text/txt-y)
    */
   txtY?: InputMaybe<Scalars['IntType']['input']>;
+  /**
+   * Super Resolution
+   *
+   * Uses generative AI fill to upscale low resolution images.
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/rendering/super-resolution/upscale)
+   */
+  upscale?: InputMaybe<Scalars['BooleanType']['input']>;
+  /**
+   * Super Resolution Fallback
+   *
+   * Overrides default fallback behavior for super resolution failures
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/rendering/super-resolution/upscale-fallback)
+   */
+  upscaleFallback?: InputMaybe<Scalars['BooleanType']['input']>;
   /**
    * Unsharp Mask
    *
@@ -1876,7 +2064,39 @@ export enum ImgixParamsCs {
 
 export enum ImgixParamsFill {
   blur = 'blur',
+  gen = 'gen',
+  generative = 'generative',
+  gradient = 'gradient',
   solid = 'solid'
+}
+
+export enum ImgixParamsFillGenPos {
+  bottom = 'bottom',
+  center = 'center',
+  left = 'left',
+  middle = 'middle',
+  right = 'right',
+  top = 'top'
+}
+
+export enum ImgixParamsFillGradientCs {
+  hsl = 'hsl',
+  lch = 'lch',
+  linear = 'linear',
+  oklab = 'oklab',
+  srgb = 'srgb'
+}
+
+export enum ImgixParamsFillGradientLinearDirection {
+  bottom = 'bottom',
+  left = 'left',
+  right = 'right',
+  top = 'top'
+}
+
+export enum ImgixParamsFillGradientType {
+  linear = 'linear',
+  radial = 'radial'
 }
 
 export enum ImgixParamsFit {
@@ -2011,6 +2231,10 @@ export type LayoutRecord = RecordInterface & {
   accentColor?: Maybe<ColorField>;
   createdAt: Scalars['DateTime']['output'];
   id: Scalars['ItemId']['output'];
+  mobileMennuCtaUrl?: Maybe<Scalars['String']['output']>;
+  mobileMenuCta: Scalars['BooleanType']['output'];
+  mobileMenuCtaText?: Maybe<Scalars['String']['output']>;
+  mobileMenuCtaVariant?: Maybe<Scalars['String']['output']>;
   primaryColor?: Maybe<ColorField>;
   secondaryColor?: Maybe<ColorField>;
   socialMediaLinks: Array<LinkRecord>;
@@ -2153,7 +2377,7 @@ export type PriceRecord = RecordInterface & {
   _updatedAt: Scalars['DateTime']['output'];
   createdAt: Scalars['DateTime']['output'];
   description?: Maybe<PriceModelDescriptionField>;
-  from?: Maybe<Scalars['BooleanType']['output']>;
+  from: Scalars['BooleanType']['output'];
   id: Scalars['ItemId']['output'];
   price?: Maybe<Scalars['FloatType']['output']>;
   treatment?: Maybe<Scalars['String']['output']>;
@@ -2319,6 +2543,7 @@ export type SeoField = {
   __typename?: 'SeoField';
   description?: Maybe<Scalars['String']['output']>;
   image?: Maybe<FileField>;
+  noIndex?: Maybe<Scalars['BooleanType']['output']>;
   title?: Maybe<Scalars['String']['output']>;
   twitterCard?: Maybe<Scalars['String']['output']>;
 };
@@ -2329,6 +2554,7 @@ export type Site = {
   faviconMetaTags: Array<Tag>;
   globalSeo?: Maybe<GlobalSeoField>;
   locales: Array<SiteLocale>;
+  noIndex?: Maybe<Scalars['BooleanType']['output']>;
 };
 
 
@@ -2384,10 +2610,10 @@ export type TextImageRecord = RecordInterface & {
   _status: ItemStatus;
   _unpublishingScheduledAt?: Maybe<Scalars['DateTime']['output']>;
   _updatedAt: Scalars['DateTime']['output'];
-  backgroundColor?: Maybe<Scalars['BooleanType']['output']>;
+  backgroundColor: Scalars['BooleanType']['output'];
   content?: Maybe<TextImageModelContentField>;
   createdAt: Scalars['DateTime']['output'];
-  fadeIn?: Maybe<Scalars['BooleanType']['output']>;
+  fadeIn: Scalars['BooleanType']['output'];
   id: Scalars['ItemId']['output'];
   image?: Maybe<FileField>;
   imageLocation?: Maybe<Scalars['String']['output']>;
@@ -2427,12 +2653,12 @@ export type TextRecord = RecordInterface & {
   _status: ItemStatus;
   _unpublishingScheduledAt?: Maybe<Scalars['DateTime']['output']>;
   _updatedAt: Scalars['DateTime']['output'];
-  backgroundColor?: Maybe<Scalars['BooleanType']['output']>;
+  backgroundColor: Scalars['BooleanType']['output'];
   content?: Maybe<TextModelContentField>;
   createdAt: Scalars['DateTime']['output'];
-  fadeIn?: Maybe<Scalars['BooleanType']['output']>;
-  fullWidth?: Maybe<Scalars['BooleanType']['output']>;
-  headerTitle?: Maybe<Scalars['BooleanType']['output']>;
+  fadeIn: Scalars['BooleanType']['output'];
+  fullWidth: Scalars['BooleanType']['output'];
+  headerTitle: Scalars['BooleanType']['output'];
   id: Scalars['ItemId']['output'];
   navigationId?: Maybe<Scalars['String']['output']>;
   updatedAt: Scalars['DateTime']['output'];
@@ -2750,13 +2976,34 @@ export type UploadUpdatedAtFilter = {
 
 export type UploadVideoField = {
   __typename?: 'UploadVideoField';
+  alt?: Maybe<Scalars['String']['output']>;
+  blurUpThumb?: Maybe<Scalars['String']['output']>;
+  blurhash?: Maybe<Scalars['String']['output']>;
   duration?: Maybe<Scalars['Int']['output']>;
   framerate?: Maybe<Scalars['Int']['output']>;
+  height: Scalars['IntType']['output'];
   mp4Url?: Maybe<Scalars['String']['output']>;
   muxAssetId: Scalars['String']['output'];
   muxPlaybackId: Scalars['String']['output'];
   streamingUrl: Scalars['String']['output'];
+  thumbhash?: Maybe<Scalars['String']['output']>;
   thumbnailUrl: Scalars['String']['output'];
+  title?: Maybe<Scalars['String']['output']>;
+  width: Scalars['IntType']['output'];
+};
+
+
+export type UploadVideoFieldaltArgs = {
+  fallbackLocales?: InputMaybe<Array<SiteLocale>>;
+  locale?: InputMaybe<SiteLocale>;
+};
+
+
+export type UploadVideoFieldblurUpThumbArgs = {
+  imgixParams?: InputMaybe<ImgixParams>;
+  punch?: Scalars['Float']['input'];
+  quality?: Scalars['Int']['input'];
+  size?: Scalars['Int']['input'];
 };
 
 
@@ -2768,6 +3015,12 @@ export type UploadVideoFieldmp4UrlArgs = {
 
 export type UploadVideoFieldthumbnailUrlArgs = {
   format?: InputMaybe<MuxThumbnailFormatType>;
+};
+
+
+export type UploadVideoFieldtitleArgs = {
+  fallbackLocales?: InputMaybe<Array<SiteLocale>>;
+  locale?: InputMaybe<SiteLocale>;
 };
 
 /** Specifies how to filter by width */
@@ -2819,9 +3072,9 @@ export type YoutubeVideoRecord = RecordInterface & {
   _status: ItemStatus;
   _unpublishingScheduledAt?: Maybe<Scalars['DateTime']['output']>;
   _updatedAt: Scalars['DateTime']['output'];
-  backgroundColor?: Maybe<Scalars['BooleanType']['output']>;
+  backgroundColor: Scalars['BooleanType']['output'];
   createdAt: Scalars['DateTime']['output'];
-  fadeIn?: Maybe<Scalars['BooleanType']['output']>;
+  fadeIn: Scalars['BooleanType']['output'];
   id: Scalars['ItemId']['output'];
   link?: Maybe<VideoField>;
   navigationId?: Maybe<Scalars['String']['output']>;
@@ -2859,32 +3112,33 @@ export const YoutubeVideoFragmentFragmentDoc = /*#__PURE__*/ {"kind":"Document",
 export const metaTagsFragmentFragmentDoc = /*#__PURE__*/ {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"metaTagsFragment"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Tag"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"attributes"}},{"kind":"Field","name":{"kind":"Name","value":"content"}},{"kind":"Field","name":{"kind":"Name","value":"tag"}}]}}]} as unknown as DocumentNode<metaTagsFragmentFragment, unknown>;
 export const CustomColorsDocument = /*#__PURE__*/ {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"CustomColors"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"layout"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"primaryColor"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"red"}},{"kind":"Field","name":{"kind":"Name","value":"green"}},{"kind":"Field","name":{"kind":"Name","value":"blue"}}]}},{"kind":"Field","name":{"kind":"Name","value":"secondaryColor"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"red"}},{"kind":"Field","name":{"kind":"Name","value":"green"}},{"kind":"Field","name":{"kind":"Name","value":"blue"}}]}},{"kind":"Field","name":{"kind":"Name","value":"accentColor"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"red"}},{"kind":"Field","name":{"kind":"Name","value":"green"}},{"kind":"Field","name":{"kind":"Name","value":"blue"}}]}}]}}]}}]} as unknown as DocumentNode<CustomColorsQuery, CustomColorsQueryVariables>;
 export const HomePageDocument = /*#__PURE__*/ {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"HomePage"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"site"},"name":{"kind":"Name","value":"_site"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"favicon"},"name":{"kind":"Name","value":"faviconMetaTags"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"metaTagsFragment"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"page"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"seo"},"name":{"kind":"Name","value":"_seoMetaTags"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"metaTagsFragment"}}]}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"content"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"HeroRecord"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"HeroFragment"}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"TextRecord"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"TextFragment"}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ImageRecord"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"ImageFragment"}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"TextImageRecord"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"TextImageFragment"}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"GridRecord"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"GridFragment"}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"YoutubeVideoRecord"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"YoutubeVideoFragment"}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"HairMenuRecord"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"HairMenuFragment"}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"BiographyRecord"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"BiographyFragment"}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"FooterRecord"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"FooterFragment"}}]}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"responsiveImageFragment"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ResponsiveImage"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"src"}},{"kind":"Field","name":{"kind":"Name","value":"base64"}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}},{"kind":"Field","name":{"kind":"Name","value":"alt"}},{"kind":"Field","name":{"kind":"Name","value":"title"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"RtImageFragment"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"RtImageRecord"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"responsiveImage"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"imgixParams"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"fit"},"value":{"kind":"EnumValue","value":"crop"}},{"kind":"ObjectField","name":{"kind":"Name","value":"crop"},"value":{"kind":"EnumValue","value":"focalpoint"}},{"kind":"ObjectField","name":{"kind":"Name","value":"ar"},"value":{"kind":"StringValue","value":"1:1","block":false}},{"kind":"ObjectField","name":{"kind":"Name","value":"minH"},"value":{"kind":"IntValue","value":"384"}},{"kind":"ObjectField","name":{"kind":"Name","value":"auto"},"value":{"kind":"EnumValue","value":"compress"}},{"kind":"ObjectField","name":{"kind":"Name","value":"fm"},"value":{"kind":"EnumValue","value":"avif"}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"responsiveImageFragment"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"CustomHeadingFragment"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"CustomHeadingRecord"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"subtitle"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"PricesFragment"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"PriceRecord"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"treatment"}},{"kind":"Field","name":{"kind":"Name","value":"description"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"value"}}]}},{"kind":"Field","name":{"kind":"Name","value":"price"}},{"kind":"Field","name":{"kind":"Name","value":"from"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"PriceModulesFragment"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"PriceModuleRecord"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"heading"}},{"kind":"Field","name":{"kind":"Name","value":"prices"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"PricesFragment"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"metaTagsFragment"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Tag"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"attributes"}},{"kind":"Field","name":{"kind":"Name","value":"content"}},{"kind":"Field","name":{"kind":"Name","value":"tag"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"HeroFragment"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"HeroRecord"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"navigationId"}},{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"responsiveImage"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"imgixParams"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"fit"},"value":{"kind":"EnumValue","value":"crop"}},{"kind":"ObjectField","name":{"kind":"Name","value":"auto"},"value":{"kind":"EnumValue","value":"compress"}},{"kind":"ObjectField","name":{"kind":"Name","value":"fm"},"value":{"kind":"EnumValue","value":"avif"}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"responsiveImageFragment"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"backgroundImage"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"responsiveImage"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"imgixParams"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"fit"},"value":{"kind":"EnumValue","value":"crop"}},{"kind":"ObjectField","name":{"kind":"Name","value":"auto"},"value":{"kind":"EnumValue","value":"compress"}},{"kind":"ObjectField","name":{"kind":"Name","value":"q"},"value":{"kind":"IntValue","value":"60"}},{"kind":"ObjectField","name":{"kind":"Name","value":"fm"},"value":{"kind":"EnumValue","value":"avif"}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"responsiveImageFragment"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"buttonText"}},{"kind":"Field","name":{"kind":"Name","value":"buttonLink"}},{"kind":"Field","name":{"kind":"Name","value":"magneticButton"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"TextFragment"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"TextRecord"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"navigationId"}},{"kind":"Field","name":{"kind":"Name","value":"headerTitle"}},{"kind":"Field","name":{"kind":"Name","value":"backgroundColor"}},{"kind":"Field","name":{"kind":"Name","value":"fullWidth"}},{"kind":"Field","name":{"kind":"Name","value":"fadeIn"}},{"kind":"Field","name":{"kind":"Name","value":"content"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"value"}},{"kind":"Field","name":{"kind":"Name","value":"blocks"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"RtImageRecord"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"RtImageFragment"}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"CustomHeadingRecord"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"CustomHeadingFragment"}}]}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ImageFragment"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ImageRecord"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"navigationId"}},{"kind":"Field","name":{"kind":"Name","value":"backgroundColor"}},{"kind":"Field","name":{"kind":"Name","value":"fadeIn"}},{"kind":"Field","name":{"kind":"Name","value":"imageTitle"}},{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"responsiveImage"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"imgixParams"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"fit"},"value":{"kind":"EnumValue","value":"crop"}},{"kind":"ObjectField","name":{"kind":"Name","value":"auto"},"value":{"kind":"EnumValue","value":"compress"}},{"kind":"ObjectField","name":{"kind":"Name","value":"fm"},"value":{"kind":"EnumValue","value":"avif"}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"responsiveImageFragment"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"TextImageFragment"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"TextImageRecord"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"navigationId"}},{"kind":"Field","name":{"kind":"Name","value":"backgroundColor"}},{"kind":"Field","name":{"kind":"Name","value":"fadeIn"}},{"kind":"Field","name":{"kind":"Name","value":"content"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"value"}},{"kind":"Field","name":{"kind":"Name","value":"blocks"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"RtImageRecord"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"responsiveImage"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"imgixParams"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"fit"},"value":{"kind":"EnumValue","value":"crop"}},{"kind":"ObjectField","name":{"kind":"Name","value":"crop"},"value":{"kind":"EnumValue","value":"focalpoint"}},{"kind":"ObjectField","name":{"kind":"Name","value":"ar"},"value":{"kind":"StringValue","value":"1:1","block":false}},{"kind":"ObjectField","name":{"kind":"Name","value":"minH"},"value":{"kind":"IntValue","value":"384"}},{"kind":"ObjectField","name":{"kind":"Name","value":"auto"},"value":{"kind":"EnumValue","value":"compress"}},{"kind":"ObjectField","name":{"kind":"Name","value":"fm"},"value":{"kind":"EnumValue","value":"avif"}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"responsiveImageFragment"}}]}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"CustomHeadingRecord"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"CustomHeadingFragment"}}]}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"imageLocation"}},{"kind":"Field","name":{"kind":"Name","value":"imageStyle"}},{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"responsiveImage"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"imgixParams"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"fit"},"value":{"kind":"EnumValue","value":"crop"}},{"kind":"ObjectField","name":{"kind":"Name","value":"auto"},"value":{"kind":"EnumValue","value":"format"}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"responsiveImageFragment"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"GridFragment"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"GridRecord"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"navigationId"}},{"kind":"Field","name":{"kind":"Name","value":"backgroundColor"}},{"kind":"Field","name":{"kind":"Name","value":"fadeIn"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"mobileColumns"}},{"kind":"Field","name":{"kind":"Name","value":"tabletColumns"}},{"kind":"Field","name":{"kind":"Name","value":"desktopColumns"}},{"kind":"Field","name":{"kind":"Name","value":"gap"}},{"kind":"Field","name":{"kind":"Name","value":"fullWidth"}},{"kind":"Field","name":{"kind":"Name","value":"height"}},{"kind":"Field","name":{"kind":"Name","value":"sections"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"GridImageRecord"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"mobilePosition"}},{"kind":"Field","name":{"kind":"Name","value":"tabletPosition"}},{"kind":"Field","name":{"kind":"Name","value":"desktopPosition"}},{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"responsiveImage"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"imgixParams"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"fit"},"value":{"kind":"EnumValue","value":"crop"}},{"kind":"ObjectField","name":{"kind":"Name","value":"crop"},"value":{"kind":"EnumValue","value":"focalpoint"}},{"kind":"ObjectField","name":{"kind":"Name","value":"ar"},"value":{"kind":"StringValue","value":"1:1","block":false}},{"kind":"ObjectField","name":{"kind":"Name","value":"minH"},"value":{"kind":"IntValue","value":"384"}},{"kind":"ObjectField","name":{"kind":"Name","value":"auto"},"value":{"kind":"EnumValue","value":"compress"}},{"kind":"ObjectField","name":{"kind":"Name","value":"fm"},"value":{"kind":"EnumValue","value":"avif"}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"responsiveImageFragment"}}]}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"GridTextRecord"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"mobilePosition"}},{"kind":"Field","name":{"kind":"Name","value":"tabletPosition"}},{"kind":"Field","name":{"kind":"Name","value":"desktopPosition"}},{"kind":"Field","name":{"kind":"Name","value":"content"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"value"}},{"kind":"Field","name":{"kind":"Name","value":"blocks"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"RtImageRecord"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"RtImageFragment"}}]}}]}}]}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"YoutubeVideoFragment"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"YoutubeVideoRecord"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"navigationId"}},{"kind":"Field","name":{"kind":"Name","value":"backgroundColor"}},{"kind":"Field","name":{"kind":"Name","value":"fadeIn"}},{"kind":"Field","name":{"kind":"Name","value":"link"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"providerUid"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"HairMenuFragment"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"HairMenuRecord"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"navigationId"}},{"kind":"Field","name":{"kind":"Name","value":"fadeIn"}},{"kind":"Field","name":{"kind":"Name","value":"priceModules"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"PriceModulesFragment"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"BiographyFragment"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"BiographyRecord"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"navigationId"}},{"kind":"Field","name":{"kind":"Name","value":"fadeIn"}},{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"responsiveImage"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"imgixParams"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"fit"},"value":{"kind":"EnumValue","value":"crop"}},{"kind":"ObjectField","name":{"kind":"Name","value":"w"},"value":{"kind":"StringValue","value":"440","block":false}},{"kind":"ObjectField","name":{"kind":"Name","value":"h"},"value":{"kind":"StringValue","value":"590","block":false}},{"kind":"ObjectField","name":{"kind":"Name","value":"fm"},"value":{"kind":"EnumValue","value":"avif"}},{"kind":"ObjectField","name":{"kind":"Name","value":"auto"},"value":{"kind":"EnumValue","value":"compress"}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"responsiveImageFragment"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"bioDescription"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"value"}},{"kind":"Field","name":{"kind":"Name","value":"blocks"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"subtitle"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"FooterFragment"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"FooterRecord"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"navigationId"}},{"kind":"Field","name":{"kind":"Name","value":"address"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"value"}}]}},{"kind":"Field","name":{"kind":"Name","value":"contact"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"value"}}]}},{"kind":"Field","name":{"kind":"Name","value":"location"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"latitude"}},{"kind":"Field","name":{"kind":"Name","value":"longitude"}}]}},{"kind":"Field","name":{"kind":"Name","value":"openingHours"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"value"}}]}},{"kind":"Field","name":{"kind":"Name","value":"info"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"value"}}]}}]}}]} as unknown as DocumentNode<HomePageQuery, HomePageQueryVariables>;
+export const MobileMenuCtaDocument = /*#__PURE__*/ {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"MobileMenuCta"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"layout"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"mobileMenuCta"}},{"kind":"Field","name":{"kind":"Name","value":"mobileMenuCtaText"}},{"kind":"Field","name":{"kind":"Name","value":"mobileMennuCtaUrl"}}]}}]}}]} as unknown as DocumentNode<MobileMenuCtaQuery, MobileMenuCtaQueryVariables>;
 export const SocialsDocument = /*#__PURE__*/ {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"Socials"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"layout"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"socialMediaLinks"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"url"}},{"kind":"Field","name":{"kind":"Name","value":"icon"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}},{"kind":"Field","name":{"kind":"Name","value":"height"}},{"kind":"Field","name":{"kind":"Name","value":"width"}}]}}]}}]}}]}}]} as unknown as DocumentNode<SocialsQuery, SocialsQueryVariables>;
-export type BiographyFragmentFragment = { __typename: 'BiographyRecord', id: any, navigationId?: string | null, fadeIn?: any | null, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, base64?: string | null, width: any, height: any, alt?: string | null, title?: string | null } | null } | null, bioDescription?: { __typename?: 'BiographyModelBioDescriptionField', value: any, blocks: Array<{ __typename: 'CustomHeadingRecord', id: any, title?: string | null, subtitle?: string | null }> } | null };
+export type BiographyFragmentFragment = { __typename: 'BiographyRecord', id: any, navigationId?: string | null, fadeIn: any, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, base64?: string | null, width: any, height: any, alt?: string | null, title?: string | null } | null } | null, bioDescription?: { __typename?: 'BiographyModelBioDescriptionField', value: any, blocks: Array<{ __typename: 'CustomHeadingRecord', id: any, title?: string | null, subtitle?: string | null }> } | null };
 
 export type FooterFragmentFragment = { __typename: 'FooterRecord', id: any, navigationId?: string | null, address?: { __typename?: 'FooterModelAddressField', value: any } | null, contact?: { __typename?: 'FooterModelContactField', value: any } | null, location?: { __typename?: 'LatLonField', latitude: any, longitude: any } | null, openingHours?: { __typename?: 'FooterModelOpeningHoursField', value: any } | null, info?: { __typename?: 'FooterModelInfoField', value: any } | null };
 
-export type GridFragmentFragment = { __typename: 'GridRecord', navigationId?: string | null, backgroundColor?: any | null, fadeIn?: any | null, id: any, title?: string | null, mobileColumns?: string | null, tabletColumns?: string | null, desktopColumns?: string | null, gap?: string | null, fullWidth?: any | null, height?: string | null, sections: Array<{ __typename: 'GridImageRecord', id: any, mobilePosition?: any | null, tabletPosition?: any | null, desktopPosition?: any | null, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, base64?: string | null, width: any, height: any, alt?: string | null, title?: string | null } | null } | null } | { __typename: 'GridTextRecord', id: any, mobilePosition?: any | null, tabletPosition?: any | null, desktopPosition?: any | null, content?: { __typename?: 'GridTextModelContentField', value: any, blocks: Array<{ __typename: 'RtImageRecord', id: any, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, base64?: string | null, width: any, height: any, alt?: string | null, title?: string | null } | null } | null }> } | null }> };
+export type GridFragmentFragment = { __typename: 'GridRecord', navigationId?: string | null, backgroundColor: any, fadeIn: any, id: any, title?: string | null, mobileColumns?: string | null, tabletColumns?: string | null, desktopColumns?: string | null, gap?: string | null, fullWidth: any, height?: string | null, sections: Array<{ __typename: 'GridImageRecord', id: any, mobilePosition?: any | null, tabletPosition?: any | null, desktopPosition?: any | null, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, base64?: string | null, width: any, height: any, alt?: string | null, title?: string | null } | null } | null } | { __typename: 'GridTextRecord', id: any, mobilePosition?: any | null, tabletPosition?: any | null, desktopPosition?: any | null, content?: { __typename?: 'GridTextModelContentField', value: any, blocks: Array<{ __typename: 'RtImageRecord', id: any, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, base64?: string | null, width: any, height: any, alt?: string | null, title?: string | null } | null } | null }> } | null }> };
 
 export type GridImageFragmentFragment = { __typename: 'GridImageRecord', id: any, mobilePosition?: any | null, tabletPosition?: any | null, desktopPosition?: any | null, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, base64?: string | null, width: any, height: any, alt?: string | null, title?: string | null } | null } | null };
 
 export type GridTextFragmentFragment = { __typename: 'GridTextRecord', id: any, mobilePosition?: any | null, tabletPosition?: any | null, desktopPosition?: any | null, content?: { __typename?: 'GridTextModelContentField', value: any, blocks: Array<{ __typename: 'RtImageRecord', id: any, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, base64?: string | null, width: any, height: any, alt?: string | null, title?: string | null } | null } | null }> } | null };
 
-export type HairMenuFragmentFragment = { __typename: 'HairMenuRecord', id: any, navigationId?: string | null, fadeIn?: any | null, priceModules: Array<{ __typename: 'PriceModuleRecord', id: any, heading?: string | null, prices: Array<{ __typename?: 'PriceRecord', id: any, treatment?: string | null, price?: any | null, from?: any | null, description?: { __typename?: 'PriceModelDescriptionField', value: any } | null }> }> };
+export type HairMenuFragmentFragment = { __typename: 'HairMenuRecord', id: any, navigationId?: string | null, fadeIn: any, priceModules: Array<{ __typename: 'PriceModuleRecord', id: any, heading?: string | null, prices: Array<{ __typename?: 'PriceRecord', id: any, treatment?: string | null, price?: any | null, from: any, description?: { __typename?: 'PriceModelDescriptionField', value: any } | null }> }> };
 
-export type PriceModulesFragmentFragment = { __typename: 'PriceModuleRecord', id: any, heading?: string | null, prices: Array<{ __typename?: 'PriceRecord', id: any, treatment?: string | null, price?: any | null, from?: any | null, description?: { __typename?: 'PriceModelDescriptionField', value: any } | null }> };
+export type PriceModulesFragmentFragment = { __typename: 'PriceModuleRecord', id: any, heading?: string | null, prices: Array<{ __typename?: 'PriceRecord', id: any, treatment?: string | null, price?: any | null, from: any, description?: { __typename?: 'PriceModelDescriptionField', value: any } | null }> };
 
-export type PricesFragmentFragment = { __typename?: 'PriceRecord', id: any, treatment?: string | null, price?: any | null, from?: any | null, description?: { __typename?: 'PriceModelDescriptionField', value: any } | null };
+export type PricesFragmentFragment = { __typename?: 'PriceRecord', id: any, treatment?: string | null, price?: any | null, from: any, description?: { __typename?: 'PriceModelDescriptionField', value: any } | null };
 
-export type HeroFragmentFragment = { __typename: 'HeroRecord', id: any, navigationId?: string | null, buttonText?: string | null, buttonLink?: string | null, magneticButton?: any | null, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, base64?: string | null, width: any, height: any, alt?: string | null, title?: string | null } | null } | null, backgroundImage?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, base64?: string | null, width: any, height: any, alt?: string | null, title?: string | null } | null } | null };
+export type HeroFragmentFragment = { __typename: 'HeroRecord', id: any, navigationId?: string | null, buttonText?: string | null, buttonLink?: string | null, magneticButton: any, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, base64?: string | null, width: any, height: any, alt?: string | null, title?: string | null } | null } | null, backgroundImage?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, base64?: string | null, width: any, height: any, alt?: string | null, title?: string | null } | null } | null };
 
-export type ImageFragmentFragment = { __typename: 'ImageRecord', navigationId?: string | null, backgroundColor?: any | null, fadeIn?: any | null, imageTitle?: string | null, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, base64?: string | null, width: any, height: any, alt?: string | null, title?: string | null } | null } | null };
+export type ImageFragmentFragment = { __typename: 'ImageRecord', navigationId?: string | null, backgroundColor: any, fadeIn: any, imageTitle?: string | null, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, base64?: string | null, width: any, height: any, alt?: string | null, title?: string | null } | null } | null };
 
-export type TextFragmentFragment = { __typename: 'TextRecord', navigationId?: string | null, headerTitle?: any | null, backgroundColor?: any | null, fullWidth?: any | null, fadeIn?: any | null, content?: { __typename?: 'TextModelContentField', value: any, blocks: Array<{ __typename: 'CustomHeadingRecord', id: any, title?: string | null, subtitle?: string | null } | { __typename: 'RtImageRecord', id: any, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, base64?: string | null, width: any, height: any, alt?: string | null, title?: string | null } | null } | null }> } | null };
+export type TextFragmentFragment = { __typename: 'TextRecord', navigationId?: string | null, headerTitle: any, backgroundColor: any, fullWidth: any, fadeIn: any, content?: { __typename?: 'TextModelContentField', value: any, blocks: Array<{ __typename: 'CustomHeadingRecord', id: any, title?: string | null, subtitle?: string | null } | { __typename: 'RtImageRecord', id: any, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, base64?: string | null, width: any, height: any, alt?: string | null, title?: string | null } | null } | null }> } | null };
 
-export type TextImageFragmentFragment = { __typename: 'TextImageRecord', navigationId?: string | null, backgroundColor?: any | null, fadeIn?: any | null, imageLocation?: string | null, imageStyle?: string | null, content?: { __typename?: 'TextImageModelContentField', value: any, blocks: Array<{ __typename: 'CustomHeadingRecord', id: any, title?: string | null, subtitle?: string | null } | { __typename: 'RtImageRecord', id: any, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, base64?: string | null, width: any, height: any, alt?: string | null, title?: string | null } | null } | null }> } | null, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, base64?: string | null, width: any, height: any, alt?: string | null, title?: string | null } | null } | null };
+export type TextImageFragmentFragment = { __typename: 'TextImageRecord', navigationId?: string | null, backgroundColor: any, fadeIn: any, imageLocation?: string | null, imageStyle?: string | null, content?: { __typename?: 'TextImageModelContentField', value: any, blocks: Array<{ __typename: 'CustomHeadingRecord', id: any, title?: string | null, subtitle?: string | null } | { __typename: 'RtImageRecord', id: any, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, base64?: string | null, width: any, height: any, alt?: string | null, title?: string | null } | null } | null }> } | null, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, base64?: string | null, width: any, height: any, alt?: string | null, title?: string | null } | null } | null };
 
-export type YoutubeVideoFragmentFragment = { __typename: 'YoutubeVideoRecord', id: any, navigationId?: string | null, backgroundColor?: any | null, fadeIn?: any | null, link?: { __typename?: 'VideoField', providerUid: string } | null };
+export type YoutubeVideoFragmentFragment = { __typename: 'YoutubeVideoRecord', id: any, navigationId?: string | null, backgroundColor: any, fadeIn: any, link?: { __typename?: 'VideoField', providerUid: string } | null };
 
 export type CustomHeadingFragmentFragment = { __typename?: 'CustomHeadingRecord', id: any, title?: string | null, subtitle?: string | null };
 
@@ -2902,7 +3156,12 @@ export type responsiveImageFragmentFragment = { __typename?: 'ResponsiveImage', 
 export type HomePageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type HomePageQuery = { __typename?: 'Query', site: { __typename?: 'Site', favicon: Array<{ __typename?: 'Tag', attributes?: any | null, content?: string | null, tag: string }> }, page?: { __typename?: 'PageRecord', id: any, name?: string | null, seo: Array<{ __typename?: 'Tag', attributes?: any | null, content?: string | null, tag: string }>, content: Array<{ __typename: 'BiographyRecord', id: any, navigationId?: string | null, fadeIn?: any | null, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, base64?: string | null, width: any, height: any, alt?: string | null, title?: string | null } | null } | null, bioDescription?: { __typename?: 'BiographyModelBioDescriptionField', value: any, blocks: Array<{ __typename: 'CustomHeadingRecord', id: any, title?: string | null, subtitle?: string | null }> } | null } | { __typename: 'FooterRecord', id: any, navigationId?: string | null, address?: { __typename?: 'FooterModelAddressField', value: any } | null, contact?: { __typename?: 'FooterModelContactField', value: any } | null, location?: { __typename?: 'LatLonField', latitude: any, longitude: any } | null, openingHours?: { __typename?: 'FooterModelOpeningHoursField', value: any } | null, info?: { __typename?: 'FooterModelInfoField', value: any } | null } | { __typename: 'GridRecord', navigationId?: string | null, backgroundColor?: any | null, fadeIn?: any | null, id: any, title?: string | null, mobileColumns?: string | null, tabletColumns?: string | null, desktopColumns?: string | null, gap?: string | null, fullWidth?: any | null, height?: string | null, sections: Array<{ __typename: 'GridImageRecord', id: any, mobilePosition?: any | null, tabletPosition?: any | null, desktopPosition?: any | null, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, base64?: string | null, width: any, height: any, alt?: string | null, title?: string | null } | null } | null } | { __typename: 'GridTextRecord', id: any, mobilePosition?: any | null, tabletPosition?: any | null, desktopPosition?: any | null, content?: { __typename?: 'GridTextModelContentField', value: any, blocks: Array<{ __typename: 'RtImageRecord', id: any, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, base64?: string | null, width: any, height: any, alt?: string | null, title?: string | null } | null } | null }> } | null }> } | { __typename: 'HairMenuRecord', id: any, navigationId?: string | null, fadeIn?: any | null, priceModules: Array<{ __typename: 'PriceModuleRecord', id: any, heading?: string | null, prices: Array<{ __typename?: 'PriceRecord', id: any, treatment?: string | null, price?: any | null, from?: any | null, description?: { __typename?: 'PriceModelDescriptionField', value: any } | null }> }> } | { __typename: 'HeroRecord', id: any, navigationId?: string | null, buttonText?: string | null, buttonLink?: string | null, magneticButton?: any | null, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, base64?: string | null, width: any, height: any, alt?: string | null, title?: string | null } | null } | null, backgroundImage?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, base64?: string | null, width: any, height: any, alt?: string | null, title?: string | null } | null } | null } | { __typename: 'ImageRecord', navigationId?: string | null, backgroundColor?: any | null, fadeIn?: any | null, imageTitle?: string | null, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, base64?: string | null, width: any, height: any, alt?: string | null, title?: string | null } | null } | null } | { __typename: 'TextImageRecord', navigationId?: string | null, backgroundColor?: any | null, fadeIn?: any | null, imageLocation?: string | null, imageStyle?: string | null, content?: { __typename?: 'TextImageModelContentField', value: any, blocks: Array<{ __typename: 'CustomHeadingRecord', id: any, title?: string | null, subtitle?: string | null } | { __typename: 'RtImageRecord', id: any, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, base64?: string | null, width: any, height: any, alt?: string | null, title?: string | null } | null } | null }> } | null, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, base64?: string | null, width: any, height: any, alt?: string | null, title?: string | null } | null } | null } | { __typename: 'TextRecord', navigationId?: string | null, headerTitle?: any | null, backgroundColor?: any | null, fullWidth?: any | null, fadeIn?: any | null, content?: { __typename?: 'TextModelContentField', value: any, blocks: Array<{ __typename: 'CustomHeadingRecord', id: any, title?: string | null, subtitle?: string | null } | { __typename: 'RtImageRecord', id: any, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, base64?: string | null, width: any, height: any, alt?: string | null, title?: string | null } | null } | null }> } | null } | { __typename: 'YoutubeVideoRecord', id: any, navigationId?: string | null, backgroundColor?: any | null, fadeIn?: any | null, link?: { __typename?: 'VideoField', providerUid: string } | null }> } | null };
+export type HomePageQuery = { __typename?: 'Query', site: { __typename?: 'Site', favicon: Array<{ __typename?: 'Tag', attributes?: any | null, content?: string | null, tag: string }> }, page?: { __typename?: 'PageRecord', id: any, name?: string | null, seo: Array<{ __typename?: 'Tag', attributes?: any | null, content?: string | null, tag: string }>, content: Array<{ __typename: 'BiographyRecord', id: any, navigationId?: string | null, fadeIn: any, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, base64?: string | null, width: any, height: any, alt?: string | null, title?: string | null } | null } | null, bioDescription?: { __typename?: 'BiographyModelBioDescriptionField', value: any, blocks: Array<{ __typename: 'CustomHeadingRecord', id: any, title?: string | null, subtitle?: string | null }> } | null } | { __typename: 'FooterRecord', id: any, navigationId?: string | null, address?: { __typename?: 'FooterModelAddressField', value: any } | null, contact?: { __typename?: 'FooterModelContactField', value: any } | null, location?: { __typename?: 'LatLonField', latitude: any, longitude: any } | null, openingHours?: { __typename?: 'FooterModelOpeningHoursField', value: any } | null, info?: { __typename?: 'FooterModelInfoField', value: any } | null } | { __typename: 'GridRecord', navigationId?: string | null, backgroundColor: any, fadeIn: any, id: any, title?: string | null, mobileColumns?: string | null, tabletColumns?: string | null, desktopColumns?: string | null, gap?: string | null, fullWidth: any, height?: string | null, sections: Array<{ __typename: 'GridImageRecord', id: any, mobilePosition?: any | null, tabletPosition?: any | null, desktopPosition?: any | null, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, base64?: string | null, width: any, height: any, alt?: string | null, title?: string | null } | null } | null } | { __typename: 'GridTextRecord', id: any, mobilePosition?: any | null, tabletPosition?: any | null, desktopPosition?: any | null, content?: { __typename?: 'GridTextModelContentField', value: any, blocks: Array<{ __typename: 'RtImageRecord', id: any, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, base64?: string | null, width: any, height: any, alt?: string | null, title?: string | null } | null } | null }> } | null }> } | { __typename: 'HairMenuRecord', id: any, navigationId?: string | null, fadeIn: any, priceModules: Array<{ __typename: 'PriceModuleRecord', id: any, heading?: string | null, prices: Array<{ __typename?: 'PriceRecord', id: any, treatment?: string | null, price?: any | null, from: any, description?: { __typename?: 'PriceModelDescriptionField', value: any } | null }> }> } | { __typename: 'HeroRecord', id: any, navigationId?: string | null, buttonText?: string | null, buttonLink?: string | null, magneticButton: any, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, base64?: string | null, width: any, height: any, alt?: string | null, title?: string | null } | null } | null, backgroundImage?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, base64?: string | null, width: any, height: any, alt?: string | null, title?: string | null } | null } | null } | { __typename: 'ImageRecord', navigationId?: string | null, backgroundColor: any, fadeIn: any, imageTitle?: string | null, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, base64?: string | null, width: any, height: any, alt?: string | null, title?: string | null } | null } | null } | { __typename: 'TextImageRecord', navigationId?: string | null, backgroundColor: any, fadeIn: any, imageLocation?: string | null, imageStyle?: string | null, content?: { __typename?: 'TextImageModelContentField', value: any, blocks: Array<{ __typename: 'CustomHeadingRecord', id: any, title?: string | null, subtitle?: string | null } | { __typename: 'RtImageRecord', id: any, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, base64?: string | null, width: any, height: any, alt?: string | null, title?: string | null } | null } | null }> } | null, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, base64?: string | null, width: any, height: any, alt?: string | null, title?: string | null } | null } | null } | { __typename: 'TextRecord', navigationId?: string | null, headerTitle: any, backgroundColor: any, fullWidth: any, fadeIn: any, content?: { __typename?: 'TextModelContentField', value: any, blocks: Array<{ __typename: 'CustomHeadingRecord', id: any, title?: string | null, subtitle?: string | null } | { __typename: 'RtImageRecord', id: any, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, base64?: string | null, width: any, height: any, alt?: string | null, title?: string | null } | null } | null }> } | null } | { __typename: 'YoutubeVideoRecord', id: any, navigationId?: string | null, backgroundColor: any, fadeIn: any, link?: { __typename?: 'VideoField', providerUid: string } | null }> } | null };
+
+export type MobileMenuCtaQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type MobileMenuCtaQuery = { __typename?: 'Query', layout?: { __typename?: 'LayoutRecord', mobileMenuCta: any, mobileMenuCtaText?: string | null, mobileMennuCtaUrl?: string | null } | null };
 
 export type SocialsQueryVariables = Exact<{ [key: string]: never; }>;
 
