@@ -1,0 +1,7 @@
+query MobileMenuCta {
+  layout {
+    mobileMenuCta
+    mobileMenuCtaText
+    mobileMennuCtaUrl
+  }
+}

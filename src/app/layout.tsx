@@ -8,6 +8,8 @@ import {
   CustomColorsDocument,
   HomePageDocument,
   LinkRecord,
+  MobileMenuCtaDocument,
+  MobileMenuCtaQuery,
   PageModelContentField,
   SocialsDocument,
 } from 'lib/graphql';
@@ -36,6 +38,7 @@ export default async function RootLayout({
   const data = await queryDatoCMS(HomePageDocument, isEnabled);
   const colors = await queryDatoCMS(CustomColorsDocument, isEnabled);
   const socials = await queryDatoCMS(SocialsDocument, isEnabled);
+  const mobileMenuCta = await queryDatoCMS(MobileMenuCtaDocument, isEnabled);
 
   // Colors
   const primaryColor = colors.layout?.primaryColor
@@ -71,6 +74,7 @@ export default async function RootLayout({
           />
           <MobileNavigation
             content={data.page?.content as Array<PageModelContentField>}
+            mobileMenuCta={mobileMenuCta as MobileMenuCtaQuery}
             socialMediaLinks={
               socials.layout?.socialMediaLinks as Array<LinkRecord>
             }

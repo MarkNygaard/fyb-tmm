@@ -1,9 +1,10 @@
 'use client';
 
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
+import { Button } from '@ui/Button/Button';
 import SvgRenderer from 'components/SvgRenderer';
 import { AnimatePresence, motion, useAnimation } from 'framer-motion';
-import { LinkRecord, PageModelContentField } from 'lib/graphql';
+import { LinkRecord, MobileMenuCtaQuery, PageModelContentField } from 'lib/graphql';
 import Link from 'next/link';
 import React, { useState } from 'react';
 
@@ -57,11 +58,13 @@ function reset(el: HTMLElement, prop?: keyof CSSStyleDeclaration) {
 
 type MobileNavigationProps = {
   content: Array<PageModelContentField>;
+  mobileMenuCta: MobileMenuCtaQuery;
   socialMediaLinks: Array<LinkRecord>;
 };
 
 export default function MobileNavigation({
   content,
+  mobileMenuCta,
   socialMediaLinks,
 }: Readonly<MobileNavigationProps>) {
   const [menuIsOpen, setMenuIsOpen] = useState<boolean>(false);
@@ -283,6 +286,36 @@ export default function MobileNavigation({
                       },
                     )}
                   </NavigationMenu.List>
+                  {mobileMenuCta.layout?.mobileMenuCta && (
+                    <NavigationMenu.List asChild>
+                      <motion.div 
+                        initial={{ opacity: 0 }}
+                        animate={{
+                          opacity: 1,
+                          transition: {
+                            duration: 0.2,
+                            delay: 0.64,
+                            type: 'spring',
+                          },
+                        }}
+                        exit={{
+                          opacity: 0,
+                          transition: {
+                            duration: 0.2,
+                            delay: 0.24,
+                            type: 'spring',
+                          },
+                        }}
+                        className='flex justify-center w-full'
+                      >
+                        <NavigationMenu.Link>
+                          <Link href={mobileMenuCta.layout?.mobileMennuCtaUrl ?? ""} target='_blank' rel='noreferrer'>
+                          <Button intent='secondary' width='large' label={mobileMenuCta.layout?.mobileMenuCtaText ?? ''} />
+                          </Link>
+                        </NavigationMenu.Link>
+                      </motion.div>
+                    </NavigationMenu.List>
+                  )}
                   <NavigationMenu.List asChild>
                     <motion.div
                       initial={{ opacity: 0 }}

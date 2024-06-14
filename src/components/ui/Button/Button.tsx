@@ -1,7 +1,7 @@
 import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from 'lib/utils';
 
-const buttonStyles = cva(['font-light', 'shadow-lg'], {
+const buttonStyles = cva(['font-light'], {
   variants: {
     intent: {
       primary: [
@@ -13,12 +13,13 @@ const buttonStyles = cva(['font-light', 'shadow-lg'], {
         'transform',
         'transition',
         'duration-300',
+        'shadow-lg',
       ],
       secondary: [
-        'bg-white',
-        'text-gray-800',
-        'border-gray-400',
-        'hover:bg-gray-100',
+        'bg-skin-accent',
+        'text-white',
+        'border-white',
+        'border-2',
       ],
     },
     size: {
