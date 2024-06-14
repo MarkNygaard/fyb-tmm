@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/MarkNygaard/TheMotleyMonkey/compare/themotleymonkey-v1.1.1...themotleymonkey-v1.2.0) (2024-06-14)
+
+
+### Features
+
+* added mobile menu cta button ([#652](https://github.com/MarkNygaard/TheMotleyMonkey/issues/652)) ([e316f96](https://github.com/MarkNygaard/TheMotleyMonkey/commit/e316f9678bddad8e527ce6addb37a3e517049881))
+
 ## [1.1.1](https://github.com/MarkNygaard/TheMotleyMonkey/compare/themotleymonkey-v1.1.0...themotleymonkey-v1.1.1) (2024-06-07)
 
 
