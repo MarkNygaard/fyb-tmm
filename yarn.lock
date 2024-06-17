@@ -5090,10 +5090,10 @@ queue-microtask@^1.2.2:
   resolved "https://registry.yarnpkg.com/queue-microtask/-/queue-microtask-1.2.3.tgz#4929228bbc724dfac43e0efb058caf7b6cfb6243"
   integrity sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==
 
-react-datocms@^6.0.5:
-  version "6.0.5"
-  resolved "https://registry.yarnpkg.com/react-datocms/-/react-datocms-6.0.5.tgz#9a25187731385412a2e9886e51d9b2c386aae9dd"
-  integrity sha512-2yav0oUhOS6nSgtgAZXWwEEy21tYvFXFDI5BPswH6+QUx53eH54SO8p0LgyZG8TzXbBkX2Nx73Pp80zKbm0IgA==
+react-datocms@^6.0.6:
+  version "6.0.6"
+  resolved "https://registry.yarnpkg.com/react-datocms/-/react-datocms-6.0.6.tgz#f0c4cff4a8f316a00730095500daa00e5fd4138d"
+  integrity sha512-zTxt48WLnmjTfAKIc4MAi/sd4+r2VB750TS6mfJ7XNb3hWzYrNzEZrriT6XbcntXGOMDdtB7rPJBjj8I1zn2CQ==
   dependencies:
     "@mux/mux-player-react" "*"
     datocms-listen "^0.1.9"
