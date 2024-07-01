@@ -34,7 +34,7 @@
     "react-responsive": "^10.0.0",
     "react-use-measure": "^2.1.1",
     "tailwind-merge": "^2.3.0",
-    "throttle-debounce": "^5.0.0"
+    "throttle-debounce": "^5.0.2"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.3.0",
