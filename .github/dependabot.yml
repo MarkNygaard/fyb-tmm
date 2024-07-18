@@ -4,6 +4,10 @@ updates:
     directory: '/'
     schedule:
       interval: 'weekly'
+    ignore:
+      - dependency-name: 'graphql-request'
+        # For graphql-request, ignore all Dependabot updates for version 6 and 7
+        versions: ['6.x', '7.x']
     commit-message:
       prefix: 'build(deps)'
   - package-ecosystem: 'github-actions'

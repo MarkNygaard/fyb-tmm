@@ -56,7 +56,7 @@ export default function Biography({
           </motion.div>
           <div className='col-start-1 col-end-2 row-span-1 row-start-2 row-end-3 h-full w-full bg-skin-secondary xl:hidden'></div>
         </div>
-        <div className='flex flex-col justify-center bg-skin-secondary pt-2 md:pb-6 md:pt-4 xl:col-start-2 xl:col-end-6 xl:row-start-2 xl:row-end-5 xl:grid xl:grid-cols-bioText xl:grid-rows-bioText'>
+        <div className='relative flex-col justify-center bg-skin-secondary pt-2 md:pb-6 md:pt-4 xl:col-start-2 xl:col-end-6 xl:row-start-2 xl:row-end-5 xl:grid xl:grid-cols-bioText xl:grid-rows-bioText'>
           <AnimatePresence>
             <motion.div
               animate={{
@@ -71,16 +71,22 @@ export default function Biography({
                   !fullText && 'line-clamp-8'
                 } prose max-w-none px-2 font-thin leading-[30px] prose-h3:text-skin-accent prose-p:text-gray-200 prose-a:text-skin-accent prose-strong:text-gray-200 md:line-clamp-none md:px-4 md:font-light lg:px-6 xl:p-0 xl:leading-7`}
               >
-                <StructuredText content={bioDescription} />
+                <div className={`${!fullText ? 'pb-4' : 'pb-0'}`}>
+                  <StructuredText content={bioDescription} />
+                </div>
               </div>
             </motion.div>
+            <div
+              className={`${!fullText ? 'absolute bottom-0' : 'flex'} w-full bg-gradient-to-b from-transparent to-skin-secondary`}
+            >
+              <button
+                onClick={() => setFullText(!fullText)}
+                className={`${!fullText && 'mt-12'} mx-auto mb-2 flex aspect-square rounded-full p-2 text-3xl text-gray-300 active:bg-gray-300/20 md:hidden`}
+              >
+                {fullText ? <AiOutlineUpCircle /> : <AiOutlineDownCircle />}
+              </button>
+            </div>
           </AnimatePresence>
-          <button
-            onClick={() => setFullText(!fullText)}
-            className='mx-auto mb-2 aspect-square rounded-full p-2 text-3xl text-gray-400 active:bg-gray-300/20 md:hidden'
-          >
-            {fullText ? <AiOutlineUpCircle /> : <AiOutlineDownCircle />}
-          </button>
         </div>
         <div></div>
       </motion.div>
