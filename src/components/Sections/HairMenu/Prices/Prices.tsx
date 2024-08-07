@@ -14,9 +14,12 @@ export default function Prices({
 }: PricesProps) {
   return (
     <div
-      className={classNames('m-4 flex flex-col bg-skin-secondary p-5', {
-        'lg:min-h-[250px]': arrayLength > 1,
-      })}
+      className={classNames(
+        'm-4 flex flex-col bg-skin-secondary p-5 lg:px-7 lg:py-6',
+        {
+          'lg:min-h-[250px]': arrayLength > 1,
+        },
+      )}
     >
       <div className='font-medium text-skin-accent'>{treatment}</div>
       <div className='flex h-full w-full justify-center'>
