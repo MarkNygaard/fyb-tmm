@@ -69,7 +69,7 @@ export default function PriceModule({
       ></motion.div>
       <div
         className={classNames(
-          'mx-auto grid font-normal text-white md:w-full xl:w-3/4',
+          'mx-auto grid font-normal text-white md:w-full lg:pt-2 xl:w-3/4',
           {
             '': prices.length === 1,
             'grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2':
