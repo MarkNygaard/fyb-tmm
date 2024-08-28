@@ -71,17 +71,19 @@ export default function Biography({
                   !fullText && 'line-clamp-8'
                 } prose max-w-none px-2 font-thin leading-[30px] prose-h3:text-skin-accent prose-p:text-gray-200 prose-a:text-skin-accent prose-strong:text-gray-200 md:line-clamp-none md:px-4 md:font-light lg:px-6 xl:p-0 xl:leading-7`}
               >
-                {/* <div className={`${!fullText ? 'pb-4 lg:pb-0' : 'pb-0'}`}> */}
-                <StructuredText content={bioDescription} />
-                {/* </div> */}
+                <div
+                  className={`${!fullText ? 'pb-4 sm:pb-3 md:pb-0' : 'pb-0'}`}
+                >
+                  <StructuredText content={bioDescription} />
+                </div>
               </div>
             </motion.div>
             <div
-              className={`${!fullText ? 'absolute bottom-0' : 'flex'} w-full bg-gradient-to-b from-transparent to-skin-secondary`}
+              className={`${!fullText ? 'absolute bottom-0' : 'flex'} w-full bg-gradient-to-b from-transparent to-skin-secondary md:hidden`}
             >
               <button
                 onClick={() => setFullText(!fullText)}
-                className={`${!fullText && 'mt-12'} mx-auto mb-2 flex aspect-square rounded-full p-2 text-3xl text-gray-300 active:bg-gray-300/20 md:hidden`}
+                className={`${!fullText && 'mt-12'} mx-auto mb-2 flex aspect-square rounded-full p-2 text-3xl text-gray-300 active:bg-gray-300/20`}
               >
                 {fullText ? <AiOutlineUpCircle /> : <AiOutlineDownCircle />}
               </button>
