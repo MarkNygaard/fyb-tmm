@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.0.0](https://github.com/MarkNygaard/TheMotleyMonkey/compare/themotleymonkey-v1.2.0...themotleymonkey-v2.0.0) (2024-10-29)
+
+
+### ⚠ BREAKING CHANGES
+
+* upgraded to nextjs 15 ([#773](https://github.com/MarkNygaard/TheMotleyMonkey/issues/773))
+
+### Features
+
+* upgraded to nextjs 15 ([#773](https://github.com/MarkNygaard/TheMotleyMonkey/issues/773)) ([7aad986](https://github.com/MarkNygaard/TheMotleyMonkey/commit/7aad9867cc8ca0360add5ae480520c8081a59df7))
+
 ## [1.2.0](https://github.com/MarkNygaard/TheMotleyMonkey/compare/themotleymonkey-v1.1.1...themotleymonkey-v1.2.0) (2024-06-14)
 
 
