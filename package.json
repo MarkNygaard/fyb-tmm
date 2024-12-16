@@ -15,7 +15,7 @@
     "postbuild": "next-sitemap --config next-sitemap.config.js"
   },
   "dependencies": {
-    "@radix-ui/react-navigation-menu": "^1.2.1",
+    "@radix-ui/react-navigation-menu": "^1.2.2",
     "@react-google-maps/api": "^2.20.3",
     "@vercel/analytics": "^1.4.1",
     "class-variance-authority": "^0.7.1",
