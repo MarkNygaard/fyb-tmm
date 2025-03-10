@@ -5,9 +5,12 @@ updates:
     schedule:
       interval: 'weekly'
     ignore:
-      - dependency-name: 'graphql-request'
-        # For graphql-request, ignore all Dependabot updates for version 6 and 7
-        versions: ['6.x', '7.x']
+      - dependency-name: 'tailwindcss'
+        versions: ['4.x']
+      - dependency-name: 'eslint'
+        versions: ['9.x']
+      - dependency-name: 'tailwind-variants'
+        versions: ['1.x']
     commit-message:
       prefix: 'build(deps)'
   - package-ecosystem: 'github-actions'

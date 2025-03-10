@@ -1,6 +1,6 @@
 import { TypedDocumentNode } from '@graphql-typed-document-node/core';
 import { print } from 'graphql';
-import { GraphQLClientRequestHeaders } from 'graphql-request/build/esm/types';
+
 
 export default async function queryDatoCMS<
   TResult = unknown,
@@ -9,7 +9,7 @@ export default async function queryDatoCMS<
   document: TypedDocumentNode<TResult, TVariables>,
   isDraft?: boolean,
 ): Promise<TResult> {
-  const headers: GraphQLClientRequestHeaders = {
+  const headers: Record<string, string> = {
     'Content-Type': 'application/json',
     Accept: 'application/json',
     'X-Exclude-Invalid': 'true',
