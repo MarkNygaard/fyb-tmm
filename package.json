@@ -24,7 +24,7 @@
     "framer-motion": "^12.4.11",
     "graphql": "^16.10.0",
     "graphql-request": "7.1.2",
-    "next": "15.1.7",
+    "next": "15.2.1",
     "react": "19.0.0",
     "react-datocms": "^7.1.0",
     "react-dom": "19.0.0",
