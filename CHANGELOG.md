@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.1](https://github.com/MarkNygaard/TheMotleyMonkey/compare/themotleymonkey-v2.0.0...themotleymonkey-v2.0.1) (2025-03-10)
+
+
+### Bug Fixes
+
+* upgraded graphql-request and ignored tailwind v4 ([#874](https://github.com/MarkNygaard/TheMotleyMonkey/issues/874)) ([5a4c55d](https://github.com/MarkNygaard/TheMotleyMonkey/commit/5a4c55d4a723ed141075fe1e769697c15bc1affe))
+
 ## [2.0.0](https://github.com/MarkNygaard/TheMotleyMonkey/compare/themotleymonkey-v1.2.0...themotleymonkey-v2.0.0) (2024-10-29)
 
 
